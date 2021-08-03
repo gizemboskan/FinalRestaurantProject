@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -119,6 +119,13 @@
 				8654F6BF4FC670AFB7F51923 /* Pods_RestaurantFinalAppTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8E3C002726B98ACC00E7C496 /* DTO */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DTO;
 			sourceTree = "<group>";
 		};
 		8E9CB97A26B96476000D564A = {
@@ -238,6 +245,7 @@
 		8E9CB9C326B96638000D564A /* Client */ = {
 			isa = PBXGroup;
 			children = (
+				8E3C002726B98ACC00E7C496 /* DTO */,
 				8E9CB9C426B96643000D564A /* Networking Clients */,
 				8E9CB9C526B96652000D564A /* Networking Base */,
 			);
@@ -338,7 +346,6 @@
 				5C25ECDCCC6C635E0AD4DE8F /* Pods-RestaurantFinalAppTests.debug.xcconfig */,
 				F8EA67BF36BD5009EA666354 /* Pods-RestaurantFinalAppTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
