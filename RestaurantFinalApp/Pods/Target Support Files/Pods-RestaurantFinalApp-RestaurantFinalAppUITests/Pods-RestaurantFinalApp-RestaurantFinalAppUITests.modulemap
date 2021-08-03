@@ -1,0 +1,6 @@
+framework module Pods_RestaurantFinalApp_RestaurantFinalAppUITests {
+  umbrella header "Pods-RestaurantFinalApp-RestaurantFinalAppUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

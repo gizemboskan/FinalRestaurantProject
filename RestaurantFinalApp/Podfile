@@ -1,0 +1,17 @@
+platform :ios, ‘10.0’
+
+target 'RestaurantFinalApp' do
+  use_frameworks!
+pod 'Firebase/Analytics'
+pod 'Firebase/Auth'
+pod 'Firebase/Database'
+  target 'RestaurantFinalAppTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'RestaurantFinalAppUITests' do
+    # Pods for testing
+  end
+
+end
