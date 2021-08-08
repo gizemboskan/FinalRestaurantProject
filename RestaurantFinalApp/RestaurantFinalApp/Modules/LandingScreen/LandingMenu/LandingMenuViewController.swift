@@ -1,5 +1,5 @@
 //
-//  MenuViewController.swift
+//  LandingMenuViewController.swift
 //  RestaurantFinalApp
 //
 //  Created by Gizem Boskan on 7.08.2021.
@@ -7,9 +7,9 @@
 
 import UIKit
 
-class MenuViewController: UIViewController {
+class LandingMenuViewController: UIViewController {
 
-    let vievModel: MenuViewModel = MenuViewModel()
+    let vievModel: LandingMenuViewModel = LandingMenuViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
