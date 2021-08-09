@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import paper_onboarding
 class TutorialViewController: UIViewController {
     
     let vievModel: TutorialViewModel = TutorialViewModel()
@@ -37,32 +37,35 @@ class TutorialViewController: UIViewController {
 //
 //         ]
     fileprivate let items = [
-         OnboardingItemInfo(informationImage: IMAGE,
+        OnboardingItemInfo(informationImage: UIImage(named: "recipe" )! ,
                                        title: "title",
                                  description: "description",
-                                    pageIcon: IMAGE,
-                                       color: UIColor.RANDOM,
-                                  titleColor: UIColor.RANDOM,
-                            descriptionColor: UIColor.RANDOM,
-                                   titleFont: UIFont.FONT,
-                             descriptionFont: UIFont.FONT),
-
-         OnboardingItemInfo(informationImage: IMAGE,
-                                        title: "title",
-                                  description: "description",
-                                     pageIcon: IMAGE,
-                                        color: UIColor.RANDOM,
-                                   titleColor: UIColor.RANDOM,
-                             descriptionColor: UIColor.RANDOM,
-                                    titleFont: UIFont.FONT,
-                              descriptionFont: UIFont.FONT),
-
-        OnboardingItemInfo(informationImage: Asset.stores.image,
-                                    title: "Stores",
-                                    description: "All local stores are categorized for your convenience",
-                                    pageIcon: Asset.shoppingCart.image,
-                                    color: UIColor(red: 0.61, green: 0.56, blue: 0.74, alpha: 1.00),
-                                    titleColor: UIColor.white, descriptionColor: UIColor.white, titleFont: titleFont, descriptionFont: descriptionFont)
+                                    pageIcon: UIImage(named: "recipe" )!,
+                                       color: UIColor.blue,
+                                  titleColor: UIColor.blue,
+                            descriptionColor: UIColor.blue,
+                            titleFont: UIFont.init() ,
+                             descriptionFont: UIFont.init()),
+        
+        OnboardingItemInfo(informationImage: UIImage(named: "recipe" )! ,
+                                       title: "title",
+                                 description: "description",
+                                    pageIcon: UIImage(named: "recipe" )!,
+                                       color: UIColor.blue,
+                                  titleColor: UIColor.blue,
+                            descriptionColor: UIColor.blue,
+                            titleFont: UIFont.init() ,
+                             descriptionFont: UIFont.init()),
+        
+        OnboardingItemInfo(informationImage: UIImage(named: "recipe" )! ,
+                                       title: "title",
+                                 description: "description",
+                                    pageIcon: UIImage(named: "recipe" )!,
+                                       color: UIColor.blue,
+                                  titleColor: UIColor.blue,
+                            descriptionColor: UIColor.blue,
+                            titleFont: UIFont.init() ,
+                             descriptionFont: UIFont.init())
          ]
      
      override func viewDidLoad() {
