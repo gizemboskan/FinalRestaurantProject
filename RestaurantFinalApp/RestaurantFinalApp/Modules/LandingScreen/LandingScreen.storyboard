@@ -30,9 +30,28 @@
                     <view key="view" contentMode="scaleToFill" id="AEM-Ma-I31">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l23-wF-kSn">
+                                <rect key="frame" x="318" y="52" width="76" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="30" id="Odn-Rp-rpe"/>
+                                </constraints>
+                                <state key="normal" title="SkipButton">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="bpO-HC-zQ8"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="l23-wF-kSn" firstAttribute="trailing" secondItem="AEM-Ma-I31" secondAttribute="trailingMargin" id="G5o-TZ-tsQ"/>
+                            <constraint firstItem="l23-wF-kSn" firstAttribute="top" secondItem="bpO-HC-zQ8" secondAttribute="top" constant="8" id="dZU-C7-yqw"/>
+                            <constraint firstItem="l23-wF-kSn" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="AEM-Ma-I31" secondAttribute="leadingMargin" id="du5-Wz-SZX"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="skipButton" destination="l23-wF-kSn" id="4o2-RJ-1NH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jxN-Ll-gUL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

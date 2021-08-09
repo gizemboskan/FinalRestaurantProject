@@ -201,8 +201,8 @@
 		8E46D2A826C012F50063FCF2 /* Recipe */ = {
 			isa = PBXGroup;
 			children = (
-				8E46D2AE26C013BF0063FCF2 /* RecipeDetail */,
 				8E46D2A926C012FB0063FCF2 /* Recipes */,
+				8E46D2AE26C013BF0063FCF2 /* RecipeDetail */,
 				8E46D2DC26C017E00063FCF2 /* Recipe.storyboard */,
 			);
 			path = Recipe;
@@ -257,8 +257,8 @@
 		8E46D2BE26C0154D0063FCF2 /* Order */ = {
 			isa = PBXGroup;
 			children = (
-				8E46D2C426C0158E0063FCF2 /* Payment */,
 				8E46D2BF26C015520063FCF2 /* GetOffer */,
+				8E46D2C426C0158E0063FCF2 /* Payment */,
 				8E46D2E026C017F40063FCF2 /* Order.storyboard */,
 			);
 			path = Order;
@@ -438,13 +438,13 @@
 		8E9CB9C826B967E6000D564A /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				8E46D2D426C017430063FCF2 /* Profile */,
-				8E46D2C926C015DE0063FCF2 /* CreateRecipe */,
-				8E46D2BE26C0154D0063FCF2 /* Order */,
-				8E46D2B326C0145C0063FCF2 /* Kitchen */,
-				8E46D2A826C012F50063FCF2 /* Recipe */,
-				8E46D2A226C012520063FCF2 /* Home */,
 				8EC6083B26BEFF7D00FCB4DB /* LandingScreen */,
+				8E46D2A226C012520063FCF2 /* Home */,
+				8E46D2A826C012F50063FCF2 /* Recipe */,
+				8E46D2B326C0145C0063FCF2 /* Kitchen */,
+				8E46D2BE26C0154D0063FCF2 /* Order */,
+				8E46D2C926C015DE0063FCF2 /* CreateRecipe */,
+				8E46D2D426C017430063FCF2 /* Profile */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -470,8 +470,8 @@
 		8EC6083B26BEFF7D00FCB4DB /* LandingScreen */ = {
 			isa = PBXGroup;
 			children = (
-				8EC6083F26BEFFA200FCB4DB /* Tutorial */,
 				8EC6083E26BEFF9700FCB4DB /* LandingMenu */,
+				8EC6083F26BEFFA200FCB4DB /* Tutorial */,
 				8EC6083C26BEFF8E00FCB4DB /* LandingScreen.storyboard */,
 			);
 			path = LandingScreen;
