@@ -6,15 +6,13 @@
 //
 
 import UIKit
+import RAMAnimatedTabBarController
 
-class TabBarViewController: UIViewController {
+class TabBarViewController: RAMAnimatedTabBarController {
     
     let viewModel: TabBarViewModel = TabBarViewModel()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
-    
 }

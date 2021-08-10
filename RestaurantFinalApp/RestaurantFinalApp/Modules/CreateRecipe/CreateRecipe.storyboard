@@ -15,6 +15,15 @@
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zRY-Qa-dCB">
+                                <rect key="frame" x="186" y="438" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
@@ -26,7 +35,7 @@
         <!--ResturantVC-->
         <scene sceneID="UWe-Av-ETo">
             <objects>
-                <viewController storyboardIdentifier="ResturantViewController" id="cLk-vI-ILe" customClass="ResturantVC" customModule="FoodDelivery" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ResturantViewController" id="cLk-vI-ILe" customClass="ResturantVC" customModule="RestaurantFinalApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NPC-zF-XW5">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -89,7 +98,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yKf-fR-KEU">
-                                                <rect key="frame" x="331" y="0.0" width="23" height="60"/>
+                                                <rect key="frame" x="331.5" y="0.0" width="22.5" height="60"/>
                                                 <color key="tintColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <state key="normal" image="like"/>
                                                 <userDefinedRuntimeAttributes>
@@ -166,7 +175,7 @@
     </scenes>
     <resources>
         <image name="back" width="21" height="15"/>
-        <image name="like" width="22.666666030883789" height="19.333333969116211"/>
+        <image name="like" width="22.5" height="19.5"/>
         <image name="mask" width="375" height="355"/>
         <image name="restImage" width="1800" height="1200"/>
         <systemColor name="systemBackgroundColor">

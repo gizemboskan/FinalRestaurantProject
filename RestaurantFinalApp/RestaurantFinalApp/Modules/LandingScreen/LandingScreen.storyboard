@@ -39,17 +39,29 @@
                                 <state key="normal" title="SkipButton">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="skipButtonTapped:" destination="rkO-Ka-ti4" eventType="touchUpInside" id="IdV-jA-jqM"/>
+                                </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BtP-sS-ow1" customClass="PaperOnboarding" customModule="PaperOnboarding">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="bpO-HC-zQ8"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="BtP-sS-ow1" firstAttribute="leading" secondItem="AEM-Ma-I31" secondAttribute="leading" id="3Ha-SE-Iby"/>
                             <constraint firstItem="l23-wF-kSn" firstAttribute="trailing" secondItem="AEM-Ma-I31" secondAttribute="trailingMargin" id="G5o-TZ-tsQ"/>
+                            <constraint firstAttribute="trailing" secondItem="BtP-sS-ow1" secondAttribute="trailing" id="Zoi-mw-erQ"/>
+                            <constraint firstAttribute="bottom" secondItem="BtP-sS-ow1" secondAttribute="bottom" id="bNF-2A-5hi"/>
                             <constraint firstItem="l23-wF-kSn" firstAttribute="top" secondItem="bpO-HC-zQ8" secondAttribute="top" constant="8" id="dZU-C7-yqw"/>
                             <constraint firstItem="l23-wF-kSn" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="AEM-Ma-I31" secondAttribute="leadingMargin" id="du5-Wz-SZX"/>
+                            <constraint firstItem="BtP-sS-ow1" firstAttribute="top" secondItem="AEM-Ma-I31" secondAttribute="top" id="vSZ-NJ-Ltn"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="paperView" destination="BtP-sS-ow1" id="tH9-Ay-5e8"/>
                         <outlet property="skipButton" destination="l23-wF-kSn" id="4o2-RJ-1NH"/>
                     </connections>
                 </viewController>
