@@ -45,6 +45,7 @@
 		8E7F4B1526C2A4F1009F9AE3 /* RestaurantPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7F4B1426C2A4F1009F9AE3 /* RestaurantPageViewController.swift */; };
 		8E7F4B1B26C2ACDC009F9AE3 /* KitchenCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E7F4B1926C2ACDC009F9AE3 /* KitchenCell.xib */; };
 		8E7F4B1D26C2ADC3009F9AE3 /* KitchenCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7F4B1C26C2ADC3009F9AE3 /* KitchenCell.swift */; };
+		8E7F4B1F26C2C6C0009F9AE3 /* FavRecipesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7F4B1E26C2C6C0009F9AE3 /* FavRecipesCollectionViewCell.swift */; };
 		8E9CB98726B96476000D564A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9CB98626B96476000D564A /* AppDelegate.swift */; };
 		8E9CB98926B96476000D564A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9CB98826B96476000D564A /* SceneDelegate.swift */; };
 		8E9CB99126B96476000D564A /* RestaurantFinalApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8E9CB98F26B96476000D564A /* RestaurantFinalApp.xcdatamodeld */; };
@@ -116,6 +117,7 @@
 		8E7F4B1426C2A4F1009F9AE3 /* RestaurantPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantPageViewController.swift; sourceTree = "<group>"; };
 		8E7F4B1926C2ACDC009F9AE3 /* KitchenCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KitchenCell.xib; sourceTree = "<group>"; };
 		8E7F4B1C26C2ADC3009F9AE3 /* KitchenCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KitchenCell.swift; sourceTree = "<group>"; };
+		8E7F4B1E26C2C6C0009F9AE3 /* FavRecipesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavRecipesCollectionViewCell.swift; sourceTree = "<group>"; };
 		8E9CB98326B96476000D564A /* RestaurantFinalApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RestaurantFinalApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E9CB98626B96476000D564A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8E9CB98826B96476000D564A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -399,6 +401,7 @@
 			children = (
 				8E7F4B1926C2ACDC009F9AE3 /* KitchenCell.xib */,
 				8E7F4B1C26C2ADC3009F9AE3 /* KitchenCell.swift */,
+				8E7F4B1E26C2C6C0009F9AE3 /* FavRecipesCollectionViewCell.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -670,6 +673,7 @@
 				8EC6084126BEFFC100FCB4DB /* TutorialViewController.swift in Sources */,
 				8E7F4B1126C28148009F9AE3 /* ThirdBarItemViewController.swift in Sources */,
 				8E9CB9D626B96A98000D564A /* Strings.swift in Sources */,
+				8E7F4B1F26C2C6C0009F9AE3 /* FavRecipesCollectionViewCell.swift in Sources */,
 				8E46D2D326C0171D0063FCF2 /* TabBarViewModel.swift in Sources */,
 				8E46D2BD26C014CB0063FCF2 /* KitchensViewModel.swift in Sources */,
 				8E46D2D726C017610063FCF2 /* ProfileViewController.swift in Sources */,

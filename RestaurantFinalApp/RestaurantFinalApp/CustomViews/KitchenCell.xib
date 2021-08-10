@@ -63,6 +63,9 @@
                                                         </constraints>
                                                         <color key="tintColor" systemColor="systemIndigoColor"/>
                                                         <state key="normal" title="Button" image="like"/>
+                                                        <connections>
+                                                            <action selector="lovedButtonAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="NVQ-kg-yim"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
@@ -264,6 +267,16 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <connections>
+                <outlet property="FoodGenreCollectionView" destination="LeP-xq-tDs" id="sOX-Ns-tjS"/>
+                <outlet property="delivertTimeLabel" destination="nku-Nz-bZz" id="uZV-wc-lFd"/>
+                <outlet property="flow" destination="FJv-M0-UrC" id="lde-Y6-F3E"/>
+                <outlet property="kitchenImage" destination="BQf-WZ-c3C" id="BgC-fe-zkf"/>
+                <outlet property="kitchenTitle" destination="g5E-Ak-NFc" id="FY6-T9-K0N"/>
+                <outlet property="lovedButton" destination="j3z-L6-vJz" id="o2J-hh-5Wi"/>
+                <outlet property="ratingCountLabel" destination="7Pv-YO-Tun" id="bey-ei-GhC"/>
+                <outlet property="ratingLabel" destination="LIW-Su-Tbl" id="xQ1-lO-wcF"/>
+            </connections>
             <point key="canvasLocation" x="152.17391304347828" y="120.20089285714285"/>
         </tableViewCell>
     </objects>
