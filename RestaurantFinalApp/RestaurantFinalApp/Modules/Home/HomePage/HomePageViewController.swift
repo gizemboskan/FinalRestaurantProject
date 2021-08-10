@@ -37,9 +37,21 @@ class HomePageViewController: UIViewController {
     }
     
     @IBAction func seeAllFavRecipesButtonPressed(_ sender: UIButton) {
+        let storyboard = UIStoryboard(name: "Recipe", bundle: nil)
+        if let vc = storyboard.instantiateViewController(withIdentifier: "RecipesViewController") as? RecipesViewController {
+            
+            navigationController?.pushViewController(vc, animated: true)
+            
+        }
     }
     
     @IBAction func seeAllKitchensButtonPressed(_ sender: UIButton) {
+        let storyboard = UIStoryboard(name: "Kitchen", bundle: nil)
+        if let vc = storyboard.instantiateViewController(withIdentifier: "KitchensViewController") as? KitchensViewController {
+            
+            navigationController?.pushViewController(vc, animated: true)
+            
+        }
     }
 }
 
@@ -56,8 +68,9 @@ extension HomePageViewController:  UICollectionViewDelegate, UICollectionViewDat
     public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let storyboard = UIStoryboard(name: "Recipe", bundle: nil)
         if let vc = storyboard.instantiateViewController(withIdentifier: "RecipeDetailViewController") as? RecipeDetailViewController {
-    
+            
             navigationController?.pushViewController(vc, animated: true)
+            
         }
     }
     
@@ -81,7 +94,7 @@ extension HomePageViewController:  UITableViewDelegate, UITableViewDataSource {
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let storyboard = UIStoryboard(name: "Kitchen", bundle: nil)
         if let vc = storyboard.instantiateViewController(withIdentifier: "KitchenDetailViewController") as? KitchenDetailViewController {
-    
+            
             navigationController?.pushViewController(vc, animated: true)
         }
     }
