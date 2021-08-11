@@ -33,7 +33,6 @@ class HomePageViewController: UIViewController {
         kitchenTableView.dataSource = self
         let nibCell = UINib(nibName: "KitchenCell", bundle: nil)
         kitchenTableView.register(nibCell, forCellReuseIdentifier: "KitchenCell")
-        // Do any additional setup after loading the view.
     }
     
     @IBAction func seeAllFavRecipesButtonPressed(_ sender: UIButton) {
@@ -41,7 +40,6 @@ class HomePageViewController: UIViewController {
         if let vc = storyboard.instantiateViewController(withIdentifier: "RecipesViewController") as? RecipesViewController {
             
             navigationController?.pushViewController(vc, animated: true)
-            
         }
     }
     
@@ -99,4 +97,7 @@ extension HomePageViewController:  UITableViewDelegate, UITableViewDataSource {
         }
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 300
+    }
 }

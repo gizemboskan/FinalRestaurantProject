@@ -21,7 +21,7 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pzF-X0-lqR">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1004"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1450"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1sU-Rh-9kV">
                                                 <rect key="frame" x="80" y="4" width="254" height="46"/>
@@ -150,11 +150,8 @@
                                                 </connections>
                                             </button>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="p5N-jc-tC2">
-                                                <rect key="frame" x="16" y="523.5" width="382" height="480.5"/>
+                                                <rect key="frame" x="16" y="523.5" width="382" height="926.5"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="480.5" id="W98-Iz-svq"/>
-                                                </constraints>
                                                 <prototypes>
                                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="KitchenCell" id="aSS-JU-EdB" customClass="KitchenCell" customModule="RestaurantFinalApp" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="24.5" width="382" height="43.5"/>
@@ -196,18 +193,18 @@
                                         <constraints>
                                             <constraint firstItem="eZT-6P-lRw" firstAttribute="top" secondItem="1Yt-bb-glH" secondAttribute="bottom" constant="10" id="3up-xS-xaX"/>
                                             <constraint firstItem="men-bY-vI3" firstAttribute="centerY" secondItem="eII-zw-1gc" secondAttribute="centerY" id="4xk-NR-P2l"/>
-                                            <constraint firstAttribute="bottom" secondItem="p5N-jc-tC2" secondAttribute="bottom" id="9Gd-bU-FVo"/>
+                                            <constraint firstAttribute="bottom" secondItem="p5N-jc-tC2" secondAttribute="bottom" id="9ht-iP-41N"/>
                                             <constraint firstItem="1sU-Rh-9kV" firstAttribute="centerX" secondItem="pzF-X0-lqR" secondAttribute="centerX" id="A7m-fl-1Mh"/>
                                             <constraint firstItem="i69-fZ-TAe" firstAttribute="centerY" secondItem="1sU-Rh-9kV" secondAttribute="centerY" id="EAX-Tp-Dyo"/>
                                             <constraint firstItem="p5N-jc-tC2" firstAttribute="top" secondItem="DPW-Ne-SzL" secondAttribute="bottom" constant="16" id="G6L-hl-Wm3"/>
                                             <constraint firstAttribute="trailing" secondItem="2s8-Oq-S6n" secondAttribute="trailing" constant="16" id="Hhe-Mp-WmX"/>
+                                            <constraint firstAttribute="height" constant="1450" id="OUq-eH-acG"/>
                                             <constraint firstAttribute="trailing" secondItem="p5N-jc-tC2" secondAttribute="trailing" constant="16" id="SoZ-He-6KH"/>
                                             <constraint firstItem="1Yt-bb-glH" firstAttribute="top" secondItem="1sU-Rh-9kV" secondAttribute="bottom" constant="8" symbolic="YES" id="TaH-sm-nAy"/>
                                             <constraint firstItem="eII-zw-1gc" firstAttribute="top" secondItem="yFn-6P-hmU" secondAttribute="bottom" constant="32" id="UWs-1N-Hgz"/>
                                             <constraint firstItem="DPW-Ne-SzL" firstAttribute="top" secondItem="eII-zw-1gc" secondAttribute="bottom" constant="4" id="WZH-0z-GVU"/>
                                             <constraint firstItem="1Yt-bb-glH" firstAttribute="leading" secondItem="pzF-X0-lqR" secondAttribute="leading" constant="16" id="Yjb-TZ-ppo"/>
                                             <constraint firstAttribute="trailing" secondItem="yFn-6P-hmU" secondAttribute="trailing" constant="16" id="ZC7-qr-eEN"/>
-                                            <constraint firstItem="1Yt-bb-glH" firstAttribute="firstBaseline" secondItem="1sU-Rh-9kV" secondAttribute="baseline" constant="8" symbolType="layoutAnchor" id="dzh-tt-7aY"/>
                                             <constraint firstItem="yFn-6P-hmU" firstAttribute="leading" secondItem="pzF-X0-lqR" secondAttribute="leading" constant="16" id="fXv-go-rFM"/>
                                             <constraint firstItem="yFn-6P-hmU" firstAttribute="top" secondItem="eZT-6P-lRw" secondAttribute="bottom" id="i9P-A6-0Wu"/>
                                             <constraint firstAttribute="trailing" secondItem="1Yt-bb-glH" secondAttribute="trailing" constant="16" id="jIM-2E-Pcz"/>

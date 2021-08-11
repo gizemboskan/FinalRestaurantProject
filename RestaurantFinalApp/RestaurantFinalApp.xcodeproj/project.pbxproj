@@ -46,6 +46,9 @@
 		8E7F4B1B26C2ACDC009F9AE3 /* KitchenCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E7F4B1926C2ACDC009F9AE3 /* KitchenCell.xib */; };
 		8E7F4B1D26C2ADC3009F9AE3 /* KitchenCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7F4B1C26C2ADC3009F9AE3 /* KitchenCell.swift */; };
 		8E7F4B1F26C2C6C0009F9AE3 /* FavRecipesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7F4B1E26C2C6C0009F9AE3 /* FavRecipesCollectionViewCell.swift */; };
+		8E7F4B2226C3D05D009F9AE3 /* KitchenDetailsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E7F4B2026C3D05D009F9AE3 /* KitchenDetailsCell.xib */; };
+		8E7F4B2626C3D52B009F9AE3 /* KitchenDescriptionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E7F4B2426C3D52A009F9AE3 /* KitchenDescriptionCell.xib */; };
+		8E7F4B2726C3D52B009F9AE3 /* KitchenDescriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7F4B2526C3D52B009F9AE3 /* KitchenDescriptionCell.swift */; };
 		8E9CB98726B96476000D564A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9CB98626B96476000D564A /* AppDelegate.swift */; };
 		8E9CB98926B96476000D564A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9CB98826B96476000D564A /* SceneDelegate.swift */; };
 		8E9CB99126B96476000D564A /* RestaurantFinalApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8E9CB98F26B96476000D564A /* RestaurantFinalApp.xcdatamodeld */; };
@@ -118,6 +121,9 @@
 		8E7F4B1926C2ACDC009F9AE3 /* KitchenCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KitchenCell.xib; sourceTree = "<group>"; };
 		8E7F4B1C26C2ADC3009F9AE3 /* KitchenCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KitchenCell.swift; sourceTree = "<group>"; };
 		8E7F4B1E26C2C6C0009F9AE3 /* FavRecipesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavRecipesCollectionViewCell.swift; sourceTree = "<group>"; };
+		8E7F4B2026C3D05D009F9AE3 /* KitchenDetailsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KitchenDetailsCell.xib; sourceTree = "<group>"; };
+		8E7F4B2426C3D52A009F9AE3 /* KitchenDescriptionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KitchenDescriptionCell.xib; sourceTree = "<group>"; };
+		8E7F4B2526C3D52B009F9AE3 /* KitchenDescriptionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KitchenDescriptionCell.swift; sourceTree = "<group>"; };
 		8E9CB98326B96476000D564A /* RestaurantFinalApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RestaurantFinalApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E9CB98626B96476000D564A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8E9CB98826B96476000D564A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -399,6 +405,9 @@
 		8E9CB9BA26B964F1000D564A /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
+				8E7F4B2526C3D52B009F9AE3 /* KitchenDescriptionCell.swift */,
+				8E7F4B2426C3D52A009F9AE3 /* KitchenDescriptionCell.xib */,
+				8E7F4B2026C3D05D009F9AE3 /* KitchenDetailsCell.xib */,
 				8E7F4B1926C2ACDC009F9AE3 /* KitchenCell.xib */,
 				8E7F4B1C26C2ADC3009F9AE3 /* KitchenCell.swift */,
 				8E7F4B1E26C2C6C0009F9AE3 /* FavRecipesCollectionViewCell.swift */,
@@ -630,8 +639,10 @@
 				8E46D2E126C017F40063FCF2 /* Order.storyboard in Resources */,
 				8E46D2E326C018020063FCF2 /* CreateRecipe.storyboard in Resources */,
 				8EC6083D26BEFF8E00FCB4DB /* LandingScreen.storyboard in Resources */,
+				8E7F4B2626C3D52B009F9AE3 /* KitchenDescriptionCell.xib in Resources */,
 				8E9CB9D826B96AB1000D564A /*  InfoPlist.strings in Resources */,
 				8E59810C26B98196000A2C82 /* GoogleService-Info.plist in Resources */,
+				8E7F4B2226C3D05D009F9AE3 /* KitchenDetailsCell.xib in Resources */,
 				8E46D2DD26C017E00063FCF2 /* Recipe.storyboard in Resources */,
 				8E46D2DB26C017C70063FCF2 /* Home.storyboard in Resources */,
 			);
@@ -697,6 +708,7 @@
 				8E46D2AB26C013120063FCF2 /* RecipesViewController.swift in Sources */,
 				8E9CB99126B96476000D564A /* RestaurantFinalApp.xcdatamodeld in Sources */,
 				8E46D2CC26C016070063FCF2 /* CreateRecipeViewController.swift in Sources */,
+				8E7F4B2726C3D52B009F9AE3 /* KitchenDescriptionCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
