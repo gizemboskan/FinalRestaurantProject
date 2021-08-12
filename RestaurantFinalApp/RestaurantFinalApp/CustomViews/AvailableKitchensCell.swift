@@ -7,17 +7,28 @@
 
 import UIKit
 
-class AvailableKitchensCell: UITableViewCell {
-
+class AvailableKitchensCell: UITableViewCell, UINavigationControllerDelegate {
+    
+    
+    @IBOutlet var availableKitchenNameLabel: UILabel!
+    
+    @IBOutlet var orderButton: UIButton!
+    
+    @IBOutlet var ratingLabel: UILabel!
+    @IBOutlet var deliveryTimeLabel: UILabel!
+    @IBOutlet var offerLabel: UILabel!
+    @IBOutlet var ratingCountLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    @IBAction func orderButtonTapped(_ sender: UIButton) {
+        let storyboard = UIStoryboard(name: "Order", bundle: nil)
+        if let vc = storyboard.instantiateViewController(withIdentifier: "PaymentViewController") as? PaymentViewController {
+            vc.popoverPresentationController?.sourceView = sender as UIView
+            present(vc, animated: true)
+        }
     }
     
 }

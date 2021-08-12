@@ -119,6 +119,15 @@
         }
       },
       {
+        "package": "StepIndicator",
+        "repositoryURL": "https://github.com/chenyun122/StepIndicator.git",
+        "state": {
+          "branch": null,
+          "revision": "e3980bb5ce315ea5c3f032d7122d8472c8bfacbd",
+          "version": "1.0.9"
+        }
+      },
+      {
         "package": "SwiftProtobuf",
         "repositoryURL": "https://github.com/apple/swift-protobuf.git",
         "state": {

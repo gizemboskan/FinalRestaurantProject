@@ -17,18 +17,45 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please Check Your Payment Detail!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VB2-yq-ddX">
-                                <rect key="frame" x="30" y="74" width="354" height="23"/>
+                                <rect key="frame" x="30" y="74" width="354" height="718"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7uG-Tw-aEJ" userLabel="View with Button">
+                                <rect key="frame" x="30" y="800" width="354" height="48"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aZf-U2-xrh">
+                                        <rect key="frame" x="0.0" y="0.0" width="354" height="48"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="48" id="Vbb-mm-HcY"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                        <state key="normal" title="Pay!">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="0.61568627450000002" blue="0.090196078430000007" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="aZf-U2-xrh" secondAttribute="bottom" id="6Zj-My-MWF"/>
+                                    <constraint firstItem="aZf-U2-xrh" firstAttribute="top" secondItem="7uG-Tw-aEJ" secondAttribute="top" id="Fog-Jz-S5t"/>
+                                    <constraint firstAttribute="height" constant="48" id="HWP-4P-LfV"/>
+                                    <constraint firstAttribute="trailing" secondItem="aZf-U2-xrh" secondAttribute="trailing" id="Hc3-9B-qSI"/>
+                                    <constraint firstItem="aZf-U2-xrh" firstAttribute="leading" secondItem="7uG-Tw-aEJ" secondAttribute="leading" id="myR-mI-Qhm"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="TSV-fD-pfb"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="VB2-yq-ddX" firstAttribute="top" secondItem="TSV-fD-pfb" secondAttribute="top" constant="30" id="CFS-9W-NYl"/>
                             <constraint firstItem="VB2-yq-ddX" firstAttribute="leading" secondItem="TSV-fD-pfb" secondAttribute="leading" constant="30" id="Dwv-6Q-Xjc"/>
+                            <constraint firstItem="7uG-Tw-aEJ" firstAttribute="top" secondItem="VB2-yq-ddX" secondAttribute="bottom" constant="8" symbolic="YES" id="HF0-BV-cf9"/>
                             <constraint firstItem="TSV-fD-pfb" firstAttribute="trailing" secondItem="VB2-yq-ddX" secondAttribute="trailing" constant="30" id="Vld-Rh-v0Z"/>
+                            <constraint firstItem="7uG-Tw-aEJ" firstAttribute="leading" secondItem="TSV-fD-pfb" secondAttribute="leading" constant="30" id="fj2-Jo-Bok"/>
+                            <constraint firstItem="TSV-fD-pfb" firstAttribute="bottom" secondItem="7uG-Tw-aEJ" secondAttribute="bottom" constant="14" id="nmx-ks-pkG"/>
+                            <constraint firstAttribute="trailing" secondItem="7uG-Tw-aEJ" secondAttribute="trailing" constant="30" id="tuK-qC-QP5"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -109,6 +136,37 @@
                                         <color key="progressTintColor" systemColor="labelColor"/>
                                         <color key="trackTintColor" red="1" green="0.83921568627450982" blue="0.4823529411764706" alpha="1" colorSpace="calibratedRGB"/>
                                     </progressView>
+                                    <view tag="1" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7Nr-tc-dqL" customClass="StepIndicatorView" customModule="StepIndicator">
+                                        <rect key="frame" x="8" y="173" width="29" height="169"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.98431372549999996" green="0.68627450980000004" blue="0.0078431372550000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="directionRaw">
+                                                <integer key="value" value="2"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="numberOfSteps">
+                                                <integer key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="currentStep">
+                                                <integer key="value" value="2"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="circleRadius">
+                                                <real key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="circleTintColor">
+                                                <color key="value" red="1" green="0.61568627450000002" blue="0.090196078430000007" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="circleColor">
+                                                <color key="value" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="circleStrokeWidth">
+                                                <real key="value" value="2"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="lineStrokeWidth">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" red="0.98431372549019602" green="0.68627450980392157" blue="0.0078431372549019607" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -141,6 +199,13 @@
                             <constraint firstItem="fp8-ze-TYR" firstAttribute="leading" secondItem="HC2-D0-vfo" secondAttribute="leading" id="rgx-Fn-sGG"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="mapView" destination="fp8-ze-TYR" id="YsZ-ul-Ill"/>
+                        <outlet property="recipeArrivalTimeLabel" destination="spi-7i-5c8" id="BF0-px-twN"/>
+                        <outlet property="recipeImageView" destination="HZH-Vo-gwA" id="Hfz-Wi-fY1"/>
+                        <outlet property="recipeNameLabel" destination="kq8-fQ-nig" id="SZT-hs-uor"/>
+                        <outlet property="stepIndicatorView" destination="7Nr-tc-dqL" id="hzZ-gD-2PB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K3L-Th-NqG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -158,7 +223,7 @@
                                 <rect key="frame" x="0.0" y="59" width="414" height="788"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="180" id="Fbb-PC-AfF">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AvailableKitchensCell" rowHeight="180" id="Fbb-PC-AfF" customClass="AvailableKitchensCell" customModule="RestaurantFinalApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="24.5" width="414" height="180"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Fbb-PC-AfF" id="2Vi-jZ-vHs">
@@ -196,6 +261,9 @@
                                                                             </constraints>
                                                                             <color key="tintColor" systemColor="systemIndigoColor"/>
                                                                             <state key="normal" image="cart"/>
+                                                                            <connections>
+                                                                                <action selector="orderButtonTapped:" destination="Fbb-PC-AfF" eventType="touchUpInside" id="nkQ-Ln-GnB"/>
+                                                                            </connections>
                                                                         </button>
                                                                     </subviews>
                                                                 </stackView>
@@ -385,6 +453,14 @@
                                                 <constraint firstAttribute="trailing" secondItem="O8O-he-NEJ" secondAttribute="trailing" constant="-18" id="t9m-yR-Fug"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="availableKitchenNameLabel" destination="x4l-jN-cK6" id="gFD-XJ-ISJ"/>
+                                            <outlet property="deliveryTimeLabel" destination="fEP-cT-2L1" id="m4b-4t-3hU"/>
+                                            <outlet property="offerLabel" destination="IeR-o8-xxZ" id="Ca0-xT-EZu"/>
+                                            <outlet property="orderButton" destination="VNF-g5-7GE" id="Im9-wG-cbA"/>
+                                            <outlet property="ratingCountLabel" destination="mR7-SV-FCE" id="efh-Hb-yGa"/>
+                                            <outlet property="ratingLabel" destination="n0N-Th-c0Z" id="5Bx-Vs-QTN"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -399,7 +475,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="kitchenTableView" destination="Wps-YR-2Dj" id="0kc-np-fLU"/>
+                        <outlet property="availableKitchensTableView" destination="Wps-YR-2Dj" id="iVo-Xh-3cj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cJG-J6-p7p" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

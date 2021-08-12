@@ -20,7 +20,7 @@
 		8E46D2B826C014820063FCF2 /* KitchenDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E46D2B726C014820063FCF2 /* KitchenDetailViewModel.swift */; };
 		8E46D2BB26C014C00063FCF2 /* KitchensViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E46D2BA26C014C00063FCF2 /* KitchensViewController.swift */; };
 		8E46D2BD26C014CB0063FCF2 /* KitchensViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E46D2BC26C014CB0063FCF2 /* KitchensViewModel.swift */; };
-		8E46D2C126C015630063FCF2 /* GetOfferViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E46D2C026C015630063FCF2 /* GetOfferViewController.swift */; };
+		8E46D2C126C015630063FCF2 /* AvailableKitchensCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E46D2C026C015630063FCF2 /* AvailableKitchensCell.swift */; };
 		8E46D2C326C0156D0063FCF2 /* GetOfferViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E46D2C226C0156D0063FCF2 /* GetOfferViewModel.swift */; };
 		8E46D2C626C0159B0063FCF2 /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E46D2C526C0159B0063FCF2 /* PaymentViewController.swift */; };
 		8E46D2C826C015A80063FCF2 /* PaymentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E46D2C726C015A80063FCF2 /* PaymentViewModel.swift */; };
@@ -51,6 +51,8 @@
 		8E7F4B2726C3D52B009F9AE3 /* KitchenDescriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7F4B2526C3D52B009F9AE3 /* KitchenDescriptionCell.swift */; };
 		8E7F4B3226C53532009F9AE3 /* MyOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7F4B3126C53532009F9AE3 /* MyOrderViewController.swift */; };
 		8E7F4B3426C53543009F9AE3 /* MyOrderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7F4B3326C53543009F9AE3 /* MyOrderViewModel.swift */; };
+		8E7F4B3A26C5BAF8009F9AE3 /* StepIndicator in Frameworks */ = {isa = PBXBuildFile; productRef = 8E7F4B3926C5BAF8009F9AE3 /* StepIndicator */; };
+		8E7F4B3C26C5C639009F9AE3 /* GetOfferViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7F4B3B26C5C639009F9AE3 /* GetOfferViewController.swift */; };
 		8E9CB98726B96476000D564A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9CB98626B96476000D564A /* AppDelegate.swift */; };
 		8E9CB98926B96476000D564A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9CB98826B96476000D564A /* SceneDelegate.swift */; };
 		8E9CB99126B96476000D564A /* RestaurantFinalApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8E9CB98F26B96476000D564A /* RestaurantFinalApp.xcdatamodeld */; };
@@ -99,7 +101,7 @@
 		8E46D2B726C014820063FCF2 /* KitchenDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KitchenDetailViewModel.swift; sourceTree = "<group>"; };
 		8E46D2BA26C014C00063FCF2 /* KitchensViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KitchensViewController.swift; sourceTree = "<group>"; };
 		8E46D2BC26C014CB0063FCF2 /* KitchensViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KitchensViewModel.swift; sourceTree = "<group>"; };
-		8E46D2C026C015630063FCF2 /* GetOfferViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetOfferViewController.swift; sourceTree = "<group>"; };
+		8E46D2C026C015630063FCF2 /* AvailableKitchensCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableKitchensCell.swift; sourceTree = "<group>"; };
 		8E46D2C226C0156D0063FCF2 /* GetOfferViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetOfferViewModel.swift; sourceTree = "<group>"; };
 		8E46D2C526C0159B0063FCF2 /* PaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewController.swift; sourceTree = "<group>"; };
 		8E46D2C726C015A80063FCF2 /* PaymentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewModel.swift; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 		8E7F4B2526C3D52B009F9AE3 /* KitchenDescriptionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KitchenDescriptionCell.swift; sourceTree = "<group>"; };
 		8E7F4B3126C53532009F9AE3 /* MyOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOrderViewController.swift; sourceTree = "<group>"; };
 		8E7F4B3326C53543009F9AE3 /* MyOrderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOrderViewModel.swift; sourceTree = "<group>"; };
+		8E7F4B3B26C5C639009F9AE3 /* GetOfferViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetOfferViewController.swift; sourceTree = "<group>"; };
 		8E9CB98326B96476000D564A /* RestaurantFinalApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RestaurantFinalApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E9CB98626B96476000D564A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8E9CB98826B96476000D564A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -161,6 +164,7 @@
 			files = (
 				8E3C72B026C1931200927023 /* PaperOnboarding in Frameworks */,
 				8E3C72AD26C1926A00927023 /* FirebaseDatabase in Frameworks */,
+				8E7F4B3A26C5BAF8009F9AE3 /* StepIndicator in Frameworks */,
 				8E2F4F5D26C1B58B001EFE54 /* RAMAnimatedTabBarController in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -283,7 +287,7 @@
 		8E46D2BF26C015520063FCF2 /* GetOffer */ = {
 			isa = PBXGroup;
 			children = (
-				8E46D2C026C015630063FCF2 /* GetOfferViewController.swift */,
+				8E7F4B3B26C5C639009F9AE3 /* GetOfferViewController.swift */,
 				8E46D2C226C0156D0063FCF2 /* GetOfferViewModel.swift */,
 			);
 			path = GetOffer;
@@ -419,6 +423,7 @@
 		8E9CB9BA26B964F1000D564A /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
+				8E46D2C026C015630063FCF2 /* AvailableKitchensCell.swift */,
 				8E7F4B2526C3D52B009F9AE3 /* KitchenDescriptionCell.swift */,
 				8E7F4B2426C3D52A009F9AE3 /* KitchenDescriptionCell.xib */,
 				8E7F4B2026C3D05D009F9AE3 /* KitchenDetailsCell.xib */,
@@ -551,6 +556,7 @@
 				8E3C72AC26C1926A00927023 /* FirebaseDatabase */,
 				8E3C72AF26C1931200927023 /* PaperOnboarding */,
 				8E2F4F5C26C1B58B001EFE54 /* RAMAnimatedTabBarController */,
+				8E7F4B3926C5BAF8009F9AE3 /* StepIndicator */,
 			);
 			productName = RestaurantFinalApp;
 			productReference = 8E9CB98326B96476000D564A /* RestaurantFinalApp.app */;
@@ -627,6 +633,7 @@
 				8E3C72AB26C1926A00927023 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				8E3C72AE26C1931200927023 /* XCRemoteSwiftPackageReference "paper-onboarding" */,
 				8E2F4F5B26C1B58B001EFE54 /* XCRemoteSwiftPackageReference "animated-tab-bar" */,
+				8E7F4B3826C5BAF7009F9AE3 /* XCRemoteSwiftPackageReference "StepIndicator" */,
 			);
 			productRefGroup = 8E9CB98426B96476000D564A /* Products */;
 			projectDirPath = "";
@@ -694,7 +701,7 @@
 				8E46D2C826C015A80063FCF2 /* PaymentViewModel.swift in Sources */,
 				8E7F4B1526C2A4F1009F9AE3 /* KitchenPageViewController.swift in Sources */,
 				8E46D2A726C012860063FCF2 /* HomePageViewModel.swift in Sources */,
-				8E46D2C126C015630063FCF2 /* GetOfferViewController.swift in Sources */,
+				8E46D2C126C015630063FCF2 /* AvailableKitchensCell.swift in Sources */,
 				8EC6084126BEFFC100FCB4DB /* TutorialViewController.swift in Sources */,
 				8E7F4B1126C28148009F9AE3 /* ThirdBarItemViewController.swift in Sources */,
 				8E9CB9D626B96A98000D564A /* Strings.swift in Sources */,
@@ -705,6 +712,7 @@
 				8E7F4B0F26C27EDF009F9AE3 /* SecondBarItemViewController.swift in Sources */,
 				8E46D2B226C013DE0063FCF2 /* RecipeDetailViewModel.swift in Sources */,
 				8E46D2D926C0176D0063FCF2 /* ProfileViewModel.swift in Sources */,
+				8E7F4B3C26C5C639009F9AE3 /* GetOfferViewController.swift in Sources */,
 				8E9CB98726B96476000D564A /* AppDelegate.swift in Sources */,
 				8E46D2BB26C014C00063FCF2 /* KitchensViewController.swift in Sources */,
 				8E7F4B3226C53532009F9AE3 /* MyOrderViewController.swift in Sources */,
@@ -1075,6 +1083,14 @@
 				minimumVersion = 6.1.5;
 			};
 		};
+		8E7F4B3826C5BAF7009F9AE3 /* XCRemoteSwiftPackageReference "StepIndicator" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/chenyun122/StepIndicator.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.9;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1092,6 +1108,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 8E3C72AE26C1931200927023 /* XCRemoteSwiftPackageReference "paper-onboarding" */;
 			productName = PaperOnboarding;
+		};
+		8E7F4B3926C5BAF8009F9AE3 /* StepIndicator */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8E7F4B3826C5BAF7009F9AE3 /* XCRemoteSwiftPackageReference "StepIndicator" */;
+			productName = StepIndicator;
 		};
 /* End XCSwiftPackageProductDependency section */
 

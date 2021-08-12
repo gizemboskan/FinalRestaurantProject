@@ -55,6 +55,7 @@ class RecipeDetailViewController: UIViewController {
         
         let vc = UIActivityViewController(activityItems: ["Share this great recipe with your loved ones! :)\n Or just save!"] , applicationActivities: [])
         vc.popoverPresentationController?.sourceView = sender as UIView
+        present(vc, animated: true)
         
         vc.completionWithItemsHandler = {(_, completed, _, _) in
             if !completed {
