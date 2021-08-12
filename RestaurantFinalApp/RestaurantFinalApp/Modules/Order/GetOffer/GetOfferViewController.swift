@@ -8,13 +8,16 @@
 import UIKit
 
 class GetOfferViewController: UIViewController {
-
+    // MARK: - Properties
+    
     let viewModel: GetOfferViewModel = GetOfferViewModel()
+    // MARK: - UI Components
+    
+    // MARK: - UIViewController Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
     }
 
-
+    // MARK: - Helpers
 }

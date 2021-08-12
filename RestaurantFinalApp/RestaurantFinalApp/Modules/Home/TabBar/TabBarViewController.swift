@@ -9,10 +9,13 @@ import UIKit
 import RAMAnimatedTabBarController
 
 class TabBarViewController: RAMAnimatedTabBarController {
+    // MARK: - Properties
     
     let viewModel: TabBarViewModel = TabBarViewModel()
-    
+    // MARK: - UIViewController Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    
+    // MARK: - Helpers
 }

@@ -42,13 +42,15 @@
 		8E7F4B0F26C27EDF009F9AE3 /* SecondBarItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7F4B0E26C27EDF009F9AE3 /* SecondBarItemViewController.swift */; };
 		8E7F4B1126C28148009F9AE3 /* ThirdBarItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7F4B1026C28148009F9AE3 /* ThirdBarItemViewController.swift */; };
 		8E7F4B1326C28AF2009F9AE3 /* FirstBarItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7F4B1226C28AF2009F9AE3 /* FirstBarItemViewController.swift */; };
-		8E7F4B1526C2A4F1009F9AE3 /* RestaurantPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7F4B1426C2A4F1009F9AE3 /* RestaurantPageViewController.swift */; };
+		8E7F4B1526C2A4F1009F9AE3 /* KitchenPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7F4B1426C2A4F1009F9AE3 /* KitchenPageViewController.swift */; };
 		8E7F4B1B26C2ACDC009F9AE3 /* KitchenCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E7F4B1926C2ACDC009F9AE3 /* KitchenCell.xib */; };
 		8E7F4B1D26C2ADC3009F9AE3 /* KitchenCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7F4B1C26C2ADC3009F9AE3 /* KitchenCell.swift */; };
 		8E7F4B1F26C2C6C0009F9AE3 /* FavRecipesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7F4B1E26C2C6C0009F9AE3 /* FavRecipesCollectionViewCell.swift */; };
 		8E7F4B2226C3D05D009F9AE3 /* KitchenDetailsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E7F4B2026C3D05D009F9AE3 /* KitchenDetailsCell.xib */; };
 		8E7F4B2626C3D52B009F9AE3 /* KitchenDescriptionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E7F4B2426C3D52A009F9AE3 /* KitchenDescriptionCell.xib */; };
 		8E7F4B2726C3D52B009F9AE3 /* KitchenDescriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7F4B2526C3D52B009F9AE3 /* KitchenDescriptionCell.swift */; };
+		8E7F4B3226C53532009F9AE3 /* MyOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7F4B3126C53532009F9AE3 /* MyOrderViewController.swift */; };
+		8E7F4B3426C53543009F9AE3 /* MyOrderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7F4B3326C53543009F9AE3 /* MyOrderViewModel.swift */; };
 		8E9CB98726B96476000D564A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9CB98626B96476000D564A /* AppDelegate.swift */; };
 		8E9CB98926B96476000D564A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9CB98826B96476000D564A /* SceneDelegate.swift */; };
 		8E9CB99126B96476000D564A /* RestaurantFinalApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8E9CB98F26B96476000D564A /* RestaurantFinalApp.xcdatamodeld */; };
@@ -117,13 +119,15 @@
 		8E7F4B0E26C27EDF009F9AE3 /* SecondBarItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondBarItemViewController.swift; sourceTree = "<group>"; };
 		8E7F4B1026C28148009F9AE3 /* ThirdBarItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdBarItemViewController.swift; sourceTree = "<group>"; };
 		8E7F4B1226C28AF2009F9AE3 /* FirstBarItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstBarItemViewController.swift; sourceTree = "<group>"; };
-		8E7F4B1426C2A4F1009F9AE3 /* RestaurantPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantPageViewController.swift; sourceTree = "<group>"; };
+		8E7F4B1426C2A4F1009F9AE3 /* KitchenPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KitchenPageViewController.swift; sourceTree = "<group>"; };
 		8E7F4B1926C2ACDC009F9AE3 /* KitchenCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KitchenCell.xib; sourceTree = "<group>"; };
 		8E7F4B1C26C2ADC3009F9AE3 /* KitchenCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KitchenCell.swift; sourceTree = "<group>"; };
 		8E7F4B1E26C2C6C0009F9AE3 /* FavRecipesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavRecipesCollectionViewCell.swift; sourceTree = "<group>"; };
 		8E7F4B2026C3D05D009F9AE3 /* KitchenDetailsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KitchenDetailsCell.xib; sourceTree = "<group>"; };
 		8E7F4B2426C3D52A009F9AE3 /* KitchenDescriptionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KitchenDescriptionCell.xib; sourceTree = "<group>"; };
 		8E7F4B2526C3D52B009F9AE3 /* KitchenDescriptionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KitchenDescriptionCell.swift; sourceTree = "<group>"; };
+		8E7F4B3126C53532009F9AE3 /* MyOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOrderViewController.swift; sourceTree = "<group>"; };
+		8E7F4B3326C53543009F9AE3 /* MyOrderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOrderViewModel.swift; sourceTree = "<group>"; };
 		8E9CB98326B96476000D564A /* RestaurantFinalApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RestaurantFinalApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E9CB98626B96476000D564A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8E9CB98826B96476000D564A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -204,7 +208,7 @@
 			children = (
 				8E46D2A426C012740063FCF2 /* HomePageViewController.swift */,
 				8E46D2A626C012860063FCF2 /* HomePageViewModel.swift */,
-				8E7F4B1426C2A4F1009F9AE3 /* RestaurantPageViewController.swift */,
+				8E7F4B1426C2A4F1009F9AE3 /* KitchenPageViewController.swift */,
 			);
 			path = HomePage;
 			sourceTree = "<group>";
@@ -268,6 +272,7 @@
 		8E46D2BE26C0154D0063FCF2 /* Order */ = {
 			isa = PBXGroup;
 			children = (
+				8E7F4B3026C5350F009F9AE3 /* MyOrder */,
 				8E46D2BF26C015520063FCF2 /* GetOffer */,
 				8E46D2C426C0158E0063FCF2 /* Payment */,
 				8E46D2E026C017F40063FCF2 /* Order.storyboard */,
@@ -336,6 +341,15 @@
 				8E46D2D826C0176D0063FCF2 /* ProfileViewModel.swift */,
 			);
 			path = Profile;
+			sourceTree = "<group>";
+		};
+		8E7F4B3026C5350F009F9AE3 /* MyOrder */ = {
+			isa = PBXGroup;
+			children = (
+				8E7F4B3126C53532009F9AE3 /* MyOrderViewController.swift */,
+				8E7F4B3326C53543009F9AE3 /* MyOrderViewModel.swift */,
+			);
+			path = MyOrder;
 			sourceTree = "<group>";
 		};
 		8E9CB97A26B96476000D564A = {
@@ -456,9 +470,9 @@
 				8EC6083B26BEFF7D00FCB4DB /* LandingScreen */,
 				8E46D2A226C012520063FCF2 /* Home */,
 				8E46D2A826C012F50063FCF2 /* Recipe */,
+				8E46D2C926C015DE0063FCF2 /* CreateRecipe */,
 				8E46D2B326C0145C0063FCF2 /* Kitchen */,
 				8E46D2BE26C0154D0063FCF2 /* Order */,
-				8E46D2C926C015DE0063FCF2 /* CreateRecipe */,
 				8E46D2D426C017430063FCF2 /* Profile */,
 			);
 			path = Modules;
@@ -678,7 +692,7 @@
 				8E46D2B626C014740063FCF2 /* KitchenDetailViewController.swift in Sources */,
 				8EC6084526BEFFDE00FCB4DB /* TutorialViewModel.swift in Sources */,
 				8E46D2C826C015A80063FCF2 /* PaymentViewModel.swift in Sources */,
-				8E7F4B1526C2A4F1009F9AE3 /* RestaurantPageViewController.swift in Sources */,
+				8E7F4B1526C2A4F1009F9AE3 /* KitchenPageViewController.swift in Sources */,
 				8E46D2A726C012860063FCF2 /* HomePageViewModel.swift in Sources */,
 				8E46D2C126C015630063FCF2 /* GetOfferViewController.swift in Sources */,
 				8EC6084126BEFFC100FCB4DB /* TutorialViewController.swift in Sources */,
@@ -693,6 +707,7 @@
 				8E46D2D926C0176D0063FCF2 /* ProfileViewModel.swift in Sources */,
 				8E9CB98726B96476000D564A /* AppDelegate.swift in Sources */,
 				8E46D2BB26C014C00063FCF2 /* KitchensViewController.swift in Sources */,
+				8E7F4B3226C53532009F9AE3 /* MyOrderViewController.swift in Sources */,
 				8EC6084726BF004200FCB4DB /* LandingMenuViewModel.swift in Sources */,
 				8E9CB9C026B965A0000D564A /* UIImage+Extensions.swift in Sources */,
 				8E46D2AD26C0131C0063FCF2 /* RecipesViewModel.swift in Sources */,
@@ -709,6 +724,7 @@
 				8E9CB99126B96476000D564A /* RestaurantFinalApp.xcdatamodeld in Sources */,
 				8E46D2CC26C016070063FCF2 /* CreateRecipeViewController.swift in Sources */,
 				8E7F4B2726C3D52B009F9AE3 /* KitchenDescriptionCell.swift in Sources */,
+				8E7F4B3426C53543009F9AE3 /* MyOrderViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

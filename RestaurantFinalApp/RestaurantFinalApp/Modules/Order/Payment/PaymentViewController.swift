@@ -8,15 +8,18 @@
 import UIKit
 
 class PaymentViewController: UIViewController {
-
+    // MARK: - Properties
+    
     let viewModel: PaymentViewModel = PaymentViewModel()
     
+    // MARK: - UI Components
+    
+    // MARK: - UIViewController Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
     }
     
-
+    // MARK: - Helpers
 
 }

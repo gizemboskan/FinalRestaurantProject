@@ -98,7 +98,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zzQ-sL-pnh">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="884"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="recipe2" translatesAutoresizingMaskIntoConstraints="NO" id="yKN-85-xff">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="430"/>
@@ -142,50 +142,50 @@
                                                 </connections>
                                             </button>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b62-Nl-kRH">
-                                                <rect key="frame" x="0.0" y="301" width="414" height="583"/>
+                                                <rect key="frame" x="0.0" y="301" width="414" height="595"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Cocoa Bites" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="faf-v9-XJD">
-                                                        <rect key="frame" x="29" y="18" width="233" height="29"/>
+                                                        <rect key="frame" x="29" y="13" width="233" height="29"/>
                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
                                                         <color key="textColor" red="0.1215686275" green="0.16078431369999999" blue="0.2156862745" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Introduction" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OWf-za-xpC">
-                                                        <rect key="frame" x="29" y="87" width="131" height="19.5"/>
-                                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
-                                                        <color key="textColor" red="0.1215686275" green="0.16078431369999999" blue="0.2156862745" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="IGs-eG-f2b">
-                                                        <rect key="frame" x="29" y="110.5" width="355" height="55"/>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VO7-n9-Kxh" userLabel="Segmented View">
+                                                        <rect key="frame" x="29" y="46" width="356" height="39"/>
+                                                        <subviews>
+                                                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bordered" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="cb1-lG-axH">
+                                                                <rect key="frame" x="4" y="4" width="348" height="32"/>
+                                                                <segments>
+                                                                    <segment title="Instructions"/>
+                                                                    <segment title="Ingredients"/>
+                                                                </segments>
+                                                                <color key="selectedSegmentTintColor" red="0.98431372549999996" green="0.68627450980000004" blue="0.0078431372550000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <connections>
+                                                                    <action selector="segmentDidChange:" destination="WMs-yL-ey3" eventType="valueChanged" id="DFO-k5-HUC"/>
+                                                                </connections>
+                                                            </segmentedControl>
+                                                        </subviews>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="55" id="6wW-Qo-uB5"/>
+                                                            <constraint firstAttribute="trailing" secondItem="cb1-lG-axH" secondAttribute="trailing" constant="4" id="5Se-sv-N8U"/>
+                                                            <constraint firstItem="cb1-lG-axH" firstAttribute="leading" secondItem="VO7-n9-Kxh" secondAttribute="leading" constant="4" id="Pvg-1W-ixB"/>
+                                                            <constraint firstItem="cb1-lG-axH" firstAttribute="top" secondItem="VO7-n9-Kxh" secondAttribute="top" constant="4" id="tod-QR-CrV"/>
+                                                            <constraint firstAttribute="bottom" secondItem="cb1-lG-axH" secondAttribute="bottom" constant="4" id="wTm-MO-bgR"/>
                                                         </constraints>
-                                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et Ut eni</string>
-                                                        <color key="textColor" red="0.41960784309999999" green="0.44705882349999998" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                    </textView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ingredients" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M0L-Ig-lxj">
-                                                        <rect key="frame" x="29" y="177.5" width="84" height="19.5"/>
-                                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
-                                                        <color key="textColor" red="0.1215686275" green="0.16078431369999999" blue="0.2156862745" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="TEv-Oh-rhS">
-                                                        <rect key="frame" x="30" y="205" width="372" height="250"/>
+                                                    </view>
+                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="TEv-Oh-rhS">
+                                                        <rect key="frame" x="30" y="93" width="354" height="374"/>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="250" id="knm-Ie-u1e"/>
+                                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="100" id="knm-Ie-u1e"/>
                                                         </constraints>
                                                         <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptaLorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptaLorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptaLorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in volupta</mutableString>
                                                         <color key="textColor" red="0.41960784309999999" green="0.44705882349999998" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                     </textView>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iHb-mZ-jMT">
-                                                        <rect key="frame" x="29" y="495" width="355" height="48"/>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iHb-mZ-jMT" userLabel="View with Button">
+                                                        <rect key="frame" x="29" y="507" width="355" height="48"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uuK-rP-fN6">
                                                                 <rect key="frame" x="0.0" y="0.0" width="355" height="48"/>
@@ -212,24 +212,19 @@
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
-                                                    <constraint firstItem="M0L-Ig-lxj" firstAttribute="top" secondItem="IGs-eG-f2b" secondAttribute="bottom" constant="12" id="8XZ-bf-bFv"/>
+                                                    <constraint firstItem="TEv-Oh-rhS" firstAttribute="top" secondItem="VO7-n9-Kxh" secondAttribute="bottom" constant="4" id="3Rg-pz-4pL"/>
                                                     <constraint firstItem="TEv-Oh-rhS" firstAttribute="leading" secondItem="b62-Nl-kRH" secondAttribute="leading" constant="30" id="94l-yH-oH1"/>
-                                                    <constraint firstItem="IGs-eG-f2b" firstAttribute="leading" secondItem="b62-Nl-kRH" secondAttribute="leading" constant="29" id="9Jy-4F-hi8"/>
-                                                    <constraint firstItem="IGs-eG-f2b" firstAttribute="top" secondItem="OWf-za-xpC" secondAttribute="bottom" constant="4" id="9hQ-Wm-xC8"/>
-                                                    <constraint firstAttribute="trailing" secondItem="OWf-za-xpC" secondAttribute="trailing" constant="254" id="EVW-qQ-cCD"/>
-                                                    <constraint firstItem="faf-v9-XJD" firstAttribute="top" secondItem="b62-Nl-kRH" secondAttribute="top" constant="18" id="FW4-ax-T33"/>
+                                                    <constraint firstItem="faf-v9-XJD" firstAttribute="top" secondItem="b62-Nl-kRH" secondAttribute="top" constant="13" id="FW4-ax-T33"/>
                                                     <constraint firstItem="faf-v9-XJD" firstAttribute="leading" secondItem="b62-Nl-kRH" secondAttribute="leading" constant="29" id="HnV-9U-4Yj"/>
-                                                    <constraint firstItem="M0L-Ig-lxj" firstAttribute="leading" secondItem="b62-Nl-kRH" secondAttribute="leading" constant="29" id="KId-gZ-Q96"/>
-                                                    <constraint firstAttribute="trailing" secondItem="IGs-eG-f2b" secondAttribute="trailing" constant="30" id="KXI-v5-dLl"/>
                                                     <constraint firstAttribute="bottom" secondItem="iHb-mZ-jMT" secondAttribute="bottom" constant="40" id="KYX-Lw-Hyi"/>
-                                                    <constraint firstItem="TEv-Oh-rhS" firstAttribute="top" secondItem="M0L-Ig-lxj" secondAttribute="bottom" constant="8" id="OIr-ur-LYN"/>
                                                     <constraint firstItem="iHb-mZ-jMT" firstAttribute="leading" secondItem="b62-Nl-kRH" secondAttribute="leading" constant="29" id="PG8-rx-92s"/>
                                                     <constraint firstAttribute="trailing" secondItem="faf-v9-XJD" secondAttribute="trailing" constant="152" id="Q4x-RK-410"/>
-                                                    <constraint firstItem="OWf-za-xpC" firstAttribute="top" secondItem="faf-v9-XJD" secondAttribute="bottom" constant="40" id="bMx-qF-ZLe"/>
-                                                    <constraint firstAttribute="trailing" secondItem="TEv-Oh-rhS" secondAttribute="trailing" constant="12" id="dn6-vB-I1B"/>
-                                                    <constraint firstItem="OWf-za-xpC" firstAttribute="leading" secondItem="b62-Nl-kRH" secondAttribute="leading" constant="29" id="irT-ne-r5t"/>
+                                                    <constraint firstItem="VO7-n9-Kxh" firstAttribute="leading" secondItem="b62-Nl-kRH" secondAttribute="leading" constant="29" id="Z7e-hN-wdp"/>
+                                                    <constraint firstItem="VO7-n9-Kxh" firstAttribute="top" secondItem="faf-v9-XJD" secondAttribute="bottom" constant="4" id="bMx-qF-ZLe"/>
+                                                    <constraint firstAttribute="trailing" secondItem="TEv-Oh-rhS" secondAttribute="trailing" constant="30" id="dn6-vB-I1B"/>
                                                     <constraint firstAttribute="trailing" secondItem="iHb-mZ-jMT" secondAttribute="trailing" constant="30" id="nFk-zl-VFJ"/>
-                                                    <constraint firstItem="iHb-mZ-jMT" firstAttribute="top" secondItem="TEv-Oh-rhS" secondAttribute="bottom" constant="40" id="ola-bD-Vu9"/>
+                                                    <constraint firstAttribute="trailing" secondItem="VO7-n9-Kxh" secondAttribute="trailing" constant="29" id="oB7-SC-MhT"/>
+                                                    <constraint firstItem="iHb-mZ-jMT" firstAttribute="top" relation="greaterThanOrEqual" secondItem="TEv-Oh-rhS" secondAttribute="bottom" constant="10" id="ola-bD-Vu9"/>
                                                 </constraints>
                                             </view>
                                         </subviews>
@@ -275,13 +270,11 @@
                     <connections>
                         <outlet property="backButton" destination="KmK-Dk-zHa" id="fbk-A6-5d0"/>
                         <outlet property="favButton" destination="kxc-dj-bEy" id="Ask-sP-WtG"/>
-                        <outlet property="ingredientsLabel" destination="M0L-Ig-lxj" id="6VX-tJ-j7N"/>
-                        <outlet property="ingredientsTextView" destination="TEv-Oh-rhS" id="5nY-BJ-wfO"/>
                         <outlet property="orderButton" destination="uuK-rP-fN6" id="YXX-5k-0Zj"/>
                         <outlet property="recipeImageView" destination="yKN-85-xff" id="5Gv-cP-anG"/>
-                        <outlet property="recipeIntroductionLabel" destination="OWf-za-xpC" id="1Hy-MF-0fQ"/>
-                        <outlet property="recipeIntroductionTextView" destination="IGs-eG-f2b" id="YJN-3O-98J"/>
                         <outlet property="recipeNameLabel" destination="faf-v9-XJD" id="zRj-EC-Kzc"/>
+                        <outlet property="recipeTextView" destination="TEv-Oh-rhS" id="5nY-BJ-wfO"/>
+                        <outlet property="segmentedControl" destination="cb1-lG-axH" id="2zg-sX-HZo"/>
                         <outlet property="shareButton" destination="09w-Pq-kxU" id="xUE-zs-xJ5"/>
                     </connections>
                 </viewController>

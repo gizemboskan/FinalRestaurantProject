@@ -8,9 +8,14 @@
 import UIKit
 
 class KitchensViewController: UIViewController {
+    // MARK: - Properties
     
+    
+    
+    // MARK: - UI Components
     @IBOutlet var kitchenTableView: UITableView!
     let viewModel: KitchensViewModel = KitchensViewModel()
+    // MARK: - UIViewController Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         kitchenTableView.delegate = self
@@ -18,11 +23,13 @@ class KitchensViewController: UIViewController {
         let nibCell = UINib(nibName: "KitchenCell", bundle: nil)
         kitchenTableView.register(nibCell, forCellReuseIdentifier: "KitchenCell")
     }
+    
+    // MARK: - Helpers
 }
 // MARK: - UITableViewDataSource and Delegate
 extension KitchensViewController:  UITableViewDelegate, UITableViewDataSource {
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return 6
     }
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

@@ -8,9 +8,10 @@
 import UIKit
 
 class HomePageViewController: UIViewController {
+    // MARK: - Properties
     
     let viewModel: HomePageViewModel = HomePageViewModel()
-    
+    // MARK: - UI Components
     @IBOutlet var locationLabel: UILabel!
     @IBOutlet var kitchenTableView: UITableView!
     @IBOutlet var profileImageView: UIImageView!
@@ -20,10 +21,10 @@ class HomePageViewController: UIViewController {
     
     @IBOutlet var flowlayout: UICollectionViewFlowLayout!
     @IBOutlet var seeAllKitchensButton: UIButton!
-    lazy var restaurantPageViewController: RestaurantPageViewController = {
-        return children.lazy.compactMap({ $0 as? RestaurantPageViewController }).first!
+    lazy var restaurantPageViewController: KitchenPageViewController = {
+        return children.lazy.compactMap({ $0 as? KitchenPageViewController }).first!
     }()
-    
+    // MARK: - UIViewController Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         favRecipesCollectionView.delegate = self
@@ -35,6 +36,7 @@ class HomePageViewController: UIViewController {
         kitchenTableView.register(nibCell, forCellReuseIdentifier: "KitchenCell")
     }
     
+    // MARK: - Helpers
     @IBAction func seeAllFavRecipesButtonPressed(_ sender: UIButton) {
         let storyboard = UIStoryboard(name: "Recipe", bundle: nil)
         if let vc = storyboard.instantiateViewController(withIdentifier: "RecipesViewController") as? RecipesViewController {

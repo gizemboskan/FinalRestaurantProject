@@ -8,16 +8,22 @@
 import UIKit
 
 class RecipesViewController: UIViewController {
+    // MARK: - Properties
+   
     
+    // MARK: - UI Components
     @IBOutlet var recipesCollectionView: UICollectionView!
     @IBOutlet var flowlayout: UICollectionViewFlowLayout!
     let viewModel: RecipesViewModel = RecipesViewModel()
-    
+    // MARK: - UIViewController Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         recipesCollectionView.delegate = self
         recipesCollectionView.dataSource = self
     }
+    
+    
+    // MARK: - Helpers
 }
 // MARK: - UICollectionViewDataSource and Delegate
 extension RecipesViewController:  UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {

@@ -10,8 +10,11 @@ import Foundation
 import MapKit
 
 class KitchenDetailViewController: UIViewController {
+    // MARK: - Properties
     
     let viewModel: KitchenDetailViewModel = KitchenDetailViewModel()
+    
+    // MARK: - UI Components
     @IBOutlet var locationLabel: UILabel!
     @IBOutlet var scrollView: UIScrollView!
     @IBOutlet var mapView: MKMapView!
@@ -28,6 +31,7 @@ class KitchenDetailViewController: UIViewController {
     var items: [String] = ["Burger", "American", "A"]
     
     @IBOutlet var backButton: UIButton!
+    // MARK: - UIViewController Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.isNavigationBarHidden = true
@@ -36,8 +40,9 @@ class KitchenDetailViewController: UIViewController {
         kitchenDescriptionCollectionView.delegate = self
         kitchenDescriptionCollectionView.dataSource = self
     }
-    
+    // MARK: - Helpers
     @IBAction func backButtonPressed(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
         
     }
     

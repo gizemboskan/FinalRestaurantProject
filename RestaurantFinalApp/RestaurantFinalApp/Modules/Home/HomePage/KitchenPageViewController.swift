@@ -1,5 +1,5 @@
 //
-//  RestaurantPageViewController.swift
+//  KitchenPageViewController.swift
 //  RestaurantFinalApp
 //
 //  Created by Gizem Boskan on 10.08.2021.
@@ -18,13 +18,15 @@ import UIKit
 //    }
 //}
 
-class RestaurantPageViewController: UIPageViewController {
+class KitchenPageViewController: UIPageViewController {
+    // MARK: - Properties
+    
     fileprivate var items: [UIViewController] = []
     
     private var currentIndex: Int?
     var index = 0
     var counter = 0
-    
+    // MARK: - UIViewController Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         dataSource = self
@@ -34,7 +36,7 @@ class RestaurantPageViewController: UIPageViewController {
 //        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(goDetail(_:))))
         Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(self.changeImage), userInfo: nil, repeats: true)
     }
-    
+    // MARK: - Helpers
     @objc func changeImage(){
         goToNextPage()
     }
@@ -46,7 +48,7 @@ class RestaurantPageViewController: UIPageViewController {
     }
     
     fileprivate func decoratePageControl() {
-        let pc = UIPageControl.appearance(whenContainedInInstancesOf: [RestaurantPageViewController.self])
+        let pc = UIPageControl.appearance(whenContainedInInstancesOf: [KitchenPageViewController.self])
         pc.currentPageIndicatorTintColor = .orange
         pc.pageIndicatorTintColor = .gray
     }
@@ -62,7 +64,7 @@ class RestaurantPageViewController: UIPageViewController {
 }
 
 // MARK: - DataSource
-extension RestaurantPageViewController: UIPageViewControllerDataSource, UIPageViewControllerDelegate {
+extension KitchenPageViewController: UIPageViewControllerDataSource, UIPageViewControllerDelegate {
     
     func presentationCount(for _: UIPageViewController) -> Int {
         return items.count
