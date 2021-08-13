@@ -27,6 +27,9 @@ class HomePageViewController: UIViewController {
     // MARK: - UIViewController Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        viewModel.delegate = self
+        
         favRecipesCollectionView.delegate = self
         favRecipesCollectionView.dataSource = self
         
@@ -34,6 +37,8 @@ class HomePageViewController: UIViewController {
         kitchenTableView.dataSource = self
         let nibCell = UINib(nibName: "KitchenCell", bundle: nil)
         kitchenTableView.register(nibCell, forCellReuseIdentifier: "KitchenCell")
+        
+        viewModel.getMyRecipes()
     }
     
     // MARK: - Helpers
@@ -58,17 +63,20 @@ class HomePageViewController: UIViewController {
 // MARK: - UICollectionViewDataSource and Delegate
 extension HomePageViewController:  UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        return viewModel.myRecipes.count
     }
     
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = favRecipesCollectionView.dequeueReusableCell(withReuseIdentifier: "FavRecipesCollectionViewCell", for: indexPath) as! FavRecipesCollectionViewCell
+        let recipeModel = viewModel.myRecipes[indexPath.row]
+        cell.favRecipeName.text = recipeModel.name
+        cell.setImage(from: recipeModel.imageURL)
         return cell
     }
     public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let storyboard = UIStoryboard(name: "Recipe", bundle: nil)
         if let vc = storyboard.instantiateViewController(withIdentifier: "RecipeDetailViewController") as? RecipeDetailViewController {
-            
+            vc.viewModel.myRecipe = viewModel.myRecipes[indexPath.row]
             navigationController?.pushViewController(vc, animated: true)
             
         }
@@ -101,5 +109,15 @@ extension HomePageViewController:  UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 300
+    }
+}
+
+extension HomePageViewController: HomePageViewModelDelegate {
+    func showAlert(message: String) {
+        
+    }
+    
+    func myRecipesLoaded() {
+        favRecipesCollectionView.reloadData()
     }
 }

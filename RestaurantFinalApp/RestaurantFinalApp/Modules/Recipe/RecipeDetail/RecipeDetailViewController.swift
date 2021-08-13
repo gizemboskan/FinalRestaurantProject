@@ -30,11 +30,7 @@ class RecipeDetailViewController: UIViewController {
     }
     // MARK: - Helpers
     @IBAction func backButtonPressed(_ sender: UIButton) {
-        dismiss(animated: true, completion: nil)
-        
-//        if (storyboard?.instantiateViewController(withIdentifier: "RecipesViewController") as? RecipesViewController) != nil {
-//            dismiss(animated: true, completion: nil)
-//        }
+        navigationController?.popViewController(animated: true)
     }
     
     @IBAction func segmentDidChange(_ sender: UISegmentedControl) {

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8E14676226C6F80200684C85 /* FirebaseEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E14676126C6F80200684C85 /* FirebaseEndpoints.swift */; };
+		8E14676526C7059000684C85 /* RecipeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E14676426C7059000684C85 /* RecipeModel.swift */; };
+		8E14676726C7125300684C85 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E14676626C7125300684C85 /* HTTPClient.swift */; };
 		8E2F4F5D26C1B58B001EFE54 /* RAMAnimatedTabBarController in Frameworks */ = {isa = PBXBuildFile; productRef = 8E2F4F5C26C1B58B001EFE54 /* RAMAnimatedTabBarController */; };
 		8E3C72AD26C1926A00927023 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 8E3C72AC26C1926A00927023 /* FirebaseDatabase */; };
 		8E3C72B026C1931200927023 /* PaperOnboarding in Frameworks */ = {isa = PBXBuildFile; productRef = 8E3C72AF26C1931200927023 /* PaperOnboarding */; };
@@ -91,6 +94,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8E14676126C6F80200684C85 /* FirebaseEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseEndpoints.swift; sourceTree = "<group>"; };
+		8E14676426C7059000684C85 /* RecipeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeModel.swift; sourceTree = "<group>"; };
+		8E14676626C7125300684C85 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		8E46D2A426C012740063FCF2 /* HomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
 		8E46D2A626C012860063FCF2 /* HomePageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewModel.swift; sourceTree = "<group>"; };
 		8E46D2AA26C013120063FCF2 /* RecipesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesViewController.swift; sourceTree = "<group>"; };
@@ -186,6 +192,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8E14676026C6F7EF00684C85 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				8E14676326C7057B00684C85 /* Models */,
+				8E14676126C6F80200684C85 /* FirebaseEndpoints.swift */,
+				8E14676626C7125300684C85 /* HTTPClient.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		8E14676326C7057B00684C85 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8E14676426C7059000684C85 /* RecipeModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		8E2F4F5E26C27A2A001EFE54 /* TabItems */ = {
 			isa = PBXGroup;
 			children = (
@@ -382,6 +406,7 @@
 			isa = PBXGroup;
 			children = (
 				8E9CB99726B9647D000D564A /* Info.plist */,
+				8E14676026C6F7EF00684C85 /* Networking */,
 				8E9CB9C726B9678B000D564A /* Application */,
 				8E9CB9C826B967E6000D564A /* Modules */,
 				8E9CB9BB26B964F7000D564A /* Managers */,
@@ -698,8 +723,10 @@
 				8E7F4B1D26C2ADC3009F9AE3 /* KitchenCell.swift in Sources */,
 				8E46D2B626C014740063FCF2 /* KitchenDetailViewController.swift in Sources */,
 				8EC6084526BEFFDE00FCB4DB /* TutorialViewModel.swift in Sources */,
+				8E14676726C7125300684C85 /* HTTPClient.swift in Sources */,
 				8E46D2C826C015A80063FCF2 /* PaymentViewModel.swift in Sources */,
 				8E7F4B1526C2A4F1009F9AE3 /* KitchenPageViewController.swift in Sources */,
+				8E14676526C7059000684C85 /* RecipeModel.swift in Sources */,
 				8E46D2A726C012860063FCF2 /* HomePageViewModel.swift in Sources */,
 				8E46D2C126C015630063FCF2 /* AvailableKitchensCell.swift in Sources */,
 				8EC6084126BEFFC100FCB4DB /* TutorialViewController.swift in Sources */,
@@ -717,6 +744,7 @@
 				8E46D2BB26C014C00063FCF2 /* KitchensViewController.swift in Sources */,
 				8E7F4B3226C53532009F9AE3 /* MyOrderViewController.swift in Sources */,
 				8EC6084726BF004200FCB4DB /* LandingMenuViewModel.swift in Sources */,
+				8E14676226C6F80200684C85 /* FirebaseEndpoints.swift in Sources */,
 				8E9CB9C026B965A0000D564A /* UIImage+Extensions.swift in Sources */,
 				8E46D2AD26C0131C0063FCF2 /* RecipesViewModel.swift in Sources */,
 				8E46D2A526C012740063FCF2 /* HomePageViewController.swift in Sources */,

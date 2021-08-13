@@ -8,5 +8,6 @@
 import Foundation
 
 class RecipeDetailViewModel {
-    
+    var myRecipe: RecipeModel?
+
 }

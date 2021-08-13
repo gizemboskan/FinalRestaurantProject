@@ -10,14 +10,18 @@ import UIKit
 class CreateRecipeViewController: UIViewController, UINavigationControllerDelegate {
     // MARK: - Properties
     
+    // MARK: - UI ComponentsUT
+    @IBOutlet weak var recipeImagePickerView: UIImageView!
     
-    // MARK: - UI Components
-    @IBOutlet var recipeImagePickerView: UIImageView!
+    @IBOutlet weak var ingredientsTextView: UITextView!
+    @IBOutlet weak var instructionsTextView: UITextView!
+    @IBOutlet var firstView: UIView!
+    @IBOutlet var secondView: UIView!
+    @IBOutlet weak var imagePickerButton: UIButton!
+    @IBOutlet weak var shareButton: UIButton!
+    @IBOutlet weak var backButton: UIButton!
     
-    @IBOutlet var imagePickerButton: UIButton!
-    @IBOutlet var shareButton: UIButton!
-    @IBOutlet var backButton: UIButton!
-    @IBOutlet var recipeNameLabel: UILabel!{
+    @IBOutlet weak var recipeNameLabel: UILabel!{
         didSet{
             let recognizer = UILongPressGestureRecognizer()
             recognizer.addTarget(self, action: #selector(CreateRecipeViewController.lbllongpress))
@@ -25,22 +29,17 @@ class CreateRecipeViewController: UIViewController, UINavigationControllerDelega
             
         }
     }
-    
-    @IBOutlet var recipeTextView: UITextView!
-    @IBOutlet var segmentedControl: UISegmentedControl!
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
     let viewModel: CreateRecipeViewModel = CreateRecipeViewModel()
     
-    @IBOutlet var ingredientsCollectionView: UICollectionView!
-    @IBOutlet var flowlayout: UICollectionViewFlowLayout!
-    @IBOutlet var searchBar: UISearchBar!
-    @IBOutlet var editRecipeButton: UIButton!
-    @IBOutlet var doneButton: UIButton!
+    @IBOutlet weak var ingredientsCollectionView: UICollectionView!
+    @IBOutlet weak var flowlayout: UICollectionViewFlowLayout!
+    @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var editRecipeButton: UIButton!
+    @IBOutlet weak var doneButton: UIButton!
     // MARK: - UIViewController Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        setDefaultState()
-        
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -96,20 +95,25 @@ class CreateRecipeViewController: UIViewController, UINavigationControllerDelega
         switch segmentedControl.selectedSegmentIndex
         {
         case 0:
-            recipeTextView.text = "Please give the recipe details."
+            firstView.isHidden = false
+            secondView.isHidden = true
+        //  recipeTextView.text = "Please give the recipe details."
         case 1:
-            recipeTextView.text = "Please give the recipe details."
+            firstView.isHidden = true
+            secondView.isHidden = false
+            
+        // recipeTextView.text = "Please give the recipe details."
         default:
             break
         }
     }
     
     @IBAction func editRecipeButtonTapped(_ sender: UIButton) {
-        recipeTextView.isEditable = true
+        ///   recipeTextView.isEditable = true
         // butonun state'ini burada değiştir!
     }
     @IBAction func backButtonTapped(_ sender: UIButton) {
-        dismiss(animated: true, completion: nil)
+        navigationController?.popViewController(animated: true)
     }
     @IBAction func doneButtonPressed(_ sender: UIButton) {
         let storyboard = UIStoryboard(name: "Recipes", bundle: nil)
@@ -141,7 +145,7 @@ class CreateRecipeViewController: UIViewController, UINavigationControllerDelega
         recipeImagePickerView.image = nil
     }
     private func setDefaultTextViews() {
-        recipeTextView.text = "Please give the recipe details."
+        //   recipeTextView.text = "Please give the recipe details."
     }
     private func setDefaultShareButton() {
         shareButton.isEnabled = false
@@ -169,13 +173,13 @@ extension CreateRecipeViewController: UIImagePickerControllerDelegate {
 extension CreateRecipeViewController: UITextViewDelegate {
     
     func textViewDidBeginEditing(_ textView: UITextView) {
-        if recipeTextView.text == "Please give the recipe details." {
-            recipeTextView.text = ""
-            shareButton.isEnabled = true
-        }
+        //        if recipeTextView.text == "Please give the recipe details." {
+        //            recipeTextView.text = ""
+        //            shareButton.isEnabled = true
+        //        }
     }
     func textViewShouldEndEditing(_ textView: UITextView) -> Bool {
-        recipeTextView.resignFirstResponder()
+        //  recipeTextView.resignFirstResponder()
         return true
     }
 }

@@ -7,6 +7,7 @@
 
 import UIKit
 import PaperOnboarding
+import Firebase
 
 class TutorialViewController: UIViewController {
     
@@ -71,6 +72,7 @@ class TutorialViewController: UIViewController {
                            descriptionFont: TutorialViewController.descriptionFont)
     ]
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         skipButton.isHidden = true
@@ -78,6 +80,27 @@ class TutorialViewController: UIViewController {
         setupPaperOnboardingView()
         
         view.bringSubviewToFront(skipButton)
+
+        let recipe1 = RecipeModel(id: UUID().uuidString,
+                    name: "Pesto Chicken",
+                    imageURL: "https://www.aspicyperspective.com/wp-content/uploads/2014/04/pesto-chicken-5-256x256.jpg",
+                    instruction: "1.Preheat oven to 400˚F (200˚C). \n2.Place chicken breast in a baking dish. Season chicken with salt and pepper, to taste. \n 3.Spread pesto on each chicken breast. \n4.Layer tomatoes on top of the chicken. \n5.Top with mozzarella cheese. \n 6.Bake for 40 minutes.",
+                    ingredients: ["Pesto", "Chicken"],
+                    mealPortion: 6)
+        
+        
+        let recipe2 = RecipeModel(id: UUID().uuidString,
+                    name: "Pesto Chicken",
+                    imageURL: "https://www.aspicyperspective.com/wp-content/uploads/2014/04/pesto-chicken-5-256x256.jpg",
+                    instruction: "1.Preheat oven to 400˚F (200˚C). \n2.Place chicken breast in a baking dish. Season chicken with salt and pepper, to taste. \n 3.Spread pesto on each chicken breast. \n4.Layer tomatoes on top of the chicken. \n5.Top with mozzarella cheese. \n 6.Bake for 40 minutes.",
+                    ingredients: ["Pesto", "Chicken"],
+                    mealPortion: 6)
+        
+        
+        var myRecipes: [String:Any] = [:]
+        myRecipes[recipe1.id] = recipe1.dictionary
+        myRecipes[recipe2.id] = recipe2.dictionary
+        FirebaseEndpoints.myRecipes.getDatabasePath.setValue(myRecipes)
     }
     
     private func setupPaperOnboardingView() {
