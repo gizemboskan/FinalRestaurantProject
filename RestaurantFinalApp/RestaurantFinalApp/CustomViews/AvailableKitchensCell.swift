@@ -27,7 +27,7 @@ class AvailableKitchensCell: UITableViewCell, UINavigationControllerDelegate {
         let storyboard = UIStoryboard(name: "Order", bundle: nil)
         if let vc = storyboard.instantiateViewController(withIdentifier: "PaymentViewController") as? PaymentViewController {
             vc.popoverPresentationController?.sourceView = sender as UIView
-            present(vc, animated: true)
+            vc.present(vc, animated: true)
         }
     }
     

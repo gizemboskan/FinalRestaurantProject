@@ -23,7 +23,8 @@ class TutorialViewController: UIViewController {
     //                            color: UIColor(red: 0.40, green: 0.56, blue: 0.71, alpha: 1.00),
     //                            titleColor: UIColor.white, descriptionColor: UIColor.white, titleFont: titleFont, descriptionFont: descriptionFont),
     //
-    //         OnboardingItemInfo(informationImage: Asset.banks.image,
+    //
+    // OnboardingItemInfo(informationImage: Asset.banks.image,
     //                            title: "Banks",
     //                            description: "We carefully verify all banks before add them into the app",
     //                            pageIcon: Asset.wallet.image,
@@ -39,33 +40,33 @@ class TutorialViewController: UIViewController {
     //
     //         ]
     fileprivate let items = [
-        OnboardingItemInfo(informationImage: UIImage(named: "recipe" )! ,
-                           title: "title",
-                           description: "description",
-                           pageIcon: UIImage(named: "recipe" )!,
-                           color: UIColor.blue,
-                           titleColor: UIColor.blue,
-                           descriptionColor: UIColor.blue,
+        OnboardingItemInfo(informationImage: UIImage(named: "stores" )! ,
+                           title: "Kitchens",
+                           description: "All local kitchens are categorized for your convenience",
+                           pageIcon: UIImage(named: "stores" )!,
+                           color: UIColor(red: 0.40, green: 0.56, blue: 0.71, alpha: 1.00),
+                           titleColor: UIColor.white,
+                           descriptionColor: UIColor.white,
                            titleFont: TutorialViewController.titleFont,
                            descriptionFont: TutorialViewController.descriptionFont),
         
-        OnboardingItemInfo(informationImage: UIImage(named: "recipe" )! ,
+        OnboardingItemInfo(informationImage: UIImage(named: "page3" )! ,
                            title: "title",
-                           description: "description",
-                           pageIcon: UIImage(named: "recipe" )!,
-                           color: UIColor.blue,
-                           titleColor: UIColor.blue,
-                           descriptionColor: UIColor.blue,
+                           description: "We carefully verify all kitchens before add them into the app to serve you a delicious recipe!",
+                           pageIcon: UIImage(named: "page3" )!,
+                           color: UIColor(red: 0.40, green: 0.69, blue: 0.71, alpha: 1.00),
+                           titleColor: UIColor.white,
+                           descriptionColor: UIColor.white,
                            titleFont: TutorialViewController.titleFont ,
                            descriptionFont: TutorialViewController.descriptionFont ),
         
-        OnboardingItemInfo(informationImage: UIImage(named: "recipe" )! ,
+        OnboardingItemInfo(informationImage: UIImage(named: "page4" )! ,
                            title: "title",
-                           description: "description",
-                           pageIcon: UIImage(named: "recipe" )!,
-                           color: UIColor.blue,
-                           titleColor: UIColor.blue,
-                           descriptionColor: UIColor.blue,
+                           description: "We carefully deliver your meal under safe conditions",
+                           pageIcon: UIImage(named: "page4" )!,
+                           color: UIColor(red: 0.61, green: 0.56, blue: 0.74, alpha: 1.00),
+                           titleColor: UIColor.white,
+                           descriptionColor: UIColor.white,
                            titleFont: TutorialViewController.titleFont ,
                            descriptionFont: TutorialViewController.descriptionFont)
     ]
@@ -132,16 +133,16 @@ extension TutorialViewController: PaperOnboardingDataSource {
         return 3
     }
     
-    //    func onboardinPageItemRadius() -> CGFloat {
-    //        return 2
-    //    }
-    //
-    //    func onboardingPageItemSelectedRadius() -> CGFloat {
-    //        return 10
-    //    }
-    //    func onboardingPageItemColor(at index: Int) -> UIColor {
-    //        return [UIColor.white, UIColor.red, UIColor.green][index]
-    //    }
+        func onboardinPageItemRadius() -> CGFloat {
+            return 2
+        }
+    
+        func onboardingPageItemSelectedRadius() -> CGFloat {
+            return 10
+        }
+        func onboardingPageItemColor(at index: Int) -> UIColor {
+            return [UIColor.white, UIColor.red, UIColor.green][index]
+        }
 }
 
 

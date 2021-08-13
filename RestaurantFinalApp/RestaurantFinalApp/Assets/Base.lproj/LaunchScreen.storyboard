@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -15,31 +16,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launch" translatesAutoresizingMaskIntoConstraints="NO" id="q6P-8Q-8GE">
-                                <rect key="frame" x="82" y="323" width="250" height="250"/>
-                                <color key="backgroundColor" red="0.72410500050000004" green="0.1623862982" blue="0.145932436" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <color key="tintColor" red="0.72410500050000004" green="0.1623862982" blue="0.145932436" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="250" id="7Cw-4K-QDf"/>
-                                    <constraint firstAttribute="height" constant="250" id="Ue9-qw-8cn"/>
-                                </constraints>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="yemeksepeti" translatesAutoresizingMaskIntoConstraints="NO" id="ev1-QN-tgb">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="NBF-2f-Kcb"/>
-                        <color key="backgroundColor" red="0.72410500050000004" green="0.1623862982" blue="0.145932436" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <color key="tintColor" red="0.72410500050000004" green="0.1623862982" blue="0.145932436" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="q6P-8Q-8GE" firstAttribute="centerY" secondItem="O0M-ao-DHW" secondAttribute="centerY" id="h34-XC-1pA"/>
-                            <constraint firstItem="q6P-8Q-8GE" firstAttribute="centerX" secondItem="O0M-ao-DHW" secondAttribute="centerX" id="zlZ-n4-cW1"/>
+                            <constraint firstAttribute="bottom" secondItem="ev1-QN-tgb" secondAttribute="bottom" id="2LY-Hf-yxi"/>
+                            <constraint firstItem="ev1-QN-tgb" firstAttribute="top" secondItem="O0M-ao-DHW" secondAttribute="top" id="dv8-FN-yZd"/>
+                            <constraint firstItem="ev1-QN-tgb" firstAttribute="leading" secondItem="NBF-2f-Kcb" secondAttribute="leading" id="sC7-sm-nTy"/>
+                            <constraint firstItem="ev1-QN-tgb" firstAttribute="trailing" secondItem="NBF-2f-Kcb" secondAttribute="trailing" id="tJb-7H-yLC"/>
                         </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wSk-1f-osR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1229" y="375"/>
+            <point key="canvasLocation" x="1228.985507246377" y="375"/>
         </scene>
     </scenes>
     <resources>
-        <image name="launch" width="422" height="437"/>
+        <image name="yemeksepeti" width="747" height="1272"/>
+        <systemColor name="secondarySystemBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
     </resources>
 </document>
