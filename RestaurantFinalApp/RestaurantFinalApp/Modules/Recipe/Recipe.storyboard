@@ -35,9 +35,9 @@
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FoodName" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="VdP-B6-J9R">
-                                                    <rect key="frame" x="42.5" y="184" width="65" height="17.5"/>
+                                                    <rect key="frame" x="34.5" y="184" width="81" height="19.5"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="16"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
