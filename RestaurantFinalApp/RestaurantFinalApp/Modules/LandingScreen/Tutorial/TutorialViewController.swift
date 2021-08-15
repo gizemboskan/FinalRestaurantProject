@@ -101,6 +101,23 @@ class TutorialViewController: UIViewController {
         myRecipes[recipe1.id] = recipe1.dictionary
         myRecipes[recipe2.id] = recipe2.dictionary
         FirebaseEndpoints.myRecipes.getDatabasePath.setValue(myRecipes)
+        
+        
+        
+        
+        
+        let kitchen1 = KitchenModel(id: <#T##String#>, name: <#T##String#>, imageURL: <#T##String#>, location: <#T##String#>, recipes: <#T##[RecipeModel]#>, description: <#T##String#>, avarageDeliveryTime: <#T##String#>)
+        
+        var kitchens: [String:Any] = [:]
+        kitchens[kitchen1.id] = kitchen1.dictionary
+        // favoriye yada locationa göre sort olabilirler..
+        FirebaseEndpoints.kitchens.getDatabasePath.setValue(kitchens)
+        
+        
+        let myUser = UserModel(id: UUID().uuidString, name: "Oliver Sunrise", recipes: <#T##[RecipeModel]#>, location: <#T##String#>)
+        
+        
+        
     }
     
     private func setupPaperOnboardingView() {
