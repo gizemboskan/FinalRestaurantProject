@@ -22,6 +22,7 @@ class RecipeDetailViewController: UIViewController {
     
     @IBOutlet var recipeTextView: UITextView!
     @IBOutlet var orderButton: UIButton!
+    
     let viewModel: RecipeDetailViewModel = RecipeDetailViewModel()
     // MARK: - UIViewController Lifecycle
     override func viewDidLoad() {
@@ -69,4 +70,14 @@ class RecipeDetailViewController: UIViewController {
         }
        
     }
+}
+extension RecipeDetailViewController: RecipeDetailViewModelDelegate{
+    func showAlert(message: String) {
+        <#code#>
+    }
+    
+    func titleLoaded(title: String) {
+        recipeNameLabel.text = title
+    }
+
 }

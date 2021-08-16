@@ -39,6 +39,7 @@ class HomePageViewController: UIViewController {
         kitchenTableView.register(nibCell, forCellReuseIdentifier: "KitchenCell")
         
         viewModel.getMyRecipes()
+        viewModel.getKitchens()
     }
     
     // MARK: - Helpers
@@ -92,17 +93,21 @@ extension HomePageViewController:  UICollectionViewDelegate, UICollectionViewDat
 // MARK: - UITableViewDataSource and Delegate
 extension HomePageViewController:  UITableViewDelegate, UITableViewDataSource {
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return viewModel.kitchens.count
     }
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = kitchenTableView.dequeueReusableCell(withIdentifier: "KitchenCell", for: indexPath) as! KitchenCell
+        let kitchenModel = viewModel.kitchens[indexPath.row]
+        cell.kitchenTitle.text = kitchenModel.name
+        cell.setImage(from: kitchenModel.imageURL)
+        
         return cell
     }
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let storyboard = UIStoryboard(name: "Kitchen", bundle: nil)
         if let vc = storyboard.instantiateViewController(withIdentifier: "KitchenDetailViewController") as? KitchenDetailViewController {
-            
+            vc.viewModel.kitchens = viewModel.kitchens[indexPath.row]
             navigationController?.pushViewController(vc, animated: true)
         }
     }
@@ -113,6 +118,10 @@ extension HomePageViewController:  UITableViewDelegate, UITableViewDataSource {
 }
 
 extension HomePageViewController: HomePageViewModelDelegate {
+    func kitchensLoaded() {
+        kitchenTableView.reloadData()
+    }
+    
     func showAlert(message: String) {
         
     }

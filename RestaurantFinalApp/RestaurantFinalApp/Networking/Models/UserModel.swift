@@ -10,7 +10,7 @@ import Foundation
 struct UserModel {
     var id: String
     var name: String
-    var recipes: [RecipeModel]
+    var recipes: [String: Any]
     var location: String
     
     var dictionary: [String: Any] {
@@ -24,7 +24,7 @@ struct UserModel {
     static func getUserFromDict(userDetails: [String: Any]) -> UserModel {
         return UserModel(id: userDetails["id"] as! String,
                          name: userDetails["name"] as! String,
-                         recipes: userDetails["recipes"] as! [RecipeModel],
+                         recipes: userDetails["recipes"] as! [String: Any],
                          location: userDetails["location"] as! String)
     }
 }

@@ -20,7 +20,14 @@ class KitchenCell: UITableViewCell {
             flow.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
         }
     }
-    
+    public func setImage(from urlString: String) {
+        HTTPClient.downloadImage(path: urlString){ data, error in
+            DispatchQueue.main.async {
+                guard let data = data else { return }
+                self.kitchenImage.image = UIImage(data: data)
+            }
+        }
+    }
    
     @IBAction func lovedButtonAction(_ sender: UIButton) {
     }

@@ -58,6 +58,7 @@
 		8E7F4B3C26C5C639009F9AE3 /* GetOfferViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7F4B3B26C5C639009F9AE3 /* GetOfferViewController.swift */; };
 		8E9471DC26C9BA91003234AA /* KitchenModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9471DB26C9BA90003234AA /* KitchenModel.swift */; };
 		8E9471DE26C9BAB3003234AA /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9471DD26C9BAB3003234AA /* UserModel.swift */; };
+		8E9471E026CAD058003234AA /* VerticalProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9471DF26CAD057003234AA /* VerticalProgressView.swift */; };
 		8E9CB98726B96476000D564A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9CB98626B96476000D564A /* AppDelegate.swift */; };
 		8E9CB98926B96476000D564A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9CB98826B96476000D564A /* SceneDelegate.swift */; };
 		8E9CB99126B96476000D564A /* RestaurantFinalApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8E9CB98F26B96476000D564A /* RestaurantFinalApp.xcdatamodeld */; };
@@ -141,6 +142,7 @@
 		8E7F4B3B26C5C639009F9AE3 /* GetOfferViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetOfferViewController.swift; sourceTree = "<group>"; };
 		8E9471DB26C9BA90003234AA /* KitchenModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KitchenModel.swift; sourceTree = "<group>"; };
 		8E9471DD26C9BAB3003234AA /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		8E9471DF26CAD057003234AA /* VerticalProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalProgressView.swift; sourceTree = "<group>"; };
 		8E9CB98326B96476000D564A /* RestaurantFinalApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RestaurantFinalApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E9CB98626B96476000D564A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8E9CB98826B96476000D564A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -306,9 +308,9 @@
 		8E46D2BE26C0154D0063FCF2 /* Order */ = {
 			isa = PBXGroup;
 			children = (
-				8E7F4B3026C5350F009F9AE3 /* MyOrder */,
 				8E46D2BF26C015520063FCF2 /* GetOffer */,
 				8E46D2C426C0158E0063FCF2 /* Payment */,
+				8E7F4B3026C5350F009F9AE3 /* MyOrder */,
 				8E46D2E026C017F40063FCF2 /* Order.storyboard */,
 			);
 			path = Order;
@@ -461,6 +463,7 @@
 				8E7F4B1926C2ACDC009F9AE3 /* KitchenCell.xib */,
 				8E7F4B1C26C2ADC3009F9AE3 /* KitchenCell.swift */,
 				8E7F4B1E26C2C6C0009F9AE3 /* FavRecipesCollectionViewCell.swift */,
+				8E9471DF26CAD057003234AA /* VerticalProgressView.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -744,6 +747,7 @@
 				8E46D2BD26C014CB0063FCF2 /* KitchensViewModel.swift in Sources */,
 				8E46D2D726C017610063FCF2 /* ProfileViewController.swift in Sources */,
 				8E7F4B0F26C27EDF009F9AE3 /* SecondBarItemViewController.swift in Sources */,
+				8E9471E026CAD058003234AA /* VerticalProgressView.swift in Sources */,
 				8E9471DC26C9BA91003234AA /* KitchenModel.swift in Sources */,
 				8E46D2B226C013DE0063FCF2 /* RecipeDetailViewModel.swift in Sources */,
 				8E46D2D926C0176D0063FCF2 /* ProfileViewModel.swift in Sources */,

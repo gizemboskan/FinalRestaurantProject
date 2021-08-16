@@ -8,10 +8,5 @@
 import UIKit
 
 extension UIColor {
-    static let mateWhite: UIColor = .white
-    static let mateBlack: UIColor = .blue
-    static let mateLightRed: UIColor = .red
-    static let mateToolButtonBlue: UIColor = .blue
-    static let mateScreenBackgroundColor: UIColor = .systemGray6
-    static let mateLightBlue: UIColor = .blue
+
 }

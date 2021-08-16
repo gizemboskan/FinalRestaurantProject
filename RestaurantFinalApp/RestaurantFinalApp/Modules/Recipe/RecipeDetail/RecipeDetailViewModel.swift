@@ -7,7 +7,19 @@
 
 import Foundation
 
-class RecipeDetailViewModel {
-    var myRecipe: RecipeModel?
+protocol RecipeDetailViewModelDelegate: AnyObject {
+    func showAlert(message: String)
+    func titleLoaded(title: String)
+    
+}
 
+class RecipeDetailViewModel {
+    weak var delegate: RecipeDetailViewModelDelegate?
+    
+   private var myRecipe: RecipeModel?
+    
+    func getRecipeDetails(){
+        delegate?.titleLoaded(title: myRecipe?.name ?? "")
+    }
+    
 }

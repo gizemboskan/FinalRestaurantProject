@@ -12,7 +12,7 @@ struct KitchenModel {
     var name: String
     var imageURL: String
     var location: String
-    var recipes: [RecipeModel]
+    var recipes: [String: Any]
     var description: String
     var avarageDeliveryTime: String
     
@@ -34,7 +34,7 @@ struct KitchenModel {
                             name: kitchenDetails["name"] as! String,
                             imageURL: kitchenDetails["imageURL"] as! String,
                             location: kitchenDetails["location"] as! String,
-                            recipes: kitchenDetails["recipes"] as! [RecipeModel],
+                            recipes: kitchenDetails["recipes"] as! [String: Any] ,
                             description: kitchenDetails["description"] as! String,
                             avarageDeliveryTime: kitchenDetails["avarageDeliveryTime"] as! String)
     }
