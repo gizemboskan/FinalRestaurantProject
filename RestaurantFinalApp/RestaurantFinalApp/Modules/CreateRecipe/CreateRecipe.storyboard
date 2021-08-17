@@ -160,9 +160,9 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cPc-ER-2nt">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1104"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="recipe2" translatesAutoresizingMaskIntoConstraints="NO" id="Owa-Bv-3vz">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Owa-Bv-3vz">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="430"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="430" id="OOQ-ic-efo"/>
@@ -193,19 +193,15 @@
                                                 </connections>
                                             </button>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rsq-Gb-Eqy">
-                                                <rect key="frame" x="0.0" y="301" width="414" height="803"/>
+                                                <rect key="frame" x="0.0" y="301" width="414" height="595"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Cocoa Bites" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QEU-tZ-LaD">
-                                                        <rect key="frame" x="29" y="13" width="233" height="29"/>
-                                                        <accessibility key="accessibilityConfiguration">
-                                                            <accessibilityTraits key="traits" adjustable="YES"/>
-                                                        </accessibility>
-                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
-                                                        <color key="textColor" red="0.1215686275" green="0.16078431369999999" blue="0.2156862745" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your recipe name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YAZ-ib-UAw">
+                                                        <rect key="frame" x="30" y="8" width="354" height="34"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GqJ-pP-aZt" userLabel="Segmented View">
-                                                        <rect key="frame" x="29" y="46" width="356" height="39"/>
+                                                        <rect key="frame" x="29" y="50" width="356" height="39"/>
                                                         <subviews>
                                                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bordered" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="P2F-rk-ptf">
                                                                 <rect key="frame" x="4" y="4" width="348" height="32"/>
@@ -228,7 +224,7 @@
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ASP-db-qCp" userLabel="View with Button">
-                                                        <rect key="frame" x="29" y="715" width="355" height="48"/>
+                                                        <rect key="frame" x="29" y="507" width="355" height="48"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2kR-zu-uZm">
                                                                 <rect key="frame" x="0.0" y="0.0" width="355" height="48"/>
@@ -253,7 +249,7 @@
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h9w-6N-Eza" userLabel="View with Button">
-                                                        <rect key="frame" x="157" y="617" width="100" height="48"/>
+                                                        <rect key="frame" x="157" y="409" width="100" height="48"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NSq-nU-DE4">
                                                                 <rect key="frame" x="0.0" y="0.0" width="100" height="48"/>
@@ -280,18 +276,17 @@
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" verticalHuggingPriority="245" translatesAutoresizingMaskIntoConstraints="NO" id="dAj-Og-SoD">
-                                                        <rect key="frame" x="30" y="101" width="354" height="500"/>
+                                                        <rect key="frame" x="30" y="105" width="354" height="288"/>
                                                         <subviews>
-                                                            <view contentMode="scaleToFill" verticalHuggingPriority="243" verticalCompressionResistancePriority="752" translatesAutoresizingMaskIntoConstraints="NO" id="EfA-F7-Vnq">
-                                                                <rect key="frame" x="0.0" y="0.0" width="354" height="500"/>
+                                                            <view contentMode="scaleToFill" verticalHuggingPriority="245" verticalCompressionResistancePriority="752" translatesAutoresizingMaskIntoConstraints="NO" id="EfA-F7-Vnq">
+                                                                <rect key="frame" x="0.0" y="0.0" width="354" height="288"/>
                                                                 <subviews>
-                                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="245" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="4Oq-XD-W7A">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="354" height="500"/>
+                                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="245" text="Write down your instructions!" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="4Oq-XD-W7A">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="354" height="288"/>
                                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptaLorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptaLorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptaLorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in volupta</string>
                                                                         <color key="textColor" red="0.41960784309999999" green="0.44705882349999998" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" smartDashesType="no"/>
                                                                     </textView>
                                                                 </subviews>
                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -300,11 +295,10 @@
                                                                     <constraint firstAttribute="bottom" secondItem="4Oq-XD-W7A" secondAttribute="bottom" id="X0a-qK-4lR"/>
                                                                     <constraint firstItem="4Oq-XD-W7A" firstAttribute="top" secondItem="EfA-F7-Vnq" secondAttribute="top" id="Zxh-In-khS"/>
                                                                     <constraint firstAttribute="trailing" secondItem="4Oq-XD-W7A" secondAttribute="trailing" id="fIs-9c-DgC"/>
-                                                                    <constraint firstAttribute="height" constant="500" id="yCm-Qo-Pkz"/>
                                                                 </constraints>
                                                             </view>
-                                                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SSm-gI-WjV">
-                                                                <rect key="frame" x="0.0" y="0.0" width="354" height="500"/>
+                                                            <view hidden="YES" contentMode="scaleToFill" verticalHuggingPriority="245" translatesAutoresizingMaskIntoConstraints="NO" id="SSm-gI-WjV">
+                                                                <rect key="frame" x="0.0" y="0.0" width="354" height="288"/>
                                                                 <subviews>
                                                                     <searchBar contentMode="redraw" placeholder="Search for ingredients!" showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hIe-gR-rWn">
                                                                         <rect key="frame" x="0.0" y="8" width="354" height="51"/>
@@ -373,10 +367,12 @@
                                                                             </collectionViewCell>
                                                                         </cells>
                                                                     </collectionView>
-                                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="244" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="1pq-Dq-dVS">
-                                                                        <rect key="frame" x="0.0" y="136" width="354" height="364"/>
+                                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="245" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="1pq-Dq-dVS">
+                                                                        <rect key="frame" x="0.0" y="136" width="354" height="152"/>
                                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptaLorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptaLorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptaLorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in volupta</string>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="150" id="XBn-Ra-NmA"/>
+                                                                        </constraints>
                                                                         <color key="textColor" red="0.41960784309999999" green="0.44705882349999998" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -384,6 +380,7 @@
                                                                 </subviews>
                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                 <constraints>
+                                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="288" id="2KD-T7-yjV"/>
                                                                     <constraint firstAttribute="trailing" secondItem="89h-TO-LNl" secondAttribute="trailing" id="2Qt-M1-gxG"/>
                                                                     <constraint firstItem="89h-TO-LNl" firstAttribute="top" secondItem="hIe-gR-rWn" secondAttribute="bottom" constant="16" id="N4I-D3-4bI"/>
                                                                     <constraint firstAttribute="bottom" secondItem="1pq-Dq-dVS" secondAttribute="bottom" id="U4K-dL-3UK"/>
@@ -412,19 +409,19 @@
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
-                                                    <constraint firstItem="QEU-tZ-LaD" firstAttribute="leading" secondItem="rsq-Gb-Eqy" secondAttribute="leading" constant="29" id="2Ks-8C-h7u"/>
                                                     <constraint firstAttribute="bottom" secondItem="ASP-db-qCp" secondAttribute="bottom" constant="40" id="6uc-Fj-C1h"/>
                                                     <constraint firstAttribute="trailing" secondItem="ASP-db-qCp" secondAttribute="trailing" constant="30" id="79N-Ye-XZJ"/>
                                                     <constraint firstItem="h9w-6N-Eza" firstAttribute="top" secondItem="dAj-Og-SoD" secondAttribute="bottom" constant="16" id="9LC-HH-yvJ"/>
                                                     <constraint firstItem="ASP-db-qCp" firstAttribute="top" secondItem="h9w-6N-Eza" secondAttribute="bottom" constant="50" id="ASk-MJ-ELy"/>
                                                     <constraint firstItem="ASP-db-qCp" firstAttribute="leading" secondItem="rsq-Gb-Eqy" secondAttribute="leading" constant="29" id="BN2-J1-DWF"/>
-                                                    <constraint firstItem="QEU-tZ-LaD" firstAttribute="top" secondItem="rsq-Gb-Eqy" secondAttribute="top" constant="13" id="HsT-ic-57f"/>
-                                                    <constraint firstItem="GqJ-pP-aZt" firstAttribute="top" secondItem="QEU-tZ-LaD" secondAttribute="bottom" constant="4" id="LW9-ee-dHh"/>
-                                                    <constraint firstAttribute="trailing" secondItem="QEU-tZ-LaD" secondAttribute="trailing" constant="152" id="O5u-ct-Ow7"/>
+                                                    <constraint firstItem="YAZ-ib-UAw" firstAttribute="bottom" secondItem="GqJ-pP-aZt" secondAttribute="top" constant="-8" id="C7a-sN-iqJ"/>
+                                                    <constraint firstItem="YAZ-ib-UAw" firstAttribute="top" secondItem="rsq-Gb-Eqy" secondAttribute="top" constant="8" id="G91-Ot-O1t"/>
+                                                    <constraint firstItem="YAZ-ib-UAw" firstAttribute="leading" secondItem="rsq-Gb-Eqy" secondAttribute="leading" constant="30" id="TK3-7B-viv"/>
                                                     <constraint firstItem="GqJ-pP-aZt" firstAttribute="leading" secondItem="rsq-Gb-Eqy" secondAttribute="leading" constant="29" id="Xkj-YG-aXu"/>
                                                     <constraint firstAttribute="trailing" secondItem="GqJ-pP-aZt" secondAttribute="trailing" constant="29" id="cN7-G4-WoV"/>
                                                     <constraint firstItem="dAj-Og-SoD" firstAttribute="top" secondItem="GqJ-pP-aZt" secondAttribute="bottom" constant="16" id="eq9-pN-XAl"/>
                                                     <constraint firstAttribute="trailing" secondItem="dAj-Og-SoD" secondAttribute="trailing" constant="30" id="jmA-9m-jE7"/>
+                                                    <constraint firstAttribute="trailing" secondItem="YAZ-ib-UAw" secondAttribute="trailing" constant="30" id="wrc-YS-pIv"/>
                                                     <constraint firstItem="dAj-Og-SoD" firstAttribute="leading" secondItem="rsq-Gb-Eqy" secondAttribute="leading" constant="30" id="xgr-82-583"/>
                                                 </constraints>
                                             </view>
@@ -492,7 +489,7 @@
                         <outlet property="ingredientsTextView" destination="1pq-Dq-dVS" id="IOF-up-mFc"/>
                         <outlet property="instructionsTextView" destination="4Oq-XD-W7A" id="OLB-Bz-dW8"/>
                         <outlet property="recipeImagePickerView" destination="Owa-Bv-3vz" id="D1h-ln-GME"/>
-                        <outlet property="recipeNameLabel" destination="QEU-tZ-LaD" id="Toa-8n-VUJ"/>
+                        <outlet property="recipeNameField" destination="YAZ-ib-UAw" id="U3M-tJ-uZT"/>
                         <outlet property="searchBar" destination="hIe-gR-rWn" id="UTJ-i6-Wit"/>
                         <outlet property="secondView" destination="SSm-gI-WjV" id="coe-tN-Ht9"/>
                         <outlet property="segmentedControl" destination="P2F-rk-ptf" id="CdW-Za-Z6a"/>
@@ -510,7 +507,6 @@
         <image name="like" width="22.5" height="19.5"/>
         <image name="mask" width="375" height="355"/>
         <image name="photo2" width="25" height="20"/>
-        <image name="recipe2" width="375" height="431"/>
         <image name="restImage" width="1800" height="1200"/>
         <image name="share" width="40" height="40"/>
         <systemColor name="systemBackgroundColor">

@@ -10,8 +10,8 @@
 		8E14676226C6F80200684C85 /* FirebaseEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E14676126C6F80200684C85 /* FirebaseEndpoints.swift */; };
 		8E14676526C7059000684C85 /* RecipeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E14676426C7059000684C85 /* RecipeModel.swift */; };
 		8E14676726C7125300684C85 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E14676626C7125300684C85 /* HTTPClient.swift */; };
+		8E1B666426CBAEFE00BC5F47 /* UIImageView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1B666326CBAEFE00BC5F47 /* UIImageView+Extensions.swift */; };
 		8E2F4F5D26C1B58B001EFE54 /* RAMAnimatedTabBarController in Frameworks */ = {isa = PBXBuildFile; productRef = 8E2F4F5C26C1B58B001EFE54 /* RAMAnimatedTabBarController */; };
-		8E3C72AD26C1926A00927023 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 8E3C72AC26C1926A00927023 /* FirebaseDatabase */; };
 		8E3C72B026C1931200927023 /* PaperOnboarding in Frameworks */ = {isa = PBXBuildFile; productRef = 8E3C72AF26C1931200927023 /* PaperOnboarding */; };
 		8E46D2A526C012740063FCF2 /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E46D2A426C012740063FCF2 /* HomePageViewController.swift */; };
 		8E46D2A726C012860063FCF2 /* HomePageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E46D2A626C012860063FCF2 /* HomePageViewModel.swift */; };
@@ -77,6 +77,8 @@
 		8EC6084326BEFFD000FCB4DB /* LandingMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC6084226BEFFD000FCB4DB /* LandingMenuViewController.swift */; };
 		8EC6084526BEFFDE00FCB4DB /* TutorialViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC6084426BEFFDE00FCB4DB /* TutorialViewModel.swift */; };
 		8EC6084726BF004200FCB4DB /* LandingMenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC6084626BF004200FCB4DB /* LandingMenuViewModel.swift */; };
+		8EF903B026CC27E30028A8A1 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 8EF903AF26CC27E30028A8A1 /* FirebaseDatabase */; };
+		8EF903B226CC27E30028A8A1 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 8EF903B126CC27E30028A8A1 /* FirebaseStorage */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,6 +102,7 @@
 		8E14676126C6F80200684C85 /* FirebaseEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseEndpoints.swift; sourceTree = "<group>"; };
 		8E14676426C7059000684C85 /* RecipeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeModel.swift; sourceTree = "<group>"; };
 		8E14676626C7125300684C85 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
+		8E1B666326CBAEFE00BC5F47 /* UIImageView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extensions.swift"; sourceTree = "<group>"; };
 		8E46D2A426C012740063FCF2 /* HomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
 		8E46D2A626C012860063FCF2 /* HomePageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewModel.swift; sourceTree = "<group>"; };
 		8E46D2AA26C013120063FCF2 /* RecipesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesViewController.swift; sourceTree = "<group>"; };
@@ -175,8 +178,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				8E3C72B026C1931200927023 /* PaperOnboarding in Frameworks */,
-				8E3C72AD26C1926A00927023 /* FirebaseDatabase in Frameworks */,
 				8E7F4B3A26C5BAF8009F9AE3 /* StepIndicator in Frameworks */,
+				8EF903B026CC27E30028A8A1 /* FirebaseDatabase in Frameworks */,
+				8EF903B226CC27E30028A8A1 /* FirebaseStorage in Frameworks */,
 				8E2F4F5D26C1B58B001EFE54 /* RAMAnimatedTabBarController in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -481,6 +485,7 @@
 				8E9CB9BF26B965A0000D564A /* UIImage+Extensions.swift */,
 				8E9CB9C126B965C2000D564A /* UIViewController+Extensions.swift */,
 				8E9CB9CC26B969B1000D564A /* UIColor+Extensions.swift */,
+				8E1B666326CBAEFE00BC5F47 /* UIImageView+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -587,10 +592,11 @@
 			);
 			name = RestaurantFinalApp;
 			packageProductDependencies = (
-				8E3C72AC26C1926A00927023 /* FirebaseDatabase */,
 				8E3C72AF26C1931200927023 /* PaperOnboarding */,
 				8E2F4F5C26C1B58B001EFE54 /* RAMAnimatedTabBarController */,
 				8E7F4B3926C5BAF8009F9AE3 /* StepIndicator */,
+				8EF903AF26CC27E30028A8A1 /* FirebaseDatabase */,
+				8EF903B126CC27E30028A8A1 /* FirebaseStorage */,
 			);
 			productName = RestaurantFinalApp;
 			productReference = 8E9CB98326B96476000D564A /* RestaurantFinalApp.app */;
@@ -664,10 +670,10 @@
 			);
 			mainGroup = 8E9CB97A26B96476000D564A;
 			packageReferences = (
-				8E3C72AB26C1926A00927023 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				8E3C72AE26C1931200927023 /* XCRemoteSwiftPackageReference "paper-onboarding" */,
 				8E2F4F5B26C1B58B001EFE54 /* XCRemoteSwiftPackageReference "animated-tab-bar" */,
 				8E7F4B3826C5BAF7009F9AE3 /* XCRemoteSwiftPackageReference "StepIndicator" */,
+				8EF903AE26CC27E30028A8A1 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = 8E9CB98426B96476000D564A /* Products */;
 			projectDirPath = "";
@@ -756,6 +762,7 @@
 				8E46D2BB26C014C00063FCF2 /* KitchensViewController.swift in Sources */,
 				8E7F4B3226C53532009F9AE3 /* MyOrderViewController.swift in Sources */,
 				8EC6084726BF004200FCB4DB /* LandingMenuViewModel.swift in Sources */,
+				8E1B666426CBAEFE00BC5F47 /* UIImageView+Extensions.swift in Sources */,
 				8E14676226C6F80200684C85 /* FirebaseEndpoints.swift in Sources */,
 				8E9CB9C026B965A0000D564A /* UIImage+Extensions.swift in Sources */,
 				8E46D2AD26C0131C0063FCF2 /* RecipesViewModel.swift in Sources */,
@@ -1107,14 +1114,6 @@
 				minimumVersion = 5.2.0;
 			};
 		};
-		8E3C72AB26C1926A00927023 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 8.5.0;
-			};
-		};
 		8E3C72AE26C1931200927023 /* XCRemoteSwiftPackageReference "paper-onboarding" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Ramotion/paper-onboarding.git";
@@ -1131,6 +1130,14 @@
 				minimumVersion = 1.0.9;
 			};
 		};
+		8EF903AE26CC27E30028A8A1 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.6.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1138,11 +1145,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 8E2F4F5B26C1B58B001EFE54 /* XCRemoteSwiftPackageReference "animated-tab-bar" */;
 			productName = RAMAnimatedTabBarController;
-		};
-		8E3C72AC26C1926A00927023 /* FirebaseDatabase */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 8E3C72AB26C1926A00927023 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseDatabase;
 		};
 		8E3C72AF26C1931200927023 /* PaperOnboarding */ = {
 			isa = XCSwiftPackageProductDependency;
@@ -1153,6 +1155,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 8E7F4B3826C5BAF7009F9AE3 /* XCRemoteSwiftPackageReference "StepIndicator" */;
 			productName = StepIndicator;
+		};
+		8EF903AF26CC27E30028A8A1 /* FirebaseDatabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8EF903AE26CC27E30028A8A1 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabase;
+		};
+		8EF903B126CC27E30028A8A1 /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8EF903AE26CC27E30028A8A1 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
 		};
 /* End XCSwiftPackageProductDependency section */
 

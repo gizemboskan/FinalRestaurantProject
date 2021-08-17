@@ -9,10 +9,10 @@ import UIKit
 
 class CreateRecipeViewController: UIViewController, UINavigationControllerDelegate {
     // MARK: - Properties
-    
+    let viewModel: CreateRecipeViewModel = CreateRecipeViewModel()
+
     // MARK: - UI ComponentsUT
     @IBOutlet weak var recipeImagePickerView: UIImageView!
-    
     @IBOutlet weak var ingredientsTextView: UITextView!
     @IBOutlet weak var instructionsTextView: UITextView!
     @IBOutlet var firstView: UIView!
@@ -20,26 +20,23 @@ class CreateRecipeViewController: UIViewController, UINavigationControllerDelega
     @IBOutlet weak var imagePickerButton: UIButton!
     @IBOutlet weak var shareButton: UIButton!
     @IBOutlet weak var backButton: UIButton!
-    
-    @IBOutlet weak var recipeNameLabel: UILabel!{
-        didSet{
-            let recognizer = UILongPressGestureRecognizer()
-            recognizer.addTarget(self, action: #selector(CreateRecipeViewController.lbllongpress))
-            recipeNameLabel.addGestureRecognizer(recognizer)
-            
-        }
-    }
+    @IBOutlet weak var recipeNameField: UITextField!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
-    let viewModel: CreateRecipeViewModel = CreateRecipeViewModel()
-    
     @IBOutlet weak var ingredientsCollectionView: UICollectionView!
     @IBOutlet weak var flowlayout: UICollectionViewFlowLayout!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var editRecipeButton: UIButton!
     @IBOutlet weak var doneButton: UIButton!
+    
     // MARK: - UIViewController Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.isNavigationBarHidden = true
+        viewModel.delegate = self
+        ingredientsTextView.delegate = self
+        instructionsTextView.delegate = self
+        recipeNameField.delegate = self
+        viewModel.editArrivedRecipe()
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -50,15 +47,6 @@ class CreateRecipeViewController: UIViewController, UINavigationControllerDelega
     }
     
     // MARK: - Helpers
-    @objc func lbllongpress(gesture: UILongPressGestureRecognizer) {
-        switch gesture.state {
-        case UIGestureRecognizer.State.began:
-            break;
-        case UIGestureRecognizer.State.ended:
-            recipeNameLabel.text = ""
-        default: break
-        }
-    }
     @IBAction func shareButtonTapped(_ sender: UIButton) {
         let vc = UIActivityViewController(activityItems: ["Share this great recipe with your loved ones! :)\n Or just save!"] , applicationActivities: [])
         vc.popoverPresentationController?.sourceView = sender as UIView
@@ -97,29 +85,26 @@ class CreateRecipeViewController: UIViewController, UINavigationControllerDelega
         case 0:
             firstView.isHidden = false
             secondView.isHidden = true
-        //  recipeTextView.text = "Please give the recipe details."
         case 1:
             firstView.isHidden = true
             secondView.isHidden = false
-            
-        // recipeTextView.text = "Please give the recipe details."
         default:
             break
         }
     }
     
+    // TODO REMOVE
     @IBAction func editRecipeButtonTapped(_ sender: UIButton) {
         ///   recipeTextView.isEditable = true
         // butonun state'ini burada değiştir!
     }
     @IBAction func backButtonTapped(_ sender: UIButton) {
-        navigationController?.popViewController(animated: true)
+        
+        // burada alert controller ile alertte geri dönmek istediğinizden emin misiniz datalar kaydedilmedi desin! OK ise;
+        viewModel.quitView()
     }
     @IBAction func doneButtonPressed(_ sender: UIButton) {
-        let storyboard = UIStoryboard(name: "Recipes", bundle: nil)
-        if let vc = storyboard.instantiateViewController(withIdentifier: "RecipesViewController") as? RecipesViewController {
-            navigationController?.pushViewController(vc, animated: true)
-        }
+        viewModel.doneEditing(title: recipeNameField.text ?? "", image: recipeImagePickerView.image?.pngData() ?? Data(), instruction: instructionsTextView.text, ingredients: ingredientsTextView.text)
     }
     private func pickImage(sourceType: UIImagePickerController.SourceType) {
         let imagePicker = UIImagePickerController()
@@ -138,15 +123,12 @@ class CreateRecipeViewController: UIViewController, UINavigationControllerDelega
     private func setDefaultState() {
         setDefaultShareButton()
         setDefaultImagePicker()
-        setDefaultTextViews()
         navigationItem.title = "Create a Recipe! :) "
     }
     private func setDefaultImagePicker() {
         recipeImagePickerView.image = nil
     }
-    private func setDefaultTextViews() {
-        //   recipeTextView.text = "Please give the recipe details."
-    }
+
     private func setDefaultShareButton() {
         shareButton.isEnabled = false
     }
@@ -159,8 +141,6 @@ extension CreateRecipeViewController: UIImagePickerControllerDelegate {
         recipeImagePickerView.image = image
         
         picker.dismiss(animated: true, completion: nil)
-        setDefaultTextViews()
-        
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
@@ -170,16 +150,48 @@ extension CreateRecipeViewController: UIImagePickerControllerDelegate {
 }
 
 // MARK: - Text Field Delegate
-extension CreateRecipeViewController: UITextViewDelegate {
+extension CreateRecipeViewController: UITextViewDelegate, UITextFieldDelegate {
     
-    func textViewDidBeginEditing(_ textView: UITextView) {
-        //        if recipeTextView.text == "Please give the recipe details." {
-        //            recipeTextView.text = ""
-        //            shareButton.isEnabled = true
-        //        }
+//    func textViewDidBeginEditing(_ textView: UITextView) {
+//        //        if recipeTextView.text == "Please give the recipe details." {
+//        //            recipeTextView.text = ""
+//        //            shareButton.isEnabled = true
+//        //        }
+//    }
+//    func textViewShouldEndEditing(_ textView: UITextView) -> Bool {
+//        //  recipeTextView.resignFirstResponder()
+//        return false
+//    }
+}
+
+extension CreateRecipeViewController: CreateRecipeViewModelDelegate{
+    func showAlert(message: String) {
+        
     }
-    func textViewShouldEndEditing(_ textView: UITextView) -> Bool {
-        //  recipeTextView.resignFirstResponder()
-        return true
+    
+    func recipeToEditArrived(title: String, image: String, instruction: String, ingredients: String) {
+        recipeNameField.text = title
+        ingredientsTextView.text = ingredients // TODO dynamic ingredients height
+        instructionsTextView.text = instruction
+        guard let imageUrl:URL = URL(string: image) else {return}
+        recipeImagePickerView.loadImage(withUrl: imageUrl)
     }
+    
+    func backButtonPressed() {
+        navigationController?.popViewController(animated: true)
+    }
+    
+//    func editRecipeButtonPressed() {
+//        <#code#>
+//    }
+//    
+//    func instructionLoaded(instruction: String) {
+//        <#code#>
+//    }
+//    
+//    func ingredientsLoaded(ingredients: [String]) {
+//        <#code#>
+//    }
+    
+    
 }

@@ -21,6 +21,7 @@ class HomePageViewModel {
     var myRecipes: [RecipeModel] = []
     
     func getMyRecipes() {
+        myRecipes.removeAll()
         FirebaseEndpoints.myUser.getDatabasePath.child("recipes").getData{ [weak self] (error, snapshot) in
             if let error = error {
                 self?.delegate?.showAlert(message: "error")
@@ -29,14 +30,19 @@ class HomePageViewModel {
             else if snapshot.exists() {
                 print("Got data \(snapshot.value!)")
                 
+                var tempRecipes: [RecipeModel] = []
                 if let myRecipesDict = snapshot.value as? [String: Any] {
                     
                     for recipe in myRecipesDict {
                         if let recipeDetails = recipe.value as? [String: Any] {
                             let myRecipe = RecipeModel.getRecipeFromDict(recipeDetails: recipeDetails)
-                            self?.myRecipes.append(myRecipe)
+                            
+                            
+                            tempRecipes.append(myRecipe)
                         }
                     }
+                    
+                    self?.myRecipes = Array(tempRecipes.prefix(5))
                 }
                 
                 self?.delegate?.myRecipesLoaded()
@@ -49,6 +55,7 @@ class HomePageViewModel {
     }
     var kitchens: [KitchenModel] = []
     func getKitchens(){
+        kitchens.removeAll()
         FirebaseEndpoints.kitchens.getDatabasePath.getData{ [weak self] (error, snapshot) in
             if let error = error {
                 self?.delegate?.showAlert(message: "error")
@@ -58,12 +65,12 @@ class HomePageViewModel {
                 print("Got data \(snapshot.value!)")
                 
                 if let kitchensDict = snapshot.value as? [String: Any] {
-                    
                     for kitchen in kitchensDict {
                         if let kitchenDetails = kitchen.value as? [String: Any] {
                             let kitchen = KitchenModel.getKitchenFromDict(kitchenDetails: kitchenDetails)
+                            
                             self?.kitchens.append(kitchen)
-                           
+                        
                         }
                     }
                 }

@@ -20,6 +20,10 @@ class KitchenCell: UITableViewCell {
             flow.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
         }
     }
+//    public func setImage(from urlString: String){
+//        guard let imageUrl:URL = URL(string: urlString) else {return}
+//        self.kitchenImage.loadImage(withUrl: imageUrl)
+//    }
     public func setImage(from urlString: String) {
         HTTPClient.downloadImage(path: urlString){ data, error in
             DispatchQueue.main.async {

@@ -22,13 +22,4 @@ class AvailableKitchensCell: UITableViewCell, UINavigationControllerDelegate {
         super.awakeFromNib()
         // Initialization code
     }
-    
-    @IBAction func orderButtonTapped(_ sender: UIButton) {
-        let storyboard = UIStoryboard(name: "Order", bundle: nil)
-        if let vc = storyboard.instantiateViewController(withIdentifier: "PaymentViewController") as? PaymentViewController {
-            vc.popoverPresentationController?.sourceView = sender as UIView
-            vc.present(vc, animated: true)
-        }
-    }
-    
 }
