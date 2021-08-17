@@ -432,16 +432,13 @@
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
-                                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VNF-g5-7GE">
+                                                                        <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VNF-g5-7GE">
                                                                             <rect key="frame" x="307" y="0.0" width="85" height="84"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" constant="85" id="sND-l4-b9o"/>
                                                                             </constraints>
                                                                             <color key="tintColor" systemColor="systemIndigoColor"/>
                                                                             <state key="normal" image="cart"/>
-                                                                            <connections>
-                                                                                <action selector="orderButtonTapped:" destination="Fbb-PC-AfF" eventType="touchUpInside" id="nkQ-Ln-GnB"/>
-                                                                            </connections>
                                                                         </button>
                                                                     </subviews>
                                                                 </stackView>

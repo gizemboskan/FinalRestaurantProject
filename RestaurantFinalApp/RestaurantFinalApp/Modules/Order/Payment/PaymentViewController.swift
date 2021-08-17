@@ -31,6 +31,7 @@ class PaymentViewController: UIViewController {
     // MARK: - UIViewController Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel.delegate = self
         orderSucceedView.isHidden = true
         orderDoneImageView.isHidden = true
         
@@ -38,6 +39,7 @@ class PaymentViewController: UIViewController {
         creditCardCVCTextField.isEnabled = true
         creditCardDateTextField.isEnabled = true
         creditCardNumberTextField.isEnabled = true
+        viewModel.getPaymentDetails()
     }
     
     // MARK: - Helpers
@@ -62,5 +64,17 @@ class PaymentViewController: UIViewController {
             vc.popoverPresentationController?.sourceView = sender as UIView
             vc.present(vc, animated: true)
     }
+    }
+}
+
+extension PaymentViewController: PaymentViewModelDelegate {
+    func showAlert(message: String) {
+        
+    }
+    
+    func paymentDetailLoaded(kitchenName: String, recipeName: String, totalPrice: String) {
+        kitchenNameLabel.text = kitchenName
+        recipeNameLabel.text = recipeName
+        priceLabel.text = totalPrice
     }
 }
