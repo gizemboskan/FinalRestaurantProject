@@ -206,9 +206,18 @@
                                                             <constraint firstItem="uuK-rP-fN6" firstAttribute="leading" secondItem="iHb-mZ-jMT" secondAttribute="leading" id="s5p-9X-Dvz"/>
                                                         </constraints>
                                                     </view>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g2c-Uq-Yby">
+                                                        <rect key="frame" x="355" y="13" width="29" height="29"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="5"/>
+                                                        <state key="normal" title="Edit" image="recipee"/>
+                                                        <connections>
+                                                            <action selector="recipeEditButtonTapped:" destination="WMs-yL-ey3" eventType="touchUpInside" id="Y0h-aY-mmd"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
+                                                    <constraint firstItem="VO7-n9-Kxh" firstAttribute="top" secondItem="g2c-Uq-Yby" secondAttribute="bottom" constant="4" id="1EH-oF-DYI"/>
                                                     <constraint firstItem="TEv-Oh-rhS" firstAttribute="top" secondItem="VO7-n9-Kxh" secondAttribute="bottom" constant="4" id="3Rg-pz-4pL"/>
                                                     <constraint firstItem="TEv-Oh-rhS" firstAttribute="leading" secondItem="b62-Nl-kRH" secondAttribute="leading" constant="30" id="94l-yH-oH1"/>
                                                     <constraint firstItem="faf-v9-XJD" firstAttribute="top" secondItem="b62-Nl-kRH" secondAttribute="top" constant="13" id="FW4-ax-T33"/>
@@ -219,9 +228,11 @@
                                                     <constraint firstItem="VO7-n9-Kxh" firstAttribute="leading" secondItem="b62-Nl-kRH" secondAttribute="leading" constant="29" id="Z7e-hN-wdp"/>
                                                     <constraint firstItem="VO7-n9-Kxh" firstAttribute="top" secondItem="faf-v9-XJD" secondAttribute="bottom" constant="4" id="bMx-qF-ZLe"/>
                                                     <constraint firstAttribute="trailing" secondItem="TEv-Oh-rhS" secondAttribute="trailing" constant="30" id="dn6-vB-I1B"/>
+                                                    <constraint firstAttribute="trailing" secondItem="g2c-Uq-Yby" secondAttribute="trailing" constant="30" id="kQV-mp-XKn"/>
                                                     <constraint firstAttribute="trailing" secondItem="iHb-mZ-jMT" secondAttribute="trailing" constant="30" id="nFk-zl-VFJ"/>
                                                     <constraint firstAttribute="trailing" secondItem="VO7-n9-Kxh" secondAttribute="trailing" constant="29" id="oB7-SC-MhT"/>
                                                     <constraint firstItem="iHb-mZ-jMT" firstAttribute="top" secondItem="TEv-Oh-rhS" secondAttribute="bottom" constant="10" id="ola-bD-Vu9"/>
+                                                    <constraint firstItem="g2c-Uq-Yby" firstAttribute="top" secondItem="b62-Nl-kRH" secondAttribute="top" constant="13" id="sGR-dA-W13"/>
                                                 </constraints>
                                             </view>
                                         </subviews>
@@ -268,6 +279,7 @@
                         <outlet property="backButton" destination="KmK-Dk-zHa" id="fbk-A6-5d0"/>
                         <outlet property="favButton" destination="kxc-dj-bEy" id="Ask-sP-WtG"/>
                         <outlet property="orderButton" destination="uuK-rP-fN6" id="YXX-5k-0Zj"/>
+                        <outlet property="recipeEditButton" destination="g2c-Uq-Yby" id="sKK-Ct-u9a"/>
                         <outlet property="recipeImageView" destination="yKN-85-xff" id="5Gv-cP-anG"/>
                         <outlet property="recipeNameLabel" destination="faf-v9-XJD" id="zRj-EC-Kzc"/>
                         <outlet property="recipeTextView" destination="TEv-Oh-rhS" id="5nY-BJ-wfO"/>
@@ -285,6 +297,7 @@
         <image name="fav" width="40" height="40"/>
         <image name="recipe" width="900" height="600"/>
         <image name="recipe2" width="375" height="431"/>
+        <image name="recipee" width="19" height="22"/>
         <image name="share" width="40" height="40"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

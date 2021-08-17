@@ -10,7 +10,8 @@ import Firebase
 
 enum FirebaseEndpoints {
     private static let base = Database.database().reference()
-    
+    static let baseStorage = Storage.storage().reference()
+
     case kitchens
     case users
     case recipes
@@ -21,12 +22,11 @@ enum FirebaseEndpoints {
         case .users:
             return FirebaseEndpoints.base.child("users")
         case .myUser:
-            return FirebaseEndpoints.base.child("users").child("F2D56AD8-B033-457C-BD6A-D4E60D30D318")
+            return FirebaseEndpoints.base.child("users").child("AB254C30-CAFE-4B9C-8D5B-F56AF0EEB42B")
         case .kitchens:
             return FirebaseEndpoints.base.child("kitchens")
         case .recipes:
             return FirebaseEndpoints.base.child("recipes")
         }
     }
-    
 }

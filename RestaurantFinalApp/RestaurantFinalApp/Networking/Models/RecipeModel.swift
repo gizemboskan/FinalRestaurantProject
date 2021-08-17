@@ -14,18 +14,14 @@ struct RecipeModel {
     var instruction: String
     var ingredients: [String]
     
-    /// Refers to size of a recipe i.e 2 - 4 people
-    var mealPortion: Int
-    
     // ownerID eklenerek recipe'ye bir imza eklenebilir!
-   // var ownerID: String
+    // var ownerID: String
     var dictionary: [String: Any] {
         return ["id": id,
                 "name": name,
                 "imageURL": imageURL,
                 "instruction": instruction,
-                "ingredients": ingredients,
-                "mealPortion": mealPortion
+                "ingredients": ingredients
         ]
     }
     
@@ -34,8 +30,7 @@ struct RecipeModel {
                            name: recipeDetails["name"] as! String,
                            imageURL: recipeDetails["imageURL"] as! String,
                            instruction: recipeDetails["instruction"] as! String,
-                           ingredients: recipeDetails["ingredients"] as! [String],
-                           mealPortion: recipeDetails["mealPortion"] as! Int)
+                           ingredients: recipeDetails["ingredients"] as! [String])
         
     }
 }

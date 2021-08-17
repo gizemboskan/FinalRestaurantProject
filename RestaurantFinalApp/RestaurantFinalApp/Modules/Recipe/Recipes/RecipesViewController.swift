@@ -24,6 +24,7 @@ class RecipesViewController: UIViewController {
     
     
     // MARK: - Helpers
+    
 }
 // MARK: - UICollectionViewDataSource and Delegate
 extension RecipesViewController:  UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -45,6 +46,6 @@ extension RecipesViewController:  UICollectionViewDelegate, UICollectionViewData
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 150, height: 210)
+        return CGSize(width: 135, height: 165)
     }
 }
