@@ -11,19 +11,21 @@ class HomePageViewController: UIViewController {
     // MARK: - Properties
     
     let viewModel: HomePageViewModel = HomePageViewModel()
-    // MARK: - UI Components
-    @IBOutlet var locationLabel: UILabel!
-    @IBOutlet var kitchenTableView: UITableView!
-    @IBOutlet var profileImageView: UIImageView!
-    @IBOutlet var pageView: UIView!
-    @IBOutlet var seeAllFavRecipesButton: UIButton!
-    @IBOutlet var favRecipesCollectionView: UICollectionView!
     
-    @IBOutlet var flowlayout: UICollectionViewFlowLayout!
-    @IBOutlet var seeAllKitchensButton: UIButton!
-    lazy var restaurantPageViewController: KitchenPageViewController = {
+    lazy var kitchenPageViewController: KitchenPageViewController = {
         return children.lazy.compactMap({ $0 as? KitchenPageViewController }).first!
     }()
+    // MARK: - UI Components
+    @IBOutlet weak var locationLabel: UILabel!
+    @IBOutlet weak var kitchenTableView: UITableView!
+    @IBOutlet weak var profileImageView: UIImageView!
+    @IBOutlet weak var pageView: UIView!
+    @IBOutlet weak var seeAllFavRecipesButton: UIButton!
+    @IBOutlet weak var favRecipesCollectionView: UICollectionView!
+    
+    @IBOutlet weak var flowlayout: UICollectionViewFlowLayout!
+    @IBOutlet weak var seeAllKitchensButton: UIButton!
+   
     // MARK: - UIViewController Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -122,7 +124,7 @@ extension HomePageViewController:  UITableViewDelegate, UITableViewDataSource {
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let storyboard = UIStoryboard(name: "Kitchen", bundle: nil)
         if let vc = storyboard.instantiateViewController(withIdentifier: "KitchenDetailViewController") as? KitchenDetailViewController {
-            vc.viewModel.kitchens = viewModel.kitchens[indexPath.row]
+            vc.viewModel.kitchenDetail = viewModel.kitchens[indexPath.row]
             navigationController?.pushViewController(vc, animated: true)
         }
     }
@@ -131,7 +133,7 @@ extension HomePageViewController:  UITableViewDelegate, UITableViewDataSource {
         return 300
     }
 }
-
+// MARK: - HomePageViewModelDelegate
 extension HomePageViewController: HomePageViewModelDelegate {
     func kitchensLoaded() {
         kitchenTableView.reloadData()

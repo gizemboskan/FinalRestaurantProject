@@ -12,7 +12,7 @@ class GetOfferViewController: UIViewController {
     // TODO add desc label on top of the page.
     
     // MARK: - Properties
-    @IBOutlet var availableKitchensTableView: UITableView!
+    @IBOutlet weak var availableKitchensTableView: UITableView!
     
     let viewModel: GetOfferViewModel = GetOfferViewModel()
     // MARK: - UI Components
@@ -41,6 +41,10 @@ extension GetOfferViewController:  UITableViewDelegate, UITableViewDataSource {
         
         cell.availableKitchenNameLabel.text = viewModel.kitchens[indexPath.row].name
         cell.offerLabel.text = "$\(viewModel.mockedAmounts[indexPath.row])"
+        cell.deliveryTimeLabel.text = viewModel.kitchens[indexPath.row].avarageDeliveryTime
+        cell.ratingLabel.text = String(viewModel.kitchens[indexPath.row].rating)
+        cell.ratingCountLabel.text = String(viewModel.kitchens[indexPath.row].ratingCount)
+        
         // TODO add other values to cell
         return cell
     }
@@ -57,6 +61,7 @@ extension GetOfferViewController:  UITableViewDelegate, UITableViewDataSource {
     }
 }
 
+// MARK: - GetOfferViewModelDelegate
 extension GetOfferViewController: GetOfferViewModelDelegate {
     func showAlert(message: String) {
         

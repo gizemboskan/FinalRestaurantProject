@@ -62,7 +62,7 @@
                                                             <constraint firstAttribute="width" constant="22" id="xqz-54-wij"/>
                                                         </constraints>
                                                         <color key="tintColor" systemColor="systemIndigoColor"/>
-                                                        <state key="normal" title="Button" image="like"/>
+                                                        <state key="normal" title="Button" image="fav"/>
                                                         <connections>
                                                             <action selector="lovedButtonAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="NVQ-kg-yim"/>
                                                         </connections>
@@ -281,7 +281,7 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="like" width="22.5" height="19.5"/>
+        <image name="fav" width="40" height="40"/>
         <image name="restImage" width="1800" height="1200"/>
         <image name="star" width="11" height="12"/>
         <systemColor name="systemIndigoColor">

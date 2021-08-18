@@ -29,6 +29,7 @@ class PaymentViewController: UIViewController {
     @IBOutlet weak var orderSucceedView: UIView!
     @IBOutlet weak var goHomeButton: UIButton!
     // MARK: - UIViewController Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel.delegate = self
@@ -66,6 +67,8 @@ class PaymentViewController: UIViewController {
     }
     }
 }
+
+// MARK: - PaymentViewModelDelegate
 
 extension PaymentViewController: PaymentViewModelDelegate {
     func showAlert(message: String) {

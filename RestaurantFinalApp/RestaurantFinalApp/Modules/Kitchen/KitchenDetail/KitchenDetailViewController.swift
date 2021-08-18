@@ -9,41 +9,40 @@ import UIKit
 import Foundation
 import MapKit
 
-class KitchenDetailViewController: UIViewController {
+class KitchenDetailViewController: UIViewController, MKMapViewDelegate {
     // MARK: - Properties
     
     let viewModel: KitchenDetailViewModel = KitchenDetailViewModel()
     
     // MARK: - UI Components
-    @IBOutlet var locationLabel: UILabel!
-    @IBOutlet var scrollView: UIScrollView!
-    @IBOutlet var mapView: MKMapView!
-    @IBOutlet var recipesCollectionView: UICollectionView!
-    @IBOutlet var flowlayout: UICollectionViewFlowLayout!
-    @IBOutlet var kitchenTitleLabel: UILabel!
+    @IBOutlet weak var locationLabel: UILabel!
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var recipesCollectionView: UICollectionView!
+    @IBOutlet weak var flowlayout: UICollectionViewFlowLayout!
+    @IBOutlet weak var kitchenTitleLabel: UILabel!
     
-    @IBOutlet var kitchenDescriptionCollectionView: UICollectionView!
-    @IBOutlet var flowlayout2: UICollectionViewFlowLayout!
+    @IBOutlet weak var kitchenDescriptionCollectionView: UICollectionView!
+    @IBOutlet weak var flowlayout2: UICollectionViewFlowLayout!
     
     @IBOutlet weak var deliveryTimeLabel: UILabel!
     @IBOutlet weak var ratingLabel: UILabel!
     @IBOutlet weak var rateCountLabel: UILabel!
-    var items: [String] = ["Burger", "American", "A"]
+    @IBOutlet weak var backButton: UIButton!
     
-    @IBOutlet var backButton: UIButton!
     // MARK: - UIViewController Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.isNavigationBarHidden = true
+        viewModel.delegate = self
         recipesCollectionView.delegate = self
         recipesCollectionView.dataSource = self
         kitchenDescriptionCollectionView.delegate = self
         kitchenDescriptionCollectionView.dataSource = self
     }
     // MARK: - Helpers
-    @IBAction func backButtonPressed(_ sender: UIButton) {
-        dismiss(animated: true, completion: nil)
-        
+    @IBAction func backButtonPressed(_ sender: Any) {
+        backButtonPressed()
     }
     
 }
@@ -51,9 +50,9 @@ class KitchenDetailViewController: UIViewController {
 extension KitchenDetailViewController:  UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == self.recipesCollectionView {
-            return 6
+            return viewModel.kitchenDetail?.recipes.count ?? 0 
         } else {
-            return items.count
+            return viewModel.kitchenDetail?.descriptions.count ?? 0
         }
     }
     
@@ -61,11 +60,14 @@ extension KitchenDetailViewController:  UICollectionViewDelegate, UICollectionVi
         
         if collectionView == self.recipesCollectionView {
             let cell = recipesCollectionView.dequeueReusableCell(withReuseIdentifier: "FavRecipesCollectionViewCell", for: indexPath) as! FavRecipesCollectionViewCell
+            let kitchenRecipeModel = viewModel.kitchenRecipes[indexPath.row]
+            cell.favRecipeName.text = kitchenRecipeModel.name
+            cell.setImage(from: kitchenRecipeModel.imageURL)
             return cell
         }
         
         else {
-            let item = items[indexPath.row]
+            let item = viewModel.kitchenDetail?.descriptions[indexPath.row]
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "KitchenDescriptionCell", for: indexPath) as! KitchenDescriptionCell
             cell.kitchenDescriptionLabel.text = item
             return cell
@@ -90,4 +92,47 @@ extension KitchenDetailViewController:  UICollectionViewDelegate, UICollectionVi
         }
         
     }
+}
+// MARK: - KitchenDetailViewModelDelegate
+extension KitchenDetailViewController: KitchenDetailViewModelDelegate {
+    func showAlert(message: String) {
+        
+    }
+    
+    func kitchenTitleLoaded(title: String) {
+        kitchenTitleLabel.text = title
+    }
+    
+    func mapLoaded() {
+        
+    }
+    
+    func locationLoaded(location: String) {
+        locationLabel.text = location
+    }
+    
+    func kitchenRecipesLoaded() {
+        recipesCollectionView.reloadData()
+    }
+    
+    func kitchenDescriptionsLoaded(descriptions: [String]) {
+        kitchenDescriptionCollectionView.reloadData()
+    }
+    
+    func deliveryTimeLoaded(deliveryTime: String) {
+        deliveryTimeLabel.text = deliveryTime
+    }
+    
+    func ratingLoaded(rating: Double) {
+        ratingLabel.text = String(rating)
+    }
+    
+    func ratingCountLoaded(ratingCount: Int) {
+        rateCountLabel.text = String(ratingCount)
+    }
+    
+    func backButtonPressed() {
+        navigationController?.popViewController(animated: true)
+    }
+    
 }

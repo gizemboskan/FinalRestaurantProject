@@ -197,7 +197,8 @@
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your recipe name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YAZ-ib-UAw">
                                                         <rect key="frame" x="30" y="8" width="354" height="34"/>
-                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GqJ-pP-aZt" userLabel="Segmented View">
@@ -257,7 +258,7 @@
                                                                     <constraint firstAttribute="width" constant="100" id="DHw-dZ-lxI"/>
                                                                     <constraint firstAttribute="height" constant="48" id="weD-hl-11x"/>
                                                                 </constraints>
-                                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                                                 <state key="normal" title="Edit Recipe">
                                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                 </state>
@@ -285,7 +286,7 @@
                                                                         <rect key="frame" x="0.0" y="0.0" width="354" height="288"/>
                                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                         <color key="textColor" red="0.41960784309999999" green="0.44705882349999998" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
                                                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences" smartDashesType="no"/>
                                                                     </textView>
                                                                 </subviews>
@@ -300,97 +301,22 @@
                                                             <view hidden="YES" contentMode="scaleToFill" verticalHuggingPriority="245" translatesAutoresizingMaskIntoConstraints="NO" id="SSm-gI-WjV">
                                                                 <rect key="frame" x="0.0" y="0.0" width="354" height="288"/>
                                                                 <subviews>
-                                                                    <searchBar contentMode="redraw" placeholder="Search for ingredients!" showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hIe-gR-rWn">
-                                                                        <rect key="frame" x="0.0" y="8" width="354" height="51"/>
-                                                                        <textInputTraits key="textInputTraits" autocorrectionType="no"/>
-                                                                        <scopeButtonTitles>
-                                                                            <string>Title</string>
-                                                                            <string>Title</string>
-                                                                        </scopeButtonTitles>
-                                                                    </searchBar>
-                                                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="89h-TO-LNl">
-                                                                        <rect key="frame" x="0.0" y="75" width="354" height="53"/>
-                                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <scrollView verifyAmbiguity="off" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eJT-jW-YI5" customClass="WSTagsField" customModule="WSTagsField">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="354" height="288"/>
                                                                         <constraints>
-                                                                            <constraint firstAttribute="height" constant="53" id="fI7-Tw-WLe"/>
+                                                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="288" id="ucA-zK-Xmz"/>
                                                                         </constraints>
-                                                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="fAm-x0-Jk3">
-                                                                            <size key="itemSize" width="50" height="50"/>
-                                                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                                                        </collectionViewFlowLayout>
-                                                                        <cells>
-                                                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="KitchenDescriptionCell" id="UgP-ZM-KeN" customClass="KitchenDescriptionCell" customModule="RestaurantFinalApp" customModuleProvider="target">
-                                                                                <rect key="frame" x="0.0" y="-21" width="271" height="95"/>
-                                                                                <autoresizingMask key="autoresizingMask"/>
-                                                                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                                                                    <rect key="frame" x="0.0" y="0.0" width="271" height="95"/>
-                                                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                                                    <subviews>
-                                                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="32Q-hz-wSv">
-                                                                                            <rect key="frame" x="0.0" y="0.0" width="271" height="95"/>
-                                                                                            <subviews>
-                                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ingredient" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="eGd-Qv-2UX">
-                                                                                                    <rect key="frame" x="6" y="3" width="259" height="89"/>
-                                                                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
-                                                                                                    <color key="textColor" red="1" green="0.20784313730000001" blue="0.25490196079999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                                                    <nil key="highlightedColor"/>
-                                                                                                </label>
-                                                                                            </subviews>
-                                                                                            <color key="backgroundColor" red="1" green="0.2666666667" blue="0.30980392159999998" alpha="0.094525898969999994" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                                            <constraints>
-                                                                                                <constraint firstItem="eGd-Qv-2UX" firstAttribute="leading" secondItem="32Q-hz-wSv" secondAttribute="leading" constant="6" id="FZr-ry-xwx"/>
-                                                                                                <constraint firstItem="eGd-Qv-2UX" firstAttribute="top" secondItem="32Q-hz-wSv" secondAttribute="top" constant="3" id="KW6-7E-0Re"/>
-                                                                                                <constraint firstAttribute="trailing" secondItem="eGd-Qv-2UX" secondAttribute="trailing" constant="6" id="iNH-dJ-w5e"/>
-                                                                                                <constraint firstAttribute="bottom" secondItem="eGd-Qv-2UX" secondAttribute="bottom" constant="3" id="m4p-TW-cDe"/>
-                                                                                            </constraints>
-                                                                                            <userDefinedRuntimeAttributes>
-                                                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                                                    <real key="value" value="12"/>
-                                                                                                </userDefinedRuntimeAttribute>
-                                                                                            </userDefinedRuntimeAttributes>
-                                                                                        </view>
-                                                                                    </subviews>
-                                                                                </view>
-                                                                                <viewLayoutGuide key="safeArea" id="j6S-3I-Lc8"/>
-                                                                                <constraints>
-                                                                                    <constraint firstAttribute="bottom" secondItem="32Q-hz-wSv" secondAttribute="bottom" id="1e6-LG-5BA"/>
-                                                                                    <constraint firstAttribute="trailing" secondItem="32Q-hz-wSv" secondAttribute="trailing" id="LnX-jY-aLV"/>
-                                                                                    <constraint firstItem="32Q-hz-wSv" firstAttribute="leading" secondItem="UgP-ZM-KeN" secondAttribute="leading" id="Ndc-2A-uHB"/>
-                                                                                    <constraint firstItem="32Q-hz-wSv" firstAttribute="top" secondItem="UgP-ZM-KeN" secondAttribute="top" id="qI5-gZ-cuO"/>
-                                                                                </constraints>
-                                                                                <size key="customSize" width="271" height="95"/>
-                                                                                <connections>
-                                                                                    <outlet property="kitchenDescriptionLabel" destination="eGd-Qv-2UX" id="yhP-YV-DUF"/>
-                                                                                </connections>
-                                                                            </collectionViewCell>
-                                                                        </cells>
-                                                                    </collectionView>
-                                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="245" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="1pq-Dq-dVS">
-                                                                        <rect key="frame" x="0.0" y="136" width="354" height="152"/>
-                                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                                        <constraints>
-                                                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="150" id="XBn-Ra-NmA"/>
-                                                                        </constraints>
-                                                                        <color key="textColor" red="0.41960784309999999" green="0.44705882349999998" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                                    </textView>
+                                                                        <viewLayoutGuide key="contentLayoutGuide" id="ukA-r2-PNM"/>
+                                                                        <viewLayoutGuide key="frameLayoutGuide" id="fEl-Kg-sF3"/>
+                                                                    </scrollView>
                                                                 </subviews>
                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="288" id="2KD-T7-yjV"/>
-                                                                    <constraint firstAttribute="trailing" secondItem="89h-TO-LNl" secondAttribute="trailing" id="2Qt-M1-gxG"/>
-                                                                    <constraint firstItem="89h-TO-LNl" firstAttribute="top" secondItem="hIe-gR-rWn" secondAttribute="bottom" constant="16" id="N4I-D3-4bI"/>
-                                                                    <constraint firstAttribute="bottom" secondItem="1pq-Dq-dVS" secondAttribute="bottom" id="U4K-dL-3UK"/>
-                                                                    <constraint firstItem="1pq-Dq-dVS" firstAttribute="top" secondItem="89h-TO-LNl" secondAttribute="bottom" constant="8" id="ayI-e9-41M"/>
-                                                                    <constraint firstItem="hIe-gR-rWn" firstAttribute="leading" secondItem="SSm-gI-WjV" secondAttribute="leading" id="c5P-Uz-NfL"/>
-                                                                    <constraint firstItem="89h-TO-LNl" firstAttribute="leading" secondItem="SSm-gI-WjV" secondAttribute="leading" id="ghY-gf-MeX"/>
-                                                                    <constraint firstAttribute="trailing" secondItem="hIe-gR-rWn" secondAttribute="trailing" id="j8t-rz-8bV"/>
-                                                                    <constraint firstAttribute="trailing" secondItem="1pq-Dq-dVS" secondAttribute="trailing" id="lR9-XF-fBU"/>
-                                                                    <constraint firstItem="1pq-Dq-dVS" firstAttribute="leading" secondItem="SSm-gI-WjV" secondAttribute="leading" id="qb0-wE-XnZ"/>
-                                                                    <constraint firstItem="hIe-gR-rWn" firstAttribute="top" secondItem="SSm-gI-WjV" secondAttribute="top" constant="8" id="tD2-jf-K7e"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="eJT-jW-YI5" secondAttribute="bottom" id="C0N-7H-dPc"/>
+                                                                    <constraint firstItem="eJT-jW-YI5" firstAttribute="top" secondItem="SSm-gI-WjV" secondAttribute="top" id="Qc3-i1-ZpZ"/>
+                                                                    <constraint firstItem="eJT-jW-YI5" firstAttribute="leading" secondItem="SSm-gI-WjV" secondAttribute="leading" id="Yep-2x-V44"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="eJT-jW-YI5" secondAttribute="trailing" id="pKA-xh-9Hl"/>
                                                                 </constraints>
                                                             </view>
                                                         </subviews>
@@ -483,17 +409,14 @@
                         <outlet property="doneButton" destination="2kR-zu-uZm" id="sAp-nA-hax"/>
                         <outlet property="editRecipeButton" destination="NSq-nU-DE4" id="f3G-Km-O3Y"/>
                         <outlet property="firstView" destination="EfA-F7-Vnq" id="OX6-HW-XW3"/>
-                        <outlet property="flowlayout" destination="fAm-x0-Jk3" id="Cgr-HE-Xrl"/>
                         <outlet property="imagePickerButton" destination="Ka0-74-COp" id="RvR-6e-4cp"/>
-                        <outlet property="ingredientsCollectionView" destination="89h-TO-LNl" id="Scr-nB-Ckf"/>
-                        <outlet property="ingredientsTextView" destination="1pq-Dq-dVS" id="IOF-up-mFc"/>
                         <outlet property="instructionsTextView" destination="4Oq-XD-W7A" id="OLB-Bz-dW8"/>
                         <outlet property="recipeImagePickerView" destination="Owa-Bv-3vz" id="D1h-ln-GME"/>
                         <outlet property="recipeNameField" destination="YAZ-ib-UAw" id="U3M-tJ-uZT"/>
-                        <outlet property="searchBar" destination="hIe-gR-rWn" id="UTJ-i6-Wit"/>
                         <outlet property="secondView" destination="SSm-gI-WjV" id="coe-tN-Ht9"/>
                         <outlet property="segmentedControl" destination="P2F-rk-ptf" id="CdW-Za-Z6a"/>
                         <outlet property="shareButton" destination="nl7-b0-opv" id="Oey-JB-7yb"/>
+                        <outlet property="tagsField" destination="eJT-jW-YI5" id="SGA-xO-7ca"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PE0-h7-vSb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

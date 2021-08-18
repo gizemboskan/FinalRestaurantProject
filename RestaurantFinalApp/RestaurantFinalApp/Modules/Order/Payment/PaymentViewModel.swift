@@ -6,7 +6,6 @@
 //
 
 import Foundation
-
 protocol PaymentViewModelDelegate: AnyObject {
     func showAlert(message: String)
     func paymentDetailLoaded(kitchenName: String, recipeName: String, totalPrice: String)

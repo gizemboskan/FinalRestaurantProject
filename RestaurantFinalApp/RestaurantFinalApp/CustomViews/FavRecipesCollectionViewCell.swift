@@ -8,6 +8,7 @@
 import UIKit
 
 class FavRecipesCollectionViewCell: UICollectionViewCell {
+    
     @IBOutlet var favRecipeImageView: UIImageView!
     @IBOutlet var favRecipeName: UILabel!
     

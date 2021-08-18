@@ -44,7 +44,7 @@ class TutorialViewController: UIViewController {
         OnboardingItemInfo(informationImage: UIImage(named: "stores" )! ,
                            title: "Kitchens",
                            description: "All local kitchens are categorized for your convenience",
-                           pageIcon: UIImage(named: "stores" )!,
+                           pageIcon: UIImage(named: "stores")!,
                            color: UIColor(red: 0.40, green: 0.56, blue: 0.71, alpha: 1.00),
                            titleColor: UIColor.white,
                            descriptionColor: UIColor.white,
@@ -52,17 +52,17 @@ class TutorialViewController: UIViewController {
                            descriptionFont: TutorialViewController.descriptionFont),
         
         OnboardingItemInfo(informationImage: UIImage(named: "page3" )! ,
-                           title: "title",
+                           title: "Recipes",
                            description: "We carefully verify all kitchens before add them into the app to serve you a delicious recipe!",
-                           pageIcon: UIImage(named: "page3" )!,
+                           pageIcon: UIImage(named: "page3")!,
                            color: UIColor(red: 0.40, green: 0.69, blue: 0.71, alpha: 1.00),
                            titleColor: UIColor.white,
                            descriptionColor: UIColor.white,
                            titleFont: TutorialViewController.titleFont ,
                            descriptionFont: TutorialViewController.descriptionFont ),
         
-        OnboardingItemInfo(informationImage: UIImage(named: "page4" )! ,
-                           title: "title",
+        OnboardingItemInfo(informationImage: UIImage(named: "page4")! ,
+                           title: "Quality Service",
                            description: "We carefully deliver your meal under safe conditions",
                            pageIcon: UIImage(named: "page4" )!,
                            color: UIColor(red: 0.61, green: 0.56, blue: 0.74, alpha: 1.00),
@@ -85,8 +85,8 @@ class TutorialViewController: UIViewController {
 //                                  name: "Pesto Chicken",
 //                                  imageURL: "https://www.aspicyperspective.com/wp-content/uploads/2014/04/pesto-chicken-5-256x256.jpg",
 //                                  instruction: "1.Preheat oven to 400˚F (200˚C). \n2.Place chicken breast in a baking dish. Season chicken with salt and pepper, to taste. \n 3.Spread pesto on each chicken breast. \n4.Layer tomatoes on top of the chicken. \n5.Top with mozzarella cheese. \n 6.Bake for 40 minutes.",
-//                                  ingredients: ["Pesto", "Chicken"],
-//                                  mealPortion: 6)
+//                                  ingredients: ["Pesto", "Chicken"]
+//        )
 //        
 //        
 //        let recipe2 = RecipeModel(id: UUID().uuidString,
@@ -106,37 +106,36 @@ class TutorialViewController: UIViewController {
 //                                                3 tbsp tomato purée
 //                                                300ml chicken stock
 //                                                50g flaked almonds, toasted
-//"""],
-//                                  mealPortion: 4)
+//"""])
 //        
 //        let recipe3 = RecipeModel(id: UUID().uuidString,
 //                                  name: "Pesto Chicken",
 //                                  imageURL: "https://www.aspicyperspective.com/wp-content/uploads/2014/04/pesto-chicken-5-256x256.jpg",
 //                                  instruction: "1.Preheat oven to 400˚F (200˚C). \n2.Place chicken breast in a baking dish. Season chicken with salt and pepper, to taste. \n 3.Spread pesto on each chicken breast. \n4.Layer tomatoes on top of the chicken. \n5.Top with mozzarella cheese. \n 6.Bake for 40 minutes.",
-//                                  ingredients: ["Pesto", "Chicken"],
-//                                  mealPortion: 6)
+//                                  ingredients: ["Pesto", "Chicken"])
 //        
 //        let recipe4 = RecipeModel(id: UUID().uuidString,
 //                                  name: "Pesto Chicken",
 //                                  imageURL: "https://www.aspicyperspective.com/wp-content/uploads/2014/04/pesto-chicken-5-256x256.jpg",
 //                                  instruction: "1.Preheat oven to 400˚F (200˚C). \n2.Place chicken breast in a baking dish. Season chicken with salt and pepper, to taste. \n 3.Spread pesto on each chicken breast. \n4.Layer tomatoes on top of the chicken. \n5.Top with mozzarella cheese. \n 6.Bake for 40 minutes.",
-//                                  ingredients: ["Pesto", "Chicken"],
-//                                  mealPortion: 6)
+//                                  ingredients: ["Pesto", "Chicken"])
 //        
 //        let recipe5 = RecipeModel(id: UUID().uuidString,
 //                                  name: "Pesto Chicken",
 //                                  imageURL: "https://www.aspicyperspective.com/wp-content/uploads/2014/04/pesto-chicken-5-256x256.jpg",
 //                                  instruction: "1.Preheat oven to 400˚F (200˚C). \n2.Place chicken breast in a baking dish. Season chicken with salt and pepper, to taste. \n 3.Spread pesto on each chicken breast. \n4.Layer tomatoes on top of the chicken. \n5.Top with mozzarella cheese. \n 6.Bake for 40 minutes.",
-//                                  ingredients: ["Pesto", "Chicken"],
-//                                  mealPortion: 6)
+//                                  ingredients: ["Pesto", "Chicken"])
+//                
 //        
+//        let kitchen1 = KitchenModel(id: UUID().uuidString, name: "Burger Store", imageURL: "", location: "", recipes: [recipe1.id : recipe1.dictionary], descriptions: ["Burger", "Pasta", "Chickin"], avarageDeliveryTime: "30 - 40 Mins", rating: 4.4, ratingCount: 30)
 //        
+//        let kitchen2 = KitchenModel(id: UUID().uuidString, name: "Elche", imageURL: "", location: "", recipes: [recipe2.id:recipe2.dictionary], descriptions: ["Burger", "Pasta", "Chicken"], avarageDeliveryTime: "10 - 20 Mins", rating: 4.4, ratingCount: 30)
 //        
-//        let kitchen1 = KitchenModel(id: UUID().uuidString, name: "Burger Store", imageURL: "", location: "", recipes: [recipe1.id : recipe1.dictionary], description: "", avarageDeliveryTime: "")
-//        let kitchen2 = KitchenModel(id: UUID().uuidString, name: "Elche", imageURL: "", location: "", recipes: [recipe2.id:recipe2.dictionary], description: "", avarageDeliveryTime: "")
-//        let kitchen3 = KitchenModel(id: UUID().uuidString, name: "Casa Ràfols", imageURL: "", location: "", recipes: [recipe3.id:recipe3.dictionary], description: "", avarageDeliveryTime: "")
-//        let kitchen4 = KitchenModel(id: UUID().uuidString, name: "Orient Express", imageURL: "", location: "", recipes: [recipe4.id:recipe4.dictionary], description: "", avarageDeliveryTime: "")
-//        let kitchen5 = KitchenModel(id: UUID().uuidString, name: "Navarro", imageURL: "", location: "", recipes: [recipe5.id:recipe5.dictionary], description: "", avarageDeliveryTime: "")
+//        let kitchen3 = KitchenModel(id: UUID().uuidString, name: "Casa Ràfols", imageURL: "", location: "", recipes: [recipe3.id:recipe3.dictionary], descriptions: ["Burger", "Pasta", "Chicken"], avarageDeliveryTime: "20 - 40 Mins", rating: 4.4, ratingCount: 30)
+//        
+//        let kitchen4 = KitchenModel(id: UUID().uuidString, name: "Orient Express", imageURL: "", location: "", recipes: [recipe4.id:recipe4.dictionary], descriptions: ["Burger", "Pasta", "Chicken"], avarageDeliveryTime: "30 - 40 Mins", rating: 4.4, ratingCount: 30)
+//        
+//        let kitchen5 = KitchenModel(id: UUID().uuidString, name: "Navarro", imageURL: "", location: "", recipes: [recipe5.id:recipe5.dictionary], descriptions: ["Burger", "Pasta", "Chicken"], avarageDeliveryTime: "10 - 25 Mins", rating: 4.4, ratingCount: 30)
 //        
 //        var kitchens: [String:Any] = [:]
 //        kitchens[kitchen1.id] = kitchen1.dictionary
@@ -215,10 +214,10 @@ extension TutorialViewController: PaperOnboardingDataSource {
     }
     
     func onboardingPageItemSelectedRadius() -> CGFloat {
-        return 10
+        return 20
     }
     func onboardingPageItemColor(at index: Int) -> UIColor {
-        return [UIColor.white, UIColor.red, UIColor.green][index]
+        return [UIColor.white, UIColor.white, UIColor.white][index]
     }
 }
 

@@ -13,19 +13,21 @@ struct KitchenModel {
     var imageURL: String
     var location: String
     var recipes: [String: Any]
-    var description: String
+    var descriptions: [String]
     var avarageDeliveryTime: String
-    
-    // TO DO: fav count ve puan eklenebilir..
-    
+    var rating: Double
+    var ratingCount: Int
+        
     var dictionary: [String: Any] {
         return ["id": id,
                 "name": name,
                 "imageURL": imageURL,
                 "location": location,
                 "recipes": recipes,
-                "description": description,
-                "avarageDeliveryTime": avarageDeliveryTime
+                "descriptions": descriptions,
+                "avarageDeliveryTime": avarageDeliveryTime,
+                "rating": rating,
+                "ratingCount": ratingCount
         ]
     }
     
@@ -35,7 +37,9 @@ struct KitchenModel {
                             imageURL: kitchenDetails["imageURL"] as! String,
                             location: kitchenDetails["location"] as! String,
                             recipes: kitchenDetails["recipes"] as! [String: Any] ,
-                            description: kitchenDetails["description"] as! String,
-                            avarageDeliveryTime: kitchenDetails["avarageDeliveryTime"] as! String)
+                            descriptions: kitchenDetails["descriptions"] as! [String],
+                            avarageDeliveryTime: kitchenDetails["avarageDeliveryTime"] as! String,
+                            rating: kitchenDetails["rating"] as! Double,
+                            ratingCount: kitchenDetails["ratingCount"] as! Int)
     }
 }

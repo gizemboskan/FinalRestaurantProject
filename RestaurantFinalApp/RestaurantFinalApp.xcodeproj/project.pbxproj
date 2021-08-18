@@ -49,8 +49,6 @@
 		8E7F4B1B26C2ACDC009F9AE3 /* KitchenCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E7F4B1926C2ACDC009F9AE3 /* KitchenCell.xib */; };
 		8E7F4B1D26C2ADC3009F9AE3 /* KitchenCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7F4B1C26C2ADC3009F9AE3 /* KitchenCell.swift */; };
 		8E7F4B1F26C2C6C0009F9AE3 /* FavRecipesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7F4B1E26C2C6C0009F9AE3 /* FavRecipesCollectionViewCell.swift */; };
-		8E7F4B2226C3D05D009F9AE3 /* KitchenDetailsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E7F4B2026C3D05D009F9AE3 /* KitchenDetailsCell.xib */; };
-		8E7F4B2626C3D52B009F9AE3 /* KitchenDescriptionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E7F4B2426C3D52A009F9AE3 /* KitchenDescriptionCell.xib */; };
 		8E7F4B2726C3D52B009F9AE3 /* KitchenDescriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7F4B2526C3D52B009F9AE3 /* KitchenDescriptionCell.swift */; };
 		8E7F4B3226C53532009F9AE3 /* MyOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7F4B3126C53532009F9AE3 /* MyOrderViewController.swift */; };
 		8E7F4B3426C53543009F9AE3 /* MyOrderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7F4B3326C53543009F9AE3 /* MyOrderViewModel.swift */; };
@@ -79,6 +77,7 @@
 		8EC6084726BF004200FCB4DB /* LandingMenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC6084626BF004200FCB4DB /* LandingMenuViewModel.swift */; };
 		8EF903B026CC27E30028A8A1 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 8EF903AF26CC27E30028A8A1 /* FirebaseDatabase */; };
 		8EF903B226CC27E30028A8A1 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 8EF903B126CC27E30028A8A1 /* FirebaseStorage */; };
+		8EF903B526CD285F0028A8A1 /* WSTagsField in Frameworks */ = {isa = PBXBuildFile; productRef = 8EF903B426CD285F0028A8A1 /* WSTagsField */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -137,8 +136,6 @@
 		8E7F4B1926C2ACDC009F9AE3 /* KitchenCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KitchenCell.xib; sourceTree = "<group>"; };
 		8E7F4B1C26C2ADC3009F9AE3 /* KitchenCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KitchenCell.swift; sourceTree = "<group>"; };
 		8E7F4B1E26C2C6C0009F9AE3 /* FavRecipesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavRecipesCollectionViewCell.swift; sourceTree = "<group>"; };
-		8E7F4B2026C3D05D009F9AE3 /* KitchenDetailsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KitchenDetailsCell.xib; sourceTree = "<group>"; };
-		8E7F4B2426C3D52A009F9AE3 /* KitchenDescriptionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KitchenDescriptionCell.xib; sourceTree = "<group>"; };
 		8E7F4B2526C3D52B009F9AE3 /* KitchenDescriptionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KitchenDescriptionCell.swift; sourceTree = "<group>"; };
 		8E7F4B3126C53532009F9AE3 /* MyOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOrderViewController.swift; sourceTree = "<group>"; };
 		8E7F4B3326C53543009F9AE3 /* MyOrderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOrderViewModel.swift; sourceTree = "<group>"; };
@@ -181,6 +178,7 @@
 				8E7F4B3A26C5BAF8009F9AE3 /* StepIndicator in Frameworks */,
 				8EF903B026CC27E30028A8A1 /* FirebaseDatabase in Frameworks */,
 				8EF903B226CC27E30028A8A1 /* FirebaseStorage in Frameworks */,
+				8EF903B526CD285F0028A8A1 /* WSTagsField in Frameworks */,
 				8E2F4F5D26C1B58B001EFE54 /* RAMAnimatedTabBarController in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -462,8 +460,6 @@
 			children = (
 				8E46D2C026C015630063FCF2 /* AvailableKitchensCell.swift */,
 				8E7F4B2526C3D52B009F9AE3 /* KitchenDescriptionCell.swift */,
-				8E7F4B2426C3D52A009F9AE3 /* KitchenDescriptionCell.xib */,
-				8E7F4B2026C3D05D009F9AE3 /* KitchenDetailsCell.xib */,
 				8E7F4B1926C2ACDC009F9AE3 /* KitchenCell.xib */,
 				8E7F4B1C26C2ADC3009F9AE3 /* KitchenCell.swift */,
 				8E7F4B1E26C2C6C0009F9AE3 /* FavRecipesCollectionViewCell.swift */,
@@ -597,6 +593,7 @@
 				8E7F4B3926C5BAF8009F9AE3 /* StepIndicator */,
 				8EF903AF26CC27E30028A8A1 /* FirebaseDatabase */,
 				8EF903B126CC27E30028A8A1 /* FirebaseStorage */,
+				8EF903B426CD285F0028A8A1 /* WSTagsField */,
 			);
 			productName = RestaurantFinalApp;
 			productReference = 8E9CB98326B96476000D564A /* RestaurantFinalApp.app */;
@@ -674,6 +671,7 @@
 				8E2F4F5B26C1B58B001EFE54 /* XCRemoteSwiftPackageReference "animated-tab-bar" */,
 				8E7F4B3826C5BAF7009F9AE3 /* XCRemoteSwiftPackageReference "StepIndicator" */,
 				8EF903AE26CC27E30028A8A1 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				8EF903B326CD285E0028A8A1 /* XCRemoteSwiftPackageReference "WSTagsField" */,
 			);
 			productRefGroup = 8E9CB98426B96476000D564A /* Products */;
 			projectDirPath = "";
@@ -700,10 +698,8 @@
 				8E46D2E126C017F40063FCF2 /* Order.storyboard in Resources */,
 				8E46D2E326C018020063FCF2 /* CreateRecipe.storyboard in Resources */,
 				8EC6083D26BEFF8E00FCB4DB /* LandingScreen.storyboard in Resources */,
-				8E7F4B2626C3D52B009F9AE3 /* KitchenDescriptionCell.xib in Resources */,
 				8E9CB9D826B96AB1000D564A /*  InfoPlist.strings in Resources */,
 				8E59810C26B98196000A2C82 /* GoogleService-Info.plist in Resources */,
-				8E7F4B2226C3D05D009F9AE3 /* KitchenDetailsCell.xib in Resources */,
 				8E46D2DD26C017E00063FCF2 /* Recipe.storyboard in Resources */,
 				8E46D2DB26C017C70063FCF2 /* Home.storyboard in Resources */,
 			);
@@ -1138,6 +1134,14 @@
 				minimumVersion = 8.6.0;
 			};
 		};
+		8EF903B326CD285E0028A8A1 /* XCRemoteSwiftPackageReference "WSTagsField" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/whitesmith/WSTagsField";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.4.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1165,6 +1169,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 8EF903AE26CC27E30028A8A1 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseStorage;
+		};
+		8EF903B426CD285F0028A8A1 /* WSTagsField */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8EF903B326CD285E0028A8A1 /* XCRemoteSwiftPackageReference "WSTagsField" */;
+			productName = WSTagsField;
 		};
 /* End XCSwiftPackageProductDependency section */
 

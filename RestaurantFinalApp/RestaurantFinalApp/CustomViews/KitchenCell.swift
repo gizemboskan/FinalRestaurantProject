@@ -34,6 +34,7 @@ class KitchenCell: UITableViewCell {
     }
    
     @IBAction func lovedButtonAction(_ sender: UIButton) {
+        // çıkarmayı düşünüyorum 
     }
 }
 

@@ -12,17 +12,17 @@ class RecipeDetailViewController: UIViewController {
     
     
     // MARK: - UI Components
-    @IBOutlet var recipeImageView: UIImageView!
-    @IBOutlet var shareButton: UIButton!
-    @IBOutlet var recipeNameLabel: UILabel!
+    @IBOutlet weak var recipeImageView: UIImageView!
+    @IBOutlet weak var shareButton: UIButton!
+    @IBOutlet weak var recipeNameLabel: UILabel!
     
     @IBOutlet weak var recipeEditButton: UIButton!
-    @IBOutlet var segmentedControl: UISegmentedControl!
-    @IBOutlet var backButton: UIButton!
-    @IBOutlet var favButton: UIButton!
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
+    @IBOutlet weak var backButton: UIButton!
+    @IBOutlet weak var favButton: UIButton!
     
-    @IBOutlet var recipeTextView: UITextView!
-    @IBOutlet var orderButton: UIButton!
+    @IBOutlet weak var recipeTextView: UITextView!
+    @IBOutlet weak var orderButton: UIButton!
     
     let viewModel: RecipeDetailViewModel = RecipeDetailViewModel()
     // MARK: - UIViewController Lifecycle
@@ -60,6 +60,8 @@ class RecipeDetailViewController: UIViewController {
         
     }
 }
+
+// MARK: - RecipeDetailViewModelDelegate
 
 extension RecipeDetailViewController: RecipeDetailViewModelDelegate{
     

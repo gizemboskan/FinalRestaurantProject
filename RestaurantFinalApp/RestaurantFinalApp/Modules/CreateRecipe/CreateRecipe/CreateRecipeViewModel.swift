@@ -7,6 +7,7 @@
 
 import Foundation
 import Firebase
+
 protocol CreateRecipeViewModelDelegate: AnyObject {
     func showAlert(message: String)
     func recipeToEditArrived(title: String, image: String, instruction: String, ingredients: String)
@@ -16,6 +17,10 @@ protocol CreateRecipeViewModelDelegate: AnyObject {
     //    func editRecipeButtonPressed()
     //    func instructionLoaded(instruction: String)
     //    func ingredientsLoaded(ingredients: [String])
+    
+    func shareButtonPressed(_ sender: Any)
+    func imagePickerButtonPressed(_ sender: Any)
+    func imagePickerSource(sourceType: Any)
 }
 
 class CreateRecipeViewModel {
@@ -40,7 +45,7 @@ class CreateRecipeViewModel {
                 // Uh-oh, an error occurred!
                 return
             }
-
+            
             // You can also access to download URL after upload.
             imageRef.downloadURL { (url, error) in
                 guard let downloadURL = url else {
@@ -83,12 +88,22 @@ class CreateRecipeViewModel {
                         }
                     }
                 }
-
+                
             }
         }
     }
     
+    func shareRecipe(_ sender: Any){
+        delegate?.shareButtonPressed(sender)
+        
+    }
+    func pickAnImage(_ sender: Any){
+        delegate?.imagePickerButtonPressed(sender)
+    }
     func quitView(){
         delegate?.backButtonPressed()
+    }
+    func selectImagePickerSource(sourceType: Any){
+        delegate?.imagePickerSource(sourceType: sourceType)
     }
 }

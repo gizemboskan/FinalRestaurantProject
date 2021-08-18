@@ -21,11 +21,11 @@ class MyOrderViewController: UIViewController {
     
     
     // MARK: - UI Components
-    @IBOutlet var mapView: MKMapView!
-    @IBOutlet var recipeImageView: UIImageView!
-    @IBOutlet var recipeNameLabel: UILabel!
-    @IBOutlet var recipeArrivalTimeLabel: UILabel!
-    @IBOutlet var stepIndicatorView: StepIndicatorView!
+    @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var recipeImageView: UIImageView!
+    @IBOutlet weak var recipeNameLabel: UILabel!
+    @IBOutlet weak var recipeArrivalTimeLabel: UILabel!
+    @IBOutlet weak var stepIndicatorView: StepIndicatorView!
     
     @IBOutlet weak var sendedRequestLabel: UILabel!
     @IBOutlet weak var confirmedOrderLabel: UILabel!
@@ -52,6 +52,7 @@ class MyOrderViewController: UIViewController {
     }
     
     // MARK: - Helpers
+    
     //    private func addVerticalProgressView() {
     //        view.addSubview(verticalProgressView)
     //        verticalProgressView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
@@ -61,7 +62,7 @@ class MyOrderViewController: UIViewController {
     //    }
     
     
-    func startCount(){
+    private func startCount(){
         sendedRequestLabel.tintColor = UIColor(red: 255, green: 214, blue: 123, alpha: 1)
         confirmedOrderLabel.tintColor = UIColor(red: 255, green: 214, blue: 123, alpha: 1)
         shipperReceivedLabel.tintColor = UIColor(red: 255, green: 214, blue: 123, alpha: 1)
@@ -103,3 +104,4 @@ class MyOrderViewController: UIViewController {
 }
 
 
+// MARK: - PaymentViewModelDelegate

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Firebase
 
 protocol RecipeDetailViewModelDelegate: AnyObject {
     func showAlert(message: String)
@@ -147,7 +148,6 @@ class RecipeDetailViewModel {
     
     func shareRecipe(_ sender: Any){
         delegate?.shareButtonPressed(sender)
-        
     }
     
     func quitView(){

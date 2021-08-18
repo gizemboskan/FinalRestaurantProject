@@ -37,7 +37,7 @@ class HomePageViewModel {
                         if let recipeDetails = recipe.value as? [String: Any] {
                             let myRecipe = RecipeModel.getRecipeFromDict(recipeDetails: recipeDetails)
                             
-                            
+            
                             tempRecipes.append(myRecipe)
                         }
                     }
