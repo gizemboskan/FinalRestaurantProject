@@ -11,18 +11,17 @@ class HomePageViewController: UIViewController {
     // MARK: - Properties
     
     let viewModel: HomePageViewModel = HomePageViewModel()
-    
-    lazy var kitchenPageViewController: KitchenPageViewController = {
-        return children.lazy.compactMap({ $0 as? KitchenPageViewController }).first!
-    }()
+//    lazy var kitchenPageViewController: KitchenPageViewController = {
+//        return children.lazy.compactMap({ $0 as? KitchenPageViewController }).first!
+//    }()
+    var pageSource = ["paging1", "paging2", "paging3", "paging4"]
     // MARK: - UI Components
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var kitchenTableView: UITableView!
     @IBOutlet weak var profileImageView: UIImageView!
-    @IBOutlet weak var pageView: UIView!
+    @IBOutlet var pageView: UIView!
     @IBOutlet weak var seeAllFavRecipesButton: UIButton!
     @IBOutlet weak var favRecipesCollectionView: UICollectionView!
-    
     @IBOutlet weak var flowlayout: UICollectionViewFlowLayout!
     @IBOutlet weak var seeAllKitchensButton: UIButton!
    
@@ -39,7 +38,7 @@ class HomePageViewController: UIViewController {
         kitchenTableView.dataSource = self
         let nibCell = UINib(nibName: "KitchenCell", bundle: nil)
         kitchenTableView.register(nibCell, forCellReuseIdentifier: "KitchenCell")
-        
+        createPageVC()
 
     }
     
@@ -75,6 +74,9 @@ class HomePageViewController: UIViewController {
             navigationController?.pushViewController(vc, animated: true)
             
         }
+    }
+    func createPageVC() {
+      //  kitchenPageViewController.populateItems(pictureSource: pageSource)
     }
 }
 
@@ -124,7 +126,7 @@ extension HomePageViewController:  UITableViewDelegate, UITableViewDataSource {
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let storyboard = UIStoryboard(name: "Kitchen", bundle: nil)
         if let vc = storyboard.instantiateViewController(withIdentifier: "KitchenDetailViewController") as? KitchenDetailViewController {
-            vc.viewModel.kitchenDetail = viewModel.kitchens[indexPath.row]
+            vc.viewModel.kitchenID = viewModel.kitchens[indexPath.row].id
             navigationController?.pushViewController(vc, animated: true)
         }
     }
