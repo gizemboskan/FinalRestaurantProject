@@ -81,78 +81,7 @@ class TutorialViewController: UIViewController {
         
         view.bringSubviewToFront(skipButton)
         
-//        let recipe1 = RecipeModel(id: UUID().uuidString,
-//                                  name: "Pesto Chicken",
-//                                  imageURL: "https://www.aspicyperspective.com/wp-content/uploads/2014/04/pesto-chicken-5-256x256.jpg",
-//                                  instruction: "1.Preheat oven to 400˚F (200˚C). \n2.Place chicken breast in a baking dish. Season chicken with salt and pepper, to taste. \n 3.Spread pesto on each chicken breast. \n4.Layer tomatoes on top of the chicken. \n5.Top with mozzarella cheese. \n 6.Bake for 40 minutes.",
-//                                  ingredients: ["Pesto", "Chicken"]
-//        )
-//        
-//        
-//        let recipe2 = RecipeModel(id: UUID().uuidString,
-//                                  name: "Butter Chicken",
-//                                  imageURL: "https://www.aspicyperspective.com/wp-content/uploads/2014/04/pesto-chicken-5-256x256.jpg",
-//                                  instruction: "1.In a medium bowl, mix all the marinade ingredients with some seasoning. Chop the chicken into bite-sized pieces and toss with the marinade. Cover and chill in the fridge for 1 hr or overnight.\n 2.In a large, heavy saucepan, heat the oil. Add the onion, garlic, green chilli, ginger and some seasoning. Fry on a medium heat for 10 mins or until soft. \n 3.Add the spices with the tomato purée, cook for a further 2 mins until fragrant, then add the stock and marinated chicken. Cook for 15 mins, then add any remaining marinade left in the bowl. Simmer for 5 mins, then sprinkle with the toasted almonds. Serve with rice, naan bread, chutney, coriander and lime wedges, if you like.",
-//                                  ingredients: ["500g skinless boneless chicken thighs", """
-//For the marinade: 1 lemon, juiced, 2 tsp ground cumin 2 tsp paprika, 1-2 tsp hot chilli powder, 200g natural yogurt
-//                                                For the curry:
-//                                                2 tbsp vegetable oil
-//                                                1 large onion, chopped
-//                                                3 garlic cloves, crushed
-//                                                1 green chilli, deseeded and finely chopped (optional)
-//                                                thumb-sized piece ginger, grated
-//                                                1 tsp garam masala
-//                                                2 tsp ground fenugreek
-//                                                3 tbsp tomato purée
-//                                                300ml chicken stock
-//                                                50g flaked almonds, toasted
-//"""])
-//        
-//        let recipe3 = RecipeModel(id: UUID().uuidString,
-//                                  name: "Pesto Chicken",
-//                                  imageURL: "https://www.aspicyperspective.com/wp-content/uploads/2014/04/pesto-chicken-5-256x256.jpg",
-//                                  instruction: "1.Preheat oven to 400˚F (200˚C). \n2.Place chicken breast in a baking dish. Season chicken with salt and pepper, to taste. \n 3.Spread pesto on each chicken breast. \n4.Layer tomatoes on top of the chicken. \n5.Top with mozzarella cheese. \n 6.Bake for 40 minutes.",
-//                                  ingredients: ["Pesto", "Chicken"])
-//        
-//        let recipe4 = RecipeModel(id: UUID().uuidString,
-//                                  name: "Pesto Chicken",
-//                                  imageURL: "https://www.aspicyperspective.com/wp-content/uploads/2014/04/pesto-chicken-5-256x256.jpg",
-//                                  instruction: "1.Preheat oven to 400˚F (200˚C). \n2.Place chicken breast in a baking dish. Season chicken with salt and pepper, to taste. \n 3.Spread pesto on each chicken breast. \n4.Layer tomatoes on top of the chicken. \n5.Top with mozzarella cheese. \n 6.Bake for 40 minutes.",
-//                                  ingredients: ["Pesto", "Chicken"])
-//        
-//        let recipe5 = RecipeModel(id: UUID().uuidString,
-//                                  name: "Pesto Chicken",
-//                                  imageURL: "https://www.aspicyperspective.com/wp-content/uploads/2014/04/pesto-chicken-5-256x256.jpg",
-//                                  instruction: "1.Preheat oven to 400˚F (200˚C). \n2.Place chicken breast in a baking dish. Season chicken with salt and pepper, to taste. \n 3.Spread pesto on each chicken breast. \n4.Layer tomatoes on top of the chicken. \n5.Top with mozzarella cheese. \n 6.Bake for 40 minutes.",
-//                                  ingredients: ["Pesto", "Chicken"])
-//                
-//        
-//        let kitchen1 = KitchenModel(id: UUID().uuidString, name: "Burger Store", imageURL: "", location: "", recipes: [recipe1.id : recipe1.dictionary], descriptions: ["Burger", "Pasta", "Chickin"], avarageDeliveryTime: "30 - 40 Mins", rating: 4.4, ratingCount: 30)
-//        
-//        let kitchen2 = KitchenModel(id: UUID().uuidString, name: "Elche", imageURL: "", location: "", recipes: [recipe2.id:recipe2.dictionary], descriptions: ["Burger", "Pasta", "Chicken"], avarageDeliveryTime: "10 - 20 Mins", rating: 4.4, ratingCount: 30)
-//        
-//        let kitchen3 = KitchenModel(id: UUID().uuidString, name: "Casa Ràfols", imageURL: "", location: "", recipes: [recipe3.id:recipe3.dictionary], descriptions: ["Burger", "Pasta", "Chicken"], avarageDeliveryTime: "20 - 40 Mins", rating: 4.4, ratingCount: 30)
-//        
-//        let kitchen4 = KitchenModel(id: UUID().uuidString, name: "Orient Express", imageURL: "", location: "", recipes: [recipe4.id:recipe4.dictionary], descriptions: ["Burger", "Pasta", "Chicken"], avarageDeliveryTime: "30 - 40 Mins", rating: 4.4, ratingCount: 30)
-//        
-//        let kitchen5 = KitchenModel(id: UUID().uuidString, name: "Navarro", imageURL: "", location: "", recipes: [recipe5.id:recipe5.dictionary], descriptions: ["Burger", "Pasta", "Chicken"], avarageDeliveryTime: "10 - 25 Mins", rating: 4.4, ratingCount: 30)
-//        
-//        var kitchens: [String:Any] = [:]
-//        kitchens[kitchen1.id] = kitchen1.dictionary
-//        kitchens[kitchen2.id] = kitchen2.dictionary
-//        kitchens[kitchen3.id] = kitchen3.dictionary
-//        kitchens[kitchen4.id] = kitchen4.dictionary
-//        kitchens[kitchen5.id] = kitchen5.dictionary
-//        
-//        // favoriye yada locationa göre sort olabilirler..
-//        FirebaseEndpoints.kitchens.getDatabasePath.setValue(kitchens)
-//        
-//        
-//        let user1 = UserModel(id: UUID().uuidString, name: "Oliver Sunrise", recipes: [recipe1.id:recipe1.dictionary, recipe2.id:recipe2.dictionary], location: "")
-//        
-//        var user: [String:Any] = [:]
-//        user[user1.id] = user1.dictionary
-//        FirebaseEndpoints.users.getDatabasePath.setValue(user)
+        // createMockData()
         
     }
     
@@ -160,6 +89,81 @@ class TutorialViewController: UIViewController {
         
         paperView.delegate = self
         paperView.dataSource = self
+    }
+    
+    private func createMockData() {
+        let recipe1 = RecipeModel(id: UUID().uuidString,
+                                  name: "Pesto Chicken",
+                                  imageURL: "https://www.aspicyperspective.com/wp-content/uploads/2014/04/pesto-chicken-5-256x256.jpg",
+                                  instruction: "1.Preheat oven to 400˚F (200˚C). \n2.Place chicken breast in a baking dish. Season chicken with salt and pepper, to taste. \n 3.Spread pesto on each chicken breast. \n4.Layer tomatoes on top of the chicken. \n5.Top with mozzarella cheese. \n 6.Bake for 40 minutes.",
+                                  ingredients: ["Pesto", "Chicken"]
+        )
+        
+        
+        let recipe2 = RecipeModel(id: UUID().uuidString,
+                                  name: "Butter Chicken",
+                                  imageURL: "https://www.aspicyperspective.com/wp-content/uploads/2014/04/pesto-chicken-5-256x256.jpg",
+                                  instruction: "1.In a medium bowl, mix all the marinade ingredients with some seasoning. Chop the chicken into bite-sized pieces and toss with the marinade. Cover and chill in the fridge for 1 hr or overnight.\n 2.In a large, heavy saucepan, heat the oil. Add the onion, garlic, green chilli, ginger and some seasoning. Fry on a medium heat for 10 mins or until soft. \n 3.Add the spices with the tomato purée, cook for a further 2 mins until fragrant, then add the stock and marinated chicken. Cook for 15 mins, then add any remaining marinade left in the bowl. Simmer for 5 mins, then sprinkle with the toasted almonds. Serve with rice, naan bread, chutney, coriander and lime wedges, if you like.",
+                                  ingredients: ["500g skinless boneless chicken thighs", """
+       For the marinade: 1 lemon, juiced, 2 tsp ground cumin 2 tsp paprika, 1-2 tsp hot chilli powder, 200g natural yogurt
+                                                       For the curry:
+                                                       2 tbsp vegetable oil
+                                                       1 large onion, chopped
+                                                       3 garlic cloves, crushed
+                                                       1 green chilli, deseeded and finely chopped (optional)
+                                                       thumb-sized piece ginger, grated
+                                                       1 tsp garam masala
+                                                       2 tsp ground fenugreek
+                                                       3 tbsp tomato purée
+                                                       300ml chicken stock
+                                                       50g flaked almonds, toasted
+       """])
+        
+        let recipe3 = RecipeModel(id: UUID().uuidString,
+                                  name: "Pesto Chicken",
+                                  imageURL: "https://www.aspicyperspective.com/wp-content/uploads/2014/04/pesto-chicken-5-256x256.jpg",
+                                  instruction: "1.Preheat oven to 400˚F (200˚C). \n2.Place chicken breast in a baking dish. Season chicken with salt and pepper, to taste. \n 3.Spread pesto on each chicken breast. \n4.Layer tomatoes on top of the chicken. \n5.Top with mozzarella cheese. \n 6.Bake for 40 minutes.",
+                                  ingredients: ["Pesto", "Chicken"])
+        
+        let recipe4 = RecipeModel(id: UUID().uuidString,
+                                  name: "Pesto Chicken",
+                                  imageURL: "https://www.aspicyperspective.com/wp-content/uploads/2014/04/pesto-chicken-5-256x256.jpg",
+                                  instruction: "1.Preheat oven to 400˚F (200˚C). \n2.Place chicken breast in a baking dish. Season chicken with salt and pepper, to taste. \n 3.Spread pesto on each chicken breast. \n4.Layer tomatoes on top of the chicken. \n5.Top with mozzarella cheese. \n 6.Bake for 40 minutes.",
+                                  ingredients: ["Pesto", "Chicken"])
+        
+        let recipe5 = RecipeModel(id: UUID().uuidString,
+                                  name: "Pesto Chicken",
+                                  imageURL: "https://www.aspicyperspective.com/wp-content/uploads/2014/04/pesto-chicken-5-256x256.jpg",
+                                  instruction: "1.Preheat oven to 400˚F (200˚C). \n2.Place chicken breast in a baking dish. Season chicken with salt and pepper, to taste. \n 3.Spread pesto on each chicken breast. \n4.Layer tomatoes on top of the chicken. \n5.Top with mozzarella cheese. \n 6.Bake for 40 minutes.",
+                                  ingredients: ["Pesto", "Chicken"])
+        
+        
+        let kitchen1 = KitchenModel(id: UUID().uuidString, name: "Burger Store", imageURL: "", locationString: "konak", recipes: [recipe1.id : recipe1.dictionary], descriptions: ["Burger", "Pasta", "Chickin"], avarageDeliveryTime: "30 - 40 Mins", rating: 4.4, ratingCount: 30, latitude: 38.421117, longitude: 27.130687)
+        
+        let kitchen2 = KitchenModel(id: UUID().uuidString, name: "Elche", imageURL: "", locationString: "konak", recipes: [recipe2.id:recipe2.dictionary], descriptions: ["Burger", "Pasta", "Chicken"], avarageDeliveryTime: "10 - 20 Mins", rating: 4.4, ratingCount: 30,latitude: 38.419847, longitude: 27.128663)
+        
+        let kitchen3 = KitchenModel(id: UUID().uuidString, name: "Casa Ràfols", imageURL: "", locationString: "konak", recipes: [recipe3.id:recipe3.dictionary], descriptions: ["Burger", "Pasta", "Chicken"], avarageDeliveryTime: "20 - 40 Mins", rating: 4.4, ratingCount: 30,latitude: 38.414988, longitude: 27.126888)
+        
+        let kitchen4 = KitchenModel(id: UUID().uuidString, name: "Orient Express", imageURL: "", locationString: "konak", recipes: [recipe4.id:recipe4.dictionary], descriptions: ["Burger", "Pasta", "Chicken"], avarageDeliveryTime: "30 - 40 Mins", rating: 4.4, ratingCount: 30,latitude: 38.408860, longitude: 27.119975)
+        
+        let kitchen5 = KitchenModel(id: UUID().uuidString, name: "Navarro", imageURL: "", locationString: "Konak", recipes: [recipe5.id:recipe5.dictionary], descriptions: ["Burger", "Pasta", "Chicken"], avarageDeliveryTime: "10 - 25 Mins", rating: 4.4, ratingCount: 30,latitude: 38.403830, longitude: 27.097520)
+        
+        var kitchens: [String:Any] = [:]
+        kitchens[kitchen1.id] = kitchen1.dictionary
+        kitchens[kitchen2.id] = kitchen2.dictionary
+        kitchens[kitchen3.id] = kitchen3.dictionary
+        kitchens[kitchen4.id] = kitchen4.dictionary
+        kitchens[kitchen5.id] = kitchen5.dictionary
+        
+        // favoriye yada locationa göre sort olabilirler..
+        FirebaseEndpoints.kitchens.getDatabasePath.setValue(kitchens)
+        
+        
+        let user1 = UserModel(id: UUID().uuidString, name: "Oliver Sunrise", recipes: [recipe1.id:recipe1.dictionary, recipe2.id:recipe2.dictionary], locationString: "Izmir-Bornova", latitude: 38.423830, longitude: 27.119975)
+        
+        var user: [String:Any] = [:]
+        user[user1.id] = user1.dictionary
+        FirebaseEndpoints.users.getDatabasePath.setValue(user)
     }
 }
 
