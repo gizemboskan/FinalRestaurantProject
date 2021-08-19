@@ -158,8 +158,7 @@ class TutorialViewController: UIViewController {
         // favoriye yada locationa göre sort olabilirler..
         FirebaseEndpoints.kitchens.getDatabasePath.setValue(kitchens)
         
-        
-        let user1 = UserModel(id: UUID().uuidString, name: "Oliver Sunrise", recipes: [recipe1.id:recipe1.dictionary, recipe2.id:recipe2.dictionary], locationString: "Izmir-Bornova", latitude: 38.423830, longitude: 27.119975)
+        let user1 = UserModel(id: UUID().uuidString, name: "Oliver Sunrise", recipes: [recipe1.id:recipe1.dictionary, recipe2.id:recipe2.dictionary], latitude: 38.423830, longitude: 27.119975)
         
         var user: [String:Any] = [:]
         user[user1.id] = user1.dictionary

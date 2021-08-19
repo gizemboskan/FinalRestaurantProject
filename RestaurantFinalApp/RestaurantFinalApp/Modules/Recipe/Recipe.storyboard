@@ -280,6 +280,7 @@
                     </view>
                     <connections>
                         <outlet property="backButton" destination="KmK-Dk-zHa" id="fbk-A6-5d0"/>
+                        <outlet property="createRecipeView" destination="b62-Nl-kRH" id="wTi-v8-A7k"/>
                         <outlet property="favButton" destination="kxc-dj-bEy" id="Ask-sP-WtG"/>
                         <outlet property="orderButton" destination="uuK-rP-fN6" id="YXX-5k-0Zj"/>
                         <outlet property="recipeEditButton" destination="g2c-Uq-Yby" id="sKK-Ct-u9a"/>
@@ -288,6 +289,7 @@
                         <outlet property="recipeTextView" destination="TEv-Oh-rhS" id="5nY-BJ-wfO"/>
                         <outlet property="segmentedControl" destination="cb1-lG-axH" id="2zg-sX-HZo"/>
                         <outlet property="shareButton" destination="09w-Pq-kxU" id="xUE-zs-xJ5"/>
+                        <outlet property="viewWithButton" destination="iHb-mZ-jMT" id="iLV-ll-qpj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d5R-If-h0D" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -11,6 +11,7 @@ class RecipeDetailViewController: UIViewController {
     // MARK: - Properties
     
     
+    let viewModel: RecipeDetailViewModel = RecipeDetailViewModel()
     // MARK: - UI Components
     @IBOutlet weak var recipeImageView: UIImageView!
     @IBOutlet weak var shareButton: UIButton!
@@ -24,12 +25,18 @@ class RecipeDetailViewController: UIViewController {
     @IBOutlet weak var recipeTextView: UITextView!
     @IBOutlet weak var orderButton: UIButton!
     
-    let viewModel: RecipeDetailViewModel = RecipeDetailViewModel()
+    @IBOutlet weak var createRecipeView: UIView!
+    
+    @IBOutlet weak var viewWithButton: UIView!
     // MARK: - UIViewController Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.isNavigationBarHidden = true
         viewModel.delegate = self
+        viewWithButton.roundCorners(.allCorners, radius: 60)
+        
+        recipeTextView.roundCorners(.allCorners, radius: 3)
+        createRecipeView.roundCorners([.topLeft, .topRight], radius: 22)
     }
     
     override func viewWillAppear(_ animated: Bool) {

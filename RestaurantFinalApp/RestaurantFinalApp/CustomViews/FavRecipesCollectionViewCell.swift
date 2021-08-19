@@ -9,7 +9,12 @@ import UIKit
 
 class FavRecipesCollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet var favRecipeImageView: UIImageView!
+    
+    @IBOutlet var favRecipeImageView: UIImageView! {
+        didSet {
+            favRecipeImageView.roundCorners(.allCorners, radius: 10)
+        }
+    }
     @IBOutlet var favRecipeName: UILabel!
     
     public func setImage(from urlString: String) {

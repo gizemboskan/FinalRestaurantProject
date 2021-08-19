@@ -32,11 +32,11 @@ class KitchenPageViewController: UIPageViewController {
         self.items.removeAll()
         self.pictureSource = pictureSource
         for picture in pictureSource {
-            let c = UIViewController()
+            let vc = UIViewController()
             let pictureView = UIImageView(frame: view.frame)
-            c.view.addSubview(pictureView)
+            vc.view.addSubview(pictureView)
             pictureView.image = UIImage(named: picture)
-            items.append(c)
+            items.append(vc)
         }
         
         if let firstViewController = items.first {

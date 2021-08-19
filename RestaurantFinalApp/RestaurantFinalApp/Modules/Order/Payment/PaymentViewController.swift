@@ -19,7 +19,6 @@ class PaymentViewController: UIViewController {
     @IBOutlet weak var recipeNameLabel: UILabel!
     
     @IBOutlet weak var creditCardNumberTextField: UITextField!
-    @IBOutlet weak var cashButton: UIButton!
     @IBOutlet weak var priceLabel: UILabel!
     
     @IBOutlet weak var creditCardCVCTextField: UITextField!
@@ -28,43 +27,38 @@ class PaymentViewController: UIViewController {
     @IBOutlet weak var orderDoneImageView: UIImageView!
     @IBOutlet weak var orderSucceedView: UIView!
     @IBOutlet weak var goHomeButton: UIButton!
+    
+    @IBOutlet weak var scrollView: UIScrollView!
+    
+    @IBOutlet weak var viewWithPayButton: UIView!
+    @IBOutlet weak var firstView: UIView!
     // MARK: - UIViewController Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel.delegate = self
         orderSucceedView.isHidden = true
-        orderDoneImageView.isHidden = true
-        
-        cashButton.isHighlighted = false
         creditCardCVCTextField.isEnabled = true
         creditCardDateTextField.isEnabled = true
         creditCardNumberTextField.isEnabled = true
         viewModel.getPaymentDetails()
+        viewWithPayButton.roundCorners(.allCorners, radius: 35)
     }
     
     // MARK: - Helpers
     @IBAction func payButtonPressed(_ sender: UIButton) {
         orderSucceedView.isHidden = false
-        orderDoneImageView.isHidden = true
 
-    }
-    
-    @IBAction func cashButtonPressed(_ sender: UIButton) {
-        cashButton.isHighlighted = true
-        creditCardCVCTextField.isEnabled = false
-        creditCardDateTextField.isEnabled = false
-        creditCardNumberTextField.isEnabled = false
-        
+        let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.dark)
+        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.frame = scrollView.bounds
+        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        self.scrollView.isScrollEnabled = false
+        self.firstView.addSubview(blurEffectView)
     }
     
     @IBAction func goHomeButtonPressed(_ sender: UIButton) {
-        
-        let storyboard = UIStoryboard(name: "Home", bundle: nil)
-        if let vc = storyboard.instantiateViewController(withIdentifier: "HomePageViewController") as? HomePageViewController {
-            vc.popoverPresentationController?.sourceView = sender as UIView
-            vc.present(vc, animated: true)
-    }
+        self.navigationController?.popToRootViewController(animated: true)
     }
 }
 

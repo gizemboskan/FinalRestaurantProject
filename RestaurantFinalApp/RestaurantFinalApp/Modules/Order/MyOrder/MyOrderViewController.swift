@@ -23,6 +23,7 @@ class MyOrderViewController: UIViewController {
     // MARK: - UI Components
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var recipeImageView: UIImageView!
+    @IBOutlet weak var downView: UIView!
     @IBOutlet weak var recipeNameLabel: UILabel!
     @IBOutlet weak var recipeArrivalTimeLabel: UILabel!
     @IBOutlet weak var stepIndicatorView: StepIndicatorView!
@@ -38,6 +39,8 @@ class MyOrderViewController: UIViewController {
     
     // MARK: - UIViewController Lifecycle
     override func viewDidLoad() {
+        downView.roundCorners([.topLeft, .topRight], radius: 30)
+        recipeImageView.roundCorners(.allCorners, radius: 140)
         verticalProgressView.progress = 0.0
         let verticalProgressView = VerticalProgressView(frame: CGRect(x: 8, y: 173, width: 6, height: 170))
         view.addSubview(verticalProgressView)
@@ -46,7 +49,7 @@ class MyOrderViewController: UIViewController {
         verticalProgressView.progressTintColor = .label
         verticalProgressView.progressViewStyle = .bar
         verticalProgressView.trackTintColor = UIColor(red: 255, green: 214, blue: 123, alpha: 1)
-        
+        recipeImageView.roundCorners(.allCorners, radius: 60)
         startCount()
         
     }

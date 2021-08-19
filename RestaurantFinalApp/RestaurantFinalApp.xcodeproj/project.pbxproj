@@ -76,6 +76,7 @@
 		8EC6084526BEFFDE00FCB4DB /* TutorialViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC6084426BEFFDE00FCB4DB /* TutorialViewModel.swift */; };
 		8EC6084726BF004200FCB4DB /* LandingMenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC6084626BF004200FCB4DB /* LandingMenuViewModel.swift */; };
 		8EF7139426CE895800A4878A /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EF7139326CE895700A4878A /* MapKit.framework */; };
+		8EF7139626CEEF7800A4878A /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF7139526CEEF7700A4878A /* UIView+Extensions.swift */; };
 		8EF903B026CC27E30028A8A1 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 8EF903AF26CC27E30028A8A1 /* FirebaseDatabase */; };
 		8EF903B226CC27E30028A8A1 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 8EF903B126CC27E30028A8A1 /* FirebaseStorage */; };
 		8EF903B526CD285F0028A8A1 /* WSTagsField in Frameworks */ = {isa = PBXBuildFile; productRef = 8EF903B426CD285F0028A8A1 /* WSTagsField */; };
@@ -169,6 +170,7 @@
 		8EC6084426BEFFDE00FCB4DB /* TutorialViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialViewModel.swift; sourceTree = "<group>"; };
 		8EC6084626BF004200FCB4DB /* LandingMenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingMenuViewModel.swift; sourceTree = "<group>"; };
 		8EF7139326CE895700A4878A /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		8EF7139526CEEF7700A4878A /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -486,6 +488,7 @@
 				8E9CB9C126B965C2000D564A /* UIViewController+Extensions.swift */,
 				8E9CB9CC26B969B1000D564A /* UIColor+Extensions.swift */,
 				8E1B666326CBAEFE00BC5F47 /* UIImageView+Extensions.swift */,
+				8EF7139526CEEF7700A4878A /* UIView+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -761,6 +764,7 @@
 				8E46D2BD26C014CB0063FCF2 /* KitchensViewModel.swift in Sources */,
 				8E46D2D726C017610063FCF2 /* ProfileViewController.swift in Sources */,
 				8E7F4B0F26C27EDF009F9AE3 /* SecondBarItemViewController.swift in Sources */,
+				8EF7139626CEEF7800A4878A /* UIView+Extensions.swift in Sources */,
 				8E9471E026CAD058003234AA /* VerticalProgressView.swift in Sources */,
 				8E9471DC26C9BA91003234AA /* KitchenModel.swift in Sources */,
 				8E46D2B226C013DE0063FCF2 /* RecipeDetailViewModel.swift in Sources */,

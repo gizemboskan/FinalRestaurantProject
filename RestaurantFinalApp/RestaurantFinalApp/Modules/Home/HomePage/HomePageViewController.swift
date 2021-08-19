@@ -11,9 +11,9 @@ class HomePageViewController: UIViewController {
     // MARK: - Properties
     
     let viewModel: HomePageViewModel = HomePageViewModel()
-//    lazy var kitchenPageViewController: KitchenPageViewController = {
-//        return children.lazy.compactMap({ $0 as? KitchenPageViewController }).first!
-//    }()
+    //    lazy var kitchenPageViewController: KitchenPageViewController = {
+    //        return children.lazy.compactMap({ $0 as? KitchenPageViewController }).first!
+    //    }()
     var pageSource = ["paging1", "paging2", "paging3", "paging4"]
     // MARK: - UI Components
     @IBOutlet weak var locationLabel: UILabel!
@@ -24,7 +24,8 @@ class HomePageViewController: UIViewController {
     @IBOutlet weak var favRecipesCollectionView: UICollectionView!
     @IBOutlet weak var flowlayout: UICollectionViewFlowLayout!
     @IBOutlet weak var seeAllKitchensButton: UIButton!
-   
+    
+    @IBOutlet weak var orderStatusButton: UIButton!
     // MARK: - UIViewController Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,10 +37,15 @@ class HomePageViewController: UIViewController {
         
         kitchenTableView.delegate = self
         kitchenTableView.dataSource = self
+        kitchenTableView.roundCorners(.allCorners, radius: 22)
+        profileImageView.roundCorners(.allCorners, radius: 4)
+        pageView.roundCorners(.allCorners, radius: 15)
+        favRecipesCollectionView.roundCorners(.allCorners, radius: 22)
+        
         let nibCell = UINib(nibName: "KitchenCell", bundle: nil)
         kitchenTableView.register(nibCell, forCellReuseIdentifier: "KitchenCell")
         createPageVC()
-
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -67,6 +73,14 @@ class HomePageViewController: UIViewController {
         }
     }
     
+    @IBAction func orderStatusButtonTapped(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Order", bundle: nil)
+        if let vc = storyboard.instantiateViewController(withIdentifier: "MyOrderViewController") as? MyOrderViewController {
+            
+            navigationController?.pushViewController(vc, animated: true)
+            
+        }
+    }
     @IBAction func seeAllKitchensButtonPressed(_ sender: UIButton) {
         let storyboard = UIStoryboard(name: "Kitchen", bundle: nil)
         if let vc = storyboard.instantiateViewController(withIdentifier: "KitchensViewController") as? KitchensViewController {
@@ -76,7 +90,7 @@ class HomePageViewController: UIViewController {
         }
     }
     func createPageVC() {
-      //  kitchenPageViewController.populateItems(pictureSource: pageSource)
+        //  kitchenPageViewController.populateItems(pictureSource: pageSource)
     }
 }
 

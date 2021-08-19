@@ -22,6 +22,7 @@ class RecipesViewController: UIViewController {
         recipesCollectionView.delegate = self
         recipesCollectionView.dataSource = self
         viewModel.delegate = self
+        recipesCollectionView.roundCorners(.allCorners, radius: 10)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -59,7 +60,7 @@ extension RecipesViewController:  UICollectionViewDelegate, UICollectionViewData
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 135, height: 165)
+        return CGSize(width: 150, height: 210)
     }
 }
 

@@ -12,7 +12,6 @@ protocol KitchenDetailViewModelDelegate: AnyObject {
     
     func showAlert(message: String)
     func kitchenTitleLoaded(title: String)
-    func mapLoaded()
     func coordinatesLoaded(longitude: Double, latitude: Double)
     
     func kitchenRecipesLoaded()
@@ -33,7 +32,8 @@ class KitchenDetailViewModel {
     var kitchenDescriptions: [String] = []
     
     var kitchenID: String?
-    
+    private var myUserDetail: UserModel?
+
     func getKitchenDetails(){
         guard let kitchenID = kitchenID else { return }
         
@@ -74,10 +74,9 @@ class KitchenDetailViewModel {
             }
         }
     }
-    private var myUserDetail: UserModel?
+    
     func getUserLocation(){
-        
-        FirebaseEndpoints.myUser.getDatabasePath.child("locationDetails").getData{ [weak self] (error, snapshot) in
+        FirebaseEndpoints.myUser.getDatabasePath.getData{ [weak self] (error, snapshot) in
             if let error = error {
                 self?.delegate?.showAlert(message: "error")
                 print("Error getting data \(error)")

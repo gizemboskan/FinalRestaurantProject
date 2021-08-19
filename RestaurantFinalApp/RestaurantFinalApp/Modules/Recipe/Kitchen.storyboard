@@ -61,7 +61,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Psm-fm-yPl">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="768"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="722"/>
                                         <subviews>
                                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="wth-zC-jIt">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="270"/>
@@ -81,7 +81,7 @@
                                                 </connections>
                                             </button>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jg7-c5-rBt">
-                                                <rect key="frame" x="0.0" y="286" width="375" height="482"/>
+                                                <rect key="frame" x="0.0" y="240" width="375" height="482"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="91" translatesAutoresizingMaskIntoConstraints="NO" id="Eqr-8O-hXO">
                                                         <rect key="frame" x="16" y="0.0" width="343" height="30"/>
@@ -382,7 +382,7 @@
                                             <constraint firstAttribute="bottom" secondItem="Jg7-c5-rBt" secondAttribute="bottom" id="WI6-Zr-qhA"/>
                                             <constraint firstItem="Jg7-c5-rBt" firstAttribute="leading" secondItem="Psm-fm-yPl" secondAttribute="leading" id="bT8-Ly-Hfc"/>
                                             <constraint firstItem="wth-zC-jIt" firstAttribute="leading" secondItem="Psm-fm-yPl" secondAttribute="leading" id="koz-hX-Pk2"/>
-                                            <constraint firstItem="Jg7-c5-rBt" firstAttribute="top" secondItem="wth-zC-jIt" secondAttribute="bottom" constant="16" id="vFk-sY-Q67"/>
+                                            <constraint firstItem="Jg7-c5-rBt" firstAttribute="top" secondItem="wth-zC-jIt" secondAttribute="bottom" constant="-30" id="vFk-sY-Q67"/>
                                             <constraint firstAttribute="trailing" secondItem="Jg7-c5-rBt" secondAttribute="trailing" id="ygz-hS-2TT"/>
                                         </constraints>
                                     </view>
@@ -414,6 +414,7 @@
                         <outlet property="flowlayout" destination="SSw-7q-BX6" id="eGV-fL-4fw"/>
                         <outlet property="flowlayout2" destination="sP2-4t-P2x" id="SPz-2S-h6H"/>
                         <outlet property="kitchenDescriptionCollectionView" destination="hyq-Aa-xei" id="Awf-ls-iY3"/>
+                        <outlet property="kitchenDetailView" destination="Jg7-c5-rBt" id="iGk-Lz-J5t"/>
                         <outlet property="kitchenLocationLabel" destination="2ta-aB-1Sd" id="hor-JI-Xbe"/>
                         <outlet property="kitchenTitleLabel" destination="OfX-Yj-F0K" id="buO-GT-ODd"/>
                         <outlet property="mapView" destination="wth-zC-jIt" id="ujy-b5-LER"/>

@@ -28,6 +28,10 @@ class CreateRecipeViewController: UIViewController, UINavigationControllerDelega
     @IBOutlet weak var editRecipeButton: UIButton!
     @IBOutlet weak var doneButton: UIButton!
     
+    @IBOutlet weak var viewWithButton: UIView!
+    
+    @IBOutlet weak var viewWithButton2: UIView!
+    @IBOutlet weak var createRecipeView: UIView!
     // MARK: - UIViewController Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +42,10 @@ class CreateRecipeViewController: UIViewController, UINavigationControllerDelega
         viewModel.editArrivedRecipe()
         
         setTagsFieldProperties()
-        
+        createRecipeView.roundCorners([.topLeft, .topRight], radius: 40)
+        viewWithButton.roundCorners(.allCorners, radius: 60)
+        viewWithButton2.roundCorners(.allCorners, radius: 40)
+        imagePickerButton.roundCorners(.allCorners, radius: 20)
     }
     
     override func viewWillAppear(_ animated: Bool) {

@@ -392,6 +392,7 @@
                     </view>
                     <connections>
                         <outlet property="backButton" destination="yuE-xF-7ZD" id="3zN-ep-tua"/>
+                        <outlet property="createRecipeView" destination="rsq-Gb-Eqy" id="3An-V5-PdN"/>
                         <outlet property="doneButton" destination="2kR-zu-uZm" id="sAp-nA-hax"/>
                         <outlet property="editRecipeButton" destination="NSq-nU-DE4" id="f3G-Km-O3Y"/>
                         <outlet property="firstView" destination="EfA-F7-Vnq" id="OX6-HW-XW3"/>
@@ -403,6 +404,8 @@
                         <outlet property="segmentedControl" destination="P2F-rk-ptf" id="CdW-Za-Z6a"/>
                         <outlet property="shareButton" destination="nl7-b0-opv" id="Oey-JB-7yb"/>
                         <outlet property="tagsField" destination="eJT-jW-YI5" id="SGA-xO-7ca"/>
+                        <outlet property="viewWithButton" destination="ASP-db-qCp" id="9bA-ku-3Ir"/>
+                        <outlet property="viewWithButton2" destination="h9w-6N-Eza" id="EXD-1u-hjT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PE0-h7-vSb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -11,7 +11,6 @@ struct UserModel {
     var id: String
     var name: String
     var recipes: [String: Any]
-    var locationString: String
     var latitude: Double
     var longitude: Double
     
@@ -19,7 +18,6 @@ struct UserModel {
         return ["id": id,
                 "name": name,
                 "recipes": recipes,
-                "locationString": locationString,
                 "latitude": latitude,
                 "longitude": longitude
         ]
@@ -29,7 +27,6 @@ struct UserModel {
         return UserModel(id: userDetails["id"] as! String,
                          name: userDetails["name"] as! String,
                          recipes: userDetails["recipes"] as! [String: Any],
-                         locationString: userDetails["locationString"] as! String,
                          latitude: userDetails["latitude"] as! Double,
                          longitude: userDetails["longitude"] as! Double)
     }
