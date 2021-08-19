@@ -7,17 +7,6 @@
 
 import UIKit
 
-//class GamePageView: UIImageView {
-//    func setImage(from urlString: String) {
-//        VideoGameClient.downloadGameImage(path: urlString){ data, error in
-//            DispatchQueue.main.async {
-//                guard let data = data else { return }
-//                self.image = UIImage(data: data)
-//            }
-//        }
-//    }
-//}
-
 class KitchenPageViewController: UIPageViewController {
     // MARK: - Properties
     
@@ -26,6 +15,7 @@ class KitchenPageViewController: UIPageViewController {
     private var currentIndex: Int?
     var index = 0
     var counter = 0
+    private var pictureSource: [String]?
     // MARK: - UIViewController Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,10 +23,26 @@ class KitchenPageViewController: UIPageViewController {
         delegate = self
         decoratePageControl()
         
-//        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(goDetail(_:))))
+        //        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(goDetail(_:))))
         Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(self.changeImage), userInfo: nil, repeats: true)
     }
     // MARK: - Helpers
+    
+    func populateItems(pictureSource: [String]) {
+        self.items.removeAll()
+        self.pictureSource = pictureSource
+        for picture in pictureSource {
+            let c = UIViewController()
+            let pictureView = UIImageView(frame: view.frame)
+            c.view.addSubview(pictureView)
+            pictureView.image = UIImage(named: picture)
+            items.append(c)
+        }
+        
+        if let firstViewController = items.first {
+            setViewControllers([firstViewController], direction: .forward, animated: true, completion: nil)
+        }
+    }
     @objc func changeImage(){
         goToNextPage()
     }
@@ -53,14 +59,14 @@ class KitchenPageViewController: UIPageViewController {
         pc.pageIndicatorTintColor = .gray
     }
     
-//    @objc func goDetail(_ gesture: UITapGestureRecognizer) {
-//        if let vc = storyboard?.instantiateViewController(withIdentifier: "KitchenDetailViewController") as? KitchenDetailViewController,
-//           let currentIndex = self.currentIndex,
-//           let kitchenSource = self.kitchenSource {
-//            vc.kitchen = kitchenSource[currentIndex]
-//            navigationController?.pushViewController(vc, animated: true)
-//        }
-//    }
+    //    @objc func goDetail(_ gesture: UITapGestureRecognizer) {
+    //        if let vc = storyboard?.instantiateViewController(withIdentifier: "KitchenDetailViewController") as? KitchenDetailViewController,
+    //           let currentIndex = self.currentIndex,
+    //           let kitchenSource = self.kitchenSource {
+    //            vc.kitchen = kitchenSource[currentIndex]
+    //            navigationController?.pushViewController(vc, animated: true)
+    //        }
+    //    }
 }
 
 // MARK: - DataSource
