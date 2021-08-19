@@ -13,13 +13,16 @@ protocol KitchenDetailViewModelDelegate: AnyObject {
     func showAlert(message: String)
     func kitchenTitleLoaded(title: String)
     func mapLoaded()
-    func locationLoaded(location: String)
+    func coordinatesLoaded(longitude: Double, latitude: Double)
+    
     func kitchenRecipesLoaded()
-    func kitchenDescriptionsLoaded(descriptions: [String])
+    func kitchenDescriptionsLoaded()
     func deliveryTimeLoaded(deliveryTime: String)
     func ratingLoaded(rating: Double)
     func ratingCountLoaded(ratingCount: Int)
     func backButtonPressed()
+    func userCoordinatesLoaded(longitude: Double, latitude: Double)
+    
 }
 
 class KitchenDetailViewModel {
@@ -27,44 +30,14 @@ class KitchenDetailViewModel {
     
     var kitchenDetail: KitchenModel?
     var kitchenRecipes: [RecipeModel] = []
-    var kitchenID: String?
+    var kitchenDescriptions: [String] = []
     
-    func getKitchenRecipes() {
-        guard let kitchenID = kitchenID else { return }
-        
-        kitchenRecipes.removeAll()
-        FirebaseEndpoints.kitchens.getDatabasePath.child("kitchens").child(kitchenID).child("recipes").getData{ [weak self] (error, snapshot) in
-            if let error = error {
-                self?.delegate?.showAlert(message: "error")
-                print("Error getting data \(error)")
-            }
-            else if snapshot.exists() {
-                print("Got data \(snapshot.value!)")
-                
-                if let kitchenRecipesDict = snapshot.value as? [String: Any] {
-                    
-                    for recipe in kitchenRecipesDict {
-                        if let recipeDetails = recipe.value as? [String: Any] {
-                            let kitchenRecipe = RecipeModel.getRecipeFromDict(recipeDetails: recipeDetails)
-                            self?.kitchenRecipes.append(kitchenRecipe)
-                        }
-                        
-                    }
-                }
-                
-                self?.delegate?.kitchenRecipesLoaded()
-            }
-            else {
-                self?.delegate?.showAlert(message: "no data")
-                print("No data available")
-            }
-        }
-    }
+    var kitchenID: String?
     
     func getKitchenDetails(){
         guard let kitchenID = kitchenID else { return }
         
-        FirebaseEndpoints.kitchens.getDatabasePath.child("kitchens").child(kitchenID).getData{ [weak self] (error, snapshot) in
+        FirebaseEndpoints.kitchens.getDatabasePath.child(kitchenID).getData{ [weak self] (error, snapshot) in
             if let error = error {
                 self?.delegate?.showAlert(message: "error")
                 print("Error getting data \(error)")
@@ -75,13 +48,46 @@ class KitchenDetailViewModel {
                 if let kitchenDict = snapshot.value as? [String: Any] {
                     self?.kitchenDetail = KitchenModel.getKitchenFromDict(kitchenDetails: kitchenDict)
                     self?.delegate?.kitchenTitleLoaded(title: self?.kitchenDetail?.name ?? "")
-                    self?.delegate?.locationLoaded(location: self?.kitchenDetail?.location ?? "")
-                    // self?.delegate?.kitchenRecipesLoaded()
-                    self?.getKitchenRecipes()
-                    self?.delegate?.kitchenDescriptionsLoaded(descriptions: self?.kitchenDetail?.descriptions ?? [])
+                    self?.delegate?.coordinatesLoaded(longitude: self?.kitchenDetail?.longitude ?? 0.0, latitude: self?.kitchenDetail?.latitude ?? 0.0)
+                    
                     self?.delegate?.deliveryTimeLoaded(deliveryTime: self?.kitchenDetail?.avarageDeliveryTime ?? "")
                     self?.delegate?.ratingLoaded(rating: self?.kitchenDetail?.rating ?? 0.0)
                     self?.delegate?.ratingCountLoaded(ratingCount: self?.kitchenDetail?.ratingCount ?? 0)
+                    
+                    self?.kitchenDescriptions.append(contentsOf: self?.kitchenDetail?.descriptions ?? [])
+                    self?.delegate?.kitchenDescriptionsLoaded()
+                    
+                    if let kitchenRecipesDict = self?.kitchenDetail?.recipes {
+                        for recipe in kitchenRecipesDict {
+                            if let recipeDetails = recipe.value as? [String: Any] {
+                                let kitchenRecipe = RecipeModel.getRecipeFromDict(recipeDetails: recipeDetails)
+                                self?.kitchenRecipes.append(kitchenRecipe)
+                            }
+                        }
+                    }
+                    self?.delegate?.kitchenRecipesLoaded()
+                }
+            }
+            else {
+                self?.delegate?.showAlert(message: "no data")
+                print("No data available")
+            }
+        }
+    }
+    private var myUserDetail: UserModel?
+    func getUserLocation(){
+        
+        FirebaseEndpoints.myUser.getDatabasePath.child("locationDetails").getData{ [weak self] (error, snapshot) in
+            if let error = error {
+                self?.delegate?.showAlert(message: "error")
+                print("Error getting data \(error)")
+            }
+            else if snapshot.exists() {
+                print("Got data \(snapshot.value!)")
+                
+                if let myUserDict = snapshot.value as? [String: Any] {
+                    self?.myUserDetail = UserModel.getUserFromDict(userDetails: myUserDict)
+                    self?.delegate?.userCoordinatesLoaded(longitude: self?.myUserDetail?.longitude ?? 00, latitude: self?.myUserDetail?.latitude ?? 00)
                     
                 }
             }
@@ -91,6 +97,7 @@ class KitchenDetailViewModel {
             }
         }
     }
+    
     func quitView(){
         delegate?.backButtonPressed()
     }
