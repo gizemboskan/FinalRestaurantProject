@@ -12,7 +12,6 @@ class KitchenCell: UITableViewCell {
     @IBOutlet weak var ratingLabel: UILabel!
     @IBOutlet weak var delivertTimeLabel: UILabel!
     @IBOutlet weak var ratingCountLabel: UILabel!
-    @IBOutlet weak var lovedButton: UIButton!
     @IBOutlet weak var kitchenImage: UIImageView!
     @IBOutlet weak var FoodGenreCollectionView: UICollectionView!
     @IBOutlet weak var flow: UICollectionViewFlowLayout! {
@@ -32,9 +31,6 @@ class KitchenCell: UITableViewCell {
             }
         }
     }
-   
-    @IBAction func lovedButtonAction(_ sender: UIButton) {
-        // çıkarmayı düşünüyorum 
-    }
+
 }
 

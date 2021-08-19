@@ -4,6 +4,17 @@
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
+	<key>CFBundleDocumentTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeName</key>
+			<string>MKDirectionsRequest</string>
+			<key>LSItemContentTypes</key>
+			<array>
+				<string>com.apple.maps.directionsrequest</string>
+			</array>
+		</dict>
+	</array>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -20,6 +31,24 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>MKDirectionsApplicationSupportedModes</key>
+	<array>
+		<string>MKDirectionsModeBike</string>
+		<string>MKDirectionsModeCar</string>
+		<string>MKDirectionsModeOther</string>
+		<string>MKDirectionsModePedestrian</string>
+		<string>MKDirectionsModeRideShare</string>
+		<string>MKDirectionsModeStreetCar</string>
+		<string>MKDirectionsModeTaxi</string>
+	</array>
+	<key>NSCameraUsageDescription</key>
+	<string>We want to use your camera to take some photos.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>We need to use your location to serve you.</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>We want to use your photo library to save the photos.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>We want to use your photo library to use the photos.</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
@@ -60,13 +89,5 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>We want to use your photo library to use the photos.</string>
-	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>We want to use your photo library to save the photos.</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>We need to use your location to serve you.</string>
-	<key>NSCameraUsageDescription</key>
-	<string>We want to use your camera to take some photos.</string>
 </dict>
 </plist>

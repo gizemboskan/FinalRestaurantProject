@@ -26,11 +26,21 @@ class RecipeDetailViewModel {
     weak var delegate: RecipeDetailViewModelDelegate?
     
     var recipeID: String?
+    var kitchenID: String?
     var recipeDetail: RecipeModel?
     
-    func getRecipeDetails(){
+    func getDetails() {
+        if let kitchenID = kitchenID {
+            getRecipeDetails(from:  FirebaseEndpoints.kitchens.getDatabasePath.child(kitchenID).child("recipes"))
+        } else {
+            getRecipeDetails(from:  FirebaseEndpoints.myUser.getDatabasePath.child("recipes"))
+        }
+    }
+    
+    
+    private func getRecipeDetails(from databaseReference: DatabaseReference){
         guard let recipeID = recipeID else { return }
-        FirebaseEndpoints.myUser.getDatabasePath.child("recipes").child(recipeID).getData{ [weak self] (error, snapshot) in
+        databaseReference.child(recipeID).getData{ [weak self] (error, snapshot) in
             if let error = error {
                 self?.delegate?.showAlert(message: "error")
                 print("Error getting data \(error)")

@@ -347,7 +347,7 @@
         <!--Kitchen Page View Controller-->
         <scene sceneID="gXI-Mf-70D">
             <objects>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="6hK-gV-gz1" customClass="KitchenPageViewController" sceneMemberID="viewController"/>
+                <pageViewController storyboardIdentifier="KitchenPageViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="6hK-gV-gz1" customClass="KitchenPageViewController" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9fX-8i-GdK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2607" y="-956"/>

@@ -34,7 +34,7 @@ class RecipeDetailViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        viewModel.getRecipeDetails()
+        viewModel.getDetails()
     }
     // MARK: - Helpers
     @IBAction func backButtonPressed(_ sender: UIButton) {

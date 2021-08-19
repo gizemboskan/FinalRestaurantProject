@@ -35,20 +35,6 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="21" height="60"/>
                                                 <color key="tintColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <state key="normal" image="back"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
-                                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
-                                                        <real key="value" value="10"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
-                                                        <real key="value" value="1"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="point" keyPath="shadowOffset">
-                                                        <point key="value" x="1" y="1"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="didPressBack:" destination="cLk-vI-ILe" eventType="touchUpInside" id="LSj-ZO-el2"/>
                                                 </connections>

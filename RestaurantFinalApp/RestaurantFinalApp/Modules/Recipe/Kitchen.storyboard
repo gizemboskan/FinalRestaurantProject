@@ -17,15 +17,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="K6M-WS-ygp">
-                                <rect key="frame" x="30" y="15" width="315" height="637"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="K6M-WS-ygp">
+                                <rect key="frame" x="10" y="5" width="355" height="662"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="KitchenCell" id="Jr3-IV-vG7" customClass="KitchenCell" customModule="RestaurantFinalApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="24.5" width="315" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="24.5" width="355" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Jr3-IV-vG7" id="tFL-Jj-SB4">
-                                            <rect key="frame" x="0.0" y="0.0" width="315" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="355" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -35,10 +35,10 @@
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="K6M-WS-ygp" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="30" id="6Kw-A7-wvQ"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="K6M-WS-ygp" secondAttribute="trailing" constant="30" id="IF9-I6-j40"/>
-                            <constraint firstItem="K6M-WS-ygp" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="15" id="RVf-5w-zuQ"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="K6M-WS-ygp" secondAttribute="bottom" constant="15" id="SNg-Z6-7IY"/>
+                            <constraint firstItem="K6M-WS-ygp" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="5" id="RVf-5w-zuQ"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="K6M-WS-ygp" secondAttribute="bottom" id="SNg-Z6-7IY"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="K6M-WS-ygp" secondAttribute="trailing" constant="10" id="gpL-9k-C0q"/>
+                            <constraint firstItem="K6M-WS-ygp" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="10" id="opm-Ey-4eT"/>
                         </constraints>
                     </view>
                     <connections>
@@ -263,7 +263,7 @@
                                                                                     <rect key="frame" x="0.0" y="170" width="315" height="20"/>
                                                                                     <subviews>
                                                                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="WbT-jS-W6d">
-                                                                                            <rect key="frame" x="0.0" y="0.0" width="118.5" height="20"/>
+                                                                                            <rect key="frame" x="0.0" y="0.0" width="30" height="20"/>
                                                                                             <subviews>
                                                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="stopwatch" translatesAutoresizingMaskIntoConstraints="NO" id="T5I-mz-FeR">
                                                                                                     <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
@@ -273,7 +273,7 @@
                                                                                                     </constraints>
                                                                                                 </imageView>
                                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XzH-6a-JRb">
-                                                                                                    <rect key="frame" x="30" y="0.0" width="88.5" height="20"/>
+                                                                                                    <rect key="frame" x="30" y="0.0" width="0.0" height="20"/>
                                                                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                                                                     <nil key="textColor"/>
                                                                                                     <nil key="highlightedColor"/>
@@ -281,7 +281,7 @@
                                                                                             </subviews>
                                                                                         </stackView>
                                                                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="IWS-Py-B4T">
-                                                                                            <rect key="frame" x="158.5" y="0.0" width="156.5" height="20"/>
+                                                                                            <rect key="frame" x="70" y="0.0" width="245" height="20"/>
                                                                                             <subviews>
                                                                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="c5D-Fc-AAG">
                                                                                                     <rect key="frame" x="0.0" y="0.0" width="39.5" height="20"/>
@@ -316,7 +316,7 @@
                                                                                                     </subviews>
                                                                                                 </stackView>
                                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="IKS-p2-XaY">
-                                                                                                    <rect key="frame" x="49.5" y="0.0" width="107" height="20"/>
+                                                                                                    <rect key="frame" x="49.5" y="0.0" width="195.5" height="20"/>
                                                                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                                                                     <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                                     <nil key="highlightedColor"/>
@@ -414,8 +414,8 @@
                         <outlet property="flowlayout" destination="SSw-7q-BX6" id="eGV-fL-4fw"/>
                         <outlet property="flowlayout2" destination="sP2-4t-P2x" id="SPz-2S-h6H"/>
                         <outlet property="kitchenDescriptionCollectionView" destination="hyq-Aa-xei" id="Awf-ls-iY3"/>
+                        <outlet property="kitchenLocationLabel" destination="2ta-aB-1Sd" id="hor-JI-Xbe"/>
                         <outlet property="kitchenTitleLabel" destination="OfX-Yj-F0K" id="buO-GT-ODd"/>
-                        <outlet property="locationLabel" destination="2ta-aB-1Sd" id="hor-JI-Xbe"/>
                         <outlet property="mapView" destination="wth-zC-jIt" id="ujy-b5-LER"/>
                         <outlet property="rateCountLabel" destination="IKS-p2-XaY" id="jQL-00-YMV"/>
                         <outlet property="ratingLabel" destination="BOJ-Ak-zeP" id="lVw-cN-VHg"/>

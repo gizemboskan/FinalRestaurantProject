@@ -27,6 +27,12 @@ class KitchensViewController: UIViewController {
         kitchenTableView.register(nibCell, forCellReuseIdentifier: "KitchenCell")
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        viewModel.getKitchens()
+    }
+    
     // MARK: - Helpers
 }
 // MARK: - UITableViewDataSource and Delegate

@@ -75,6 +75,7 @@
 		8EC6084326BEFFD000FCB4DB /* LandingMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC6084226BEFFD000FCB4DB /* LandingMenuViewController.swift */; };
 		8EC6084526BEFFDE00FCB4DB /* TutorialViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC6084426BEFFDE00FCB4DB /* TutorialViewModel.swift */; };
 		8EC6084726BF004200FCB4DB /* LandingMenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC6084626BF004200FCB4DB /* LandingMenuViewModel.swift */; };
+		8EF7139426CE895800A4878A /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EF7139326CE895700A4878A /* MapKit.framework */; };
 		8EF903B026CC27E30028A8A1 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 8EF903AF26CC27E30028A8A1 /* FirebaseDatabase */; };
 		8EF903B226CC27E30028A8A1 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 8EF903B126CC27E30028A8A1 /* FirebaseStorage */; };
 		8EF903B526CD285F0028A8A1 /* WSTagsField in Frameworks */ = {isa = PBXBuildFile; productRef = 8EF903B426CD285F0028A8A1 /* WSTagsField */; };
@@ -167,6 +168,7 @@
 		8EC6084226BEFFD000FCB4DB /* LandingMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingMenuViewController.swift; sourceTree = "<group>"; };
 		8EC6084426BEFFDE00FCB4DB /* TutorialViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialViewModel.swift; sourceTree = "<group>"; };
 		8EC6084626BF004200FCB4DB /* LandingMenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingMenuViewModel.swift; sourceTree = "<group>"; };
+		8EF7139326CE895700A4878A /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,6 +180,7 @@
 				8E7F4B3A26C5BAF8009F9AE3 /* StepIndicator in Frameworks */,
 				8EF903B026CC27E30028A8A1 /* FirebaseDatabase in Frameworks */,
 				8EF903B226CC27E30028A8A1 /* FirebaseStorage in Frameworks */,
+				8EF7139426CE895800A4878A /* MapKit.framework in Frameworks */,
 				8EF903B526CD285F0028A8A1 /* WSTagsField in Frameworks */,
 				8E2F4F5D26C1B58B001EFE54 /* RAMAnimatedTabBarController in Frameworks */,
 			);
@@ -399,6 +402,7 @@
 				8E9CB9AA26B9647E000D564A /* RestaurantFinalAppUITests */,
 				8E9CB98426B96476000D564A /* Products */,
 				D072E121106D4D6665154CF3 /* Pods */,
+				8EF7139226CE895700A4878A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -562,6 +566,14 @@
 				8EC6084426BEFFDE00FCB4DB /* TutorialViewModel.swift */,
 			);
 			path = Tutorial;
+			sourceTree = "<group>";
+		};
+		8EF7139226CE895700A4878A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8EF7139326CE895700A4878A /* MapKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		D072E121106D4D6665154CF3 /* Pods */ = {
