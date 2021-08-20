@@ -20,8 +20,11 @@ class GetOfferViewController: UIViewController {
     // MARK: - UIViewController Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.isNavigationBarHidden = true
+
         availableKitchensTableView.dataSource = self
         availableKitchensTableView.delegate = self
+        availableKitchensTableView.roundCorners(.allCorners, radius: 22)
         viewModel.delegate = self
         viewModel.getKitchens()
     }

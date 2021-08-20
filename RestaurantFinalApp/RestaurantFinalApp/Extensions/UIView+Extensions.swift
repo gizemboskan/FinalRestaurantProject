@@ -9,10 +9,25 @@ import UIKit
 
 extension UIView{
     func roundCorners(_ corners: UIRectCorner, radius: CGFloat) {
-        let path = UIBezierPath(roundedRect: bounds, byRoundingCorners: corners,
-                                cornerRadii: CGSize(width: radius, height: radius))
-        let mask = CAShapeLayer()
-        mask.path = path.cgPath
-        layer.mask = mask
+        layer.cornerRadius = radius
+        layer.maskedCorners = getCorner(from: corners)
+        layer.masksToBounds = true
+    }
+    
+    private func getCorner(from: UIRectCorner) -> CACornerMask {
+        switch from {
+        case .allCorners:
+            return [.layerMinXMinYCorner, .layerMaxXMinYCorner, .layerMinXMaxYCorner, .layerMaxXMaxYCorner]
+        case .bottomLeft:
+            return [.layerMinXMaxYCorner]
+        case .bottomRight:
+            return [.layerMaxXMaxYCorner]
+        case .topLeft:
+            return [.layerMinXMinYCorner]
+        case .topRight:
+            return [.layerMaxXMinYCorner]
+        default:
+            return [.layerMinXMinYCorner, .layerMaxXMinYCorner, .layerMinXMaxYCorner, .layerMaxXMaxYCorner]
+        }
     }
 }

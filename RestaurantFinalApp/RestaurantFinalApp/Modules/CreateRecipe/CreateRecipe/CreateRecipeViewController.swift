@@ -89,7 +89,7 @@ class CreateRecipeViewController: UIViewController, UINavigationControllerDelega
         viewModel.quitView()
     }
     @IBAction func doneButtonPressed(_ sender: UIButton) {
-        viewModel.doneEditing(title: recipeNameField.text ?? "", image: recipeImagePickerView.image?.pngData() ?? Data(), instruction: instructionsTextView.text, ingredients: tagsField.text ?? "")
+        viewModel.doneEditing(title: recipeNameField.text ?? "", image: recipeImagePickerView.image?.pngData() ?? Data(), instruction: instructionsTextView.text, ingredients: tagsField.tags.map({ $0.text }))
     }
     private func pickImage(sourceType: UIImagePickerController.SourceType) {
         viewModel.selectImagePickerSource(sourceType: sourceType)
@@ -125,15 +125,14 @@ class CreateRecipeViewController: UIViewController, UINavigationControllerDelega
         tagsField.textField.textColor = .blue
         tagsField.selectedColor = .black
         tagsField.selectedTextColor = .red
-        tagsField.delimiter = ","
-        tagsField.isDelimiterVisible = true
+        tagsField.delimiter = "--"
+        tagsField.isDelimiterVisible = false
         tagsField.placeholder = "ingredient"
-        
         tagsField.placeholderColor = .systemOrange
         tagsField.placeholderAlwaysVisible = true
         tagsField.keyboardAppearance = .dark
         tagsField.textField.returnKeyType = .next
-        tagsField.acceptTagOption = .space
+        tagsField.acceptTagOption = .return
         tagsField.shouldTokenizeAfterResigningFirstResponder = true
         
         // Events
@@ -198,6 +197,14 @@ extension CreateRecipeViewController: UITextViewDelegate, UITextFieldDelegate {
 // MARK: - CreateRecipeViewModelDelegate
 
 extension CreateRecipeViewController: CreateRecipeViewModelDelegate{
+    func showLoadingIndicator(isShown: Bool) {
+        if isShown {
+            startLoading()
+        } else {
+            stopLoading()
+        }
+    }
+    
     func imagePickerSource(sourceType: Any) {
         let imagePicker = UIImagePickerController()
         imagePicker.sourceType = sourceType as! UIImagePickerController.SourceType
@@ -240,13 +247,13 @@ extension CreateRecipeViewController: CreateRecipeViewModelDelegate{
         }
     }
     
-    func showAlert(message: String) {
-        
+    func showAlert(message: String, title: String) {
+        showAlertController(message: message, title: title)
     }
     
-    func recipeToEditArrived(title: String, image: String, instruction: String, ingredients: String) {
+    func recipeToEditArrived(title: String, image: String, instruction: String, ingredients: [String]) {
         recipeNameField.text = title
-        tagsField.text = ingredients // TODO dynamic ingredients height
+        tagsField.addTags(ingredients)
         instructionsTextView.text = instruction
         guard let imageUrl:URL = URL(string: image) else {return}
         recipeImagePickerView.loadImage(withUrl: imageUrl)
@@ -255,18 +262,4 @@ extension CreateRecipeViewController: CreateRecipeViewModelDelegate{
     func backButtonPressed() {
         navigationController?.popViewController(animated: true)
     }
-    
-    //    func editRecipeButtonPressed() {
-    //        <#code#>
-    //    }
-    //
-    //    func instructionLoaded(instruction: String) {
-    //        <#code#>
-    //    }
-    //
-    //    func ingredientsLoaded(ingredients: [String]) {
-    //        <#code#>
-    //    }
-    
-    
 }

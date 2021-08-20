@@ -7,19 +7,24 @@
 
 import Foundation
 import Firebase
+import MapKit
 
 protocol HomePageViewModelDelegate: AnyObject {
     func showAlert(message: String)
     func myRecipesLoaded() // signal to view layer to say "I loaded the datas, and you can take an action."
     func kitchensLoaded()
+    func showLocationString(locationString: String)
 }
 
 
-class HomePageViewModel {    
+class HomePageViewModel: NSObject {
     weak var delegate: HomePageViewModelDelegate?
     
     var myRecipes: [RecipeModel] = []
-    
+    private var myUserDetail: UserModel?
+    let locationManager = CLLocationManager()
+    var userLocation: CLLocation?
+    lazy var geocoder = CLGeocoder()
     func getMyRecipes() {
         myRecipes.removeAll()
         FirebaseEndpoints.myUser.getDatabasePath.child("recipes").getData{ [weak self] (error, snapshot) in
@@ -37,7 +42,7 @@ class HomePageViewModel {
                         if let recipeDetails = recipe.value as? [String: Any] {
                             let myRecipe = RecipeModel.getRecipeFromDict(recipeDetails: recipeDetails)
                             
-            
+                            
                             tempRecipes.append(myRecipe)
                         }
                     }
@@ -51,6 +56,69 @@ class HomePageViewModel {
                 self?.delegate?.showAlert(message: "no data")
                 print("No data available")
             }
+        }
+    }
+     func getUserLocation(){
+        checkLocationServices()
+        locationManager.requestWhenInUseAuthorization()
+        
+        if (CLLocationManager.authorizationStatus() == CLAuthorizationStatus.authorizedWhenInUse ||
+                CLLocationManager.authorizationStatus() == CLAuthorizationStatus.authorizedAlways){
+            guard let userLocation = locationManager.location else {
+                return
+            }
+            print(userLocation.coordinate.latitude)
+            print(userLocation.coordinate.longitude)
+            let lat = userLocation.coordinate.latitude
+            let long = userLocation.coordinate.longitude
+            getUserReverseGeocode(longitude: long, latitude: lat)
+            
+        }
+    }
+    
+    private func checkLocationServices() {
+        if CLLocationManager.locationServicesEnabled() {
+            setupLocationManager()
+            checkLocationAuthorization()
+        }
+    }
+    
+    private func getUserReverseGeocode(longitude: Double, latitude: Double) {
+        DispatchQueue.main.async {
+            self.geocoder.reverseGeocodeLocation(CLLocation(latitude: latitude, longitude: longitude)) { [weak self] (placemarks, error) in
+                
+                guard let self = self else { return }
+                
+                if let error = error {
+                    print(error)
+                    return
+                }
+                guard let placemark = placemarks?.first else { return }
+                
+                let locationString = "\(placemark.thoroughfare ?? "Street"), \(placemark.locality ?? "City"), \(placemark.subLocality ?? ""), \(placemark.subThoroughfare ?? ""), \(placemark.administrativeArea ?? "")"
+                
+                self.delegate?.showLocationString(locationString: locationString)
+            }
+        }
+    }
+    
+    private func setupLocationManager() {
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+    }
+    
+    private func checkLocationAuthorization() {
+        switch CLLocationManager.authorizationStatus() {
+        case .authorizedWhenInUse:
+            break
+        case .denied:
+            break
+        case .notDetermined:
+            locationManager.requestWhenInUseAuthorization()
+        case .authorizedAlways:
+            break
+        case .restricted:
+            break
         }
     }
     var kitchens: [KitchenModel] = []
@@ -70,7 +138,7 @@ class HomePageViewModel {
                             let kitchen = KitchenModel.getKitchenFromDict(kitchenDetails: kitchenDetails)
                             
                             self?.kitchens.append(kitchen)
-                        
+                            
                         }
                     }
                 }
@@ -87,4 +155,13 @@ class HomePageViewModel {
     //    private func createRecipeModel(recipeDict: [String: Any]) {
     //
     //    }
+}
+
+// MARK: - Location Manager Delegate
+extension HomePageViewModel: CLLocationManagerDelegate {
+    
+    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+        checkLocationAuthorization()
+    }
+    
 }

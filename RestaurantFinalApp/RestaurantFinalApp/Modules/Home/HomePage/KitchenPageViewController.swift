@@ -22,8 +22,6 @@ class KitchenPageViewController: UIPageViewController {
         dataSource = self
         delegate = self
         decoratePageControl()
-        
-        //        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(goDetail(_:))))
         Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(self.changeImage), userInfo: nil, repeats: true)
     }
     // MARK: - Helpers
@@ -58,15 +56,6 @@ class KitchenPageViewController: UIPageViewController {
         pc.currentPageIndicatorTintColor = .orange
         pc.pageIndicatorTintColor = .gray
     }
-    
-    //    @objc func goDetail(_ gesture: UITapGestureRecognizer) {
-    //        if let vc = storyboard?.instantiateViewController(withIdentifier: "KitchenDetailViewController") as? KitchenDetailViewController,
-    //           let currentIndex = self.currentIndex,
-    //           let kitchenSource = self.kitchenSource {
-    //            vc.kitchen = kitchenSource[currentIndex]
-    //            navigationController?.pushViewController(vc, animated: true)
-    //        }
-    //    }
 }
 
 // MARK: - DataSource

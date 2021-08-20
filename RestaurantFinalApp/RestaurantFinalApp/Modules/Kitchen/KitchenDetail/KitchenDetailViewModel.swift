@@ -33,7 +33,7 @@ class KitchenDetailViewModel {
     
     var kitchenID: String?
     private var myUserDetail: UserModel?
-
+    
     func getKitchenDetails(){
         guard let kitchenID = kitchenID else { return }
         

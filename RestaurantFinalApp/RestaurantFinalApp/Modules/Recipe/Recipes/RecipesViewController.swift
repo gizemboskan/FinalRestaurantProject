@@ -19,6 +19,7 @@ class RecipesViewController: UIViewController {
     // MARK: - UIViewController Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         recipesCollectionView.delegate = self
         recipesCollectionView.dataSource = self
         viewModel.delegate = self

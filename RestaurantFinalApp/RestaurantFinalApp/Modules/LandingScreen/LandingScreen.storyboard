@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rkO-Ka-ti4">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="u9I-o1-zim">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
@@ -16,18 +16,67 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="deepLink" translatesAutoresizingMaskIntoConstraints="NO" id="tUY-Zx-m5c">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="645"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="yemeksepeti" translatesAutoresizingMaskIntoConstraints="NO" id="nAZ-cL-ttQ">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="1272"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="banabiKitchen" translatesAutoresizingMaskIntoConstraints="NO" id="wP5-fP-Z01">
+                                <rect key="frame" x="4" y="461" width="406" height="435"/>
+                                <color key="backgroundColor" red="0.97254901959999995" green="0.92941176469999998" blue="0.86274509799999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="t5Z-Ei-pQW" appends="YES" id="yo9-LU-XUT"/>
+                                </connections>
+                            </imageView>
+                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kitchen!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2d3-iC-p1L">
+                                <rect key="frame" x="288.5" y="767" width="105.5" height="35"/>
+                                <gestureRecognizers/>
+                                <fontDescription key="fontDescription" name="BradleyHandITCTT-Bold" family="Bradley Hand" pointSize="28"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="t5Z-Ei-pQW" appends="YES" id="elk-PW-xFM"/>
+                                </connections>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="yemeksepeti-1" translatesAutoresizingMaskIntoConstraints="NO" id="8Qr-DP-Ivp">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="461"/>
+                                <gestureRecognizers/>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="nAZ-cL-ttQ" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="1VO-8l-cI5"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="2d3-iC-p1L" secondAttribute="bottom" constant="60" id="1Vs-xe-QUN"/>
+                            <constraint firstAttribute="bottom" secondItem="wP5-fP-Z01" secondAttribute="bottom" id="8Ox-s8-q7l"/>
+                            <constraint firstItem="8Qr-DP-Ivp" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="H1g-oB-ivN"/>
+                            <constraint firstItem="nAZ-cL-ttQ" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="JP6-MA-6Xj"/>
+                            <constraint firstItem="8Qr-DP-Ivp" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="Jjf-ID-UWU"/>
+                            <constraint firstItem="nAZ-cL-ttQ" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="M7e-yd-fz3"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="2d3-iC-p1L" secondAttribute="trailing" constant="20" id="dRb-83-1cg"/>
+                            <constraint firstItem="8Qr-DP-Ivp" firstAttribute="height" secondItem="vDu-zF-Fre" secondAttribute="height" multiplier="0.595355" id="dSK-yg-rjg"/>
+                            <constraint firstItem="wP5-fP-Z01" firstAttribute="top" secondItem="8Qr-DP-Ivp" secondAttribute="bottom" id="dkE-Rc-VdZ"/>
+                            <constraint firstAttribute="bottom" secondItem="nAZ-cL-ttQ" secondAttribute="bottom" constant="-376" id="iKg-ay-dK1"/>
+                            <constraint firstItem="8Qr-DP-Ivp" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="u6T-33-Mte"/>
+                            <constraint firstItem="wP5-fP-Z01" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="4" id="v1m-EI-dcy"/>
+                            <constraint firstItem="wP5-fP-Z01" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" constant="-4" id="xZg-UC-kza"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="SPp-5F-SNt"/>
+                    <connections>
+                        <outlet property="kitchenAppImageView" destination="wP5-fP-Z01" id="nIM-8M-fsg"/>
+                        <outlet property="yemeksepetiImageView" destination="8Qr-DP-Ivp" id="12X-Qj-K5E"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="t5Z-Ei-pQW">
+                    <connections>
+                        <action selector="handleTap:" destination="Y6W-OH-hqX" id="JcF-US-fbj"/>
+                        <outlet property="delegate" destination="2d3-iC-p1L" id="b9F-14-suz"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-107.24637681159422" y="51.5625"/>
+            <point key="canvasLocation" x="802.89855072463774" y="51.5625"/>
         </scene>
         <!--Tutorial View Controller-->
         <scene sceneID="WlM-9v-R1Q">
@@ -73,11 +122,31 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jxN-Ll-gUL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="868" y="52"/>
+            <point key="canvasLocation" x="1776.8115942028987" y="51.5625"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="2Ff-Js-HWF">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="u9I-o1-zim" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Xsa-tO-Uwf">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Y6W-OH-hqX" kind="relationship" relationship="rootViewController" id="Z0Z-hE-Ik0"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8ho-Nw-ONm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-107.24637681159422" y="51.5625"/>
         </scene>
     </scenes>
     <resources>
-        <image name="deepLink" width="814" height="949"/>
+        <image name="banabiKitchen" width="1200" height="720"/>
+        <image name="yemeksepeti" width="747" height="1272"/>
+        <image name="yemeksepeti-1" width="819" height="843"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

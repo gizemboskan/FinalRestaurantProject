@@ -32,6 +32,7 @@ class KitchenDetailViewController: UIViewController {
     
     @IBOutlet weak var kitchenDescriptionCollectionView: UICollectionView!
     @IBOutlet weak var flowlayout2: UICollectionViewFlowLayout!
+    @IBOutlet weak var kitchenLocationView: UIView!
     
     @IBOutlet weak var deliveryTimeLabel: UILabel!
     @IBOutlet weak var ratingLabel: UILabel!
@@ -40,6 +41,7 @@ class KitchenDetailViewController: UIViewController {
     
     @IBOutlet weak var kitchenDetailView: UIView!
     // MARK: - UIViewController Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.isNavigationBarHidden = true
@@ -56,6 +58,7 @@ class KitchenDetailViewController: UIViewController {
         viewModel.getUserLocation()
         checkLocationServices()
         kitchenDetailView.roundCorners([.topLeft, .topRight], radius: 40)
+        kitchenLocationView.roundCorners(.allCorners, radius: 15)
         kitchenDescriptionCollectionView.roundCorners(.allCorners, radius: 20)
     
     }
@@ -161,9 +164,7 @@ extension KitchenDetailViewController: MKMapViewDelegate {
         }
         return pinView
     }
-    func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
-        
-    }
+
 }
 
 

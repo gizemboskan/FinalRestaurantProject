@@ -6,15 +6,17 @@
 //
 
 import UIKit
+import MapKit
 
 class HomePageViewController: UIViewController {
     // MARK: - Properties
     
     let viewModel: HomePageViewModel = HomePageViewModel()
-    //    lazy var kitchenPageViewController: KitchenPageViewController = {
-    //        return children.lazy.compactMap({ $0 as? KitchenPageViewController }).first!
-    //    }()
+    lazy var kitchenPageViewController: KitchenPageViewController = {
+        return children.lazy.compactMap({ $0 as? KitchenPageViewController }).first!
+    }()
     var pageSource = ["paging1", "paging2", "paging3", "paging4"]
+    
     // MARK: - UI Components
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var kitchenTableView: UITableView!
@@ -24,18 +26,22 @@ class HomePageViewController: UIViewController {
     @IBOutlet weak var favRecipesCollectionView: UICollectionView!
     @IBOutlet weak var flowlayout: UICollectionViewFlowLayout!
     @IBOutlet weak var seeAllKitchensButton: UIButton!
-    
+    @IBOutlet weak var viewWithLocation: UIView!
     @IBOutlet weak var orderStatusButton: UIButton!
+    
     // MARK: - UIViewController Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.isNavigationBarHidden = true
         
         viewModel.delegate = self
+        viewModel.getUserLocation()
         
         favRecipesCollectionView.delegate = self
         favRecipesCollectionView.dataSource = self
-        
+        locationLabel.numberOfLines = 0 
         kitchenTableView.delegate = self
+        
         kitchenTableView.dataSource = self
         kitchenTableView.roundCorners(.allCorners, radius: 22)
         profileImageView.roundCorners(.allCorners, radius: 4)
@@ -44,8 +50,9 @@ class HomePageViewController: UIViewController {
         
         let nibCell = UINib(nibName: "KitchenCell", bundle: nil)
         kitchenTableView.register(nibCell, forCellReuseIdentifier: "KitchenCell")
-        createPageVC()
-        
+        kitchenTableView.roundCorners(.allCorners, radius: 22)
+        viewWithLocation.roundCorners(.allCorners, radius: 20)
+        kitchenPageViewController.populateItems(pictureSource: pageSource)  
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -60,7 +67,6 @@ class HomePageViewController: UIViewController {
         if viewModel.myRecipes.count > 5 {
             seeAllKitchensButton.isHidden = true
         }
-        
         
     }
     
@@ -81,6 +87,7 @@ class HomePageViewController: UIViewController {
             
         }
     }
+    
     @IBAction func seeAllKitchensButtonPressed(_ sender: UIButton) {
         let storyboard = UIStoryboard(name: "Kitchen", bundle: nil)
         if let vc = storyboard.instantiateViewController(withIdentifier: "KitchensViewController") as? KitchensViewController {
@@ -88,9 +95,6 @@ class HomePageViewController: UIViewController {
             navigationController?.pushViewController(vc, animated: true)
             
         }
-    }
-    func createPageVC() {
-        //  kitchenPageViewController.populateItems(pictureSource: pageSource)
     }
 }
 
@@ -107,12 +111,12 @@ extension HomePageViewController:  UICollectionViewDelegate, UICollectionViewDat
         cell.setImage(from: recipeModel.imageURL)
         return cell
     }
+    
     public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let storyboard = UIStoryboard(name: "Recipe", bundle: nil)
         if let vc = storyboard.instantiateViewController(withIdentifier: "RecipeDetailViewController") as? RecipeDetailViewController {
             vc.viewModel.recipeID = viewModel.myRecipes[indexPath.row].id
             navigationController?.pushViewController(vc, animated: true)
-            
         }
     }
     
@@ -132,11 +136,13 @@ extension HomePageViewController:  UITableViewDelegate, UITableViewDataSource {
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = kitchenTableView.dequeueReusableCell(withIdentifier: "KitchenCell", for: indexPath) as! KitchenCell
         let kitchenModel = viewModel.kitchens[indexPath.row]
+        cell.kitchenDescs = kitchenModel.descriptions
         cell.kitchenTitle.text = kitchenModel.name
         cell.setImage(from: kitchenModel.imageURL)
         
         return cell
     }
+    
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let storyboard = UIStoryboard(name: "Kitchen", bundle: nil)
         if let vc = storyboard.instantiateViewController(withIdentifier: "KitchenDetailViewController") as? KitchenDetailViewController {
@@ -151,6 +157,10 @@ extension HomePageViewController:  UITableViewDelegate, UITableViewDataSource {
 }
 // MARK: - HomePageViewModelDelegate
 extension HomePageViewController: HomePageViewModelDelegate {
+    
+    func showLocationString(locationString: String) {
+        locationLabel.text = locationString
+    }
     func kitchensLoaded() {
         kitchenTableView.reloadData()
     }

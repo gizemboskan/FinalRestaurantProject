@@ -70,6 +70,8 @@
 		8E9CB9D426B96A7C000D564A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8E9CB9D326B96A7C000D564A /* Localizable.strings */; };
 		8E9CB9D626B96A98000D564A /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9CB9D526B96A98000D564A /* Strings.swift */; };
 		8E9CB9D826B96AB1000D564A /*  InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8E9CB9D726B96AB1000D564A /*  InfoPlist.strings */; };
+		8EC0E53A26CFE39F0071B97A /* UITableView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC0E53926CFE39F0071B97A /* UITableView+Extensions.swift */; };
+		8EC0E53C26CFFE2E0071B97A /* KitchenDescriptionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8EC0E53B26CFFE2D0071B97A /* KitchenDescriptionCell.xib */; };
 		8EC6083D26BEFF8E00FCB4DB /* LandingScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8EC6083C26BEFF8E00FCB4DB /* LandingScreen.storyboard */; };
 		8EC6084126BEFFC100FCB4DB /* TutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC6084026BEFFC100FCB4DB /* TutorialViewController.swift */; };
 		8EC6084326BEFFD000FCB4DB /* LandingMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC6084226BEFFD000FCB4DB /* LandingMenuViewController.swift */; };
@@ -164,6 +166,8 @@
 		8E9CB9D326B96A7C000D564A /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		8E9CB9D526B96A98000D564A /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		8E9CB9D726B96AB1000D564A /*  InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = " InfoPlist.strings"; sourceTree = "<group>"; };
+		8EC0E53926CFE39F0071B97A /* UITableView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extensions.swift"; sourceTree = "<group>"; };
+		8EC0E53B26CFFE2D0071B97A /* KitchenDescriptionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KitchenDescriptionCell.xib; sourceTree = "<group>"; };
 		8EC6083C26BEFF8E00FCB4DB /* LandingScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LandingScreen.storyboard; sourceTree = "<group>"; };
 		8EC6084026BEFFC100FCB4DB /* TutorialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialViewController.swift; sourceTree = "<group>"; };
 		8EC6084226BEFFD000FCB4DB /* LandingMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingMenuViewController.swift; sourceTree = "<group>"; };
@@ -464,6 +468,7 @@
 		8E9CB9BA26B964F1000D564A /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
+				8EC0E53B26CFFE2D0071B97A /* KitchenDescriptionCell.xib */,
 				8E46D2C026C015630063FCF2 /* AvailableKitchensCell.swift */,
 				8E7F4B2526C3D52B009F9AE3 /* KitchenDescriptionCell.swift */,
 				8E7F4B1926C2ACDC009F9AE3 /* KitchenCell.xib */,
@@ -489,6 +494,7 @@
 				8E9CB9CC26B969B1000D564A /* UIColor+Extensions.swift */,
 				8E1B666326CBAEFE00BC5F47 /* UIImageView+Extensions.swift */,
 				8EF7139526CEEF7700A4878A /* UIView+Extensions.swift */,
+				8EC0E53926CFE39F0071B97A /* UITableView+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -717,6 +723,7 @@
 				8E59810C26B98196000A2C82 /* GoogleService-Info.plist in Resources */,
 				8E46D2DD26C017E00063FCF2 /* Recipe.storyboard in Resources */,
 				8E46D2DB26C017C70063FCF2 /* Home.storyboard in Resources */,
+				8EC0E53C26CFFE2E0071B97A /* KitchenDescriptionCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -770,6 +777,7 @@
 				8E46D2B226C013DE0063FCF2 /* RecipeDetailViewModel.swift in Sources */,
 				8E46D2D926C0176D0063FCF2 /* ProfileViewModel.swift in Sources */,
 				8E7F4B3C26C5C639009F9AE3 /* GetOfferViewController.swift in Sources */,
+				8EC0E53A26CFE39F0071B97A /* UITableView+Extensions.swift in Sources */,
 				8E9CB98726B96476000D564A /* AppDelegate.swift in Sources */,
 				8E46D2BB26C014C00063FCF2 /* KitchensViewController.swift in Sources */,
 				8E7F4B3226C53532009F9AE3 /* MyOrderViewController.swift in Sources */,

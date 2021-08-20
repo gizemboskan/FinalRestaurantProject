@@ -36,6 +36,8 @@ class PaymentViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.isNavigationBarHidden = true
+
         viewModel.delegate = self
         orderSucceedView.isHidden = true
         creditCardCVCTextField.isEnabled = true

@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="K6M-WS-ygp">
-                                <rect key="frame" x="10" y="5" width="355" height="662"/>
+                                <rect key="frame" x="10" y="45" width="355" height="622"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="KitchenCell" id="Jr3-IV-vG7" customClass="KitchenCell" customModule="RestaurantFinalApp" customModuleProvider="target">
@@ -31,18 +31,27 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Search Kitchens!" showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cB9-5c-Pbr">
+                                <rect key="frame" x="8" y="10" width="357" height="32"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no"/>
+                            </searchBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="K6M-WS-ygp" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="5" id="RVf-5w-zuQ"/>
+                            <constraint firstItem="cB9-5c-Pbr" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" constant="-10" id="6Il-cN-nib"/>
+                            <constraint firstItem="cB9-5c-Pbr" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" constant="10" id="6Yp-4w-Dsz"/>
+                            <constraint firstItem="K6M-WS-ygp" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="45" id="RVf-5w-zuQ"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="K6M-WS-ygp" secondAttribute="bottom" id="SNg-Z6-7IY"/>
+                            <constraint firstItem="K6M-WS-ygp" firstAttribute="top" secondItem="cB9-5c-Pbr" secondAttribute="bottom" constant="3" id="fpI-l6-lMC"/>
+                            <constraint firstItem="cB9-5c-Pbr" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="8" id="gFU-C5-DcB"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="K6M-WS-ygp" secondAttribute="trailing" constant="10" id="gpL-9k-C0q"/>
                             <constraint firstItem="K6M-WS-ygp" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="10" id="opm-Ey-4eT"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="kitchenTableView" destination="K6M-WS-ygp" id="srU-3S-RD7"/>
+                        <outlet property="searchBar" destination="cB9-5c-Pbr" id="EXZ-MU-9iy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -61,7 +70,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Psm-fm-yPl">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="722"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="726"/>
                                         <subviews>
                                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="wth-zC-jIt">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="270"/>
@@ -81,18 +90,19 @@
                                                 </connections>
                                             </button>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jg7-c5-rBt">
-                                                <rect key="frame" x="0.0" y="240" width="375" height="482"/>
+                                                <rect key="frame" x="0.0" y="240" width="375" height="486"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="91" translatesAutoresizingMaskIntoConstraints="NO" id="Eqr-8O-hXO">
-                                                        <rect key="frame" x="16" y="0.0" width="343" height="30"/>
+                                                        <rect key="frame" x="16" y="4" width="343" height="30"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OmK-nk-Ez4">
                                                                 <rect key="frame" x="0.0" y="0.0" width="343" height="30"/>
                                                                 <subviews>
-                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rectangle" translatesAutoresizingMaskIntoConstraints="NO" id="H8d-EQ-Kb6">
+                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="base" translatesAutoresizingMaskIntoConstraints="NO" id="H8d-EQ-Kb6">
                                                                         <rect key="frame" x="0.0" y="0.0" width="343" height="30"/>
+                                                                        <color key="backgroundColor" red="1" green="0.83921568629999999" blue="0.4823529412" alpha="1" colorSpace="calibratedRGB"/>
                                                                     </imageView>
-                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="location" translatesAutoresizingMaskIntoConstraints="NO" id="d2a-Cj-afQ">
+                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="map_pin" translatesAutoresizingMaskIntoConstraints="NO" id="d2a-Cj-afQ">
                                                                         <rect key="frame" x="20" y="5" width="40" height="20"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="20" id="lrW-MP-L81"/>
@@ -105,11 +115,11 @@
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Naser City, Cairo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="2ta-aB-1Sd">
                                                                         <rect key="frame" x="68" y="6.5" width="265" height="17"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                 </subviews>
-                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <color key="backgroundColor" red="1" green="0.83921568629999999" blue="0.4823529412" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <constraints>
                                                                     <constraint firstItem="H8d-EQ-Kb6" firstAttribute="top" secondItem="OmK-nk-Ez4" secondAttribute="top" id="0rQ-WC-Fbw"/>
                                                                     <constraint firstAttribute="bottom" secondItem="H8d-EQ-Kb6" secondAttribute="bottom" id="6aJ-wO-xLW"/>
@@ -129,7 +139,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="oUY-Kp-Dl8" userLabel="Favorite Recipes Collection View">
-                                                        <rect key="frame" x="0.0" y="290" width="375" height="184"/>
+                                                        <rect key="frame" x="0.0" y="294" width="375" height="184"/>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="184" id="Y4e-AE-sNT"/>
@@ -182,7 +192,7 @@
                                                         </cells>
                                                     </collectionView>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WG2-2r-CYs">
-                                                        <rect key="frame" x="0.0" y="40" width="375" height="230"/>
+                                                        <rect key="frame" x="0.0" y="44" width="375" height="230"/>
                                                         <subviews>
                                                             <visualEffectView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ypk-G9-sku">
                                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="230"/>
@@ -368,7 +378,7 @@
                                                     <constraint firstItem="WG2-2r-CYs" firstAttribute="leading" secondItem="Jg7-c5-rBt" secondAttribute="leading" id="eUP-bj-xL4"/>
                                                     <constraint firstItem="Eqr-8O-hXO" firstAttribute="leading" secondItem="Jg7-c5-rBt" secondAttribute="leading" constant="16" id="frh-Yf-bEx"/>
                                                     <constraint firstAttribute="trailing" secondItem="oUY-Kp-Dl8" secondAttribute="trailing" id="kJQ-RS-x1x"/>
-                                                    <constraint firstItem="Eqr-8O-hXO" firstAttribute="top" secondItem="Jg7-c5-rBt" secondAttribute="top" id="vTZ-zT-gXC"/>
+                                                    <constraint firstItem="Eqr-8O-hXO" firstAttribute="top" secondItem="Jg7-c5-rBt" secondAttribute="top" constant="4" id="vTZ-zT-gXC"/>
                                                     <constraint firstItem="WG2-2r-CYs" firstAttribute="top" secondItem="Eqr-8O-hXO" secondAttribute="bottom" constant="10" id="wiV-1Q-L8m"/>
                                                 </constraints>
                                             </view>
@@ -416,6 +426,7 @@
                         <outlet property="kitchenDescriptionCollectionView" destination="hyq-Aa-xei" id="Awf-ls-iY3"/>
                         <outlet property="kitchenDetailView" destination="Jg7-c5-rBt" id="iGk-Lz-J5t"/>
                         <outlet property="kitchenLocationLabel" destination="2ta-aB-1Sd" id="hor-JI-Xbe"/>
+                        <outlet property="kitchenLocationView" destination="OmK-nk-Ez4" id="VGQ-qH-ZqM"/>
                         <outlet property="kitchenTitleLabel" destination="OfX-Yj-F0K" id="buO-GT-ODd"/>
                         <outlet property="mapView" destination="wth-zC-jIt" id="ujy-b5-LER"/>
                         <outlet property="rateCountLabel" destination="IKS-p2-XaY" id="jQL-00-YMV"/>
@@ -431,9 +442,9 @@
     </scenes>
     <resources>
         <image name="back_circular" width="40" height="40"/>
-        <image name="location" width="16" height="22"/>
+        <image name="base" width="365" height="70"/>
+        <image name="map_pin" width="52" height="52"/>
         <image name="recipe" width="900" height="600"/>
-        <image name="rectangle" width="254" height="46"/>
         <image name="star" width="11" height="12"/>
         <image name="stopwatch" width="512" height="512"/>
         <systemColor name="systemBackgroundColor">
