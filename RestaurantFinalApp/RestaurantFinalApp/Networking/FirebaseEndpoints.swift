@@ -21,7 +21,7 @@ enum FirebaseEndpoints {
         case .users:
             return FirebaseEndpoints.base.child("users")
         case .myUser:
-            return FirebaseEndpoints.base.child("users").child("560ABA62-0558-4278-AAF7-0BCB18772C88")
+            return FirebaseEndpoints.base.child("users").child("03DA8FF3-B6D8-4261-9C29-4D9A13FCC1D1")
         case .kitchens:
             return FirebaseEndpoints.base.child("kitchens")
         case .recipes:

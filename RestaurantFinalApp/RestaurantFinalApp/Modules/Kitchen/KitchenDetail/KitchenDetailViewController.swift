@@ -15,11 +15,9 @@ class KitchenDetailViewController: UIViewController {
     let viewModel: KitchenDetailViewModel = KitchenDetailViewModel()
     let locationManager = CLLocationManager()
     
+    
     var kitchenItem: MKPointAnnotation = MKPointAnnotation()
     var userItem: MKPointAnnotation = MKPointAnnotation()
-    let regionInMeters: Double = 10000
-    var userLocation: CLLocation?
-    lazy var geocoder = CLGeocoder()
     
     
     // MARK: - UI Components
@@ -50,122 +48,33 @@ class KitchenDetailViewController: UIViewController {
         recipesCollectionView.dataSource = self
         kitchenDescriptionCollectionView.delegate = self
         kitchenDescriptionCollectionView.dataSource = self
+        
         mapView.delegate = self
+        
+        
         kitchenLocationLabel.numberOfLines = 0
-        mapView.addAnnotation(self.kitchenItem)
-        mapView.addAnnotation(self.userItem)
+        
         viewModel.getKitchenDetails()
         viewModel.getUserLocation()
-        checkLocationServices()
+        
         kitchenDetailView.roundCorners([.topLeft, .topRight], radius: 40)
         kitchenLocationView.roundCorners(.allCorners, radius: 15)
         kitchenDescriptionCollectionView.roundCorners(.allCorners, radius: 20)
-    
+        
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
     }
     
     // MARK: - Helpers
     @IBAction func backButtonPressed(_ sender: Any) {
-        backButtonPressed()
+        viewModel.quitView()
     }
     
-    func setupLocationManager() {
-        locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-    }
-    
-    private func setMapVisibleRegion(longitude: Double, latitude: Double) {
-        DispatchQueue.main.async {
-            let latDelta:CLLocationDegrees = 0.5
-            let lonDelta:CLLocationDegrees = 0.5
-            let span = MKCoordinateSpan(latitudeDelta: latDelta, longitudeDelta: lonDelta)
-            
-            let lat:CLLocationDegrees = latitude
-            let long:CLLocationDegrees = longitude
-            let location = CLLocation(latitude: lat, longitude: long)
-            let region = MKCoordinateRegion(center: location.coordinate, span: span)
-            
-            self.mapView.setRegion(region, animated: true)
-        }
-    }
-    
-    private func getKitchenReverseGeocode(longitude: Double, latitude: Double) {
-        DispatchQueue.main.async {
-            self.geocoder.reverseGeocodeLocation(CLLocation(latitude: latitude, longitude: longitude)) { [weak self] (placemarks, error) in
-                
-                guard let self = self else { return }
-                
-                if let error = error {
-                    print(error)
-                    return
-                }
-                guard let placemark = placemarks?.first else { return }
-                
-                self.kitchenLocationLabel.text = "\(placemark.thoroughfare ?? "Street"), \(placemark.locality ?? "City"), \(placemark.subLocality ?? ""), \(placemark.subThoroughfare ?? ""), \(placemark.administrativeArea ?? "")"
-            }
-        }
-    }
-    
-    func checkLocationServices() {
-        if CLLocationManager.locationServicesEnabled() {
-            setupLocationManager()
-            checkLocationAuthorization()
-        }
-    }
-    
-    func checkLocationAuthorization() {
-        switch CLLocationManager.authorizationStatus() {
-        case .authorizedWhenInUse:
-            break
-        case .denied:
-            break
-        case .notDetermined:
-            locationManager.requestWhenInUseAuthorization()
-        case .authorizedAlways:
-            break
-        case .restricted:
-            break
-        }
-    }
 }
 
-// MARK: - Location Manager Delegate
-extension KitchenDetailViewController: CLLocationManagerDelegate {
-    
-    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
-        checkLocationAuthorization()
-    }
-    
-}
-// MARK: - Map View Delegate
-extension KitchenDetailViewController: MKMapViewDelegate {
-    
-    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        
-        guard annotation is MKPointAnnotation else { return nil }
-        let reuseId = "Pin"
-        
-        var pinView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseId) as? MKPinAnnotationView
-        if pinView == nil {
-            pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
-            pinView?.canShowCallout = true
-            
-        }else {
-            pinView?.annotation = annotation
-        }
-        
-        
-        if pinView?.annotation === kitchenItem {
-            pinView?.image = UIImage(named: "map_pin")
-        } else {
-            pinView?.image = UIImage(named: "home_pin")
-        }
-        return pinView
-    }
 
-}
 
 
 // MARK: - UICollectionViewDataSource and Delegate
@@ -215,20 +124,59 @@ extension KitchenDetailViewController:  UICollectionViewDelegate, UICollectionVi
         
     }
 }
+
+// MARK: - MKMapViewDelegate
+extension KitchenDetailViewController: MKMapViewDelegate {
+    
+    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        
+        guard annotation is MKPointAnnotation else { return nil }
+        let reuseId = "Pin"
+        
+        var pinView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseId) as? MKPinAnnotationView
+        if pinView == nil {
+            pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
+            pinView?.canShowCallout = true
+            
+        }else {
+            pinView?.annotation = annotation
+        }
+        
+        if pinView?.annotation === kitchenItem {
+            pinView?.image = UIImage(named: "map_pin")
+        } else {
+            pinView?.image = UIImage(named: "home_pin")
+        }
+        return pinView
+    }
+    
+}
+
 // MARK: - KitchenDetailViewModelDelegate
 extension KitchenDetailViewController: KitchenDetailViewModelDelegate {
-    
-    func userCoordinatesLoaded(longitude: Double, latitude: Double) {
-        userItem.coordinate.latitude = latitude
-        userItem.coordinate.longitude = longitude
+    func kitchenPinLoaded(annotation: MKPointAnnotation) {
+        kitchenItem = annotation
+        DispatchQueue.main.async {
+            self.mapView?.addAnnotation(self.kitchenItem)
+            
+        }
+        
     }
     
-    func coordinatesLoaded(longitude: Double, latitude: Double) {
-        kitchenItem.coordinate.latitude = latitude
-        kitchenItem.coordinate.longitude = longitude
-        setMapVisibleRegion(longitude: longitude, latitude: latitude)
-        getKitchenReverseGeocode(longitude: longitude, latitude: latitude)
+    func userPinLoaded(annotation: MKPointAnnotation) {
+        userItem = annotation
+        DispatchQueue.main.async {
+            self.mapView?.addAnnotation(self.userItem)
+        }
     }
+    
+    
+    func showKitchenLocationString(locationString: String) {
+        
+        kitchenLocationLabel.text = locationString
+    }
+    
     
     func showAlert(message: String) {
         

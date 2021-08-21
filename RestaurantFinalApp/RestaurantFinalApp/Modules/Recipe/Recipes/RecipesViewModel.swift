@@ -11,12 +11,15 @@ import Firebase
 protocol RecipesViewModelDelegate: AnyObject {
     func showAlert(message: String)
     func myRecipesLoaded()
+    func filteringApplied(isEmpty: Bool)
 }
 class RecipesViewModel {
     
     weak var delegate: RecipesViewModelDelegate?
     
     var myRecipes: [RecipeModel] = []
+    var filteredRecipes: [RecipeModel] = []
+    var isFiltering: Bool = false
     
     func getMyRecipes() {
         
@@ -39,7 +42,7 @@ class RecipesViewModel {
                         
                     }
                 }
-                
+                self?.filteredRecipes.append(contentsOf: self?.myRecipes ?? [])
                 self?.delegate?.myRecipesLoaded()
             }
             else {
@@ -47,6 +50,13 @@ class RecipesViewModel {
                 print("No data available")
             }
         }
+    }
+    func filterRecipe(by name: String) {
+        isFiltering = true
+        filteredRecipes = myRecipes.filter({ (recipe: RecipeModel) -> Bool in
+            return recipe.name.lowercased().contains(name.lowercased())
+        })
+        delegate?.filteringApplied(isEmpty: filteredRecipes.isEmpty)
     }
     
 }

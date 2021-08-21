@@ -6,7 +6,8 @@
 //
 
 import UIKit
-import WSTagsField 
+import WSTagsField
+
 class CreateRecipeViewController: UIViewController, UINavigationControllerDelegate {
     // MARK: - Properties
     let viewModel: CreateRecipeViewModel = CreateRecipeViewModel()
@@ -25,12 +26,10 @@ class CreateRecipeViewController: UIViewController, UINavigationControllerDelega
     
     @IBOutlet weak var tagsField: WSTagsField!
     
-    @IBOutlet weak var editRecipeButton: UIButton!
     @IBOutlet weak var doneButton: UIButton!
     
     @IBOutlet weak var viewWithButton: UIView!
     
-    @IBOutlet weak var viewWithButton2: UIView!
     @IBOutlet weak var createRecipeView: UIView!
     // MARK: - UIViewController Lifecycle
     override func viewDidLoad() {
@@ -43,8 +42,7 @@ class CreateRecipeViewController: UIViewController, UINavigationControllerDelega
         
         setTagsFieldProperties()
         createRecipeView.roundCorners([.topLeft, .topRight], radius: 40)
-        viewWithButton.roundCorners(.allCorners, radius: 60)
-        viewWithButton2.roundCorners(.allCorners, radius: 40)
+        viewWithButton.roundCorners(.allCorners, radius: 30)
         imagePickerButton.roundCorners(.allCorners, radius: 20)
     }
     
@@ -78,11 +76,6 @@ class CreateRecipeViewController: UIViewController, UINavigationControllerDelega
         }
     }
     
-    // TODO REMOVE
-    @IBAction func editRecipeButtonTapped(_ sender: UIButton) {
-        ///   recipeTextView.isEditable = true
-        // butonun state'ini burada değiştir!
-    }
     @IBAction func backButtonTapped(_ sender: UIButton) {
         
         // burada alert controller ile alertte geri dönmek istediğinizden emin misiniz datalar kaydedilmedi desin! OK ise;
@@ -90,6 +83,7 @@ class CreateRecipeViewController: UIViewController, UINavigationControllerDelega
     }
     @IBAction func doneButtonPressed(_ sender: UIButton) {
         viewModel.doneEditing(title: recipeNameField.text ?? "", image: recipeImagePickerView.image?.pngData() ?? Data(), instruction: instructionsTextView.text, ingredients: tagsField.tags.map({ $0.text }))
+        
     }
     private func pickImage(sourceType: UIImagePickerController.SourceType) {
         viewModel.selectImagePickerSource(sourceType: sourceType)

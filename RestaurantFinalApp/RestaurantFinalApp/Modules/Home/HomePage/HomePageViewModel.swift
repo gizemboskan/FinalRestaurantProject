@@ -21,6 +21,7 @@ class HomePageViewModel: NSObject {
     weak var delegate: HomePageViewModelDelegate?
     
     var myRecipes: [RecipeModel] = []
+    var kitchens: [KitchenModel] = []
     private var myUserDetail: UserModel?
     let locationManager = CLLocationManager()
     var userLocation: CLLocation?
@@ -121,7 +122,7 @@ class HomePageViewModel: NSObject {
             break
         }
     }
-    var kitchens: [KitchenModel] = []
+   
     func getKitchens(){
         kitchens.removeAll()
         FirebaseEndpoints.kitchens.getDatabasePath.getData{ [weak self] (error, snapshot) in

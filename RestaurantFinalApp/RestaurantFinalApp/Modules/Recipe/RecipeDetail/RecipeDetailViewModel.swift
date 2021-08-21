@@ -14,6 +14,7 @@ protocol RecipeDetailViewModelDelegate: AnyObject {
     func imageLoaded(image: String)
     func instructionLoaded(instruction: String)
     func ingredientsLoaded(ingredients: [String])
+    func showLoadingIndicator(isShown: Bool)
     func shareButtonPressed(_ sender: Any)
     func backButtonPressed()
     func favProcessCompleted(favStateImage: String)
@@ -53,6 +54,7 @@ class RecipeDetailViewModel {
                     self?.delegate?.titleLoaded(title: self?.recipeDetail?.name ?? "")
                     self?.delegate?.imageLoaded(image: self?.recipeDetail?.imageURL ?? "")
                     self?.delegate?.instructionLoaded(instruction: self?.recipeDetail?.instruction ?? "")
+                    self?.delegate?.ingredientsLoaded(ingredients: self?.recipeDetail?.ingredients ?? [])
                     self?.setFavState()
                 }
             }
@@ -172,16 +174,4 @@ class RecipeDetailViewModel {
         delegate?.editRecipeButtonPressed()
     }
     
-    func changeSegmentStates(state: Int){
-        switch state
-        {
-        case 0:
-            self.delegate?.instructionLoaded(instruction: recipeDetail?.instruction ?? "")
-        case 1:
-            self.delegate?.ingredientsLoaded(ingredients: recipeDetail?.ingredients ?? [])
-        default:
-            break
-        }
-        
-    }
 }

@@ -235,33 +235,6 @@
                                                             <constraint firstAttribute="bottom" secondItem="2kR-zu-uZm" secondAttribute="bottom" id="pkZ-Ug-ti1"/>
                                                         </constraints>
                                                     </view>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h9w-6N-Eza" userLabel="View with Button">
-                                                        <rect key="frame" x="157" y="409" width="100" height="48"/>
-                                                        <subviews>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NSq-nU-DE4">
-                                                                <rect key="frame" x="0.0" y="0.0" width="100" height="48"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="width" constant="100" id="DHw-dZ-lxI"/>
-                                                                    <constraint firstAttribute="height" constant="48" id="weD-hl-11x"/>
-                                                                </constraints>
-                                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
-                                                                <state key="normal" title="Edit Recipe">
-                                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                                </state>
-                                                                <connections>
-                                                                    <action selector="editRecipeButtonTapped:" destination="y6w-NC-dOp" eventType="touchUpInside" id="5PN-sG-3bf"/>
-                                                                </connections>
-                                                            </button>
-                                                        </subviews>
-                                                        <color key="backgroundColor" red="1" green="0.61568627450000002" blue="0.090196078430000007" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <constraints>
-                                                            <constraint firstItem="NSq-nU-DE4" firstAttribute="leading" secondItem="h9w-6N-Eza" secondAttribute="leading" id="BFW-jC-dJt"/>
-                                                            <constraint firstItem="NSq-nU-DE4" firstAttribute="top" secondItem="h9w-6N-Eza" secondAttribute="top" id="Q9A-uO-giG"/>
-                                                            <constraint firstAttribute="trailing" secondItem="NSq-nU-DE4" secondAttribute="trailing" id="Smm-4h-THR"/>
-                                                            <constraint firstAttribute="height" constant="48" id="rTs-II-SNI"/>
-                                                            <constraint firstAttribute="width" constant="100" id="tNL-s6-1SC"/>
-                                                        </constraints>
-                                                    </view>
                                                     <view contentMode="scaleToFill" verticalHuggingPriority="245" translatesAutoresizingMaskIntoConstraints="NO" id="dAj-Og-SoD">
                                                         <rect key="frame" x="30" y="105" width="354" height="288"/>
                                                         <subviews>
@@ -323,8 +296,6 @@
                                                 <constraints>
                                                     <constraint firstAttribute="bottom" secondItem="ASP-db-qCp" secondAttribute="bottom" constant="40" id="6uc-Fj-C1h"/>
                                                     <constraint firstAttribute="trailing" secondItem="ASP-db-qCp" secondAttribute="trailing" constant="30" id="79N-Ye-XZJ"/>
-                                                    <constraint firstItem="h9w-6N-Eza" firstAttribute="top" secondItem="dAj-Og-SoD" secondAttribute="bottom" constant="16" id="9LC-HH-yvJ"/>
-                                                    <constraint firstItem="ASP-db-qCp" firstAttribute="top" secondItem="h9w-6N-Eza" secondAttribute="bottom" constant="50" id="ASk-MJ-ELy"/>
                                                     <constraint firstItem="ASP-db-qCp" firstAttribute="leading" secondItem="rsq-Gb-Eqy" secondAttribute="leading" constant="29" id="BN2-J1-DWF"/>
                                                     <constraint firstItem="YAZ-ib-UAw" firstAttribute="bottom" secondItem="GqJ-pP-aZt" secondAttribute="top" constant="-8" id="C7a-sN-iqJ"/>
                                                     <constraint firstItem="YAZ-ib-UAw" firstAttribute="top" secondItem="rsq-Gb-Eqy" secondAttribute="top" constant="8" id="G91-Ot-O1t"/>
@@ -333,6 +304,7 @@
                                                     <constraint firstAttribute="trailing" secondItem="GqJ-pP-aZt" secondAttribute="trailing" constant="29" id="cN7-G4-WoV"/>
                                                     <constraint firstItem="dAj-Og-SoD" firstAttribute="top" secondItem="GqJ-pP-aZt" secondAttribute="bottom" constant="16" id="eq9-pN-XAl"/>
                                                     <constraint firstAttribute="trailing" secondItem="dAj-Og-SoD" secondAttribute="trailing" constant="30" id="jmA-9m-jE7"/>
+                                                    <constraint firstItem="ASP-db-qCp" firstAttribute="top" secondItem="dAj-Og-SoD" secondAttribute="bottom" constant="114" id="r7S-lb-rQX"/>
                                                     <constraint firstAttribute="trailing" secondItem="YAZ-ib-UAw" secondAttribute="trailing" constant="30" id="wrc-YS-pIv"/>
                                                     <constraint firstItem="dAj-Og-SoD" firstAttribute="leading" secondItem="rsq-Gb-Eqy" secondAttribute="leading" constant="30" id="xgr-82-583"/>
                                                 </constraints>
@@ -381,7 +353,6 @@
                         <viewLayoutGuide key="safeArea" id="hPA-l7-WZv"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="h9w-6N-Eza" firstAttribute="centerX" secondItem="hPA-l7-WZv" secondAttribute="centerX" id="06Y-Ok-eWi"/>
                             <constraint firstAttribute="bottom" secondItem="XiK-qC-2NX" secondAttribute="bottom" id="CD7-sK-QO7"/>
                             <constraint firstItem="cPc-ER-2nt" firstAttribute="width" secondItem="hPA-l7-WZv" secondAttribute="width" id="LXP-MY-fvw"/>
                             <constraint firstItem="hPA-l7-WZv" firstAttribute="leading" secondItem="XiK-qC-2NX" secondAttribute="leading" id="YdY-0R-OyK"/>
@@ -394,7 +365,6 @@
                         <outlet property="backButton" destination="yuE-xF-7ZD" id="3zN-ep-tua"/>
                         <outlet property="createRecipeView" destination="rsq-Gb-Eqy" id="3An-V5-PdN"/>
                         <outlet property="doneButton" destination="2kR-zu-uZm" id="sAp-nA-hax"/>
-                        <outlet property="editRecipeButton" destination="NSq-nU-DE4" id="f3G-Km-O3Y"/>
                         <outlet property="firstView" destination="EfA-F7-Vnq" id="OX6-HW-XW3"/>
                         <outlet property="imagePickerButton" destination="Ka0-74-COp" id="RvR-6e-4cp"/>
                         <outlet property="instructionsTextView" destination="4Oq-XD-W7A" id="OLB-Bz-dW8"/>
@@ -405,7 +375,6 @@
                         <outlet property="shareButton" destination="nl7-b0-opv" id="Oey-JB-7yb"/>
                         <outlet property="tagsField" destination="eJT-jW-YI5" id="SGA-xO-7ca"/>
                         <outlet property="viewWithButton" destination="ASP-db-qCp" id="9bA-ku-3Ir"/>
-                        <outlet property="viewWithButton2" destination="h9w-6N-Eza" id="EXD-1u-hjT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PE0-h7-vSb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
