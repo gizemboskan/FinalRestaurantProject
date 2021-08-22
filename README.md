@@ -7,7 +7,7 @@
 - <a href="#description">Description</a>
 - <a href="#tech-stack">Tech Stack</a>
 - <a href="#features">Features</a>
-- <a href="libraries">Libraries</a>
+- <a href="#libraries">Libraries</a>
 - <a href="#previews">Previews</a>
 
 ## Description
