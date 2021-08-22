@@ -3,19 +3,28 @@
 # Banabi Kitchen 
 #### *FinalRestaurantProject for Yemeksepeti iOS Bootcamp*
 
+## Table of Contents
+- <a href="#description">Description</a>
+- <a href="#tech-stack">Tech Stack</a>
+- <a href="#features">Features</a>
+- <a href="libraries">Libraries</a>
+- <a href="#previews">Previews</a>
+
 ## Description
 
-Banabi Kitchen is a final project for the Yemeksepeti iOS Bootcamp. The project was created to simulate a food ordering app which is mimicking the Yemeksepeti. But it's a little bit different from the food ordering apps we already know. Instead of ordering the foods from the restraurants' specific menus, now you can crate your own recipes (inherited from your grandma maybe!), and you will get an offer for your selected or created recipe from different kitchens want able to cook your meal! These kitchens were designed as Banabi - associated restaurants which can willing to serve you privately! 
+Banabi Kitchen is a final project for the Yemeksepeti iOS Bootcamp. The project was created to simulate a food ordering app which is mimicking the Yemeksepeti. But it's a little bit different from the food ordering apps we already know. Instead of ordering the foods from the restraurants' specific menus, now you can crate your own recipes (inherited from your grandma maybe!), and you will get an offer for your selected or created recipe from different kitchens which are able to cook your meal! These kitchens were designed as Banabi - associated restaurants which can willing to serve you privately! 
 
 ## Tech Stack
 
 * Firebase Realtime Database and Storage for backend
 * MVVM, delegation patterns for bindings 
+* Swift Package Manager
 * MapKit
 * CoreData, image caching
 * Localization 
 * Storyboard for UI design
 * Image Picker Controller
+* Some reusables views, empty state views, custom alerts, activity indicators, proper searching, organized folder structure.
 
 
 ## Features
