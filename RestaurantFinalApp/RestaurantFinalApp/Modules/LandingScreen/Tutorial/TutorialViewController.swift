@@ -34,7 +34,7 @@ class TutorialViewController: UIViewController {
         OnboardingItemInfo(informationImage: UIImage(named: "page3" )! ,
                            title: "recipes_title".localized(),
                            description: "recipes_title_desc".localized(),
-                           pageIcon: UIImage(named: "page3")!,
+                           pageIcon: UIImage(named: "Shopping-cart")!,
                            color: UIColor(red: 0.40, green: 0.69, blue: 0.71, alpha: 1.00),
                            titleColor: UIColor.white,
                            descriptionColor: UIColor.white,
@@ -44,7 +44,7 @@ class TutorialViewController: UIViewController {
         OnboardingItemInfo(informationImage: UIImage(named: "page4")! ,
                            title: "quality_title".localized(),
                            description: "quality_title_desc".localized(),
-                           pageIcon: UIImage(named: "page4" )!,
+                           pageIcon: UIImage(named: "Wallet")!,
                            color: UIColor(red: 0.61, green: 0.56, blue: 0.74, alpha: 1.00),
                            titleColor: UIColor.white,
                            descriptionColor: UIColor.white,
@@ -61,7 +61,7 @@ class TutorialViewController: UIViewController {
         
         view.bringSubviewToFront(skipButton)
         
-        createMockData()
+        //createMockData()
         
     }
     

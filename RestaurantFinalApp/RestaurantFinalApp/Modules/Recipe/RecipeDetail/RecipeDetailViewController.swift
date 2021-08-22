@@ -95,7 +95,7 @@ class RecipeDetailViewController: UIViewController {
         tagsField.font = .systemFont(ofSize: 12.0)
         tagsField.backgroundColor = .white
         tagsField.tintColor = .systemOrange
-        tagsField.textColor = .systemGray4
+        tagsField.textColor = .black
         tagsField.textField.textColor = .blue
         tagsField.selectedColor = .black
         tagsField.selectedTextColor = .red

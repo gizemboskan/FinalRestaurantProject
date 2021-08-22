@@ -109,10 +109,10 @@ class CreateRecipeViewController: UIViewController, UINavigationControllerDelega
         tagsField.contentInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
         tagsField.spaceBetweenLines = 5.0
         tagsField.spaceBetweenTags = 10.0
-        tagsField.font = .systemFont(ofSize: 12.0)
+        tagsField.font = .systemFont(ofSize: 14.0)
         tagsField.backgroundColor = .white
         tagsField.tintColor = .systemOrange
-        tagsField.textColor = .systemGray4
+        tagsField.textColor = .black
         tagsField.textField.textColor = .blue
         tagsField.selectedColor = .black
         tagsField.selectedTextColor = .red
