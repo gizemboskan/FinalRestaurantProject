@@ -1,3 +1,5 @@
+ [![Generic badge](https://img.shields.io/badge/Language-Swift-red.svg)](https://developer.apple.com/swift/)
+
 # Banabi Kitchen 
 #### *FinalRestaurantProject for Yemeksepeti iOS Bootcamp*
 
