@@ -10,7 +10,7 @@ import UIKit
 class PaymentViewController: UIViewController {
     // MARK: - Properties
     
-    let viewModel: PaymentViewModel = PaymentViewModel()
+    var viewModel: PaymentViewModelProtocol = PaymentViewModel()
     
     // MARK: - UI Components
     
@@ -36,8 +36,6 @@ class PaymentViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.isNavigationBarHidden = true
-
         viewModel.delegate = self
         orderSucceedView.isHidden = true
         creditCardCVCTextField.isEnabled = true
@@ -45,6 +43,17 @@ class PaymentViewController: UIViewController {
         creditCardNumberTextField.isEnabled = true
         viewModel.getPaymentDetails()
         viewWithPayButton.roundCorners(.allCorners, radius: 35)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        hideKeyboardWhenTappedAround()
+        subscribeToKeyboardNotifications()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        unsubscribeFromKeyboardNotifications()
     }
     
     // MARK: - Helpers
@@ -60,20 +69,57 @@ class PaymentViewController: UIViewController {
     }
     
     @IBAction func goHomeButtonPressed(_ sender: UIButton) {
+        NotificationCenter.default.post(name: .orderActivated, object: nil)
         self.navigationController?.popToRootViewController(animated: true)
+    }
+    
+    
+    @IBAction func backButtonTapped(_ sender: UIButton) {
+        viewModel.quitView()
+    }
+    
+    @objc func keyboardWillShow(_ notification:Notification) {
+        if (creditCardDateTextField.isFirstResponder || creditCardCVCTextField.isFirstResponder || creditCardCVCTextField.isFirstResponder) && view.frame.origin.y == 0 {
+            view.frame.origin.y -= getKeyboardHeight(notification)
+        }
+    }
+    
+    @objc func keybordWillHide(_ notification:Notification) {
+        if (creditCardDateTextField.isFirstResponder || creditCardCVCTextField.isFirstResponder || creditCardCVCTextField.isFirstResponder)  && view.frame.origin.y != 0{
+            view.frame.origin.y = 0
+        }
+    }
+    
+    @objc func getKeyboardHeight(_ notification:Notification) -> CGFloat {
+        
+        let userInfo = notification.userInfo
+        let keyboardSize = userInfo![UIResponder.keyboardFrameEndUserInfoKey] as! NSValue // of CGRect
+        return keyboardSize.cgRectValue.height
+    }
+    
+    func subscribeToKeyboardNotifications() {
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keybordWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    func unsubscribeFromKeyboardNotifications() {
+        
+        NotificationCenter.default.removeObserver(self)
     }
 }
 
 // MARK: - PaymentViewModelDelegate
 
 extension PaymentViewController: PaymentViewModelDelegate {
-    func showAlert(message: String) {
-        
-    }
-    
     func paymentDetailLoaded(kitchenName: String, recipeName: String, totalPrice: String) {
         kitchenNameLabel.text = kitchenName
         recipeNameLabel.text = recipeName
         priceLabel.text = totalPrice
+    }
+    
+    func backButtonPressed() {
+        navigationController?.popViewController(animated: true)
     }
 }

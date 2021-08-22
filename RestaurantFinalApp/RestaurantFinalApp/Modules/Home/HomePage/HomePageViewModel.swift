@@ -9,74 +9,49 @@ import Foundation
 import Firebase
 import MapKit
 
+protocol HomePageViewModelProtocol {
+    var delegate: HomePageViewModelDelegate? { get set }
+    var myRecipes: [RecipeModel] { get set }
+    var kitchens: [KitchenModel] { get set }
+    func getMyRecipes()
+    func getUserLocation()
+    func getKitchens()
+}
+
 protocol HomePageViewModelDelegate: AnyObject {
-    func showAlert(message: String)
+    func showAlert(message: String, title: String)
+    func showLoadingIndicator(isShown: Bool)
     func myRecipesLoaded() // signal to view layer to say "I loaded the datas, and you can take an action."
     func kitchensLoaded()
     func showLocationString(locationString: String)
+    func showOrderStatus()
 }
 
-
-class HomePageViewModel: NSObject {
-    weak var delegate: HomePageViewModelDelegate?
+final class HomePageViewModel: NSObject {
     
+    // MARK: - Properties
+
+    weak var delegate: HomePageViewModelDelegate?
     var myRecipes: [RecipeModel] = []
     var kitchens: [KitchenModel] = []
-    private var myUserDetail: UserModel?
+
     let locationManager = CLLocationManager()
     var userLocation: CLLocation?
-    lazy var geocoder = CLGeocoder()
-    func getMyRecipes() {
-        myRecipes.removeAll()
-        FirebaseEndpoints.myUser.getDatabasePath.child("recipes").getData{ [weak self] (error, snapshot) in
-            if let error = error {
-                self?.delegate?.showAlert(message: "error")
-                print("Error getting data \(error)")
-            }
-            else if snapshot.exists() {
-                print("Got data \(snapshot.value!)")
-                
-                var tempRecipes: [RecipeModel] = []
-                if let myRecipesDict = snapshot.value as? [String: Any] {
-                    
-                    for recipe in myRecipesDict {
-                        if let recipeDetails = recipe.value as? [String: Any] {
-                            let myRecipe = RecipeModel.getRecipeFromDict(recipeDetails: recipeDetails)
-                            
-                            
-                            tempRecipes.append(myRecipe)
-                        }
-                    }
-                    
-                    self?.myRecipes = Array(tempRecipes.prefix(5))
-                }
-                
-                self?.delegate?.myRecipesLoaded()
-            }
-            else {
-                self?.delegate?.showAlert(message: "no data")
-                print("No data available")
-            }
-        }
+    
+    private var myUserDetail: UserModel?
+    private lazy var geocoder = CLGeocoder()
+    
+    override init() {
+        super.init()
+        NotificationCenter.default.addObserver(self, selector: #selector(onDidReceiveOrder(_:)), name: .orderActivated, object: nil)
+
     }
-     func getUserLocation(){
-        checkLocationServices()
-        locationManager.requestWhenInUseAuthorization()
-        
-        if (CLLocationManager.authorizationStatus() == CLAuthorizationStatus.authorizedWhenInUse ||
-                CLLocationManager.authorizationStatus() == CLAuthorizationStatus.authorizedAlways){
-            guard let userLocation = locationManager.location else {
-                return
-            }
-            print(userLocation.coordinate.latitude)
-            print(userLocation.coordinate.longitude)
-            let lat = userLocation.coordinate.latitude
-            let long = userLocation.coordinate.longitude
-            getUserReverseGeocode(longitude: long, latitude: lat)
-            
-        }
+
+    @objc func onDidReceiveOrder(_ notification: Notification) {
+        delegate?.showOrderStatus()
     }
     
+    // MARK: - Helpers
     private func checkLocationServices() {
         if CLLocationManager.locationServicesEnabled() {
             setupLocationManager()
@@ -96,8 +71,23 @@ class HomePageViewModel: NSObject {
                 }
                 guard let placemark = placemarks?.first else { return }
                 
-                let locationString = "\(placemark.thoroughfare ?? "Street"), \(placemark.locality ?? "City"), \(placemark.subLocality ?? ""), \(placemark.subThoroughfare ?? ""), \(placemark.administrativeArea ?? "")"
-                
+                var locationString = ""
+                if let thoroughfare = placemark.thoroughfare {
+                    locationString += thoroughfare + ", "
+                }
+                if let locality = placemark.locality {
+                    locationString += locality + ", "
+                }
+                if let subLocality = placemark.subLocality {
+                    locationString += subLocality + ", "
+                }
+                if let subThoroughfare = placemark.subThoroughfare {
+                    locationString += subThoroughfare + ", "
+                }
+                if let administrativeArea = placemark.administrativeArea {
+                    locationString += administrativeArea
+                }
+
                 self.delegate?.showLocationString(locationString: locationString)
             }
         }
@@ -111,35 +101,94 @@ class HomePageViewModel: NSObject {
     private func checkLocationAuthorization() {
         switch CLLocationManager.authorizationStatus() {
         case .authorizedWhenInUse:
-            break
+            getLocation()
         case .denied:
             break
         case .notDetermined:
             locationManager.requestWhenInUseAuthorization()
         case .authorizedAlways:
-            break
+            getLocation()
         case .restricted:
             break
         }
     }
-   
-    func getKitchens(){
-        kitchens.removeAll()
-        FirebaseEndpoints.kitchens.getDatabasePath.getData{ [weak self] (error, snapshot) in
+    
+    private func getLocation() {
+        if (CLLocationManager.authorizationStatus() == CLAuthorizationStatus.authorizedWhenInUse ||
+                CLLocationManager.authorizationStatus() == CLAuthorizationStatus.authorizedAlways){
+            guard let userLocation = locationManager.location else {
+                return
+            }
+            print(userLocation.coordinate.latitude)
+            print(userLocation.coordinate.longitude)
+            let lat = userLocation.coordinate.latitude
+            let long = userLocation.coordinate.longitude
+            getUserReverseGeocode(longitude: long, latitude: lat)
+        }
+    }
+}
+
+// MARK: - Accessors
+extension HomePageViewModel: HomePageViewModelProtocol {
+    func getMyRecipes() {
+        delegate?.showLoadingIndicator(isShown: true)
+        FirebaseEndpoints.myUser.getDatabasePath.child("recipes").getData{ [weak self] (error, snapshot) in
+            self?.delegate?.showLoadingIndicator(isShown: false)
             if let error = error {
-                self?.delegate?.showAlert(message: "error")
+                self?.delegate?.showAlert(message: "general_error_desc".localized(), title: "general_error_title".localized())
                 print("Error getting data \(error)")
             }
             else if snapshot.exists() {
                 print("Got data \(snapshot.value!)")
                 
+                var tempRecipes: [RecipeModel] = []
+                if let myRecipesDict = snapshot.value as? [String: Any] {
+                    
+                    for recipe in myRecipesDict {
+                        if let recipeDetails = recipe.value as? [String: Any] {
+                            let myRecipe = RecipeModel.getRecipeFromDict(recipeDetails: recipeDetails)
+                            
+                            
+                            tempRecipes.append(myRecipe)
+                        }
+                    }
+                    
+                    self?.myRecipes.removeAll()
+                    self?.myRecipes = Array(tempRecipes.prefix(5))
+                }
+                
+                self?.delegate?.myRecipesLoaded()
+            }
+            else {
+                self?.delegate?.showAlert(message: "general_error_desc".localized(), title: "general_error_title".localized())
+                print("No data available")
+            }
+        }
+    }
+    
+    func getUserLocation() {
+        checkLocationServices()
+        locationManager.requestWhenInUseAuthorization()
+    }
+    
+    func getKitchens() {
+        delegate?.showLoadingIndicator(isShown: true)
+        FirebaseEndpoints.kitchens.getDatabasePath.getData{ [weak self] (error, snapshot) in
+            self?.delegate?.showLoadingIndicator(isShown: false)
+            if let error = error {
+                self?.delegate?.showAlert(message: "general_error_desc".localized(), title: "general_error_title".localized())
+                print("Error getting data \(error)")
+            }
+            else if snapshot.exists() {
+                print("Got data \(snapshot.value!)")
+                
+                self?.kitchens.removeAll()
                 if let kitchensDict = snapshot.value as? [String: Any] {
                     for kitchen in kitchensDict {
                         if let kitchenDetails = kitchen.value as? [String: Any] {
                             let kitchen = KitchenModel.getKitchenFromDict(kitchenDetails: kitchenDetails)
                             
                             self?.kitchens.append(kitchen)
-                            
                         }
                     }
                 }
@@ -147,15 +196,12 @@ class HomePageViewModel: NSObject {
                 self?.delegate?.kitchensLoaded()
             }
             else {
-                self?.delegate?.showAlert(message: "no data")
+                self?.delegate?.showAlert(message: "general_error_desc".localized(), title: "general_error_title".localized())
                 print("No data available")
             }
         }
     }
     
-    //    private func createRecipeModel(recipeDict: [String: Any]) {
-    //
-    //    }
 }
 
 // MARK: - Location Manager Delegate

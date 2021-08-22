@@ -12,7 +12,7 @@ import MapKit
 class KitchenDetailViewController: UIViewController {
     // MARK: - Properties
     
-    let viewModel: KitchenDetailViewModel = KitchenDetailViewModel()
+    var viewModel: KitchenDetailViewModelProtocol = KitchenDetailViewModel()
     let locationManager = CLLocationManager()
     
     
@@ -74,9 +74,6 @@ class KitchenDetailViewController: UIViewController {
     
 }
 
-
-
-
 // MARK: - UICollectionViewDataSource and Delegate
 extension KitchenDetailViewController:  UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -119,7 +116,7 @@ extension KitchenDetailViewController:  UICollectionViewDelegate, UICollectionVi
             return CGSize(width: 135, height: 165)
         }else {
             
-            return CGSize(width: 50, height: 50)
+            return CGSize(width: 80, height: 50)
         }
         
     }
@@ -127,7 +124,6 @@ extension KitchenDetailViewController:  UICollectionViewDelegate, UICollectionVi
 
 // MARK: - MKMapViewDelegate
 extension KitchenDetailViewController: MKMapViewDelegate {
-    
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         
@@ -159,9 +155,7 @@ extension KitchenDetailViewController: KitchenDetailViewModelDelegate {
         kitchenItem = annotation
         DispatchQueue.main.async {
             self.mapView?.addAnnotation(self.kitchenItem)
-            
-        }
-        
+        }        
     }
     
     func userPinLoaded(annotation: MKPointAnnotation) {
@@ -177,9 +171,16 @@ extension KitchenDetailViewController: KitchenDetailViewModelDelegate {
         kitchenLocationLabel.text = locationString
     }
     
+    func showAlert(message: String, title: String) {
+        showAlertController(message: message, title: title)
+    }
     
-    func showAlert(message: String) {
-        
+    func showLoadingIndicator(isShown: Bool) {
+        if isShown {
+            startLoading()
+        } else {
+            stopLoading()
+        }
     }
     
     func kitchenTitleLoaded(title: String) {
@@ -210,4 +211,7 @@ extension KitchenDetailViewController: KitchenDetailViewModelDelegate {
         navigationController?.popViewController(animated: true)
     }
     
+    func zoomRegion(region: MKCoordinateRegion) {
+        mapView.setRegion(region, animated: true)
+    }
 }

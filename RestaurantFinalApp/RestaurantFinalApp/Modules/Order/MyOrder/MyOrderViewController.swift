@@ -7,18 +7,17 @@
 
 import UIKit
 import StepIndicator
-import MapKit
 
 class MyOrderViewController: UIViewController {
     // MARK: - Properties
     let progress = Progress(totalUnitCount: 4)
     
+    var viewModel: MyOrderViewModelProtocol = MyOrderViewModel()
+    
     // MARK: - UI Components
-    @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var recipeImageView: UIImageView!
     @IBOutlet weak var downView: UIView!
     @IBOutlet weak var recipeNameLabel: UILabel!
-    @IBOutlet weak var recipeArrivalTimeLabel: UILabel!
     @IBOutlet weak var stepIndicatorView: StepIndicatorView!
     @IBOutlet weak var sendedRequestLabel: UILabel!
     @IBOutlet weak var confirmedOrderLabel: UILabel!
@@ -29,11 +28,7 @@ class MyOrderViewController: UIViewController {
     
     // MARK: - UIViewController Lifecycle
     override func viewDidLoad() {
-        self.navigationController?.isNavigationBarHidden = true
-
-        mapView.mapType = .mutedStandard
-        recipeImageView.roundCorners(.allCorners, radius: 40)
-        recipeImageView.roundCorners(.allCorners, radius: 60)
+        recipeImageView.roundCorners(.allCorners, radius: recipeImageView.frame.height/2)
         stepIndicatorView.currentStep = 0
         startCount()
     }
@@ -71,6 +66,3 @@ class MyOrderViewController: UIViewController {
     }
     
 }
-
-
-// MARK: - PaymentViewModelDelegate

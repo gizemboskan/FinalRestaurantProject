@@ -7,17 +7,33 @@
 
 import Foundation
 protocol PaymentViewModelDelegate: AnyObject {
-    func showAlert(message: String)
     func paymentDetailLoaded(kitchenName: String, recipeName: String, totalPrice: String)
+    func backButtonPressed()
 }
 
-class PaymentViewModel {
+protocol PaymentViewModelProtocol {
+    var delegate: PaymentViewModelDelegate? { get set }
+    var recipeModel: RecipeModel? { get set }
+    var kitchen: KitchenModel? { get set }
+    var amount: Float? { get set }
+    func getPaymentDetails()
+    func quitView()
+}
+
+final class PaymentViewModel {
     weak var delegate: PaymentViewModelDelegate?
     var recipeModel: RecipeModel?
     var kitchen: KitchenModel?
     var amount: Float?
-    
+}
+
+extension PaymentViewModel: PaymentViewModelProtocol {
     func getPaymentDetails() {
-        delegate?.paymentDetailLoaded(kitchenName: kitchen?.name ?? "", recipeName: recipeModel?.name ?? "", totalPrice: "$ \(String(describing: amount))")
+        let formattedAmount = String(format: "%.2f", amount ?? 0)
+        delegate?.paymentDetailLoaded(kitchenName: kitchen?.name ?? "", recipeName: recipeModel?.name ?? "", totalPrice: "$ \(formattedAmount)")
+    }
+    
+    func quitView(){
+        delegate?.backButtonPressed()
     }
 }

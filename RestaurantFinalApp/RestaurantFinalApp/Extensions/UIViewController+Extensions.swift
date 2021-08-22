@@ -19,9 +19,10 @@ extension UIViewController {
         view.endEditing(true)
     }
     
+    /// Warnings
     func showAlertController(message: String, title: String){
         let ac = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        ac.addAction(UIAlertAction(title: "OK", style: .cancel))
+        ac.addAction(UIAlertAction(title: "OK".localized(), style: .cancel))
         self.present(ac, animated: true)
     }
     

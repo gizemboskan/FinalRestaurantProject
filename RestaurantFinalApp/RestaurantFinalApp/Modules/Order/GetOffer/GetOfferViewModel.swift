@@ -8,8 +8,19 @@
 import Foundation
 
 protocol GetOfferViewModelDelegate: AnyObject {
-    func showAlert(message: String)
+    func showAlert(message: String, title: String)
+    func showLoadingIndicator(isShown: Bool)
     func kitchensLoaded()
+    func backButtonPressed()
+}
+
+protocol GetOfferViewModelProtocol {
+    var delegate: GetOfferViewModelDelegate? { get set }
+    var kitchens: [KitchenModel] { get set }
+    var mockedAmounts: [Float] { get set }
+    var recipeModel: RecipeModel? { get set }
+    func getKitchens()
+    func quitView()
 }
 
 class GetOfferViewModel {
@@ -19,11 +30,18 @@ class GetOfferViewModel {
     
     weak var delegate: GetOfferViewModelDelegate?
     
+    private func getRandomPrice() -> Float {
+        return Float.random(in: 30...100)
+    }
+}
+
+extension GetOfferViewModel: GetOfferViewModelProtocol {
     func getKitchens(){
-        kitchens.removeAll()
+        delegate?.showLoadingIndicator(isShown: true)
         FirebaseEndpoints.kitchens.getDatabasePath.getData{ [weak self] (error, snapshot) in
+            self?.delegate?.showLoadingIndicator(isShown: false)
             if let error = error {
-                self?.delegate?.showAlert(message: "error")
+                self?.delegate?.showAlert(message: "general_error_desc".localized(), title: "general_error_title".localized())
                 print("Error getting data \(error)")
             }
             else if snapshot.exists() {
@@ -32,6 +50,8 @@ class GetOfferViewModel {
                 var tempKitchens: [KitchenModel] = []
 
                 if let kitchensDict = snapshot.value as? [String: Any] {
+                    self?.kitchens.removeAll()
+
                     for kitchen in kitchensDict {
                         if let kitchenDetails = kitchen.value as? [String: Any] {
                             let kitchen = KitchenModel.getKitchenFromDict(kitchenDetails: kitchenDetails)
@@ -50,13 +70,13 @@ class GetOfferViewModel {
                 self?.delegate?.kitchensLoaded()
             }
             else {
-                self?.delegate?.showAlert(message: "no data")
+                self?.delegate?.showAlert(message: "general_error_desc".localized(), title: "general_error_title".localized())
                 print("No data available")
             }
         }
     }
     
-    private func getRandomPrice() -> Float {
-        return Float.random(in: 30...100)
+    func quitView(){
+        delegate?.backButtonPressed()
     }
 }

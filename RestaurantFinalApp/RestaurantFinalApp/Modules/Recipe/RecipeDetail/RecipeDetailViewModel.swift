@@ -9,41 +9,54 @@ import Foundation
 import Firebase
 
 protocol RecipeDetailViewModelDelegate: AnyObject {
-    func showAlert(message: String)
+    func showAlert(message: String, title: String)
+    func showLoadingIndicator(isShown: Bool)
     func titleLoaded(title: String)
     func imageLoaded(image: String)
     func instructionLoaded(instruction: String)
     func ingredientsLoaded(ingredients: [String])
-    func showLoadingIndicator(isShown: Bool)
-    func shareButtonPressed(_ sender: Any)
+    func shareButtonPressed()
     func backButtonPressed()
     func favProcessCompleted(favStateImage: String)
+    func askForFav(isFav: Bool)
     func orderButtonPressed()
     func editRecipeButtonPressed()
-    
 }
 
-class RecipeDetailViewModel {
+protocol RecipeDetailViewModelProtocol {
+    var delegate: RecipeDetailViewModelDelegate? { get set }
+    var recipeID: String? { get set }
+    var kitchenID: String? { get set }
+    func getDetails()
+    func showFavAlert()
+    func changeFavorite()
+    func shareRecipe()
+    func editRecipe()
+    func orderRecipe()
+    func quitView()
+    var recipeDetail: RecipeModel? { get set }
+}
+
+final class RecipeDetailViewModel {
     weak var delegate: RecipeDetailViewModelDelegate?
     
     var recipeID: String?
     var kitchenID: String?
     var recipeDetail: RecipeModel?
     
-    func getDetails() {
-        if let kitchenID = kitchenID {
-            getRecipeDetails(from:  FirebaseEndpoints.kitchens.getDatabasePath.child(kitchenID).child("recipes"))
-        } else {
-            getRecipeDetails(from:  FirebaseEndpoints.myUser.getDatabasePath.child("recipes"))
+    private var isFav: Bool = false {
+        didSet {
+            delegate?.favProcessCompleted(favStateImage: isFav ? "filledFav" : "fav")
         }
     }
     
-    
     private func getRecipeDetails(from databaseReference: DatabaseReference){
+        delegate?.showLoadingIndicator(isShown: true)
         guard let recipeID = recipeID else { return }
         databaseReference.child(recipeID).getData{ [weak self] (error, snapshot) in
+            self?.delegate?.showLoadingIndicator(isShown: false)
             if let error = error {
-                self?.delegate?.showAlert(message: "error")
+                self?.delegate?.showAlert(message: "general_error_desc".localized(), title: "general_error_title".localized())
                 print("Error getting data \(error)")
             }
             else if snapshot.exists() {
@@ -59,16 +72,18 @@ class RecipeDetailViewModel {
                 }
             }
             else {
-                self?.delegate?.showAlert(message: "no data")
+                self?.delegate?.showAlert(message: "general_error_desc".localized(), title: "general_error_title".localized())
                 print("No data available")
             }
         }
     }
     
     private func setFavState() {
+        delegate?.showLoadingIndicator(isShown: true)
         FirebaseEndpoints.myUser.getDatabasePath.child("recipes").getData{ [weak self] (error, snapshot) in
+            self?.delegate?.showLoadingIndicator(isShown: false)
             if let error = error {
-                self?.delegate?.showAlert(message: "error")
+                self?.delegate?.showAlert(message: "general_error_desc".localized(), title: "general_error_title".localized())
                 print("Error getting data \(error)")
             }
             else if snapshot.exists() {
@@ -86,25 +101,40 @@ class RecipeDetailViewModel {
                     }
                     
                     if myRecipes.contains(where: { $0.id == self?.recipeDetail?.id }) {
-                        self?.delegate?.favProcessCompleted(favStateImage: "filledFav")
+                        self?.isFav = true
                         print("fav process done. dolu kalp")
                     } else {
-                        self?.delegate?.favProcessCompleted(favStateImage: "fav")
+                        self?.isFav = false
                         print("fav process done. boş kalp")
                     }
                 }
             }
             else {
-                self?.delegate?.showAlert(message: "no data")
+                self?.delegate?.showAlert(message: "general_error_desc".localized(), title: "general_error_title".localized())
                 print("No data available")
             }
         }
     }
+}
+extension RecipeDetailViewModel: RecipeDetailViewModelProtocol {
+    func getDetails() {
+        if let kitchenID = kitchenID {
+            getRecipeDetails(from:  FirebaseEndpoints.kitchens.getDatabasePath.child(kitchenID).child("recipes"))
+        } else {
+            getRecipeDetails(from:  FirebaseEndpoints.myUser.getDatabasePath.child("recipes"))
+        }
+    }
+    
+    func showFavAlert() {
+        delegate?.askForFav(isFav: isFav)
+    }
     
     func changeFavorite(){
+        delegate?.showLoadingIndicator(isShown: true)
         FirebaseEndpoints.myUser.getDatabasePath.child("recipes").getData{ [weak self] (error, snapshot) in
+            self?.delegate?.showLoadingIndicator(isShown: false)
             if let error = error {
-                self?.delegate?.showAlert(message: "error")
+                self?.delegate?.showAlert(message: "general_error_desc".localized(), title: "general_error_title".localized())
                 print("Error getting data \(error)")
             }
             else if snapshot.exists() {
@@ -124,7 +154,7 @@ class RecipeDetailViewModel {
                     if let recipeId = self?.recipeDetail?.id, myRecipes.contains(where: { $0.id == recipeId}) {
                         FirebaseEndpoints.myUser.getDatabasePath.child("recipes").child(recipeId).removeValue { error, reference in
                             
-                            self?.delegate?.favProcessCompleted(favStateImage: "fav")
+                            self?.isFav = false
                             print ("boş kalbe değişim")
                         }
                     } else {
@@ -132,7 +162,7 @@ class RecipeDetailViewModel {
                             if let recipeId = self?.recipeDetail?.id {
                                 FirebaseEndpoints.myUser.getDatabasePath.child("recipes").child(recipeId).setValue(recipeDict) { error, reference in
                                     
-                                    self?.delegate?.favProcessCompleted(favStateImage: "filledFav")
+                                    self?.isFav = true
                                     print("dolu kalbe değişim")
                                     
                                 }
@@ -148,7 +178,7 @@ class RecipeDetailViewModel {
                     if let recipeId = self?.recipeDetail?.id {
                         FirebaseEndpoints.myUser.getDatabasePath.child("recipes").child(recipeId).setValue(recipeDict) { error, reference in
                             
-                            self?.delegate?.favProcessCompleted(favStateImage: "filledFav")
+                            self?.isFav = true
                             print("dolu kalbe değişim")
                             
                         }
@@ -158,20 +188,20 @@ class RecipeDetailViewModel {
         }
     }
     
-    func shareRecipe(_ sender: Any){
-        delegate?.shareButtonPressed(sender)
+    func shareRecipe() {
+        delegate?.shareButtonPressed()
     }
     
-    func quitView(){
+    func quitView() {
         delegate?.backButtonPressed()
     }
     
-    func orderRecipe(){
+    func orderRecipe() {
         delegate?.orderButtonPressed()
     }
     
-    func editRecipe(){
+    func editRecipe() {
         delegate?.editRecipeButtonPressed()
     }
-    
 }
+

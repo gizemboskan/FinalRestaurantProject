@@ -11,17 +11,16 @@ class RecipeDetailViewController: UIViewController {
     // MARK: - Properties
     
     
-    let viewModel: RecipeDetailViewModel = RecipeDetailViewModel()
+    var viewModel: RecipeDetailViewModelProtocol = RecipeDetailViewModel()
+    
     // MARK: - UI Components
     @IBOutlet weak var recipeImageView: UIImageView!
     @IBOutlet weak var shareButton: UIButton!
     @IBOutlet weak var recipeNameLabel: UILabel!
-    
     @IBOutlet weak var recipeEditButton: UIButton!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var favButton: UIButton!
-    
     @IBOutlet weak var firstView: UIView!
     @IBOutlet weak var secondView: UIView!
     @IBOutlet weak var recipeTextView: UITextView!
@@ -36,12 +35,12 @@ class RecipeDetailViewController: UIViewController {
         super.viewDidLoad()
         navigationController?.isNavigationBarHidden = true
         viewModel.delegate = self
-        viewWithButton.roundCorners(.allCorners, radius: 60)
+        viewWithButton.roundCorners(.allCorners, radius: 20)
         setTagsFieldProperties()
         recipeTextView.roundCorners(.allCorners, radius: 3)
-        createRecipeView.roundCorners([.topLeft, .topRight], radius: 22)
+        createRecipeView.roundCorners([.topLeft, .topRight], radius: 20)
         tagsField.isUserInteractionEnabled = false
-        
+        setLocalizedTexts()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -69,11 +68,11 @@ class RecipeDetailViewController: UIViewController {
     }
     
     @IBAction func favButtonPressed(_ sender: Any) {
-        viewModel.changeFavorite()
+        viewModel.showFavAlert()
+        
     }
     @IBAction func shareButtonPressed(_ sender: UIButton) {
-        viewModel.shareRecipe(sender)
-        
+        viewModel.shareRecipe()
     }
     
     @IBAction func recipeEditButtonTapped(_ sender: Any) {
@@ -83,6 +82,11 @@ class RecipeDetailViewController: UIViewController {
         viewModel.orderRecipe()
         
     }
+    
+    private func setLocalizedTexts() {
+        orderButton.setTitle("order".localized(), for: .normal)
+    }
+    
     private func setTagsFieldProperties(){
         tagsField.layoutMargins = UIEdgeInsets(top: 2, left: 6, bottom: 2, right: 6)
         tagsField.contentInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
@@ -134,6 +138,11 @@ class RecipeDetailViewController: UIViewController {
 // MARK: - RecipeDetailViewModelDelegate
 
 extension RecipeDetailViewController: RecipeDetailViewModelDelegate{
+    
+    func showAlert(message: String, title: String) {
+        showAlertController(message: message, title: title)
+    }
+    
     func showLoadingIndicator(isShown: Bool) {
         if isShown {
             startLoading()
@@ -141,6 +150,7 @@ extension RecipeDetailViewController: RecipeDetailViewModelDelegate{
             stopLoading()
         }
     }
+    
     func editRecipeButtonPressed() {
         let storyboard = UIStoryboard(name: "CreateRecipe", bundle: nil)
         if let vc = storyboard.instantiateViewController(withIdentifier: "CreateRecipeViewController") as? CreateRecipeViewController {
@@ -150,12 +160,31 @@ extension RecipeDetailViewController: RecipeDetailViewModelDelegate{
     }
     
     func favProcessCompleted(favStateImage: String) {
-        favButton.setImage(UIImage(named: favStateImage), for: .normal)
+        self.favButton.setImage(UIImage(named: favStateImage), for: .normal)
     }
     
-    func shareButtonPressed(_ sender: Any) {
-        let vc = UIActivityViewController(activityItems: ["Share this great recipe with your loved ones! :)\n Or just save!"] , applicationActivities: [])
-        vc.popoverPresentationController?.sourceView = sender as? UIView
+    func askForFav(isFav: Bool) {
+        if !isFav {
+            let vc = UIAlertController(title: "save_fav".localized(), message: "choose_path".localized(), preferredStyle: .alert)
+            vc.addAction(UIAlertAction(title: "wonderful".localized(), style: .default, handler: { UIAlertAction in
+                self.viewModel.changeFavorite()
+            }))
+            vc.addAction(UIAlertAction(title: "need_think".localized(), style: .cancel))
+            present(vc, animated: true)
+            
+        } else {
+            let vc = UIAlertController(title: "make_unfav".localized(), message: "choose_path".localized(), preferredStyle: .alert)
+            vc.addAction(UIAlertAction(title: "unfav".localized(), style: .default, handler: { UIAlertAction in
+                self.viewModel.changeFavorite()
+            }))
+            vc.addAction(UIAlertAction(title: "need_think".localized(), style: .cancel))
+            present(vc, animated: true)
+        }
+    }
+    
+    func shareButtonPressed() {
+        let vc = UIActivityViewController(activityItems: ["share_recipe".localized()] , applicationActivities: [])
+        vc.popoverPresentationController?.sourceView = self.view
         present(vc, animated: true)
         
         vc.completionWithItemsHandler = {(_, completed, _, _) in
@@ -169,16 +198,23 @@ extension RecipeDetailViewController: RecipeDetailViewModelDelegate{
     }
     
     func backButtonPressed() {
-        navigationController?.popViewController(animated: true)
+        self.navigationController?.popViewController(animated: true)
     }
     
-    
     func orderButtonPressed() {
-        let storyboard = UIStoryboard(name: "Order", bundle: nil)
-        if let vc = storyboard.instantiateViewController(withIdentifier: "GetOfferViewController") as? GetOfferViewController {
-            vc.viewModel.recipeModel = viewModel.recipeDetail
-            navigationController?.pushViewController(vc, animated: true)
-        }
+        
+        let vc = UIAlertController(title: "get_offer".localized(), message: "get_offer_desc".localized(), preferredStyle: .alert)
+        
+        vc.addAction(UIAlertAction(title: "get_offer".localized(), style: .default, handler: { UIAlertAction in
+                                    
+                                    let storyboard = UIStoryboard(name: "Order", bundle: nil)
+                                    if let vc = storyboard.instantiateViewController(withIdentifier: "GetOfferViewController") as? GetOfferViewController {
+                                        vc.viewModel.recipeModel = self.viewModel.recipeDetail
+                                        self.navigationController?.pushViewController(vc, animated: true)
+                                    } }))
+        
+        vc.addAction(UIAlertAction(title: "not_sure".localized(), style: .cancel))
+        present(vc, animated: true)
     }
     
     
@@ -187,12 +223,8 @@ extension RecipeDetailViewController: RecipeDetailViewModelDelegate{
     }
     
     func ingredientsLoaded(ingredients: [String]) {
-       
-        tagsField.addTags(ingredients)
-    }
-    
-    func showAlert(message: String) {
         
+        tagsField.addTags(ingredients)
     }
     
     func titleLoaded(title: String) {
@@ -202,6 +234,5 @@ extension RecipeDetailViewController: RecipeDetailViewModelDelegate{
         guard let imageUrl:URL = URL(string: viewModel.recipeDetail?.imageURL ?? "") else {return}
         recipeImageView.loadImage(withUrl: imageUrl)
     }
-    
     
 }

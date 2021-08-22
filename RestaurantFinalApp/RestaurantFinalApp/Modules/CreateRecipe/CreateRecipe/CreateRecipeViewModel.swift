@@ -13,29 +13,43 @@ protocol CreateRecipeViewModelDelegate: AnyObject {
     func showLoadingIndicator(isShown: Bool)
     func recipeToEditArrived(title: String, image: String, instruction: String, ingredients: [String])
     func backButtonPressed()
-    func shareButtonPressed(_ sender: Any)
-    func imagePickerButtonPressed(_ sender: Any)
-    func imagePickerSource(sourceType: Any)
+    func shareButtonPressed()
+    func imagePickerButtonPressed()
+    func imagePickerSource()
+    func doneButtonPressed()
+    func isBackButtonHidden(isHidden: Bool)
 }
 
-class CreateRecipeViewModel {
+protocol CreateRecipeViewModelProtocol {
+    var delegate: CreateRecipeViewModelDelegate? { get set }
+    var recipeToEdit: RecipeModel? { get set }
+    func setRecipeStatus()
+    func shareRecipe()
+    func pickAnImage()
+    func saveRecipe(title: String, image: Data, instruction: String, ingredients: [String])
+    func selectImagePickerSource()
+    func quitView()
+    func doneEditing(title: String, image: Data, instruction: String, ingredients: [String])
+    func cancelEditing()
+}
+
+
+final class CreateRecipeViewModel {
     
     weak var delegate: CreateRecipeViewModelDelegate?
     
     var recipeToEdit: RecipeModel?
-    
-    func editArrivedRecipe() {
+}
+
+extension CreateRecipeViewModel: CreateRecipeViewModelProtocol {
+
+    func setRecipeStatus() {
+        delegate?.isBackButtonHidden(isHidden: recipeToEdit == nil)
         delegate?.recipeToEditArrived(title: (recipeToEdit?.name ?? ""), image: (recipeToEdit?.imageURL ?? ""), instruction: (recipeToEdit?.instruction ?? ""), ingredients: (recipeToEdit?.ingredients ?? []))
     }
     
     func doneEditing(title: String, image: Data, instruction: String, ingredients: [String]) {
         delegate?.showLoadingIndicator(isShown: true)
-        
-        if title.isEmpty || image.isEmpty || instruction.isEmpty || ingredients.isEmpty {
-            delegate?.showAlert(message: "Please fill all the fields!", title: "Warning")
-            delegate?.showLoadingIndicator(isShown: false)
-            return
-        }
         
         var imagePath = UUID().uuidString
         imagePath.removeAll(where: { $0 == "-"})
@@ -46,8 +60,7 @@ class CreateRecipeViewModel {
         imageRef.putData(image, metadata: nil) { (metadata, error) in
 
             guard metadata != nil else {
-                // TODO alert error
-                // Uh-oh, an error occurred!
+                self.delegate?.showAlert(message: "general_error_desc".localized(), title: "general_error_title".localized())
                 self.delegate?.showLoadingIndicator(isShown: false)
                 return
             }
@@ -55,7 +68,7 @@ class CreateRecipeViewModel {
             // You can also access to download URL after upload.
             imageRef.downloadURL { (url, error) in
                 guard let downloadURL = url else {
-                    // Uh-oh, an error occurred!
+                    self.delegate?.showAlert(message: "general_error_desc".localized(), title: "general_error_title".localized())
                     self.delegate?.showLoadingIndicator(isShown: false)
                     return
                 }
@@ -75,10 +88,10 @@ class CreateRecipeViewModel {
                             self.delegate?.showLoadingIndicator(isShown: false)
                             if let error = error {
                                 print("Data could not be saved: \(error).")
-                                // TODO show alert
+                                self.delegate?.showAlert(message: "general_error_desc".localized(), title: "general_error_title".localized())
                             } else {
                                 print("Data saved successfully!")
-                                // TODO show success alert
+                                self.delegate?.showAlert(message: "general_success_desc".localized(), title: "")
                             }
                         }
                     }
@@ -91,10 +104,10 @@ class CreateRecipeViewModel {
                         if let error = error {
                             self?.delegate?.showAlert(message: "error", title: "Error")
                             print("Data could not be saved: \(error).")
-                            // TODO show alert
+                            self?.delegate?.showAlert(message: "general_error_desc".localized(), title: "general_error_title".localized())
                         } else {
-                            print("Data saved successfully!")
-                            // TODO show success alert
+                            self?.delegate?.showAlert(message: "general_success_desc".localized(), title: "")
+                            self?.cancelEditing()
                         }
                     }
                 }
@@ -103,17 +116,33 @@ class CreateRecipeViewModel {
         }
     }
     
-    func shareRecipe(_ sender: Any){
-        delegate?.shareButtonPressed(sender)
+    func cancelEditing() {
+        delegate?.recipeToEditArrived(title: "", image: "", instruction: "", ingredients: [])
+    }
+    
+    func shareRecipe() {
+        delegate?.shareButtonPressed()
+    }
+    
+    func saveRecipe(title: String, image: Data, instruction: String, ingredients: [String]) {
+        if title.isEmpty || image.isEmpty || instruction.isEmpty || ingredients.isEmpty {
+            delegate?.showAlert(message: "Please fill all the fields!",
+                                title: "Warning")
+            return
+        }
         
+        delegate?.doneButtonPressed()
     }
-    func pickAnImage(_ sender: Any){
-        delegate?.imagePickerButtonPressed(sender)
+    
+    func pickAnImage() {
+        delegate?.imagePickerButtonPressed()
     }
-    func quitView(){
+    
+    func quitView() {
         delegate?.backButtonPressed()
     }
-    func selectImagePickerSource(sourceType: Any){
-        delegate?.imagePickerSource(sourceType: sourceType)
+    
+    func selectImagePickerSource() {
+        delegate?.imagePickerSource()
     }
 }

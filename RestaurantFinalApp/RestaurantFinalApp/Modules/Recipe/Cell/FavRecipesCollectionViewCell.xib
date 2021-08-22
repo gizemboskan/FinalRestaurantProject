@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" reuseIdentifier="FavRecipesCollectionViewCell" id="tVO-CB-tcs" userLabel="Recipe Collection View Cell" customClass="FavRecipesCollectionViewCell" customModule="RestaurantFinalApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="135" height="165"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" insetsLayoutMarginsFromSafeArea="NO" id="SOT-yU-UsS">
+                <rect key="frame" x="0.0" y="0.0" width="135" height="165"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FoodName" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="Zhx-Da-huK">
+                        <rect key="frame" x="4" y="117" width="127" height="44"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="recipe" translatesAutoresizingMaskIntoConstraints="NO" id="qaV-HX-suN">
+                        <rect key="frame" x="10" y="10" width="115" height="103"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="115" id="wDr-4j-ZhB"/>
+                            <constraint firstAttribute="height" constant="103" id="zf7-Zr-DCH"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="qaV-HX-suN" secondAttribute="trailing" constant="10" id="ZuR-f3-XKF"/>
+                    <constraint firstItem="Zhx-Da-huK" firstAttribute="top" secondItem="qaV-HX-suN" secondAttribute="bottom" constant="4" id="bh6-4a-xw9"/>
+                    <constraint firstItem="Zhx-Da-huK" firstAttribute="centerX" secondItem="SOT-yU-UsS" secondAttribute="centerX" id="d3f-pe-vmJ"/>
+                    <constraint firstAttribute="bottom" secondItem="Zhx-Da-huK" secondAttribute="bottom" constant="4" id="dvP-ke-evl"/>
+                    <constraint firstAttribute="trailing" secondItem="Zhx-Da-huK" secondAttribute="trailing" constant="4" id="fE4-i4-e4I"/>
+                    <constraint firstItem="Zhx-Da-huK" firstAttribute="leading" secondItem="SOT-yU-UsS" secondAttribute="leading" constant="4" id="pB7-W0-6Ep"/>
+                    <constraint firstItem="qaV-HX-suN" firstAttribute="top" secondItem="SOT-yU-UsS" secondAttribute="top" constant="10" id="tkf-pP-rYU"/>
+                    <constraint firstItem="qaV-HX-suN" firstAttribute="leading" secondItem="SOT-yU-UsS" secondAttribute="leading" constant="10" id="yX5-bj-5ym"/>
+                </constraints>
+            </collectionViewCellContentView>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+            <size key="customSize" width="135" height="165"/>
+            <connections>
+                <outlet property="favRecipeImageView" destination="qaV-HX-suN" id="FvL-zD-Cnm"/>
+                <outlet property="favRecipeName" destination="Zhx-Da-huK" id="YdD-oE-h77"/>
+            </connections>
+            <point key="canvasLocation" x="137" y="-65"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="recipe" width="900" height="600"/>
+    </resources>
+</document>

@@ -7,15 +7,15 @@
 
 import UIKit
 
-class KitchenPageViewController: UIPageViewController {
+final class KitchenPageViewController: UIPageViewController {
+    
     // MARK: - Properties
-    
-    fileprivate var items: [UIViewController] = []
-    
+    private var items: [UIViewController] = []
+    private var pictureSource = ["paging1", "paging2", "paging3", "paging4"]
     private var currentIndex: Int?
-    var index = 0
-    var counter = 0
-    private var pictureSource: [String]?
+    private var index = 0
+    private var counter = 0
+    
     // MARK: - UIViewController Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,16 +24,19 @@ class KitchenPageViewController: UIPageViewController {
         decoratePageControl()
         Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(self.changeImage), userInfo: nil, repeats: true)
     }
-    // MARK: - Helpers
     
-    func populateItems(pictureSource: [String]) {
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        populateItems()
+    }
+    // MARK: - Helpers
+    func populateItems() {
         self.items.removeAll()
-        self.pictureSource = pictureSource
         for picture in pictureSource {
             let vc = UIViewController()
             let pictureView = UIImageView(frame: view.frame)
-            vc.view.addSubview(pictureView)
             pictureView.image = UIImage(named: picture)
+            vc.view.addSubview(pictureView)
             items.append(vc)
         }
         
@@ -41,17 +44,18 @@ class KitchenPageViewController: UIPageViewController {
             setViewControllers([firstViewController], direction: .forward, animated: true, completion: nil)
         }
     }
+    
     @objc func changeImage(){
         goToNextPage()
     }
     
-    func goToNextPage() {
+    private func goToNextPage() {
         guard let currentViewController = self.viewControllers?.first else { return }
         guard let nextViewController = dataSource?.pageViewController( self, viewControllerAfter: currentViewController ) else { return }
         setViewControllers([nextViewController], direction: .forward, animated: false, completion: nil)
     }
     
-    fileprivate func decoratePageControl() {
+    private func decoratePageControl() {
         let pc = UIPageControl.appearance(whenContainedInInstancesOf: [KitchenPageViewController.self])
         pc.currentPageIndicatorTintColor = .orange
         pc.pageIndicatorTintColor = .gray

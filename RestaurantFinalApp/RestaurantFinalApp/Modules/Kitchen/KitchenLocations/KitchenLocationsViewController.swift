@@ -23,18 +23,18 @@ class KitchenLocationsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         mapView.delegate = self
+        viewModel.delegate = self
         viewModel.getKitchens()
-        getAnnotations()
     }
     
     //  Helpers
-    
     
     @IBAction func refreshButtonTapped(_ sender: Any) {
         mapView.removeAnnotations(kitchenLocationPins)
         kitchenLocationPins.removeAll()
         viewModel.getKitchens()
     }
+    
     private func getAnnotations(){
         if !viewModel.kitchens.isEmpty {
             for kitchen in viewModel.kitchens {
@@ -43,12 +43,10 @@ class KitchenLocationsViewController: UIViewController {
                 let coordinate = CLLocationCoordinate2D(latitude: lat, longitude: long)
                 let kitchenName = kitchen.name
                 
-                let annotation = MKPointAnnotation()
+                let annotation = KitchenMapAnnotation()
                 annotation.coordinate = coordinate
                 annotation.title = "\(kitchenName)"
-                annotation.subtitle = "\(kitchen.id)"
-                
-                
+                annotation.identifier = "\(kitchen.id)"
                 self.kitchenLocationPins.append(annotation)
             }
             DispatchQueue.main.async {
@@ -61,9 +59,8 @@ class KitchenLocationsViewController: UIViewController {
 extension KitchenLocationsViewController: MKMapViewDelegate {
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        
         let reuseId = "Pin"
-        
+    
         var pinView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseId) as? MKPinAnnotationView
         if pinView == nil {
             pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
@@ -75,24 +72,21 @@ extension KitchenLocationsViewController: MKMapViewDelegate {
         }
         pinView?.pinTintColor = .purple
         pinView?.tintColor = .purple
-        pinView?.image = UIImage(named: "map_pin")
         
         return pinView
     }
+    
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
-        //                if control == view.rightCalloutAccessoryView {
-        //
-        //
-        //
-        //                    if let kitchenId = view.annotation?.subtitle{
-        //                        let storyboard = UIStoryboard(name: "Kitchen", bundle: nil)
-        //                        if let vc = storyboard.instantiateViewController(withIdentifier: "KitchenDetailViewController") as? KitchenDetailViewController {
-        //                            vc.viewModel.kitchenID = viewModel.kitchens.allSatisfy(kitchenId == ) : viewModel.kitchens[indexPath.row].id
-        //                            navigationController?.pushViewController(vc, animated: true)
-        //                        }
-        //
-        //                        }
-        //                    }
+        guard let annotation = view.annotation as? KitchenMapAnnotation else {
+            return
+        }
+        if control == view.rightCalloutAccessoryView {
+            let storyboard = UIStoryboard(name: "Kitchen", bundle: nil)
+            if let vc = storyboard.instantiateViewController(withIdentifier: "KitchenDetailViewController") as? KitchenDetailViewController {
+                vc.viewModel.kitchenID = annotation.identifier
+                navigationController?.pushViewController(vc, animated: true)
+            }
+        }
     }
 }
 
@@ -100,12 +94,23 @@ extension KitchenLocationsViewController: MKMapViewDelegate {
 
 // MARK: - KitchenLocationsViewModelDelegate
 extension KitchenLocationsViewController: KitchenLocationsViewModelDelegate {
-    func showAlert(message: String) {
-        
+    func showAlert(message: String, title: String) {
+        showAlertController(message: message, title: title)
+    }
+    
+    func showLoadingIndicator(isShown: Bool) {
+        if isShown {
+            startLoading()
+        } else {
+            stopLoading()
+        }
     }
     
     func kitchensLoaded() {
-        //mapView.addAnnotation(kitchenLocationPins as! MKAnnotation)
-      
+        getAnnotations()
+    }
+    
+    func zoomRegion(region: MKCoordinateRegion) {
+        mapView.setRegion(region, animated: true)
     }
 }

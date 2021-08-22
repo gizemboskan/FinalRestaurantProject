@@ -8,20 +8,18 @@
 import UIKit
 
 class GetOfferViewController: UIViewController {
-    
-    // TODO add desc label on top of the page.
-    
+        
     // MARK: - Properties
     @IBOutlet weak var availableKitchensTableView: UITableView!
+    @IBOutlet weak var descriptionLabel: UILabel!
     
-    let viewModel: GetOfferViewModel = GetOfferViewModel()
+    var viewModel: GetOfferViewModelProtocol = GetOfferViewModel()
     // MARK: - UI Components
     
     // MARK: - UIViewController Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.isNavigationBarHidden = true
-
+        setLocalizedTexts()
         availableKitchensTableView.dataSource = self
         availableKitchensTableView.delegate = self
         availableKitchensTableView.roundCorners(.allCorners, radius: 22)
@@ -29,9 +27,14 @@ class GetOfferViewController: UIViewController {
         viewModel.getKitchens()
     }
     
+    @IBAction func backButtonTapped(_ sender: UIButton) {
+        viewModel.quitView()
+    }
     
     // MARK: - Helpers
-    
+    private func setLocalizedTexts() {
+        descriptionLabel.text = "order_list_desc".localized()
+    }
 }
 
 // MARK: - UITableViewDataSource and Delegate
@@ -44,12 +47,11 @@ extension GetOfferViewController:  UITableViewDelegate, UITableViewDataSource {
         let cell = availableKitchensTableView.dequeueReusableCell(withIdentifier: "AvailableKitchensCell", for: indexPath) as! AvailableKitchensCell
         
         cell.availableKitchenNameLabel.text = viewModel.kitchens[indexPath.row].name
-        cell.offerLabel.text = "$\(viewModel.mockedAmounts[indexPath.row])"
+        let formattedAmount = String(format: "%.2f", viewModel.mockedAmounts[indexPath.row])
+        cell.offerLabel.text = "$\(formattedAmount)"
         cell.deliveryTimeLabel.text = viewModel.kitchens[indexPath.row].avarageDeliveryTime
         cell.ratingLabel.text = String(viewModel.kitchens[indexPath.row].rating)
         cell.ratingCountLabel.text = String(viewModel.kitchens[indexPath.row].ratingCount)
-        
-        // TODO add other values to cell
         return cell
     }
     
@@ -67,8 +69,20 @@ extension GetOfferViewController:  UITableViewDelegate, UITableViewDataSource {
 
 // MARK: - GetOfferViewModelDelegate
 extension GetOfferViewController: GetOfferViewModelDelegate {
-    func showAlert(message: String) {
-        
+    func showAlert(message: String, title: String) {
+        showAlertController(message: message, title: title)
+    }
+    
+    func showLoadingIndicator(isShown: Bool) {
+        if isShown {
+            startLoading()
+        } else {
+            stopLoading()
+        }
+    }
+    
+    func backButtonPressed() {
+        navigationController?.popViewController(animated: true)
     }
     
     func kitchensLoaded() {

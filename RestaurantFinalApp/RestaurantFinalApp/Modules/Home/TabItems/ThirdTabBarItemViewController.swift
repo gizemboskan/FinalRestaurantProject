@@ -1,5 +1,5 @@
 //
-//  FourthTabBarItemViewController.swift
+//  ThirdTabBarItemViewController.swift
 //  RestaurantFinalApp
 //
 //  Created by Gizem Boskan on 21.08.2021.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FourthTabBarItemViewController: UINavigationController {
+class ThirdTabBarItemViewController: UINavigationController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

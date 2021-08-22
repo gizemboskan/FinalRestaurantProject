@@ -1,0 +1,52 @@
+/* 
+  Localizable.strings
+  RestaurantFinalApp
+
+  Created by Gizem Boskan on 3.08.2021.
+  
+*/
+
+"skip" = "Skip";
+
+"kitchens_title" = "Kitchens";
+"kitchens_title_desc" = "All local kitchens are categorized for your convenience.";
+
+"recipes_title" = "Recipes";
+"recipes_title_desc" = "We carefully verify all kitchens before add them into the app to serve you a delicious recipe!";
+
+"quality_title" = "Quality Service";
+"quality_title_desc" = "We carefully deliver your meal under safe conditions.";
+
+"your_fav_recipes" = "Your Favorite Recipes";
+"see_all" = "See All";
+"nearby_kitchens" = "Check Nearby Kitchens";
+"order_status" = "Here Is Your Order Status!";
+"delivery_time_title" = "Delivery Time";
+"rating_title" = "Rating";
+
+"general_error_title" = "Error";
+"general_error_desc" = "Something went wrong!";
+
+"general_success_desc" = "Done!";
+
+"search_recipe_placeholder" = "Search your recipes!";
+"search_kitchen_placeholder" = "Search your kitchens!";
+
+"empty_recipe_title" = "Oops! Your search was not found.";
+"empty_recipe_desc" = "Search for another result!";
+
+"save_fav" = "Save this recipe as favorited!";
+"choose_path" = "Please choose your path!";
+"make_unfav" = "Make un-favorite!";
+"unfav" = "Unfavorite!";
+"wonderful" = "Wonderful meal!";
+"need_think" = "I need to think again!";
+"share_recipe" = "Share this great recipe with your loved ones! :)\n Or just save!";
+"get_offer_desc" = "You will recieve some offers for this recipe from available restaurants!";
+"get_offer" = "Get Offer!";
+"not_sure" = "Mmmh. I am not sure!";
+
+"order" = "Order!";
+"OK" = "OK";
+
+"order_list_desc" = "You get some offers from listed kitchens. Please select one to order!";

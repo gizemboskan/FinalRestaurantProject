@@ -10,7 +10,7 @@ import UIKit
 class KitchensViewController: UIViewController {
     // MARK: - Properties
     
-    let viewModel: KitchensViewModel = KitchensViewModel()
+    var viewModel: KitchensViewModelProtocol = KitchensViewModel()
     
     // MARK: - UI Components
     
@@ -29,17 +29,22 @@ class KitchensViewController: UIViewController {
         let nibCell = UINib(nibName: "KitchenCell", bundle: nil)
         kitchenTableView.register(nibCell, forCellReuseIdentifier: "KitchenCell")
         kitchenTableView.roundCorners(.allCorners, radius: 22)
-        
-       
+        setLocalizedTexts()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         viewModel.getKitchens()
+    }
+
+    @IBAction func backButtonTapped(_ sender: UIButton) {
+        viewModel.quitView()
     }
     
     // MARK: - Helpers
+    private func setLocalizedTexts() {
+        searchBar.placeholder = "search_kitchen_placeholder".localized()
+    }
 }
 // MARK: - UITableViewDataSource and Delegate
 extension KitchensViewController:  UITableViewDelegate, UITableViewDataSource {
@@ -50,8 +55,10 @@ extension KitchensViewController:  UITableViewDelegate, UITableViewDataSource {
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = kitchenTableView.dequeueReusableCell(withIdentifier: "KitchenCell", for: indexPath) as! KitchenCell
         let kitchenModel = viewModel.isFiltering ? viewModel.filteredKitchens[indexPath.row] : viewModel.kitchens[indexPath.row]
-        cell.kitchenDescs = kitchenModel.descriptions
         cell.kitchenTitle.text = kitchenModel.name
+        cell.ratingLabel.text = String(kitchenModel.rating)
+        cell.delivertTimeLabel.text = kitchenModel.avarageDeliveryTime
+        cell.ratingCountLabel.text = String(kitchenModel.ratingCount)
         cell.setImage(from: kitchenModel.imageURL)
         
         return cell
@@ -101,9 +108,10 @@ extension KitchensViewController: UISearchBarDelegate {
 
 // MARK: - KitchensViewModelDelegate
 extension KitchensViewController: KitchensViewModelDelegate {
+    
     func filteringApplied(isEmpty: Bool) {
         if isEmpty {
-            kitchenTableView.setEmptyView(title: "Oops! Your search was not found.", message: "Search for another result!")
+            kitchenTableView.setEmptyView(title: "empty_recipe_title".localized(), message: "empty_recipe_desc".localized())
         }else {
             kitchenTableView.restore()
         }
@@ -113,7 +121,19 @@ extension KitchensViewController: KitchensViewModelDelegate {
         kitchenTableView.reloadData()
     }
     
-    func showAlert(message: String) {
-        
+    func showAlert(message: String, title: String) {
+        showAlertController(message: message, title: title)
+    }
+    
+    func showLoadingIndicator(isShown: Bool) {
+        if isShown {
+            startLoading()
+        } else {
+            stopLoading()
+        }
+    }
+    
+    func backButtonPressed() {
+        navigationController?.popViewController(animated: true)
     }
 }

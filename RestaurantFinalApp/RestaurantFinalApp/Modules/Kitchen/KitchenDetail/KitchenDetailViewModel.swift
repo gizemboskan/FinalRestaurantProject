@@ -8,81 +8,49 @@
 import Foundation
 import Firebase
 import MapKit
+
 protocol KitchenDetailViewModelDelegate: AnyObject {
-    
-    func showAlert(message: String)
+    func showAlert(message: String, title: String)
+    func showLoadingIndicator(isShown: Bool)
     func kitchenTitleLoaded(title: String)
-    
     func kitchenRecipesLoaded()
     func kitchenDescriptionsLoaded()
     func deliveryTimeLoaded(deliveryTime: String)
     func ratingLoaded(rating: Double)
     func ratingCountLoaded(ratingCount: Int)
     func backButtonPressed()
-    
     func kitchenPinLoaded(annotation: MKPointAnnotation)
     func userPinLoaded(annotation: MKPointAnnotation)
     func showKitchenLocationString(locationString: String)
-    
+    func zoomRegion(region: MKCoordinateRegion)
 }
 
-class KitchenDetailViewModel: NSObject {
+protocol KitchenDetailViewModelProtocol {
+    var delegate: KitchenDetailViewModelDelegate? { get set }
+    var kitchenRecipes: [RecipeModel] { get set }
+    var kitchenDescriptions: [String] { get set }
+    var kitchenID: String? { get set }
+    func getKitchenDetails()
+    func getUserLocation()
+    func quitView()
+}
+
+final class KitchenDetailViewModel: NSObject {
     weak var delegate: KitchenDetailViewModelDelegate?
-    
-    var kitchenDetail: KitchenModel?
+    var kitchenID: String?
     var kitchenRecipes: [RecipeModel] = []
     var kitchenDescriptions: [String] = []
-    var mapView: MKMapView?
     
-    let locationManager = CLLocationManager()
-    var userLocation: CLLocation?
-    lazy var geocoder = CLGeocoder()
-    var kitchenID: String?
+    private var kitchenDetail: KitchenModel?
+    
+    private let locationManager = CLLocationManager()
+    private var userLocation: CLLocation?
+    private lazy var geocoder = CLGeocoder()
     private var myUserDetail: UserModel?
-    var kitchenItem: MKPointAnnotation = MKPointAnnotation()
-    var userItem: MKPointAnnotation = MKPointAnnotation()
-    let regionInMeters: Double = 10000
+    private var kitchenItem: MKPointAnnotation = MKPointAnnotation()
+    private var userItem: MKPointAnnotation = MKPointAnnotation()
+    private let regionInMeters: Double = 10000
     
-    func getKitchenDetails(){
-        guard let kitchenID = kitchenID else { return }
-        
-        FirebaseEndpoints.kitchens.getDatabasePath.child(kitchenID).getData{ [weak self] (error, snapshot) in
-            if let error = error {
-                self?.delegate?.showAlert(message: "error")
-                print("Error getting data \(error)")
-            }
-            else if snapshot.exists() {
-                print("Got data \(snapshot.value!)")
-                
-                if let kitchenDict = snapshot.value as? [String: Any] {
-                    self?.kitchenDetail = KitchenModel.getKitchenFromDict(kitchenDetails: kitchenDict)
-                    self?.delegate?.kitchenTitleLoaded(title: self?.kitchenDetail?.name ?? "")
-                    self?.kitchenCoordinatesLoaded(longitude: self?.kitchenDetail?.longitude ?? 0.0, latitude: self?.kitchenDetail?.latitude ?? 0.0)
-                    
-                    self?.delegate?.deliveryTimeLoaded(deliveryTime: self?.kitchenDetail?.avarageDeliveryTime ?? "")
-                    self?.delegate?.ratingLoaded(rating: self?.kitchenDetail?.rating ?? 0.0)
-                    self?.delegate?.ratingCountLoaded(ratingCount: self?.kitchenDetail?.ratingCount ?? 0)
-                    
-                    self?.kitchenDescriptions.append(contentsOf: self?.kitchenDetail?.descriptions ?? [])
-                    self?.delegate?.kitchenDescriptionsLoaded()
-                    
-                    if let kitchenRecipesDict = self?.kitchenDetail?.recipes {
-                        for recipe in kitchenRecipesDict {
-                            if let recipeDetails = recipe.value as? [String: Any] {
-                                let kitchenRecipe = RecipeModel.getRecipeFromDict(recipeDetails: recipeDetails)
-                                self?.kitchenRecipes.append(kitchenRecipe)
-                            }
-                        }
-                    }
-                    self?.delegate?.kitchenRecipesLoaded()
-                }
-            }
-            else {
-                self?.delegate?.showAlert(message: "no data")
-                print("No data available")
-            }
-        }
-    }
     private func getKitchenReverseGeocode(longitude: Double, latitude: Double) {
         DispatchQueue.main.async {
             self.geocoder.reverseGeocodeLocation(CLLocation(latitude: latitude, longitude: longitude)) { [weak self] (placemarks, error) in
@@ -95,38 +63,34 @@ class KitchenDetailViewModel: NSObject {
                 }
                 guard let placemark = placemarks?.first else { return }
                 
-                let locationString = "\(placemark.thoroughfare ?? "Street"), \(placemark.locality ?? "City"), \(placemark.subLocality ?? ""), \(placemark.subThoroughfare ?? ""), \(placemark.administrativeArea ?? "")"
-                
+                var locationString = ""
+                if let thoroughfare = placemark.thoroughfare {
+                    locationString += thoroughfare + ", "
+                }
+                if let locality = placemark.locality {
+                    locationString += locality + ", "
+                }
+                if let subLocality = placemark.subLocality {
+                    locationString += subLocality + ", "
+                }
+                if let subThoroughfare = placemark.subThoroughfare {
+                    locationString += subThoroughfare + ", "
+                }
+                if let administrativeArea = placemark.administrativeArea {
+                    locationString += administrativeArea
+                }
+
                 self.delegate?.showKitchenLocationString(locationString: locationString)
             }
         }
     }
+    
     private func kitchenCoordinatesLoaded(longitude: Double, latitude: Double) {
         
         getKitchenReverseGeocode(longitude: longitude, latitude: latitude)
         setMapVisibleRegion(longitude: longitude, latitude: latitude)
         setKitchenPin(longitude: longitude, latitude: latitude)
         
-    }
-    func getUserLocation(){
-        checkLocationServices()
-        locationManager.requestWhenInUseAuthorization()
-        
-        if (CLLocationManager.authorizationStatus() == CLAuthorizationStatus.authorizedWhenInUse ||
-                CLLocationManager.authorizationStatus() == CLAuthorizationStatus.authorizedAlways){
-            guard let userLocation = locationManager.location else {
-                return
-            }
-            print(userLocation.coordinate.latitude)
-            print(userLocation.coordinate.longitude)
-            let lat = userLocation.coordinate.latitude
-            let long = userLocation.coordinate.longitude
-            setMapVisibleRegion(longitude: long, latitude: lat)
-            setUserPin(longitude: long, latitude: lat)
-        }
-    }
-    func quitView(){
-        delegate?.backButtonPressed()
     }
     
     private func setKitchenPin(longitude: Double, latitude: Double){
@@ -142,7 +106,6 @@ class KitchenDetailViewModel: NSObject {
         userItem.coordinate.longitude = longitude
         
         delegate?.userPinLoaded(annotation: self.userItem)
-        
     }
     
     
@@ -153,21 +116,19 @@ class KitchenDetailViewModel: NSObject {
         }
     }
     
-    
     private func setMapVisibleRegion(longitude: Double, latitude: Double) {
-        DispatchQueue.main.async {
-            let latDelta:CLLocationDegrees = 0.05
-            let lonDelta:CLLocationDegrees = 0.05
-            let span = MKCoordinateSpan(latitudeDelta: latDelta, longitudeDelta: lonDelta)
-            
-            let lat:CLLocationDegrees = latitude
-            let long:CLLocationDegrees = longitude
-            let location = CLLocation(latitude: lat, longitude: long)
-            let region = MKCoordinateRegion(center: location.coordinate, span: span)
-            
-            self.mapView?.setRegion(region, animated: true)
-        }
+        let latDelta:CLLocationDegrees = 0.005
+        let lonDelta:CLLocationDegrees = 0.005
+        let span = MKCoordinateSpan(latitudeDelta: latDelta, longitudeDelta: lonDelta)
+        
+        let lat:CLLocationDegrees = latitude
+        let long:CLLocationDegrees = longitude
+        let location = CLLocation(latitude: lat, longitude: long)
+        let region = MKCoordinateRegion(center: location.coordinate, span: span)
+        
+        self.delegate?.zoomRegion(region: region)
     }
+    
     private func setupLocationManager() {
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
@@ -198,5 +159,71 @@ extension KitchenDetailViewModel: CLLocationManagerDelegate {
     }
     
 }
-// MARK: - Map View Delegate
 
+extension KitchenDetailViewModel: KitchenDetailViewModelProtocol {
+ 
+    func getKitchenDetails(){
+        guard let kitchenID = kitchenID else { return }
+        delegate?.showLoadingIndicator(isShown: true)
+        FirebaseEndpoints.kitchens.getDatabasePath.child(kitchenID).getData{ [weak self] (error, snapshot) in
+            self?.delegate?.showLoadingIndicator(isShown: false)
+            if let error = error {
+                self?.delegate?.showAlert(message: "general_error_desc".localized(), title: "general_error_title".localized())
+                print("Error getting data \(error)")
+            }
+            else if snapshot.exists() {
+                print("Got data \(snapshot.value!)")
+                
+                if let kitchenDict = snapshot.value as? [String: Any] {
+                    self?.kitchenDetail = KitchenModel.getKitchenFromDict(kitchenDetails: kitchenDict)
+                    self?.delegate?.kitchenTitleLoaded(title: self?.kitchenDetail?.name ?? "")
+                    self?.kitchenCoordinatesLoaded(longitude: self?.kitchenDetail?.longitude ?? 0.0, latitude: self?.kitchenDetail?.latitude ?? 0.0)
+                    
+                    self?.delegate?.deliveryTimeLoaded(deliveryTime: self?.kitchenDetail?.avarageDeliveryTime ?? "")
+                    self?.delegate?.ratingLoaded(rating: self?.kitchenDetail?.rating ?? 0.0)
+                    self?.delegate?.ratingCountLoaded(ratingCount: self?.kitchenDetail?.ratingCount ?? 0)
+                    
+                    self?.kitchenDescriptions.append(contentsOf: self?.kitchenDetail?.descriptions ?? [])
+                    self?.delegate?.kitchenDescriptionsLoaded()
+                    
+                    if let kitchenRecipesDict = self?.kitchenDetail?.recipes {
+                        for recipe in kitchenRecipesDict {
+                            if let recipeDetails = recipe.value as? [String: Any] {
+                                let kitchenRecipe = RecipeModel.getRecipeFromDict(recipeDetails: recipeDetails)
+                                self?.kitchenRecipes.append(kitchenRecipe)
+                            }
+                        }
+                    }
+                    self?.delegate?.kitchenRecipesLoaded()
+                }
+            }
+            else {
+                self?.delegate?.showAlert(message: "general_error_desc".localized(), title: "general_error_title".localized())
+                print("No data available")
+            }
+        }
+    }
+    
+    func getUserLocation() {
+        checkLocationServices()
+        locationManager.requestWhenInUseAuthorization()
+        
+        if (CLLocationManager.authorizationStatus() == CLAuthorizationStatus.authorizedWhenInUse ||
+                CLLocationManager.authorizationStatus() == CLAuthorizationStatus.authorizedAlways){
+            guard let userLocation = locationManager.location else {
+                return
+            }
+            print(userLocation.coordinate.latitude)
+            print(userLocation.coordinate.longitude)
+            let lat = userLocation.coordinate.latitude
+            let long = userLocation.coordinate.longitude
+            setMapVisibleRegion(longitude: long, latitude: lat)
+            setUserPin(longitude: long, latitude: lat)
+        }
+    }
+    
+    func quitView(){
+        delegate?.backButtonPressed()
+    }
+    
+}

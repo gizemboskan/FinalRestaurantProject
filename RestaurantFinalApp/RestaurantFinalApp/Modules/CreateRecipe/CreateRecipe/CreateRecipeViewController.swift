@@ -10,10 +10,9 @@ import WSTagsField
 
 class CreateRecipeViewController: UIViewController, UINavigationControllerDelegate {
     // MARK: - Properties
-    let viewModel: CreateRecipeViewModel = CreateRecipeViewModel()
+    var viewModel: CreateRecipeViewModelProtocol = CreateRecipeViewModel()
     
-    
-    // MARK: - UI ComponentsUT
+    // MARK: - UI Components
     @IBOutlet weak var recipeImagePickerView: UIImageView!
     @IBOutlet weak var instructionsTextView: UITextView!
     @IBOutlet weak var firstView: UIView!
@@ -23,14 +22,14 @@ class CreateRecipeViewController: UIViewController, UINavigationControllerDelega
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var recipeNameField: UITextField!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
-    
     @IBOutlet weak var tagsField: WSTagsField!
-    
     @IBOutlet weak var doneButton: UIButton!
-    
     @IBOutlet weak var viewWithButton: UIView!
-    
     @IBOutlet weak var createRecipeView: UIView!
+    @IBOutlet weak var trashButton: UIButton!
+    
+    private var selectedSourceType: UIImagePickerController.SourceType?
+    
     // MARK: - UIViewController Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,8 +37,7 @@ class CreateRecipeViewController: UIViewController, UINavigationControllerDelega
         viewModel.delegate = self
         instructionsTextView.delegate = self
         recipeNameField.delegate = self
-        viewModel.editArrivedRecipe()
-        
+        viewModel.setRecipeStatus()
         setTagsFieldProperties()
         createRecipeView.roundCorners([.topLeft, .topRight], radius: 40)
         viewWithButton.roundCorners(.allCorners, radius: 30)
@@ -55,11 +53,17 @@ class CreateRecipeViewController: UIViewController, UINavigationControllerDelega
     }
     
     // MARK: - Helpers
-    @IBAction func shareButtonTapped(_ sender: UIButton) {
-        viewModel.shareRecipe(sender)
+    
+    @IBAction func trashTapped(_ sender: UIButton) {
+        viewModel.cancelEditing()
     }
+    
+    @IBAction func shareButtonTapped(_ sender: UIButton) {
+        viewModel.shareRecipe()
+    }
+    
     @IBAction func imagePickerButtonTapped(_ sender: UIButton) {
-        viewModel.pickAnImage(sender)
+        viewModel.pickAnImage()
     }
     
     @IBAction func segmentDidChange(_ sender: UISegmentedControl) {
@@ -77,24 +81,16 @@ class CreateRecipeViewController: UIViewController, UINavigationControllerDelega
     }
     
     @IBAction func backButtonTapped(_ sender: UIButton) {
-        
-        // burada alert controller ile alertte geri dönmek istediğinizden emin misiniz datalar kaydedilmedi desin! OK ise;
-        viewModel.quitView()
-    }
-    @IBAction func doneButtonPressed(_ sender: UIButton) {
-        viewModel.doneEditing(title: recipeNameField.text ?? "", image: recipeImagePickerView.image?.pngData() ?? Data(), instruction: instructionsTextView.text, ingredients: tagsField.tags.map({ $0.text }))
-        
-    }
-    private func pickImage(sourceType: UIImagePickerController.SourceType) {
-        viewModel.selectImagePickerSource(sourceType: sourceType)
-    }
-    @objc func pickAnImageFromAlbum(_ sender: Any) {
-        pickImage(sourceType: .photoLibrary)
+        self.viewModel.quitView()
     }
     
-    @objc func pickAnImageFromCamera(_ sender: Any) {
-        pickImage(sourceType: .camera)
+    @IBAction func doneButtonPressed(_ sender: UIButton) {
+        viewModel.saveRecipe(title: self.recipeNameField.text ?? "",
+                             image: self.recipeImagePickerView.image?.pngData() ?? Data(),
+                             instruction: self.instructionsTextView.text,
+                             ingredients: self.tagsField.tags.map({ $0.text }))
     }
+
     private func setDefaultState() {
         setDefaultShareButton()
         setDefaultImagePicker()
@@ -107,6 +103,7 @@ class CreateRecipeViewController: UIViewController, UINavigationControllerDelega
     private func setDefaultShareButton() {
         shareButton.isEnabled = false
     }
+    
     private func setTagsFieldProperties(){
         tagsField.layoutMargins = UIEdgeInsets(top: 2, left: 6, bottom: 2, right: 6)
         tagsField.contentInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
@@ -173,24 +170,27 @@ extension CreateRecipeViewController: UIImagePickerControllerDelegate {
 
 // MARK: - Text Field Delegate
 extension CreateRecipeViewController: UITextViewDelegate, UITextFieldDelegate {
-    
-    //    func textViewDidBeginEditing(_ textView: UITextView) {
-    //        //        if recipeTextView.text == "Please give the recipe details." {
-    //        //            recipeTextView.text = ""
-    //        //            shareButton.isEnabled = true
-    //        //        }
-    //    }
-    //    func textViewShouldEndEditing(_ textView: UITextView) -> Bool {
-    //        //  recipeTextView.resignFirstResponder()
-    //        return false
-    //    }
+
 }
-
-
 
 // MARK: - CreateRecipeViewModelDelegate
 
 extension CreateRecipeViewController: CreateRecipeViewModelDelegate{
+    func isBackButtonHidden(isHidden: Bool) {
+        backButton.isHidden = isHidden
+    }
+    
+    func doneButtonPressed() {
+        let vc = UIAlertController(title: "Save Recipe!", message: "Do you want to save these changes into your page?", preferredStyle: .alert)
+        
+        
+        vc.addAction(UIAlertAction(title: "Save!", style: .default, handler: { UIAlertAction in
+                                    
+                                    self.viewModel.doneEditing(title: self.recipeNameField.text ?? "", image: self.recipeImagePickerView.image?.pngData() ?? Data(), instruction: self.instructionsTextView.text, ingredients: self.tagsField.tags.map({ $0.text }))        }))
+        vc.addAction(UIAlertAction(title: "Continue editing.", style: .cancel))
+        present(vc, animated: true)
+    }
+    
     func showLoadingIndicator(isShown: Bool) {
         if isShown {
             startLoading()
@@ -199,36 +199,37 @@ extension CreateRecipeViewController: CreateRecipeViewModelDelegate{
         }
     }
     
-    func imagePickerSource(sourceType: Any) {
+    func imagePickerSource() {
         let imagePicker = UIImagePickerController()
-        imagePicker.sourceType = sourceType as! UIImagePickerController.SourceType
+        imagePicker.sourceType = selectedSourceType ?? .camera
         imagePicker.allowsEditing = true
         imagePicker.delegate = self
         present(imagePicker, animated: true, completion: nil)
     }
     
-    func imagePickerButtonPressed(_ sender: Any) {
+    func imagePickerButtonPressed() {
         let vc = UIAlertController(title: "Picure Selection", message: "Please pick a picture for your meal!", preferredStyle: .actionSheet)
         let cancelButton = UIAlertAction(title: "Cancel", style: .cancel) { _ in
         }
         vc.addAction(cancelButton)
         let cameraButton = UIAlertAction(title: "Use Camera", style: .default) { UIAlertAction in
-            self.pickImage(sourceType: .camera)
+            self.selectedSourceType = .camera
+            self.viewModel.selectImagePickerSource()
         }
         vc.addAction(cameraButton)
         cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
         
         let albumButton = UIAlertAction(title: "Use Photo Library", style: .default) { UIAlertAction in
-            self.pickImage(sourceType: .photoLibrary)
+            self.selectedSourceType = .photoLibrary
+            self.viewModel.selectImagePickerSource()
         }
         vc.addAction(albumButton)
         present(vc, animated: true)
-        // pop ile seçenek yaptır camero or albume yönlendir.
     }
     
-    func shareButtonPressed(_ sender: Any) {
+    func shareButtonPressed() {
         let vc = UIActivityViewController(activityItems: ["Share this great recipe with your loved ones! :)\n Or just save!"] , applicationActivities: [])
-        vc.popoverPresentationController?.sourceView = sender as? UIView
+        vc.popoverPresentationController?.sourceView = view
         present(vc, animated: true)
         
         vc.completionWithItemsHandler = {(_, completed, _, _) in
@@ -247,13 +248,23 @@ extension CreateRecipeViewController: CreateRecipeViewModelDelegate{
     
     func recipeToEditArrived(title: String, image: String, instruction: String, ingredients: [String]) {
         recipeNameField.text = title
-        tagsField.addTags(ingredients)
+        instruction.isEmpty ? tagsField.removeTags() : tagsField.addTags(ingredients)
         instructionsTextView.text = instruction
-        guard let imageUrl:URL = URL(string: image) else {return}
+        guard let imageUrl:URL = URL(string: image) else {
+            recipeImagePickerView.image = UIImage(named: "noImagePlaceholder")
+            return
+        }
         recipeImagePickerView.loadImage(withUrl: imageUrl)
     }
     
     func backButtonPressed() {
-        navigationController?.popViewController(animated: true)
+        let vc = UIAlertController(title: "Quit", message: "Do you want to leave this without saving your changes?", preferredStyle: .alert)
+        vc.addAction(UIAlertAction(title: "Quit, anyway!", style: .destructive, handler: { UIAlertAction in
+            
+            self.navigationController?.popViewController(animated: true)
+        }))
+        vc.addAction(UIAlertAction(title: "Oh, no! Stay.", style: .cancel))
+        present(vc, animated: true)
+        
     }
 }

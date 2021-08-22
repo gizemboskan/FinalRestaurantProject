@@ -148,7 +148,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cPc-ER-2nt">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Owa-Bv-3vz">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noImagePlaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="Owa-Bv-3vz">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="430"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="430" id="OOQ-ic-efo"/>
@@ -321,6 +321,18 @@
                                                     <action selector="imagePickerButtonTapped:" destination="y6w-NC-dOp" eventType="touchUpInside" id="vAV-hO-vot"/>
                                                 </connections>
                                             </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="clS-62-dAi">
+                                                <rect key="frame" x="29.5" y="247" width="40" height="39"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="2FZ-EK-qkk"/>
+                                                    <constraint firstAttribute="width" constant="40" id="C9g-mA-2eb"/>
+                                                </constraints>
+                                                <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal" backgroundImage="trash.circle.fill" catalog="system"/>
+                                                <connections>
+                                                    <action selector="trashTapped:" destination="y6w-NC-dOp" eventType="touchUpInside" id="JVw-Lj-BS6"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
@@ -328,7 +340,9 @@
                                             <constraint firstItem="yuE-xF-7ZD" firstAttribute="centerY" secondItem="nl7-b0-opv" secondAttribute="centerY" id="4vP-ch-FSC"/>
                                             <constraint firstItem="Owa-Bv-3vz" firstAttribute="leading" secondItem="cPc-ER-2nt" secondAttribute="leading" id="8sq-UT-h2P"/>
                                             <constraint firstAttribute="trailing" secondItem="nl7-b0-opv" secondAttribute="trailing" constant="32" id="A5B-BT-QTO"/>
+                                            <constraint firstItem="clS-62-dAi" firstAttribute="centerY" secondItem="Ka0-74-COp" secondAttribute="centerY" id="CMB-mt-Jf3"/>
                                             <constraint firstAttribute="trailing" secondItem="rsq-Gb-Eqy" secondAttribute="trailing" id="G4z-hg-wxx"/>
+                                            <constraint firstItem="clS-62-dAi" firstAttribute="centerX" secondItem="yuE-xF-7ZD" secondAttribute="centerX" id="KLT-dW-Ng0"/>
                                             <constraint firstAttribute="trailing" secondItem="Owa-Bv-3vz" secondAttribute="trailing" id="M4i-pR-4QB"/>
                                             <constraint firstAttribute="trailing" secondItem="Ka0-74-COp" secondAttribute="trailing" constant="32" id="MV3-Hj-yA2"/>
                                             <constraint firstItem="nl7-b0-opv" firstAttribute="top" secondItem="cPc-ER-2nt" secondAttribute="top" constant="64" id="bTg-1D-Nhe"/>
@@ -374,6 +388,7 @@
                         <outlet property="segmentedControl" destination="P2F-rk-ptf" id="CdW-Za-Z6a"/>
                         <outlet property="shareButton" destination="nl7-b0-opv" id="Oey-JB-7yb"/>
                         <outlet property="tagsField" destination="eJT-jW-YI5" id="SGA-xO-7ca"/>
+                        <outlet property="trashButton" destination="clS-62-dAi" id="9kz-mN-3qO"/>
                         <outlet property="viewWithButton" destination="ASP-db-qCp" id="9bA-ku-3Ir"/>
                     </connections>
                 </viewController>
@@ -387,9 +402,11 @@
         <image name="back_circular" width="40" height="40"/>
         <image name="like" width="22.5" height="19.5"/>
         <image name="mask" width="375" height="355"/>
+        <image name="noImagePlaceholder" width="900" height="497"/>
         <image name="photo2" width="25" height="20"/>
         <image name="restImage" width="1800" height="1200"/>
         <image name="share" width="40" height="40"/>
+        <image name="trash.circle.fill" catalog="system" width="128" height="121"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

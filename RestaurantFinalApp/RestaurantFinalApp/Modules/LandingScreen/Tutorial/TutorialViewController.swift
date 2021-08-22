@@ -14,36 +14,16 @@ class TutorialViewController: UIViewController {
     let vievModel: TutorialViewModel = TutorialViewModel()
     
     @IBOutlet var paperView: PaperOnboarding!
-    @IBOutlet var skipButton: UIButton!
+    @IBOutlet var skipButton: UIButton! {
+        didSet {
+            skipButton.setTitle("skip".localized(), for: .normal)
+        }
+    }
     
-    //     fileprivate let items = [
-    //         OnboardingItemInfo(informationImage: Asset.hotels.image,
-    //                            title: "Hotels",
-    //                            description: "All hotels and hostels are sorted by hospitality rating",
-    //                            pageIcon: Asset.key.image,
-    //                            color: UIColor(red: 0.40, green: 0.56, blue: 0.71, alpha: 1.00),
-    //                            titleColor: UIColor.white, descriptionColor: UIColor.white, titleFont: titleFont, descriptionFont: descriptionFont),
-    //
-    //
-    // OnboardingItemInfo(informationImage: Asset.banks.image,
-    //                            title: "Banks",
-    //                            description: "We carefully verify all banks before add them into the app",
-    //                            pageIcon: Asset.wallet.image,
-    //                            color: UIColor(red: 0.40, green: 0.69, blue: 0.71, alpha: 1.00),
-    //                            titleColor: UIColor.white, descriptionColor: UIColor.white, titleFont: titleFont, descriptionFont: descriptionFont),
-    //
-    //         OnboardingItemInfo(informationImage: Asset.stores.image,
-    //                            title: "Stores",
-    //                            description: "All local stores are categorized for your convenience",
-    //                            pageIcon: Asset.shoppingCart.image,
-    //                            color: UIColor(red: 0.61, green: 0.56, blue: 0.74, alpha: 1.00),
-    //                            titleColor: UIColor.white, descriptionColor: UIColor.white, titleFont: titleFont, descriptionFont: descriptionFont),
-    //
-    //         ]
     fileprivate let items = [
         OnboardingItemInfo(informationImage: UIImage(named: "stores" )! ,
-                           title: "Kitchens",
-                           description: "All local kitchens are categorized for your convenience",
+                           title: "kitchens_title".localized(),
+                           description: "kitchens_title_desc".localized(),
                            pageIcon: UIImage(named: "stores")!,
                            color: UIColor(red: 0.40, green: 0.56, blue: 0.71, alpha: 1.00),
                            titleColor: UIColor.white,
@@ -52,8 +32,8 @@ class TutorialViewController: UIViewController {
                            descriptionFont: TutorialViewController.descriptionFont),
         
         OnboardingItemInfo(informationImage: UIImage(named: "page3" )! ,
-                           title: "Recipes",
-                           description: "We carefully verify all kitchens before add them into the app to serve you a delicious recipe!",
+                           title: "recipes_title".localized(),
+                           description: "recipes_title_desc".localized(),
                            pageIcon: UIImage(named: "page3")!,
                            color: UIColor(red: 0.40, green: 0.69, blue: 0.71, alpha: 1.00),
                            titleColor: UIColor.white,
@@ -62,8 +42,8 @@ class TutorialViewController: UIViewController {
                            descriptionFont: TutorialViewController.descriptionFont ),
         
         OnboardingItemInfo(informationImage: UIImage(named: "page4")! ,
-                           title: "Quality Service",
-                           description: "We carefully deliver your meal under safe conditions",
+                           title: "quality_title".localized(),
+                           description: "quality_title_desc".localized(),
                            pageIcon: UIImage(named: "page4" )!,
                            color: UIColor(red: 0.61, green: 0.56, blue: 0.74, alpha: 1.00),
                            titleColor: UIColor.white,
@@ -81,7 +61,7 @@ class TutorialViewController: UIViewController {
         
         view.bringSubviewToFront(skipButton)
         
-    //    createMockData()
+        //createMockData()
         
     }
     
@@ -95,20 +75,20 @@ class TutorialViewController: UIViewController {
         let recipe1 = RecipeModel(id: UUID().uuidString,
                                   name: "Pesto Chicken",
                                   
-                                  imageURL: "https://cafedelites.com/wp-content/uploads/2016/07/chicken-pesto-recipe-9.jpg",
+                                  imageURL: "https://firebasestorage.googleapis.com/v0/b/restaurantfinalapp-2.appspot.com/o/images%2Fpesto_chicken.jpeg?alt=media&token=f5ba1e32-be62-4532-ae03-9ac35c7e7013",
                                   instruction: "1.Preheat oven to 400˚F (200˚C). \n2.Place chicken breast in a baking dish. Season chicken with salt and pepper, to taste. \n3.Spread pesto on each chicken breast. \n4.Layer tomatoes on top of the chicken. \n5.Top with mozzarella cheese. \n6.Bake for 40 minutes.",
                                   ingredients: ["3 chicken breasts", "salt to,taste", "pepper to taste","4 tablespoons basil pesto", "1 roma tomato sliced", "1 cup mozzarella cheese (120 g)"]
         )
         
         let recipe2 = RecipeModel(id: UUID().uuidString,
                                   name: "Butter Chicken",
-                                  imageURL: "https://cafedelites.com/wp-content/uploads/2019/01/Butter-Chicken-IMAGE-27.jpg",
+                                  imageURL: "https://firebasestorage.googleapis.com/v0/b/restaurantfinalapp-2.appspot.com/o/images%2FButter-Chicken-IMAGE-27.jpeg?alt=media&token=9c39e099-6ad3-4116-bfb2-f4f25c92d78a",
                                   instruction: "1.In a medium bowl, mix all the marinade ingredients with some seasoning. Chop the chicken into bite-sized pieces and toss with the marinade. Cover and chill in the fridge for 1 hr or overnight.\n2.In a large, heavy saucepan, heat the oil. Add the onion, garlic, green chilli, ginger and some seasoning. Fry on a medium heat for 10 mins or until soft.\n3.Add the spices with the tomato purée, cook for a further 2 mins until fragrant, then add the stock and marinated chicken. Cook for 15 mins, then add any remaining marinade left in the bowl. Simmer for 5 mins, then sprinkle with the toasted almonds. Serve with rice, naan bread, chutney, coriander and lime wedges, if you like.",
                                   ingredients: ["500g skinless boneless chicken thighs", "For the marinade: 1 lemon, juiced, 2 tsp ground cumin 2 tsp paprika, 1-2 tsp hot chilli powder, 200g natural yogurt", " For the curry: 2 tbsp vegetable oil, 1 large onion chopped,3 garlic cloves crushed,1 green chilli, thumb-sized piece ginger grated, 1 tsp garam masala, 2 tsp ground fenugreek,3 tbsp tomato purée,300ml chicken stock,  50g flaked almonds toasted "])
         
         let recipe3 = RecipeModel(id: UUID().uuidString,
                                   name: "Chicken Cacciatore",
-                                  imageURL: "https://cafedelites.com/wp-content/uploads/2018/04/Chicken-Cacciatore-IMAGE-12.jpg",
+                                  imageURL: "https://firebasestorage.googleapis.com/v0/b/restaurantfinalapp-2.appspot.com/o/images%2FChicken-Cacciatore-IMAGE-12.jpeg?alt=media&token=852aeb8e-b95f-453a-90a5-b9bf8223a087",
                                   instruction: """
         Season the chicken breasts on both sides with salt and pepper.
                                   Heat 1 tablespoon of the oil in a large nonstick skillet over medium high heat.
@@ -128,7 +108,7 @@ class TutorialViewController: UIViewController {
         
         let recipe4 = RecipeModel(id: UUID().uuidString,
                                   name: "Pecan Pie",
-                                  imageURL: "https://cafedelites.com/wp-content/uploads/2018/11/Chocolate-Pecan-Pie-IMAGE-29-1536x1024.jpg",
+                                  imageURL: "https://firebasestorage.googleapis.com/v0/b/restaurantfinalapp-2.appspot.com/o/images%2FChocolate-Pecan-Pie.jpeg?alt=media&token=f9ca4008-3d14-4473-bfac-b7e3dbb36bfb",
                                   instruction: """
                                     Make the crust: Sift the flour and salt together into a large bowl.
                                   Using only your fingertips, pinch the cubes of butter into the flour, breaking up the butter as you go, until no large lumps remain. Shake the bowl to coax the large chunks of butter to the surface.
@@ -149,13 +129,13 @@ class TutorialViewController: UIViewController {
         
         let recipe5 = RecipeModel(id: UUID().uuidString,
                                   name: "Lasagna Flatbread",
-                                  imageURL: "https://cafedelites.com/wp-content/uploads/2018/01/Mamas-Best-Lasagna-IMAGE-96-1365x2048.jpg",
+                                  imageURL: "https://firebasestorage.googleapis.com/v0/b/restaurantfinalapp-2.appspot.com/o/images%2FLasagna.jpeg?alt=media&token=69fed2b2-306b-4ba1-9158-54972b2b0ba9",
                                   instruction: "1.Preheat oven to 375 degrees F (190 degrees C).\n2.Combine ricotta cheese, 1/2 of the mozzarella cheese, Parmesan cheese, egg, and Italian seasoning in a bowl.\n3.Cook sausage in a skillet over medium heat until no longer pink, 5 to 10 minutes; drain. Stir in marinara sauce. \n4.Spread 1/6 of the cheese mixture evenly on each flatbread; cover with sausage mixture. Top with remaining mozzarella cheese.\n5.Bake in the preheated oven until cheese is melted and bubbly, 10 to 15 minutes.",
                                   ingredients: ["15 ounce ricotta cheese", "8 ounce  shredded mozzarella cheese, divided", "3 ounce Parmesan cheese", "1 egg", "2 teaspoons Italian seasoning", "1 pound sausage", "26 ounce marinara sauce", "6 flatbreads"])
         
         let recipe6 = RecipeModel(id: UUID().uuidString,
                                   name: "Shrimp Fra Diavolo",
-                                  imageURL: "https://cafedelites.com/wp-content/uploads/2015/01/Creamy-Shrimp-Mushroom-Linguine-IMAGE-4.jpg",
+                                  imageURL: "https://firebasestorage.googleapis.com/v0/b/restaurantfinalapp-2.appspot.com/o/images%2FShrimp-Mushroom.jpeg?alt=media&token=53d34302-a0cc-418f-8006-c95196dcc824",
                                   instruction: "1.Peel and cook shrimp if necessary, and place in a bowl of cold water.\n2.Place tomatoes, crushed garlic, red pepper flakes, and wine in a 3 quart sauce pan. Simmer over low heat for 30 minutes, stirring occasionally.\n3.While sauce is simmering, cook linguini according to package directions. When pasta is almost done, drain shrimp and place in the bottom of a large colander. Drain the pasta over the shrimp. Transfer pasta with shrimp to a large serving bowl, and toss together with some sauce. Serve remaining sauce on the side." ,
                                   ingredients: ["16 ounce linguini pasta", "1 pound cooked and peeled shrimp", "8 cloves crushed garlic", "14.5 ounce cans diced tomatoes", "28 ounce) can crushed tomatoes with garlic", "2 teaspoons crushed red pepper flakes", "2 fluid ounces red wine"])
         
@@ -175,13 +155,13 @@ class TutorialViewController: UIViewController {
         
         let recipe9 = RecipeModel(id: UUID().uuidString,
                                   name: "Meatloaf",
-                                  imageURL: "https://cafedelites.com/wp-content/uploads/2018/05/Perfect-Meatloaf-IMAGE-59-1365x2048.jpg",
+                                  imageURL: "https://firebasestorage.googleapis.com/v0/b/restaurantfinalapp-2.appspot.com/o/images%2Fmeetlof.jpeg?alt=media&token=9c4f796a-0388-4f1f-94ad-dd8acd497e87",
                                   instruction: "1.Preheat oven to 350 degrees F (175 degrees C).\n2.In a large bowl, combine the beef, egg, onion, milk and bread OR cracker crumbs. Season with salt and pepper to taste and place in a lightly greased 9x5-inch loaf pan, or form into a loaf and place in a lightly greased 9x13-inch baking dish.\n3.In a separate small bowl, combine the brown sugar, mustard and ketchup. Mix well and pour over the meatloaf. \n4.Bake at 350 degrees F (175 degrees C) for 1 hour.",
                                   ingredients: ["1 ½ pounds ground beef", "1 egg", "1 onion, chopped", "1 cup milk", "1 cup dried bread crumbs", "salt and pepper to taste", "2 tablespoons brown sugar", "2 tablespoons prepared mustard", "⅓ cup ketchup"])
         
         let recipe10 = RecipeModel(id: UUID().uuidString,
                                    name: "Barbeque Shrimp",
-                                   imageURL: "https://cafedelites.com/wp-content/uploads/2018/05/Honey-Garlic-Butter-Shrimp-IMAGE-99-1365x2048.jpg",
+                                   imageURL: "https://firebasestorage.googleapis.com/v0/b/restaurantfinalapp-2.appspot.com/o/images%2FBarbeque-Shrimp.jpeg?alt=media&token=4acc8ab8-1d3f-4700-aff4-fbcfd6c3abd1",
                                    instruction: "1.In a small bowl, stir together the garlic powder, onion powder, basil, thyme, rosemary, cayenne pepper and paprika. Set aside. \n2.Melt the butter in a large skillet over medium heat. Add garlic; cook and stir until fragrant, about 1 minute. Add the shrimp and cook for a couple of minutes. Season with the spice mixture and continue to cook and stir for a few minutes. Pour in the beer and Worcestershire sauce; simmer until shrimp is cooked through, about 1 more minute. Taste and season with salt before serving.",
                                    ingredients: ["1 teaspoon garlic powder", "1 teaspoon onion powder", "1 teaspoon dried basil", "½ teaspoon dried thyme", "½ teaspoon dried rosemary", "¼ teaspoon cayenne pepper", "⅓ teaspoon paprika", "½ cup butter", "4 cloves garlic, minced", "¼ cup beer, room temperature", "1 tablespoon Worcestershire sauce", "1 pound medium shrimp - peeled and deveined", "salt to taste"])
         
@@ -254,18 +234,6 @@ extension TutorialViewController: PaperOnboardingDelegate {
     
     func onboardingWillTransitonToIndex(_ index: Int) {
         skipButton.isHidden = index == 2 ? false : true
-    }
-    
-    func onboardingConfigurationItem(_ item: OnboardingContentViewItem, index: Int) {
-        
-        //item.titleCenterConstraint?.constant = 100
-        //item.descriptionCenterConstraint?.constant = 100
-        
-        // configure item
-        
-        //item.titleLabel?.backgroundColor = .redColor()
-        //item.descriptionLabel?.backgroundColor = .redColor()
-        //item.imageView = ...
     }
 }
 

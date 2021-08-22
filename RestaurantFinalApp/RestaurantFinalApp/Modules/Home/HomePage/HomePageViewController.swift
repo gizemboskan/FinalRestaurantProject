@@ -9,13 +9,12 @@ import UIKit
 import MapKit
 
 class HomePageViewController: UIViewController {
-    // MARK: - Properties
     
-    let viewModel: HomePageViewModel = HomePageViewModel()
+    // MARK: - Properties
+    var viewModel: HomePageViewModelProtocol = HomePageViewModel()
     lazy var kitchenPageViewController: KitchenPageViewController = {
         return children.lazy.compactMap({ $0 as? KitchenPageViewController }).first!
     }()
-    var pageSource = ["paging1", "paging2", "paging3", "paging4"]
     
     // MARK: - UI Components
     @IBOutlet weak var locationLabel: UILabel!
@@ -27,7 +26,11 @@ class HomePageViewController: UIViewController {
     @IBOutlet weak var flowlayout: UICollectionViewFlowLayout!
     @IBOutlet weak var seeAllKitchensButton: UIButton!
     @IBOutlet weak var viewWithLocation: UIView!
+    
     @IBOutlet weak var orderStatusButton: UIButton!
+    @IBOutlet weak var favRecipeLabel: UILabel!
+    @IBOutlet weak var kitchenTitleLabel: UILabel!
+    @IBOutlet weak var nearbyKitchenLabel: UILabel!
     
     // MARK: - UIViewController Lifecycle
     override func viewDidLoad() {
@@ -50,9 +53,11 @@ class HomePageViewController: UIViewController {
         
         let nibCell = UINib(nibName: "KitchenCell", bundle: nil)
         kitchenTableView.register(nibCell, forCellReuseIdentifier: "KitchenCell")
+        let nibRecipeCell = UINib(nibName: "FavRecipesCollectionViewCell", bundle: nil)
+        favRecipesCollectionView.register(nibRecipeCell, forCellWithReuseIdentifier: "FavRecipesCollectionViewCell")
         kitchenTableView.roundCorners(.allCorners, radius: 22)
         viewWithLocation.roundCorners(.allCorners, radius: 20)
-        kitchenPageViewController.populateItems(pictureSource: pageSource)  
+        setLocalizedTexts()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -71,6 +76,15 @@ class HomePageViewController: UIViewController {
     }
     
     // MARK: - Helpers
+    private func setLocalizedTexts() {
+        seeAllFavRecipesButton.setTitle("see_all".localized(), for: .normal)
+        seeAllKitchensButton.setTitle("see_all".localized(), for: .normal)
+        orderStatusButton.setTitle("order_status".localized(), for: .normal)
+        favRecipeLabel.text = "your_fav_recipes".localized()
+        kitchenTitleLabel.text = "kitchens_title".localized()
+        nearbyKitchenLabel.text = "nearby_kitchens".localized()
+    }
+    
     @IBAction func seeAllFavRecipesButtonPressed(_ sender: UIButton) {
         let storyboard = UIStoryboard(name: "Recipe", bundle: nil)
         if let vc = storyboard.instantiateViewController(withIdentifier: "RecipesViewController") as? RecipesViewController {
@@ -82,9 +96,9 @@ class HomePageViewController: UIViewController {
     @IBAction func orderStatusButtonTapped(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Order", bundle: nil)
         if let vc = storyboard.instantiateViewController(withIdentifier: "MyOrderViewController") as? MyOrderViewController {
-            
-            navigationController?.pushViewController(vc, animated: true)
-            
+            present(vc, animated: true) {
+                self.orderStatusButton.isHidden = true
+            }
         }
     }
     
@@ -136,8 +150,10 @@ extension HomePageViewController:  UITableViewDelegate, UITableViewDataSource {
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = kitchenTableView.dequeueReusableCell(withIdentifier: "KitchenCell", for: indexPath) as! KitchenCell
         let kitchenModel = viewModel.kitchens[indexPath.row]
-        cell.kitchenDescs = kitchenModel.descriptions
         cell.kitchenTitle.text = kitchenModel.name
+        cell.ratingLabel.text = String(kitchenModel.rating)
+        cell.delivertTimeLabel.text = kitchenModel.avarageDeliveryTime
+        cell.ratingCountLabel.text = String(kitchenModel.ratingCount)
         cell.setImage(from: kitchenModel.imageURL)
         
         return cell
@@ -165,11 +181,23 @@ extension HomePageViewController: HomePageViewModelDelegate {
         kitchenTableView.reloadData()
     }
     
-    func showAlert(message: String) {
-        
+    func showAlert(message: String, title: String) {
+        showAlertController(message: message, title: title)
     }
     
     func myRecipesLoaded() {
         favRecipesCollectionView.reloadData()
+    }
+    
+    func showLoadingIndicator(isShown: Bool) {
+        if isShown {
+            startLoading()
+        } else {
+            stopLoading()
+        }
+    }
+    
+    func showOrderStatus() {
+        orderStatusButton.isHidden = false
     }
 }
