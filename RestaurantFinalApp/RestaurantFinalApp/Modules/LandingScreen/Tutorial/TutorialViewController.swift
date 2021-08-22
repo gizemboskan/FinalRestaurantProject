@@ -61,7 +61,7 @@ class TutorialViewController: UIViewController {
         
         view.bringSubviewToFront(skipButton)
         
-        //createMockData()
+        createMockData()
         
     }
     
@@ -166,7 +166,7 @@ class TutorialViewController: UIViewController {
                                    ingredients: ["1 teaspoon garlic powder", "1 teaspoon onion powder", "1 teaspoon dried basil", "½ teaspoon dried thyme", "½ teaspoon dried rosemary", "¼ teaspoon cayenne pepper", "⅓ teaspoon paprika", "½ cup butter", "4 cloves garlic, minced", "¼ cup beer, room temperature", "1 tablespoon Worcestershire sauce", "1 pound medium shrimp - peeled and deveined", "salt to taste"])
         
         let recipe11 = RecipeModel(id: UUID().uuidString,
-                                   name: "Balsamic-Roasted Pumpkin with Goat Cheese",
+                                   name: "Roasted Pumpkin",
                                    imageURL: "https://img.taste.com.au/5mHGGHMj/w643-h428-cfill-q90/taste/2017/03/pumpkin-wedges-with-goats-cheese-1980x1320-124908-1.jpg",
                                    instruction: "1.Preheat the oven to 375 degrees F (190 degrees C). Line a large baking sheet with parchment paper.\n2.Place pumpkin onto a secure cutting board. Cut the top and bottom off the pumpkin, removing as much of the stem as possible. Use a sharp vegetable peeler or a paring knife to remove the pumpkin peel. Cut pumpkin in half, and use a spoon to scoop out seeds and strings. Trim away any pieces of stem that may remain. Cut each pumpkin half into 1/2-inch strips. Chop each strip into 1/2-inch cubes. Place cubed pumpkin into a large bowl. \n3.Mix balsamic vinegar, maple syrup, olive oil, garlic powder, onion powder, salt, and pepper together in a small bowl until thoroughly combined. Pour over pumpkin pieces and toss to thoroughly coat. Pour pumpkin into an even layer on the prepared baking sheet. \n4.Bake in the preheated oven for 20 minutes. Stir gently, then continue baking until pumpkin is softened and slightly caramelized, 25 to 30 minutes more, stirring again if needed. Serve pumpkin warm, topped with goat cheese and fresh oregano.",
                                    ingredients: ["3 pound sugar pumpkin", "¼ cup balsamic vinegar", "2 tablespoons maple syrup, or to taste", "2 tablespoons olive oil", "1 teaspoon garlic powder", "1 teaspoon onion powder", "½ teaspoon kosher salt, or to taste", "¼ teaspoon freshly ground black pepper, or to taste", "2 ounces crumbled goat cheese, or to taste", "1 tablespoon chopped fresh oregano"])

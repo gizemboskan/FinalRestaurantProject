@@ -96,6 +96,7 @@ class HomePageViewController: UIViewController {
     @IBAction func orderStatusButtonTapped(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Order", bundle: nil)
         if let vc = storyboard.instantiateViewController(withIdentifier: "MyOrderViewController") as? MyOrderViewController {
+            vc.viewModel.activeOrder = viewModel.activeOrder
             present(vc, animated: true) {
                 self.orderStatusButton.isHidden = true
             }
@@ -173,6 +174,9 @@ extension HomePageViewController:  UITableViewDelegate, UITableViewDataSource {
 }
 // MARK: - HomePageViewModelDelegate
 extension HomePageViewController: HomePageViewModelDelegate {
+    func showOrderStatus() {
+        orderStatusButton.isHidden = false
+    }
     
     func showLocationString(locationString: String) {
         locationLabel.text = locationString
@@ -195,9 +199,5 @@ extension HomePageViewController: HomePageViewModelDelegate {
         } else {
             stopLoading()
         }
-    }
-    
-    func showOrderStatus() {
-        orderStatusButton.isHidden = false
     }
 }

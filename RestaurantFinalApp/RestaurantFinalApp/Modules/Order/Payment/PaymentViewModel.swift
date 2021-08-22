@@ -17,6 +17,7 @@ protocol PaymentViewModelProtocol {
     var kitchen: KitchenModel? { get set }
     var amount: Float? { get set }
     func getPaymentDetails()
+    func completePayment()
     func quitView()
 }
 
@@ -28,6 +29,14 @@ final class PaymentViewModel {
 }
 
 extension PaymentViewModel: PaymentViewModelProtocol {
+    
+    func completePayment() {
+        guard let recipeModel = recipeModel else { return }
+        let recipeDataDict:[String: String] = ["name" : recipeModel.name, "imageURL" : recipeModel.imageURL]
+        let recipeDataDict2:[String: RecipeModel] = ["recipe" : recipeModel]
+
+        NotificationCenter.default.post(name: .orderActivated, object: nil, userInfo: recipeDataDict2)
+    }
     func getPaymentDetails() {
         let formattedAmount = String(format: "%.2f", amount ?? 0)
         delegate?.paymentDetailLoaded(kitchenName: kitchen?.name ?? "", recipeName: recipeModel?.name ?? "", totalPrice: "$ \(formattedAmount)")

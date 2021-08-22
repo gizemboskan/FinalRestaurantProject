@@ -69,7 +69,7 @@ class PaymentViewController: UIViewController {
     }
     
     @IBAction func goHomeButtonPressed(_ sender: UIButton) {
-        NotificationCenter.default.post(name: .orderActivated, object: nil)
+        viewModel.completePayment()
         self.navigationController?.popToRootViewController(animated: true)
     }
     

@@ -28,6 +28,8 @@ class MyOrderViewController: UIViewController {
     
     // MARK: - UIViewController Lifecycle
     override func viewDidLoad() {
+        viewModel.delegate = self
+        viewModel.getActiveOrder()
         recipeImageView.roundCorners(.allCorners, radius: recipeImageView.frame.height/2)
         stepIndicatorView.currentStep = 0
         startCount()
@@ -61,8 +63,16 @@ class MyOrderViewController: UIViewController {
                 self.stepIndicatorView.currentStep += 1
                 self.receivedFoodLabel.textColor = .label
             }
-            
         }
     }
+}
+
+extension MyOrderViewController: MyOrderViewModelDelegate {
+    func activeOrderName(name: String) {
+        recipeNameLabel.text = name
+    }
     
+    func activeOrderImage(imageData: Data) {
+        recipeImageView.image = UIImage(data: imageData)
+    }
 }

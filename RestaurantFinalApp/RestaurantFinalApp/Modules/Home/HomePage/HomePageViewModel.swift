@@ -12,6 +12,7 @@ import MapKit
 protocol HomePageViewModelProtocol {
     var delegate: HomePageViewModelDelegate? { get set }
     var myRecipes: [RecipeModel] { get set }
+    var activeOrder: RecipeModel? { get set }
     var kitchens: [KitchenModel] { get set }
     func getMyRecipes()
     func getUserLocation()
@@ -33,6 +34,7 @@ final class HomePageViewModel: NSObject {
 
     weak var delegate: HomePageViewModelDelegate?
     var myRecipes: [RecipeModel] = []
+    var activeOrder: RecipeModel?
     var kitchens: [KitchenModel] = []
 
     let locationManager = CLLocationManager()
@@ -48,7 +50,10 @@ final class HomePageViewModel: NSObject {
     }
 
     @objc func onDidReceiveOrder(_ notification: Notification) {
-        delegate?.showOrderStatus()
+        if let recipe = notification.userInfo?["recipe"] as? RecipeModel {
+            activeOrder = recipe
+            delegate?.showOrderStatus()
+        }
     }
     
     // MARK: - Helpers
