@@ -21,10 +21,10 @@ class TutorialViewController: UIViewController {
     }
     
     fileprivate let items = [
-        OnboardingItemInfo(informationImage: UIImage(named: "stores" )! ,
+        OnboardingItemInfo(informationImage: UIImage(named: "Stores" )! ,
                            title: "kitchens_title".localized(),
                            description: "kitchens_title_desc".localized(),
-                           pageIcon: UIImage(named: "stores")!,
+                           pageIcon: UIImage(named: "Stores")!,
                            color: UIColor(red: 0.40, green: 0.56, blue: 0.71, alpha: 1.00),
                            titleColor: UIColor.white,
                            descriptionColor: UIColor.white,
