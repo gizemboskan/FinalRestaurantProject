@@ -3,6 +3,10 @@
 # Banabi Kitchen 
 #### *FinalRestaurantProject for Yemeksepeti iOS Bootcamp*
 
+<div align="center">
+  <img src="gifs/recipe.jpeg" width="300"> <img src="gifs/homepage.jpeg" width="300" > 
+</div>
+
 ## Table of Contents
 - <a href="#description">Description</a>
 - <a href="#tech-stack">Tech Stack</a>
@@ -54,6 +58,7 @@ Banabi Kitchen is a final project for the Yemeksepeti iOS Bootcamp. The project 
 * Xcode 12.5
 * Swift 5
 * iOS 14.5
+* Only portrait mode 
 
 ## License
 ```
