@@ -27,6 +27,7 @@ class RecipesViewController: UIViewController {
         recipesCollectionView.restore()
         
         searchBar.delegate = self
+        
         recipesCollectionView.restore()
         viewModel.delegate = self
         hideKeyboardWhenTappedAround()

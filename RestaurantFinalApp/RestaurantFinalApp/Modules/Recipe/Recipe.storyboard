@@ -29,7 +29,7 @@
                             </collectionView>
                             <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Search your recipes!" showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="V4m-AJ-TRj">
                                 <rect key="frame" x="64" y="68" width="330" height="51"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no"/>
                             </searchBar>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xSc-bb-ghV">
                                 <rect key="frame" x="16" y="73.5" width="40" height="40"/>
