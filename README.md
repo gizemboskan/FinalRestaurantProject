@@ -10,9 +10,13 @@
 ## Table of Contents
 - <a href="#description">Description</a>
 - <a href="#tech-stack">Tech Stack</a>
+- <a href="#implementation">Implementation</a>
 - <a href="#features">Features</a>
 - <a href="#libraries">Libraries</a>
-- <a href="#previews">Previews</a>
+- <a href="#previews-for-usage">Previews for Usage</a>
+- <a href="#requirements">Requirements</a>
+- <a href="#license">License</a>
+
 
 ## Description
 
@@ -29,6 +33,30 @@ Banabi Kitchen is a final project for the Yemeksepeti iOS Bootcamp. The project 
 * Storyboard for UI design
 * Image Picker Controller
 * Some reusables views, empty state views, custom alerts, activity indicators, proper searching, organized folder structure.
+
+## Implementation
+
+| Launch Screen | Onboarding Screen | Home Screen1 | Home Screen2 | Create Recipe Screen |      
+| --- | --- | --- | --- | --- | 
+| ![Preview](gifs/launch.PNG) | ![Preview](gifs/onboarding.PNG) | ![Preview](gifs/home1.PNG) | ![Preview](gifs/home2.PNG) | ![Preview](gifs/createRecipe.PNG) | 
+|   |   |   |   |  | 
+
+
+| Recipes Screen | Recipe Detail Screen1 | Recipe Detail Screen2  | Edit Recipe Screen | Image picker |       
+| --- | --- | --- | --- | --- | 
+| ![Preview](gifs/recipes.PNG) | ![Preview](gifs/recipeDetail1.PNG) | ![Preview](gifs/recipeDetail2.PNG) | ![Preview](gifs/editRecipe.PNG) | ![Preview](gifs/imagePicker.PNG) |  
+|  |  |  |  |  |
+
+| Kitchens Screen | Empty View | Map View | Kitchen Detail Screen |    
+| --- | --- | --- | --- | 
+| ![Preview](gifs/kitchens.PNG) | ![Preview](gifs/emptyView.PNG) | ![Preview](gifs/mapView.PNG) | ![Preview](gifs/kitchenDetail.PNG) | 
+|  |  |  |  | 
+
+
+| Get Offer Screen | Payment Screen | Order Success View | Order Status Screen |    
+| --- | --- | --- | --- | 
+| ![Preview](gifs/getOffer.PNG) | ![Preview](gifs/payment.PNG) | ![Preview](gifs/orderSuccess.PNG) | ![Preview](gifs/orderStatus.PNG) | 
+|  |  |  |  | 
 
 
 ## Features
