@@ -1,4 +1,4 @@
- [![Generic badge](https://img.shields.io/badge/Language-Swift-red.svg)](https://developer.apple.com/swift/)
+ [![Generic badge](https://img.shields.io/badge/Language-Swift-red.svg)](https://developer.apple.com/swift/) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 # Banabi Kitchen 
 #### *FinalRestaurantProject for Yemeksepeti iOS Bootcamp*
