@@ -10,11 +10,10 @@ import UIKit
 class GetOfferViewController: UIViewController {
         
     // MARK: - Properties
-    @IBOutlet weak var availableKitchensTableView: UITableView!
-    @IBOutlet weak var descriptionLabel: UILabel!
-    
     var viewModel: GetOfferViewModelProtocol = GetOfferViewModel()
     // MARK: - UI Components
+    @IBOutlet weak var availableKitchensTableView: UITableView!
+    @IBOutlet weak var descriptionLabel: UILabel!
     
     // MARK: - UIViewController Lifecycle
     override func viewDidLoad() {
@@ -26,12 +25,17 @@ class GetOfferViewController: UIViewController {
         viewModel.delegate = self
         viewModel.getKitchens()
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        hideKeyboardWhenTappedAround()
+    }
     
+    // MARK: - Helpers
     @IBAction func backButtonTapped(_ sender: UIButton) {
         viewModel.quitView()
     }
     
-    // MARK: - Helpers
+ 
     private func setLocalizedTexts() {
         descriptionLabel.text = "order_list_desc".localized()
     }

@@ -79,13 +79,13 @@ class PaymentViewController: UIViewController {
     }
     
     @objc func keyboardWillShow(_ notification:Notification) {
-        if (creditCardDateTextField.isFirstResponder || creditCardCVCTextField.isFirstResponder || creditCardCVCTextField.isFirstResponder) && view.frame.origin.y == 0 {
+        if (creditCardDateTextField.isFirstResponder || creditCardCVCTextField.isFirstResponder || creditCardNumberTextField.isFirstResponder) && view.frame.origin.y == 0 {
             view.frame.origin.y -= getKeyboardHeight(notification)
         }
     }
     
     @objc func keybordWillHide(_ notification:Notification) {
-        if (creditCardDateTextField.isFirstResponder || creditCardCVCTextField.isFirstResponder || creditCardCVCTextField.isFirstResponder)  && view.frame.origin.y != 0{
+        if (creditCardDateTextField.isFirstResponder || creditCardCVCTextField.isFirstResponder || creditCardNumberTextField.isFirstResponder)  && view.frame.origin.y != 0{
             view.frame.origin.y = 0
         }
     }

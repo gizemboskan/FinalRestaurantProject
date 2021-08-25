@@ -30,7 +30,7 @@
 "general_success_desc" = "Done!";
 
 "search_recipe_placeholder" = "Search your recipes!";
-"search_kitchen_placeholder" = "Search your kitchens!";
+"search_kitchen_placeholder" = "Search kitchens!";
 
 "empty_recipe_title" = "Oops! Your search was not found.";
 "empty_recipe_desc" = "Search for another result!";

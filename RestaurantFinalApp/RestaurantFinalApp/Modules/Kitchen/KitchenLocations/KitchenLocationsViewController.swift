@@ -26,6 +26,11 @@ class KitchenLocationsViewController: UIViewController {
         viewModel.delegate = self
         viewModel.getKitchens()
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        hideKeyboardWhenTappedAround()
+
+    }
     
     //  Helpers
     

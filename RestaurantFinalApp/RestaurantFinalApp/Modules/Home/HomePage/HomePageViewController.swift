@@ -62,7 +62,7 @@ class HomePageViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        hideKeyboardWhenTappedAround()
         viewModel.getMyRecipes()
         viewModel.getKitchens()
         

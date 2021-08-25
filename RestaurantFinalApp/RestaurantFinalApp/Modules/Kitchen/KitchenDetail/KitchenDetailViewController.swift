@@ -64,7 +64,7 @@ class KitchenDetailViewController: UIViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        hideKeyboardWhenTappedAround()        
     }
     
     // MARK: - Helpers

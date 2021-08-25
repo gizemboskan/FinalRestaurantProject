@@ -35,6 +35,7 @@ class KitchensViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         viewModel.getKitchens()
+        hideKeyboardWhenTappedAround()
     }
 
     @IBAction func backButtonTapped(_ sender: UIButton) {

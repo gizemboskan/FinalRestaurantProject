@@ -47,9 +47,12 @@ class CreateRecipeViewController: UIViewController, UINavigationControllerDelega
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         hideKeyboardWhenTappedAround()
+        subscribeToKeyboardNotifications()
+        
     }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        unsubscribeFromKeyboardNotifications()
     }
     
     // MARK: - Helpers
@@ -90,7 +93,38 @@ class CreateRecipeViewController: UIViewController, UINavigationControllerDelega
                              instruction: self.instructionsTextView.text,
                              ingredients: self.tagsField.tags.map({ $0.text }))
     }
-
+    
+    @objc func keyboardWillShow(_ notification:Notification) {
+        if (recipeNameField.isFirstResponder || instructionsTextView.isFirstResponder || tagsField.isFirstResponder) && view.frame.origin.y == 0 {
+            view.frame.origin.y -= getKeyboardHeight(notification)
+        }
+    }
+    
+    @objc func keybordWillHide(_ notification:Notification) {
+        if (recipeNameField.isFirstResponder || instructionsTextView.isFirstResponder || tagsField.isFirstResponder)  && view.frame.origin.y != 0{
+            view.frame.origin.y = 0
+        }
+    }
+    
+    @objc func getKeyboardHeight(_ notification:Notification) -> CGFloat {
+        
+        let userInfo = notification.userInfo
+        let keyboardSize = userInfo![UIResponder.keyboardFrameEndUserInfoKey] as! NSValue // of CGRect
+        return keyboardSize.cgRectValue.height
+    }
+    
+    func subscribeToKeyboardNotifications() {
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keybordWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    func unsubscribeFromKeyboardNotifications() {
+        
+        NotificationCenter.default.removeObserver(self)
+    }
+    
     private func setDefaultState() {
         setDefaultShareButton()
         setDefaultImagePicker()
@@ -170,7 +204,7 @@ extension CreateRecipeViewController: UIImagePickerControllerDelegate {
 
 // MARK: - Text Field Delegate
 extension CreateRecipeViewController: UITextViewDelegate, UITextFieldDelegate {
-
+    
 }
 
 // MARK: - CreateRecipeViewModelDelegate
