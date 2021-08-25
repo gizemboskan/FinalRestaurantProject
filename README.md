@@ -46,7 +46,7 @@ Banabi Kitchen is a final project for the Yemeksepeti iOS Bootcamp. The project 
 * Firebase Database, Firebase Storage https://github.com/firebase/firebase-ios-sdk
 * WSTagsField https://github.com/whitesmith/WSTagsField
 
-## Previews 
+## Previews for Usage 
 
 | Onboarding Screen | Recipes & Orders Screen | Kitchens Screen |   
 | --- | --- | --- | 

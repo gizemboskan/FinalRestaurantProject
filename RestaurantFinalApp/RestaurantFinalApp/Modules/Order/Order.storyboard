@@ -98,7 +98,7 @@
                                                         </constraints>
                                                     </imageView>
                                                 </subviews>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <color key="backgroundColor" red="0.97254901959999995" green="0.92941176469999998" blue="0.86274509799999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstItem="ANN-cX-uSo" firstAttribute="top" secondItem="8tc-IY-Vxv" secondAttribute="top" constant="15.5" id="1K2-S8-DM0"/>
                                                     <constraint firstAttribute="height" constant="63" id="1O4-sQ-aHr"/>
@@ -150,7 +150,7 @@
                                                 </constraints>
                                             </view>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="backgroundColor" red="0.97254901959999995" green="0.92941176469999998" blue="0.86274509799999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstItem="QLE-rK-aqF" firstAttribute="top" secondItem="qlt-ov-PPC" secondAttribute="bottom" constant="32" id="0v5-X7-Utk"/>
                                             <constraint firstItem="7uG-Tw-aEJ" firstAttribute="top" relation="greaterThanOrEqual" secondItem="qEh-Vm-QbW" secondAttribute="bottom" constant="20" id="3kb-qx-PHn"/>
@@ -190,6 +190,7 @@
                                         </constraints>
                                     </view>
                                 </subviews>
+                                <color key="backgroundColor" red="0.97254901959999995" green="0.92941176469999998" blue="0.86274509799999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="ydu-jd-PCB" firstAttribute="bottom" secondItem="lIz-dx-Mbw" secondAttribute="bottom" id="i9t-nj-1bu"/>
                                     <constraint firstItem="ydu-jd-PCB" firstAttribute="top" secondItem="lIz-dx-Mbw" secondAttribute="top" id="knG-d2-sQz"/>
