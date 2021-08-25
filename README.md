@@ -10,13 +10,11 @@
 ## Table of Contents
 - <a href="#description">Description</a>
 - <a href="#tech-stack">Tech Stack</a>
-- <a href="#implementation">Implementation</a>
-- <a href="#features">Features</a>
 - <a href="#libraries">Libraries</a>
-- <a href="#previews-for-usage">Previews for Usage</a>
+- <a href="#implementation-and-features">Implementation and Features</a>
 - <a href="#requirements">Requirements</a>
+- <a href="#previews-for-usage">Previews for Usage</a>
 - <a href="#license">License</a>
-
 
 ## Description
 
@@ -34,38 +32,6 @@ Banabi Kitchen is a final project for the Yemeksepeti iOS Bootcamp. The project 
 * Image Picker Controller
 * Some reusables views, empty state views, custom alerts, activity indicators, proper searching, organized folder structure.
 
-## Implementation
-
-| Launch Screen | Onboarding Screen | Home Screen1 | Home Screen2 | Create Recipe Screen |      
-| --- | --- | --- | --- | --- | 
-| ![Preview](gifs/launch.PNG) | ![Preview](gifs/onboarding.PNG) | ![Preview](gifs/home1.PNG) | ![Preview](gifs/home2.PNG) | ![Preview](gifs/createRecipe.PNG) | 
-|   |   |   |   |  | 
-
-
-| Recipes Screen | Recipe Detail Screen1 | Recipe Detail Screen2  | Edit Recipe Screen | Image picker |       
-| --- | --- | --- | --- | --- | 
-| ![Preview](gifs/recipes.PNG) | ![Preview](gifs/recipeDetail1.PNG) | ![Preview](gifs/recipeDetail2.PNG) | ![Preview](gifs/editRecipe.PNG) | ![Preview](gifs/imagePicker.PNG) |  
-|  |  |  |  |  |
-
-| Kitchens Screen | Empty View | Map View | Kitchen Detail Screen |    
-| --- | --- | --- | --- | 
-| ![Preview](gifs/kitchens.PNG) | ![Preview](gifs/emptyView.PNG) | ![Preview](gifs/mapView.PNG) | ![Preview](gifs/kitchenDetail.PNG) | 
-|  |  |  |  | 
-
-
-| Get Offer Screen | Payment Screen | Order Success View | Order Status Screen |    
-| --- | --- | --- | --- | 
-| ![Preview](gifs/getOffer.PNG) | ![Preview](gifs/payment.PNG) | ![Preview](gifs/orderSuccess.PNG) | ![Preview](gifs/orderStatus.PNG) | 
-|  |  |  |  | 
-
-
-## Features
-
-* Users can create their own recipes and customize any time they want by defining the instructions, images, ingredients and name of the recipe. 
-* Users can like or unlike any recipe to add or delete from their own recipes and search among the kitchens or recipes according to their name.
-* Users can see kitchens' recipes and details (ratings, locations, descriptions, etc.).
-* Users can order a meal from kitchens by getting offers from available kitchens, depending on the estimated delivery time and cost of the service. Kitchens also have rating numbers and counts to represent a quality of their services. Offered data from kitchens only made by simulation purposes meaning that they are only mocked data to simulate the scenario.
-
 ## Libraries
 
 * PaperOnboarding https://github.com/Ramotion/paper-onboarding
@@ -74,12 +40,29 @@ Banabi Kitchen is a final project for the Yemeksepeti iOS Bootcamp. The project 
 * Firebase Database, Firebase Storage https://github.com/firebase/firebase-ios-sdk
 * WSTagsField https://github.com/whitesmith/WSTagsField
 
-## Previews for Usage 
+## Implementation and Features
 
-| Onboarding Screen | Recipes & Orders Screen | Kitchens Screen |   
-| --- | --- | --- | 
-| ![Preview](gifs/recipes.gif) | ![Preview](gifs/order.gif) | ![Preview](gifs/kitchens.gif) | 
+| Launch Screen | Onboarding Screen | Home Screen1 | Home Screen2 | Create Recipe Screen |      
+| --- | --- | --- | --- | --- | 
+| ![Preview](gifs/launch.PNG) | ![Preview](gifs/onboarding.PNG) | ![Preview](gifs/home1.PNG) | ![Preview](gifs/home2.PNG) | ![Preview](gifs/createRecipe.PNG) | 
+| Go through Kitchen! | Welcome! | Home inludes the user's location, favorited recipes | and kitchens... | Users can create their own recipes and customize them any time they want by defining the instructions, images, ingredients and name of the recipe. Ingredients part was implemented as tag style!| 
 
+
+| Recipes Screen | Recipe Detail Screen1 | Recipe Detail Screen2  | Edit Recipe Screen | Image picker |       
+| --- | --- | --- | --- | --- | 
+| ![Preview](gifs/recipes.PNG) | ![Preview](gifs/recipeDetail1.PNG) | ![Preview](gifs/recipeDetail2.PNG) | ![Preview](gifs/editRecipe.PNG) | ![Preview](gifs/imagePicker.PNG) |  
+| Users can search among the  recipes according to their name. | Users can like or unlike any recipe to add or delete from their own recipes. | Recipes can be directly ordered or you can edit(by clicking right bottom of the image, pencil-like blue button is there!) them depending on your own taste! | Edit anywhere and save it to your list! Then you can order it ;)| You can pick a picture for your delicious recipe either by using your own camera or your photo library. |
+
+| Kitchens Screen | Empty View | Map View | Kitchen Detail Screen |    
+| --- | --- | --- | --- | 
+| ![Preview](gifs/kitchens.PNG) | ![Preview](gifs/emptyView.PNG) | ![Preview](gifs/mapView.PNG) | ![Preview](gifs/kitchenDetail.PNG) | 
+| Users can also search among the kitchens by their name.| Oops! Search again! | You can see the locations of every single kitchen and when you tap one them you can go their detail screen.| Users can see kitchens' recipes and details (ratings, locations, descriptions, etc.). | 
+
+
+| Get Offer Screen | Payment Screen | Order Success View | Order Status Screen |    
+| --- | --- | --- | --- | 
+| ![Preview](gifs/getOffer.PNG) | ![Preview](gifs/payment.PNG) | ![Preview](gifs/orderSuccess.PNG) | ![Preview](gifs/orderStatus.PNG) | 
+|Users can order a meal from kitchens by getting offers from available kitchens, depending on the estimated delivery time and cost of the service. Kitchens also have rating numbers and counts to represent a quality of their services. Offered data from kitchens only made by simulation purposes meaning that they are only mocked data to simulate the scenario.| Simulates the payment process.| Successfully paid! | After order your meal, you can see a available button in the middle of the homepage, and when you go through it, you can follow your order detail! (This is only a simulation) | 
 
 ## Requirements
 
@@ -87,6 +70,13 @@ Banabi Kitchen is a final project for the Yemeksepeti iOS Bootcamp. The project 
 * Swift 5
 * iOS 14.5
 * Only portrait mode 
+
+## Previews for Usage 
+
+| Onboarding Screen | Recipes & Orders Screen | Kitchens Screen |   
+| --- | --- | --- | 
+| ![Preview](gifs/recipes.gif) | ![Preview](gifs/order.gif) | ![Preview](gifs/kitchens.gif) | 
+
 
 ## License
 ```
