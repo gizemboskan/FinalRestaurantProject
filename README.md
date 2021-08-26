@@ -18,7 +18,7 @@
 
 ## Description
 
-Banabi Kitchen is a final project for the Yemeksepeti iOS Bootcamp. The project was created to simulate a food ordering app which is mimicking the Yemeksepeti. But it's a little bit different from the food ordering apps we already know. Instead of ordering the foods from the restraurants' specific menus, now you can crate your own recipes (inherited from your grandma maybe!), and you will get an offer for your selected or created recipe from different kitchens which are able to cook your meal! These kitchens were designed as Banabi - associated restaurants which can willing to serve you privately! 
+Banabi Kitchen is a final project for the Yemeksepeti iOS Bootcamp. The project was created to simulate a food ordering app which is mimicking the Yemeksepeti. But it's a little bit different from the food ordering apps we already know. Instead of ordering the foods from the restraurants' specific menus, now you can create your own recipes (inherited from your grandma maybe!), and you will get an offer for your selected or created recipe from different kitchens which are able to cook your meal! These kitchens were designed as Banabi - associated restaurants which can willing to serve you privately! 
 
 ## Tech Stack
 
