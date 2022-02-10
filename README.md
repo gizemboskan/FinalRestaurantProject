@@ -62,7 +62,7 @@ Banabi Kitchen is a final project for the Yemeksepeti iOS Bootcamp. The project 
 | Get Offer Screen | Payment Screen | Order Success View | Order Status Screen |    
 | --- | --- | --- | --- | 
 | ![Preview](gifs/getOffer.PNG) | ![Preview](gifs/payment.PNG) | ![Preview](gifs/orderSuccess.PNG) | ![Preview](gifs/orderStatus.PNG) | 
-|Users can order a meal from kitchens by getting offers from available kitchens, depending on the estimated delivery time and cost of the service. Kitchens also have rating numbers and counts to represent a quality of their services. Offered data from kitchens only made by simulation purposes meaning that they are only mocked data to simulate the scenario.| Simulates the payment process.| Successfully paid! | After order your meal, you can see a available button in the middle of the homepage, and when you go through it, you can follow your order detail! (This is only a simulation) | 
+|Users can order a meal from kitchens by getting offers from available kitchens, depending on the estimated delivery time and cost of the service. Kitchens also have rating numbers and counts to represent a quality of their services. Offered data from kitchens only made by simulation purposes meaning that they are only mocked data to simulate the scenario.| Simulates the payment process.| Successfully paid! | After ordering your meal, you can see an available button in the middle of the homepage, and when you go through it, you can follow your order detail! (This is only a simulation) | 
 
 ## Requirements
 
